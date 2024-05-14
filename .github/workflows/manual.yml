@@ -24,7 +24,7 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
       ENV: ${{ secrets.ENV }}
-    #   CFD_ID: ${{ secrets.CFD_ID }}
+      CFD_ID: ${{ secrets.CFD_ID }}
 
     steps:
       - name: Checkout code
@@ -58,11 +58,11 @@ jobs:
         run: |
           # cd fortress-store-portal-ui/
           aws cloudformation validate-template --template-body file://portal.yml
-          aws cloudformation deploy --stack-name fortress-stack-ui-main --template-file portal.yml --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM --parameter-overrides Env=${{ secrets.ENV }}
+          aws cloudformation deploy --stack-name fortress-stack-ui-${{ secrets.ENV }} --template-file portal.yml --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM --parameter-overrides Env=${{ secrets.ENV }}
 
       - name: Deploying to S3 bucket
         run: |
           # cd fortress-store-portal-ui/
           aws s3 rm s3://fortress-stack-ui-${{ secrets.ENV }}/ --recursive
           aws s3 sync ./dist s3://fortress-stack-ui-${{ secrets.ENV }}/
-          aws cloudfront create-invalidation --distribution-id $CFD_ID --paths "/*"
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.CFD_ID }} --paths "/*"

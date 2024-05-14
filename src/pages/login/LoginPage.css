@@ -1,0 +1,37 @@
+.login-page-container {
+    background: #fff;
+    height: 100dvh;
+    width: 100%;
+    position: fixed;
+    overflow: auto;
+  }
+  
+  .login-container {
+    justify-content: center;
+  }
+  
+  .login-avatar {
+    color: white;
+    margin-bottom: 40px;
+    margin-top: 128px;
+    align-self: center;
+    height: 100px !important;
+    width: 100px !important;
+  }
+  
+  .login-avatar-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .login-typography {
+    font-size: 30px;
+    font-weight: 26;
+    margin-bottom: 6px;
+  }
+  
+  .login-button {
+    margin-top: 15px !important;
+  }
+  

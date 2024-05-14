@@ -1,0 +1,31 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+ 
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  background: linear-gradient(180deg,#B9C3C8, #FFFFFF);
+  background-attachment: fixed;
+}
+
+body {
+  margin: 0;
+}
+
+.font-bold {
+  font-weight: 'bold' !important;
+}
+
+.font-white {
+  color: white !important;
+}
+
+.ml-1 {
+  margin-left: 1rem;
+}
+
+.mb-15px {
+  margin-bottom: 15px;
+}

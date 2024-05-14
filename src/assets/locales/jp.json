@@ -1,0 +1,22 @@
+{
+    "English":"英語",
+    "Japanese":"日本語",
+    "username": "ユーザー名",
+    "password": "パスワード",
+    "login": "ログイン",
+    "enterEmployeeID": "従業員IDを入力してください",
+    "enterTemporaryPassword": "一時的なパスワードを入力してください",
+    "staffLogin": "スタッフログイン",
+    "loading": "読み込み中",
+    "chooseYourLocation": "あなたの場所を選択してください",
+    "lookupProperty": "ルックアッププロパティ",
+    "enterPropertyName": "プロパティ名を入力",
+    "selectStore": "店舗を選択",
+    "chooseLocation": "場所を選択",
+    "memberLookup": "メンバールックアップ",
+    "memberIDorCardNumber": "メンバーIDまたはカード番号",
+    "enterMemberIDorCardNumber": "メンバーIDまたはカード番号を入力してください",
+    "search": "検索",
+    "searching": "検索中",
+    "scanQRCode": "QRコードをスキャン"
+}

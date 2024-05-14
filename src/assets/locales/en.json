@@ -1,0 +1,22 @@
+{
+    "English":"English",
+    "Japanese":"Japanese",
+    "username": "Username",
+    "password": "Password",
+    "login": "Log in",
+    "enterEmployeeID": "Enter Employee ID",
+    "enterTemporaryPassword": "Enter Temporary Password",
+    "staffLogin": "Staff Login",
+    "loading": "Loading",
+    "chooseYourLocation": "Choose your location",
+    "lookupProperty": "Lookup Property",
+    "enterPropertyName": "Enter property name",
+    "selectStore": "Select Store",
+    "chooseLocation": "Choose Location",
+    "memberLookup": "Member Lookup",
+    "memberIDorCardNumber": "Member ID or Card Number",
+    "enterMemberIDorCardNumber": "Member ID or Card Number",
+    "search": "Search",
+    "searching": "Searching",
+    "scanQRCode": "Scan QR Code"
+}

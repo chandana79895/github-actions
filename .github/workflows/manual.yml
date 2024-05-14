@@ -42,6 +42,8 @@ jobs:
           export CI=false
           npm install
           npm run build
+          ls lrth
+          pwd
 
       - name: AWS CLI Configuration
         run: |
@@ -53,7 +55,7 @@ jobs:
         run: |
           cd fortress-store-portal-ui/
           aws cloudformation validate-template --template-body file://portal.yml
-          aws cloudformation deploy --stack-name fortress-stack-ui-dev --template-file portal.yml --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM --parameter-overrides Env=$ENV
+          aws cloudformation deploy --stack-name fortress-stack-ui-main --template-file portal.yml --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM --parameter-overrides Env=$ENV
 
       - name: Deploying to S3 bucket
         run: |

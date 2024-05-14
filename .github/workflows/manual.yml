@@ -41,7 +41,6 @@ jobs:
           # cd fortress-store-portal-ui/
           # export CI=false
           # npm run build
-          ls lrth
           pwd
 
       - name: AWS CLI Configuration

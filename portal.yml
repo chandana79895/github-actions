@@ -6,7 +6,7 @@ Parameters:
     Type: String
     AllowedValues:
       - local
-      - dev
+      - main
 Conditions:
   IsDev: !Equals [!Ref Env, dev]
   
@@ -35,8 +35,8 @@ Resources:
           Value: mani.chandana@zapcg.com
         - Key: ProjectName
           Value: Fortress
-        - Key: Environment
-          Value: !If [IsDev, Development, !Ref Env]
+        # - Key: Environment
+        #   Value: !If [IsDev, Development, !Ref Env]
 
   StaticResourcesBucketPolicy:
     Type: AWS::S3::BucketPolicy
@@ -94,5 +94,5 @@ Resources:
           Value: mani.chandana@zapcg.com
         - Key: Project_Name
           Value: Fortress
-        - Key: Environment
-          Value: !If [IsDev, Development, !Ref Env]
+        # - Key: Environment
+        #   Value: !If [IsDev, Development, !Ref Env]

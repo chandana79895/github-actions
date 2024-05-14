@@ -33,22 +33,25 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14.x'
+          node-version: '20.x'
 
       - name: Install dependencies and build
         run: |
           npm install
           # cd fortress-store-portal-ui/
-          # export CI=false
-          # npm run build
+          export CI=false
+          npm run build
           ls -al
           pwd
 
       - name: AWS CLI Configuration
         run: |
-          aws configure set AWS_ACCESS_KEY_ID ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws configure set AWS_SECRET_ACCESS_KEY ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws configure set AWS_DEFAULT_REGION ${{ secrets.AWS_DEFAULT_REGION }}
+          echo "AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID"
+          echo "AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY"
+          echo "AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION"
+          aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+          aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+          aws configure set default.region $AWS_DEFAULT_REGION
 
       - name: Deploying distribution
         run: |

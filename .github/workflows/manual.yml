@@ -38,10 +38,9 @@ jobs:
       - name: Install dependencies and build
         run: |
           npm install
-          cd fortress-store-portal-ui/
-          export CI=false
-          npm install
-          npm run build
+          # cd fortress-store-portal-ui/
+          # export CI=false
+          # npm run build
           ls lrth
           pwd
 

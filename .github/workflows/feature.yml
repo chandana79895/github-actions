@@ -8,7 +8,7 @@ jobs:
 
   deployment:
     runs-on: ubuntu-latest
-    env: 
+    environment: 
       name: dev
     steps:
       - name: Checkout code
@@ -16,14 +16,14 @@ jobs:
       - run: |
           env
 
-      # - name: Set up AWS CLI
-      #   uses: aws-actions/configure-aws-credentials@v2
-      #   with:
-      #     aws-access-key-id: ${{ env.AWS_ACCESS_KEY_ID }}
-      #     aws-secret-access-key: ${{ env.AWS_SECRET_ACCESS_KEY }}
-      #     aws-region: ${{ env.AWS_DEFAULT_REGION }}
-      #     role-duration-seconds: 1200
-      #     audience: sts.amazonaws.com  
+      - name: Set up AWS CLI
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ env.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ env.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_DEFAULT_REGION }}
+          role-duration-seconds: 1200
+          audience: sts.amazonaws.com  
 
       - name: Deploying distribution
         run: |

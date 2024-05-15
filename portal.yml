@@ -7,8 +7,9 @@ Parameters:
     AllowedValues:
       - local
       - main
-Conditions:
-  IsDev: !Equals [!Ref Env, dev]
+      - poc
+# Conditions:
+#   IsDev: !Equals [!Ref Env, dev]
   
 Resources:
   OriginAccessIdentity:

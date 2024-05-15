@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-
 jobs:
 
   # if_merged: 
@@ -33,7 +32,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '16.x'
+          node-version: '18.x'
 
       - name: Install dependencies and build
         run: |
@@ -58,11 +57,11 @@ jobs:
         run: |
           # cd fortress-store-portal-ui/
           aws cloudformation validate-template --template-body file://portal.yml
-          aws cloudformation deploy --stack-name fortress-stack-ui-${{ secrets.ENV1 }} --template-file portal.yml --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM --parameter-overrides Env=${{ secrets.ENV }}
+          aws cloudformation deploy --stack-name fortress-stack-ui-${{ secrets.ENV1 }} --template-file portal.yml --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM --parameter-overrides Env=${{ secrets.ENV1 }}
 
       - name: Deploying to S3 bucket
         run: |
           # cd fortress-store-portal-ui/
-          aws s3 rm s3://fortress-stack-ui-${{ secrets.ENV }}/ --recursive
-          aws s3 sync ./dist s3://fortress-stack-ui-${{ secrets.ENV }}/
+          aws s3 rm s3://fortress-stack-ui-${{ secrets.ENV1 }}/ --recursive
+          aws s3 sync ./dist s3://fortress-stack-ui-${{ secrets.ENV1 }}/
           aws cloudfront create-invalidation --distribution-id ${{ secrets.CFD_ID_DEV }} --paths "/*"

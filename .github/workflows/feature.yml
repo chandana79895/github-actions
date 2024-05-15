@@ -1,0 +1,17 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - feature/test-purpose
+jobs:
+
+  deployment:
+    runs-on: ubuntu-latest
+    environment: 
+      name: dev
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - run: |
+          env

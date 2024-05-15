@@ -8,8 +8,8 @@ jobs:
 
   deployment:
     runs-on: ubuntu-latest
-    environment: 
-      name: main
+    env: 
+      name: dev
     steps:
       - name: Checkout code
         uses: actions/checkout@v2

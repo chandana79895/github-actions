@@ -14,6 +14,18 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18.x'
+
+      - name: Install dependencies and build
+        run: |
+          npm install
+          # cd fortress-store-portal-ui/
+          export CI=false
+          npm run build
+
       - name: Set up AWS CLI
         uses: aws-actions/configure-aws-credentials@v2
         with:

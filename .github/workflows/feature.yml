@@ -9,7 +9,7 @@ jobs:
   deployment:
     runs-on: ubuntu-latest
     environment: 
-      name: main
+      name: poc
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -25,4 +25,13 @@ jobs:
 
       - name: Deploying distribution
         run: |
-          aws s3 ls
+          # cd fortress-store-portal-ui/
+          aws cloudformation validate-template --template-body file://portal.yml
+          aws cloudformation deploy --stack-name fortress-stack-ui-${{ secrets.ENV }} --template-file portal.yml --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM --parameter-overrides Env=${{ secrets.ENV }}
+
+      - name: Deploying to S3 bucket
+        run: |
+          # cd fortress-store-portal-ui/
+          aws s3 rm s3://fortress-stack-ui-${{ secrets.ENV }}/ --recursive
+          aws s3 sync ./dist s3://fortress-stack-ui-${{ secrets.ENV}}/
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.CFD_ID }} --paths "/*"

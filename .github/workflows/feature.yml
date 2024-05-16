@@ -8,8 +8,8 @@ on:
 jobs:
   deployment:
     runs-on: ubuntu-latest
-    environment: ${{ secrets.ENV}}
-      # name: poc
+    environment: 
+      name: poc
     steps:
       - name: Checkout code
         uses: actions/checkout@v2

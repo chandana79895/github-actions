@@ -63,14 +63,16 @@ Resources:
         - Name: AllowIPRule
           Priority: 1
           Action:
-            Allow: {}
+            Block: {}
           VisibilityConfig:
             SampledRequestsEnabled: true
             CloudWatchMetricsEnabled: true
             MetricName: allow_ip
           Statement:
-            IPSetReferenceStatement:
-              Arn: !GetAtt FortressIPSet.Arn      
+            NotStatement:
+              Statement:
+                IPSetReferenceStatement:
+                  Arn: !GetAtt FortressIPSet.Arn      
 
   StaticResourcesBucketPolicy:
     Type: AWS::S3::BucketPolicy

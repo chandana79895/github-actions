@@ -64,7 +64,7 @@ Resources:
           Priority: 1
           Action:
             Allow: {}
-          VisibilityConfig: # Add VisibilityConfig
+          VisibilityConfig: 
             SampledRequestsEnabled: true
             CloudWatchMetricsEnabled: true
             MetricName: allow_ip
@@ -88,7 +88,7 @@ Resources:
     Type: AWS::CloudFront::Distribution
     Properties:
       DistributionConfig:
-        WebACLId: !GetAtt FortressWebACL.Arn
+        # WebACLId: !GetAtt FortressWebACL.Arn
         Comment: !Sub "Fortress-${Env}"
         Origins:
           - DomainName: !Sub ${StaticResourcesBucket}.s3.${AWS::Region}.amazonaws.com

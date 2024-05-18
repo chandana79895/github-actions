@@ -49,10 +49,37 @@ jobs:
           aws cloudfront create-invalidation --distribution-id ${{ secrets.CFD_ID }} --paths "/*"
 
       - name: Notify Slack
-        if: always()  # Ensure notification is sent even if a previous step failed
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-        run: |
-          curl -X POST -H 'Content-type: application/json' --data '{
-            "text": "Deployment to poc completed successfully!"
-          }' $SLACK_WEBHOOK_URL    
+        if: always() # Ensure notification is sent even if a previous step failed
+        uses: juliangruber/slack-action@v4
+        with:
+          args: |
+            {
+              "text": "GITHUB Status Notification",
+              "attachments": [
+                {
+                  "color": "#00FF00",
+                  "fields": [
+                    {
+                      "title": "Repository",
+                      "value": "${{ secrets.REPO_NAME }}"
+                    },
+                    {
+                      "title": "Environment",
+                      "value": "poc"
+                    },
+                    {
+                      "title": "Status",
+                      "value": "SUCCESSFUL"
+                    },
+                    # {
+                    #   "title": "Pipeline URL",
+                    #   "value": "https://github.com/chandana79895/github-actions/actions/${{ secrets.BITBUCKET_BUILD_NUMBER }}"
+                    # },
+                    {
+                      "title": "Branch",
+                      "value": "${{ github.ref }}"
+                    }
+                  ]
+                }
+              ]
+            }

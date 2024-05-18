@@ -51,6 +51,7 @@ jobs:
       - name: Notify Slack
         if: always() # Ensure notification is sent even if a previous step failed
         uses: 8398a7/action-slack@v3
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         with:
           status: ${{ job.status }}
           text: |

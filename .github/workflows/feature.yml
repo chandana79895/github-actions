@@ -70,9 +70,10 @@ jobs:
     environment: 
       name: poc
     needs: deployment
+    if: failure()
     steps:
       - name: Notify Slack for pipeline failure
-        if: failure()
+        # if: failure()
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           REPO_NAME: ${{ secrets.REPO_NAME }}

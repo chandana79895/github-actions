@@ -79,6 +79,6 @@ jobs:
           BRANCH_NAME: ${{ github.ref }}
         run: |
           curl -X POST -H 'Content-type: application/json' --data '{
-            "text": "Deployment to branch ${{ github.ref }} of repository ${{ secrets.REPO_NAME }}\nfailed!"
+            "text": "Deployment to branch ${{ github.ref }}\n ${{ secrets.REPO_NAME }}\nFAILED!"
           }' $SLACK_WEBHOOK_URL         
     

@@ -47,3 +47,12 @@ jobs:
           aws s3 rm s3://fortress-stack-ui-${{ secrets.ENV }}/ --recursive
           aws s3 sync ./dist s3://fortress-stack-ui-${{ secrets.ENV}}/
           aws cloudfront create-invalidation --distribution-id ${{ secrets.CFD_ID }} --paths "/*"
+
+      - name: Notify Slack
+        if: always()  # Ensure notification is sent even if a previous step failed
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          curl -X POST -H 'Content-type: application/json' --data '{
+            "text": "Deployment to poc completed successfully!"
+          }' $SLACK_WEBHOOK_URL    

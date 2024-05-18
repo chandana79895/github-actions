@@ -50,6 +50,8 @@ jobs:
 
   notify_on_success:
     runs-on: ubuntu-latest
+    environment: 
+      name: poc
     if: success()
     steps:
       - name: Notify Slack for pipeline success

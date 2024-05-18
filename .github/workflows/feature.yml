@@ -38,7 +38,7 @@ jobs:
       - name: Deploying distribution
         run: |
           # cd fortress-store-portal-ui/
-          aws cloudformation validate-template --template-body file://portal.yml
+          aws cloudformation validate-template --template-body file://portall.yml
           aws cloudformation deploy --stack-name fortress-stack-ui-${{ secrets.ENV }} --template-file portal.yml --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM --parameter-overrides Env=${{ secrets.ENV }}
 
       - name: Deploying to S3 bucket

@@ -77,8 +77,8 @@ jobs:
                   },
                   {
                     "title": "Status",
-                    "value": "SUCCESS",
-                    "color": "00FF00"
+                    "value": "${{ job.status }}",
+                    "color": "${{ job.status == 'success' ? 'good' : 'danger' }}"
                   },
                   {
                     "title": "Pipeline URL",

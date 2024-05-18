@@ -96,7 +96,7 @@ jobs:
                   {
                     "title": "Status",
                     "value": "FAILED",
-                    "color": "FF0000"
+                    "color": "#FF0000"
                   },
                   {
                     "title": "Pipeline URL",

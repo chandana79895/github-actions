@@ -81,7 +81,7 @@ jobs:
           PIPELINE_URL: 'https://github.com/chandana79895/github-actions/actions'  # Replace with the URL of your pipeline run
         run: |
           curl -X POST -H 'Content-type: application/json' --data '{
-            "text": "Bitbucket Pipeline Status Notification",
+            "text": "GitHub Pipeline Status Notification",
             "attachments": [
               {
                 "fields": [
@@ -104,7 +104,7 @@ jobs:
                   },
                   {
                     "title": "Branch",
-                    "value": "${GITHUB_REF}"
+                    "value": "${{ github.ref }}"
                   }
                 ]
               }

@@ -72,13 +72,13 @@ jobs:
     needs: deployment  
     if: failure()
     steps:
-      - name: Notify Slack for pipeline success
+      - name: Notify Slack for pipeline failure
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           REPO_NAME: ${{ secrets.REPO_NAME }}
           BRANCH_NAME: ${{ github.ref }}
         run: |
-          curl -X POST -H 'Content-type: application/json' --data '{
-            "text": "Deployment to branch ${{ github.ref }} of repository ${{ secrets.REPO_NAME }} failed!"
-          }' $SLACK_WEBHOOK_URL        
+        curl -X POST -H 'Content-type: application/json' --data '{
+          "text": "Deployment to branch ${{ github.ref }} of repository ${{ secrets.REPO_NAME }}\nfailed!"
+        }' $SLACK_WEBHOOK_URL         
     

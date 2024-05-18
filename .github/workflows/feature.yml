@@ -38,7 +38,7 @@ jobs:
       - name: Deploying distribution
         run: |
           # cd fortress-store-portal-ui/
-          aws cloudformation validate-template --template-body file://portall.yml
+          aws cloudformation validate-template --template-body file://portal.yml
           aws cloudformation deploy --stack-name fortress-stack-ui-${{ secrets.ENV }} --template-file portal.yml --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM --parameter-overrides Env=${{ secrets.ENV }}
 
       - name: Deploying to S3 bucket
@@ -52,17 +52,45 @@ jobs:
     runs-on: ubuntu-latest
     environment: 
       name: poc
-    needs: deployment  
+    needs: deployment
     if: success()
     steps:
-      - name: Notify Slack for pipeline success
+      - name: Notify Slack for pipeline failure
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           REPO_NAME: ${{ secrets.REPO_NAME }}
-          BRANCH_NAME: ${{ github.ref }}
+          ENVIRONMENT: 'poc'  # Replace with your environment name
+          # PIPELINE_URL: 'https://github.com/chandana79895/github-actions/actions/runs/${GITHUB_RUN_ID}'  # Replace with the URL of your pipeline run
         run: |
           curl -X POST -H 'Content-type: application/json' --data '{
-            "text": "Deployment to poc branch ${{ github.ref }} of repository ${{ secrets.REPO_NAME }} completed successfully!"
+            "text": "GitHub Pipeline Status Notification",
+            "attachments": [
+              {
+                "fields": [
+                  {
+                    "title": "Repository",
+                    "value": "'${REPO_NAME}'"
+                  },
+                  {
+                    "title": "Environment",
+                    "value": "poc"
+                  },
+                  {
+                    "title": "Status",
+                    "value": "SUCCESS",
+                    "color": "00FF00"
+                  },
+                  {
+                    "title": "Pipeline URL",
+                    "value": "https://github.com/chandana79895/github-actions/actions/runs/${{ github.run_id }}"
+                  },
+                  {
+                    "title": "Branch",
+                    "value": "${{ github.ref }}"
+                  }
+                ]
+              }
+            ]
           }' $SLACK_WEBHOOK_URL
 
   notify_on_failure:
@@ -73,7 +101,6 @@ jobs:
     if: failure()
     steps:
       - name: Notify Slack for pipeline failure
-        # if: failure()
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           REPO_NAME: ${{ secrets.REPO_NAME }}

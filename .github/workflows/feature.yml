@@ -55,6 +55,14 @@ jobs:
     needs: deployment
     if: success()
     steps:
+      - name: Set color based on job status
+        id: set_color
+        run: |
+          if [ "${{ job.status }}" == "success" ]; then
+            echo "::set-output name=color::good"
+          else
+            echo "::set-output name=color::danger"
+          fi
       - name: Notify Slack for pipeline failure
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
@@ -77,8 +85,8 @@ jobs:
                   },
                   {
                     "title": "Status",
-                    "value": "${{ job.status }}",
-                    "color": "${{ job.status == 'success' ? 'good' : 'danger' }}"
+                    "value": "SUCCESS",
+                    "color": "'"${STATUS_COLOR}"'"
                   },
                   {
                     "title": "Pipeline URL",

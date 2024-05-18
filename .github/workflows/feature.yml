@@ -96,11 +96,11 @@ jobs:
                   {
                     "title": "Status",
                     "value": "FAILED",
-                    "color": "error"
+                    "color": "#FF0000"
                   },
                   {
                     "title": "Pipeline URL",
-                    "value": "https://github.com/chandana79895/github-actions/actions/runs/${{ github.run_id }}/job/${{ github.job_id }}"
+                    "value": "https://github.com/chandana79895/github-actions/actions/runs/${{ github.run_id }}"
                   },
                   {
                     "title": "Branch",

@@ -69,20 +69,43 @@ jobs:
     runs-on: ubuntu-latest
     environment: 
       name: poc
-    needs: deployment  
-    if: failure()
+    needs: deployment
     steps:
       - name: Notify Slack for pipeline failure
+        if: failure()
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           REPO_NAME: ${{ secrets.REPO_NAME }}
-          BRANCH_NAME: ${{ github.ref }}
+          ENVIRONMENT: 'poc'  # Replace with your environment name
+          PIPELINE_URL: 'https://github.com/chandana79895/github-actions/actions'  # Replace with the URL of your pipeline run
         run: |
           curl -X POST -H 'Content-type: application/json' --data '{
+            "text": "Bitbucket Pipeline Status Notification",
             "attachments": [
               {
-                "color": "danger", // Red color for failure
-                "text": "Deployment to branch ${{ github.ref }} of repository ${{ secrets.REPO_NAME }}\nfailed!"
+                "fields": [
+                  {
+                    "title": "Repository",
+                    "value": "'${REPO_NAME}'"
+                  },
+                  {
+                    "title": "Environment",
+                    "value": "poc"
+                  },
+                  {
+                    "title": "Status",
+                    "value": "FAILED",
+                    "color": "#FF0000"
+                  },
+                  {
+                    "title": "Pipeline URL",
+                    "value": "<${PIPELINE_URL}|View Pipeline>"
+                  },
+                  {
+                    "title": "Branch",
+                    "value": "${GITHUB_REF}"
+                  }
+                ]
               }
             ]
           }' $SLACK_WEBHOOK_URL       

@@ -61,6 +61,6 @@ jobs:
           BRANCH_NAME: ${{ github.ref }}
         run: |
           curl -X POST -H 'Content-type: application/json' --data '{
-            "text": "Deployment to poc branch $BRANCH_NAME of repository $REPO_NAME completed successfully!"
+            "text": "Deployment to poc branch ${{ github.ref }} of repository ${{ secrets.REPO_NAME }} completed successfully!"
           }' $SLACK_WEBHOOK_URL
     

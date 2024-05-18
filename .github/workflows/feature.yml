@@ -100,7 +100,7 @@ jobs:
                   },
                   {
                     "title": "Pipeline URL",
-                    "value": "<${PIPELINE_URL}|View Pipeline>"
+                    "value": "https://github.com/chandana79895/github-actions/actions/runs/${GITHUB_RUN_ID}"
                   },
                   {
                     "title": "Branch",

@@ -57,7 +57,7 @@ jobs:
       - name: Notify Slack for pipeline success
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          REPO_NAME: ${{ github.repository }}
+          REPO_NAME: ${{ secrets.REPO_NAME }}
           BRANCH_NAME: ${{ github.ref }}
         run: |
           curl -X POST -H 'Content-type: application/json' --data '{

@@ -52,6 +52,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: 
       name: poc
+    needs: deployment  
     if: success()
     steps:
       - name: Notify Slack for pipeline success

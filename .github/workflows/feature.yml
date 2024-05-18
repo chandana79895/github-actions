@@ -48,31 +48,17 @@ jobs:
           aws s3 sync ./dist s3://fortress-stack-ui-${{ secrets.ENV}}/
           aws cloudfront create-invalidation --distribution-id ${{ secrets.CFD_ID }} --paths "/*"
 
-      - name: Notify Slack
-        if: always() # Ensure notification is sent even if a previous step failed
-        uses: 8398a7/action-slack@v3
-        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-        with:
-          status: ${{ job.status }}
-          text: |
-            GITHUB Status Notification
-          fields: |
-            [
-              {
-                "title": "Repository",
-                "value": "${{ secrets.REPO_NAME }}"
-              },
-              {
-                "title": "Environment",
-                "value": "poc"
-              },
-              {
-                "title": "Status",
-                "value": "SUCCESSFUL"
-              },
-              {
-                "title": "Branch",
-                "value": "${{ github.ref }}"
-              }
-            ]
-
+  notify_on_success:
+    runs-on: ubuntu-latest
+    if: success()
+    steps:
+      - name: Notify Slack for pipeline success
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          REPO_NAME: ${{ github.repository }}
+          BRANCH_NAME: ${{ github.ref }}
+        run: |
+          curl -X POST -H 'Content-type: application/json' --data '{
+            "text": "Deployment to poc branch $BRANCH_NAME of repository $REPO_NAME completed successfully!"
+          }' $SLACK_WEBHOOK_URL
+    

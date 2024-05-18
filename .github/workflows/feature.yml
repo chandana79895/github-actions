@@ -49,8 +49,8 @@ jobs:
           aws cloudfront create-invalidation --distribution-id ${{ secrets.CFD_ID }} --paths "/*"
 
       - name: Notify Slack
-        if: always() # Ensure notification is sent even if a previous step failed
-        uses: juliangruber/slack-action@v4
+        runs-on: ubuntu-latest
+        if: always()
         with:
           args: |
             {

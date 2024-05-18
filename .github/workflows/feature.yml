@@ -73,7 +73,7 @@ jobs:
                   },
                   {
                     "title": "Environment",
-                    "value": "poc"
+                    "value": "'${ENVIRONMENT}'"
                   },
                   {
                     "title": "Status",

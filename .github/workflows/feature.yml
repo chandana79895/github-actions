@@ -22,7 +22,6 @@ jobs:
       - name: Install dependencies and build
         run: |
           npm install
-          # cd fortress-store-portal-ui/
           export CI=false
           npm run build
 
@@ -36,14 +35,16 @@ jobs:
           audience: sts.amazonaws.com  
 
       - name: Deploying distribution
+        env:
+          ENV: ${{ secrets.ENV }}
         run: |
-          # cd fortress-store-portal-ui/
           aws cloudformation validate-template --template-body file://portal.yml
           aws cloudformation deploy --stack-name fortress-stack-ui-${{ secrets.ENV }} --template-file portal.yml --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM --parameter-overrides Env=${{ secrets.ENV }}
 
       - name: Deploying to S3 bucket
+        env:
+          CFD_ID: ${{ secrets.CFD_ID }}
         run: |
-          # cd fortress-store-portal-ui/
           printenv >  .env.${{ secrets.ENV }}
           cat .env.${{ secrets.ENV }}
           aws s3 rm s3://fortress-stack-ui-${{ secrets.ENV }}/ --recursive

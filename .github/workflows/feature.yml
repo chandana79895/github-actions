@@ -86,7 +86,7 @@ jobs:
                   },
                   {
                     "title": "Pipeline URL",
-                    "value": "https://github.com/${REPO_SLUG}/${REPO_NAME}/actions/runs/${{ github.run_id }}"
+                    "value": "https://github.com/${{ secrets.REPO_SLUG }}/${{ secrets.REPO_NAME }}/actions/runs/${{ github.run_id }}"
                   },
                   {
                     "title": "Branch",

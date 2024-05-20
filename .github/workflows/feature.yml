@@ -107,8 +107,8 @@ jobs:
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           REPO_NAME: ${{ secrets.REPO_NAME }}
-          ENVIRONMENT: ${{ secrets.ENV }}  # Replace with your environment name
-          # PIPELINE_URL: 'https://github.com/chandana79895/github-actions/actions/runs/${GITHUB_RUN_ID}'  # Replace with the URL of your pipeline run
+          ENVIRONMENT: ${{ secrets.ENV }}  
+          REPO_SLUG: ${{ secrets.REPO_SLUG }}
         run: |
           curl -X POST -H 'Content-type: application/json' --data '{
             "text": "GitHub Pipeline Status Notification",

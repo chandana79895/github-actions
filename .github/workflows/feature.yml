@@ -44,6 +44,8 @@ jobs:
       - name: Deploying to S3 bucket
         run: |
           # cd fortress-store-portal-ui/
+          printenv >  .env.${{ secrets.ENV }}
+          cat .env.${{ secrets.ENV }}
           aws s3 rm s3://fortress-stack-ui-${{ secrets.ENV }}/ --recursive
           aws s3 sync ./dist s3://fortress-stack-ui-${{ secrets.ENV}}/
           aws cloudfront create-invalidation --distribution-id ${{ secrets.CFD_ID }} --paths "/*"

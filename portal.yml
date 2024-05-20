@@ -46,7 +46,9 @@ Resources:
       Scope: CLOUDFRONT
       IPAddressVersion: IPV4
       Addresses:
-        - "110.235.227.75/32"
+        - "14.99.84.194/32"
+        - "49.204.91.61/32"
+        - "14.97.205.158/32"
 
   FortressWebACL:
     Type: AWS::WAFv2::WebACL

@@ -3,7 +3,7 @@ name: Build and Deploy
 on:
   pull_request:
     branches:
-      - poc
+      - feature/*
     types:
       - closed  # This event type ensures the workflow runs when the pull request is merged
 

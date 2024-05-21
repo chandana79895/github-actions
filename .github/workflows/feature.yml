@@ -1,9 +1,9 @@
 name: Build and Deploy
 
 on:
-  push:
-    branches:
-      - feature/*
+  # push:
+  #   branches:
+  #     - feature/*
   pull_request:
     types: [closed]
     branches:
@@ -67,7 +67,7 @@ jobs:
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           REPO_NAME: ${{ secrets.REPO_NAME }}
-          ENVIRONMENT: poc  
+          ENVIRONMENT: ${{ secrets.ENV }}  
           REPO_SLUG: ${{ secrets.REPO_SLUG }}
         run: |
           curl -X POST -H 'Content-type: application/json' --data '{
@@ -104,7 +104,7 @@ jobs:
   notify_on_failure:
     runs-on: ubuntu-latest
     environment:
-      name: poc
+      name: ${{ secrets.ENV }}
     needs: if_merged
     if: failure()
     steps:

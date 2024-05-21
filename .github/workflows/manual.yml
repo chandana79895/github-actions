@@ -3,18 +3,17 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - main
       - dev
 jobs:
 
-  # if_merged: 
-  #   runs-on: ubuntu-latest
-  #   if: github.event.pull_request.merged == true && (github.event.pull_request.base.ref == 'dev' || github.event.pull_request.base.ref == 'uat' || github.event.pull_request.base.ref == 'main')
-  #   steps:
-  #     - name: Checkout code
-  #       uses: actions/checkout@v2
-  #     - run: |
-  #         echo The PR was merged to ${{ github.event.pull_request.base.ref }}
+  if_merged: 
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true && (github.event.pull_request.base.ref == 'main')
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - run: |
+          echo The PR was merged to ${{ github.event.pull_request.base.ref }}
 
   build_and_deploy:
     runs-on: ubuntu-latest

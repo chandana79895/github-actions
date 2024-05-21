@@ -6,25 +6,20 @@ on:
       - feature/*
 
 jobs:
-  # deployment:
-  #   runs-on: ubuntu-latest
-  #   environment: 
-  #     name: poc
-  #   steps:
-  #     - name: Checkout code
-  #       uses: actions/checkout@v2
-
-  #     - name: Install Node.js
-  #       uses: actions/setup-node@v2
-  #       with:
-  #         node-version: '18.x'
-  
   if_merged:
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && (github.ref == 'refs/heads/sandbox' || github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/stage' || github.ref == 'refs/heads/main')
     environment:
       name: dev
-      
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18.x'
+
       - name: Install dependencies and build
         run: |
           npm install
@@ -51,20 +46,16 @@ jobs:
         env:
           CFD_ID: ${{ secrets.CFD_ID }}
         run: |
-          # printenv >  .env.${{ secrets.ENV }}
-          # cat .env.${{ secrets.ENV }}
           aws s3 rm s3://fortress-stack-ui-${{ secrets.ENV }}/ --recursive
           aws s3 sync ./dist s3://fortress-stack-ui-${{ secrets.ENV}}/
           aws cloudfront create-invalidation --distribution-id ${{ secrets.CFD_ID }} --paths "/*"
 
   notify_on_success:
     runs-on: ubuntu-latest
-    environment: 
-      name: poc
     needs: if_merged
     if: success()
     steps:
-      - name: Notify Slack for pipeline failure
+      - name: Notify Slack for pipeline success
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           REPO_NAME: ${{ secrets.REPO_NAME }}
@@ -104,8 +95,6 @@ jobs:
 
   notify_on_failure:
     runs-on: ubuntu-latest
-    environment: 
-      name: poc
     needs: if_merged
     if: failure()
     steps:
@@ -145,5 +134,4 @@ jobs:
                 ]
               }
             ]
-          }' $SLACK_WEBHOOK_URL       
-    
+          }' $SLACK_WEBHOOK_URL

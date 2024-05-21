@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.pull_request.merged == true && (github.event.pull_request.base.ref == 'dev' || github.event.pull_request.base.ref == 'poc' || github.event.pull_request.base.ref == 'main')
     environment:
-      name: poc
+      name: dev
     steps:
       - name: Checkout code
         uses: actions/checkout@v2

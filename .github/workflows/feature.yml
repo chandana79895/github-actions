@@ -1,11 +1,9 @@
 name: Build and Deploy
 
 on:
-  pull_request:
+  push:
     branches:
       - feature/*
-    types:
-      - closed  # This event type ensures the workflow runs when the pull request is merged
 
 jobs:
   if_merged:

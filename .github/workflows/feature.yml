@@ -65,7 +65,7 @@ jobs:
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           REPO_NAME: ${{ secrets.REPO_NAME }}
-          ENVIRONMENT: ${{ secrets.ENV }}  
+          ENVIRONMENT: poc  
           REPO_SLUG: ${{ secrets.REPO_SLUG }}
         run: |
           curl -X POST -H 'Content-type: application/json' --data '{
@@ -108,7 +108,7 @@ jobs:
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           REPO_NAME: ${{ secrets.REPO_NAME }}
-          ENVIRONMENT: ${{ secrets.ENV }}  
+          ENVIRONMENT: poc 
           REPO_SLUG: ${{ secrets.REPO_SLUG }}
         run: |
           curl -X POST -H 'Content-type: application/json' --data '{

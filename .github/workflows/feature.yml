@@ -111,7 +111,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: 
       name: poc
-    needs: deployment
+    needs: if_merged
     if: failure()
     steps:
       - name: Notify Slack for pipeline failure

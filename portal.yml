@@ -8,7 +8,6 @@ Parameters:
       - local
       - main
       - poc
-      - dev
 # Conditions:
 #   IsDev: !Equals [!Ref Env, dev]
   

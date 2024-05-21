@@ -19,17 +19,12 @@ jobs:
   #       with:
   #         node-version: '18.x'
   
-  if_merged: 
+  if_merged:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged == true && (github.event.pull_request.base.ref == 'dev' || github.event.pull_request.base.ref == 'poc' || github.event.pull_request.base.ref == 'main')
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/sandbox' || github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/stage' || github.ref == 'refs/heads/main')
     environment:
       name: dev
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - run: |
-          echo The PR was merged to ${{ github.event.pull_request.base.ref }}
-
+      
       - name: Install dependencies and build
         run: |
           npm install

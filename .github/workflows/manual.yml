@@ -3,65 +3,152 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - dev
-jobs:
+      - feature/*
 
+jobs:
+  # deployment:
+  #   runs-on: ubuntu-latest
+  #   environment: 
+  #     name: poc
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v2
+
+  #     - name: Install Node.js
+  #       uses: actions/setup-node@v2
+  #       with:
+  #         node-version: '18.x'
+  
   if_merged: 
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged == true && (github.event.pull_request.base.ref == 'main')
+    if: github.event.pull_request.merged == true && (github.event.pull_request.base.ref == 'dev' || github.event.pull_request.base.ref == 'poc' || github.event.pull_request.base.ref == 'main')
+    environment:
+      name: poc
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
       - run: |
           echo The PR was merged to ${{ github.event.pull_request.base.ref }}
 
-  build_and_deploy:
-    runs-on: ubuntu-latest
-
-    env:
-      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_DEV }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEV }}
-      AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION_DEV }}
-      ENV: ${{ secrets.ENV1 }}
-      CFD_ID_DEV: ${{ secrets.CFD_ID_DEV }}
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Install Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '18.x'
-
       - name: Install dependencies and build
         run: |
           npm install
-          # cd fortress-store-portal-ui/
           export CI=false
           npm run build
-          ls -al
-          pwd
 
       - name: Set up AWS CLI
         uses: aws-actions/configure-aws-credentials@v2
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_DEV }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEV }}
-          aws-region: ${{ secrets.AWS_DEFAULT_REGION_DEV }}
-          env: ${{ secrets.ENV1}}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
           role-duration-seconds: 1200
-          audience: sts.amazonaws.com
+          audience: sts.amazonaws.com  
 
       - name: Deploying distribution
+        env:
+          ENV: ${{ secrets.ENV }}
         run: |
-          # cd fortress-store-portal-ui/
           aws cloudformation validate-template --template-body file://portal.yml
-          aws cloudformation deploy --stack-name fortress-stack-ui-${{ secrets.ENV1 }} --template-file portal.yml --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM --parameter-overrides Env=${{ secrets.ENV1 }}
+          aws cloudformation deploy --stack-name fortress-stack-ui-${{ secrets.ENV }} --template-file portal.yml --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM --parameter-overrides Env=${{ secrets.ENV }}
 
       - name: Deploying to S3 bucket
+        env:
+          CFD_ID: ${{ secrets.CFD_ID }}
         run: |
-          # cd fortress-store-portal-ui/
-          aws s3 rm s3://fortress-stack-ui-${{ secrets.ENV1 }}/ --recursive
-          aws s3 sync ./dist s3://fortress-stack-ui-${{ secrets.ENV1 }}/
-          aws cloudfront create-invalidation --distribution-id ${{ secrets.CFD_ID_DEV }} --paths "/*"
+          # printenv >  .env.${{ secrets.ENV }}
+          # cat .env.${{ secrets.ENV }}
+          aws s3 rm s3://fortress-stack-ui-${{ secrets.ENV }}/ --recursive
+          aws s3 sync ./dist s3://fortress-stack-ui-${{ secrets.ENV}}/
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.CFD_ID }} --paths "/*"
+
+  notify_on_success:
+    runs-on: ubuntu-latest
+    environment: 
+      name: poc
+    needs: if_merged
+    if: success()
+    steps:
+      - name: Notify Slack for pipeline failure
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          REPO_NAME: ${{ secrets.REPO_NAME }}
+          ENVIRONMENT: ${{ secrets.ENV }}  
+          REPO_SLUG: ${{ secrets.REPO_SLUG }}
+        run: |
+          curl -X POST -H 'Content-type: application/json' --data '{
+            "text": "GitHub Pipeline Status Notification",
+            "attachments": [
+              {
+                "fields": [
+                  {
+                    "title": "Repository",
+                    "value": "'${REPO_NAME}'"
+                  },
+                  {
+                    "title": "Environment",
+                    "value": "'${ENVIRONMENT}'"
+                  },
+                  {
+                    "title": "Status",
+                    "value": "SUCCESS",
+                    "color": "00FF00"
+                  },
+                  {
+                    "title": "Pipeline URL",
+                    "value": "https://github.com/${{ secrets.REPO_SLUG }}/${{ secrets.REPO_NAME }}/actions/runs/${{ github.run_id }}"
+                  },
+                  {
+                    "title": "Branch",
+                    "value": "${{ github.ref }}"
+                  }
+                ]
+              }
+            ]
+          }' $SLACK_WEBHOOK_URL
+
+  notify_on_failure:
+    runs-on: ubuntu-latest
+    environment: 
+      name: poc
+    needs: if_merged
+    if: failure()
+    steps:
+      - name: Notify Slack for pipeline failure
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          REPO_NAME: ${{ secrets.REPO_NAME }}
+          ENVIRONMENT: ${{ secrets.ENV }}  
+          REPO_SLUG: ${{ secrets.REPO_SLUG }}
+        run: |
+          curl -X POST -H 'Content-type: application/json' --data '{
+            "text": "GitHub Pipeline Status Notification",
+            "attachments": [
+              {
+                "fields": [
+                  {
+                    "title": "Repository",
+                    "value": "'${REPO_NAME}'"
+                  },
+                  {
+                    "title": "Environment",
+                    "value": "'${ENVIRONMENT}'"
+                  },
+                  {
+                    "title": "Status",
+                    "value": "FAILED",
+                    "color": "#FF0000"
+                  },
+                  {
+                    "title": "Pipeline URL",
+                    "value": "https://github.com/${{ secrets.REPO_SLUG }}/${{ secrets.REPO_NAME }}/actions/runs/${{ github.run_id }}"
+                  },
+                  {
+                    "title": "Branch",
+                    "value": "${{ github.ref }}"
+                  }
+                ]
+              }
+            ]
+          }' $SLACK_WEBHOOK_URL       
+    

@@ -39,6 +39,43 @@ Resources:
         # - Key: Environment
         #   Value: !If [IsDev, Development, !Ref Env]
 
+  FortressIPSet:
+    Type: 'AWS::WAFv2::IPSet'
+    Properties:
+      Name: Fortress-IPSet
+      Scope: CLOUDFRONT
+      IPAddressVersion: IPV4
+      Addresses:
+        - "14.99.84.194/32"
+        - "49.204.91.61/32"
+        - "14.97.205.158/32"
+
+  FortressWebACL:
+    Type: AWS::WAFv2::WebACL
+    Properties:
+      Name: Fortress-WebACL
+      Scope: CLOUDFRONT
+      DefaultAction:
+        Allow: {}
+      VisibilityConfig: # Add VisibilityConfig
+        SampledRequestsEnabled: true
+        CloudWatchMetricsEnabled: true
+        MetricName: "FortressWebACL"
+      Rules:
+        - Name: AllowIPRule
+          Priority: 1
+          Action:
+            Block: {}
+          VisibilityConfig:
+            SampledRequestsEnabled: true
+            CloudWatchMetricsEnabled: true
+            MetricName: allow_ip
+          Statement:
+            NotStatement:
+              Statement:
+                IPSetReferenceStatement:
+                  Arn: !GetAtt FortressIPSet.Arn      
+
   StaticResourcesBucketPolicy:
     Type: AWS::S3::BucketPolicy
     Properties:
@@ -55,6 +92,7 @@ Resources:
     Type: AWS::CloudFront::Distribution
     Properties:
       DistributionConfig:
+        WebACLId: !GetAtt FortressWebACL.Arn
         Comment: !Sub "Fortress-${Env}"
         Origins:
           - DomainName: !Sub ${StaticResourcesBucket}.s3.${AWS::Region}.amazonaws.com

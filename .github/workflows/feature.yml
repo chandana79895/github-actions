@@ -1,14 +1,16 @@
 name: Build and Deploy
 
 on:
-  push:
+  pull_request:
     branches:
-      - feature/*
+      - dev
+    types:
+      - closed  # This event type ensures the workflow runs when the pull request is merged
 
 jobs:
   if_merged:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
-    if: github.event_name == 'push' && (github.ref == 'refs/heads/sandbox' || github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/stage' || github.ref == 'refs/heads/main')
     environment:
       name: dev
     steps:

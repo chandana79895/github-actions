@@ -1,9 +1,11 @@
 name: Build and Deploy
 
 on:
-  push:
+  pull_request:
+    types:
+    - merged
     branches:
-      - feature/*
+    - dev
 
 jobs:
   if_merged:

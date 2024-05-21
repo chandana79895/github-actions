@@ -1,20 +1,14 @@
 name: Build and Deploy
 
 on:
-  pull_request:
+  push:
     branches:
-      - dev
-      - sandbox
-      - poc
-      - stage
-      - main
-    types:
-      - closed  # This ensures the workflow runs when the pull request is merged
+      - feature/*
 
 jobs:
   if_merged:
-    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/poc')
     environment:
       name: poc
     steps:
@@ -38,6 +32,8 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
+          role-duration-seconds: 1200
+          audience: sts.amazonaws.com  
 
       - name: Deploying distribution
         env:
@@ -50,6 +46,8 @@ jobs:
         env:
           CFD_ID: ${{ secrets.CFD_ID }}
         run: |
+          # printenv >  .env.${{ secrets.ENV }}
+          # cat .env.${{ secrets.ENV }}
           aws s3 rm s3://fortress-stack-ui-${{ secrets.ENV }}/ --recursive
           aws s3 sync ./dist s3://fortress-stack-ui-${{ secrets.ENV}}/
           aws cloudfront create-invalidation --distribution-id ${{ secrets.CFD_ID }} --paths "/*"
@@ -63,7 +61,7 @@ jobs:
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           REPO_NAME: ${{ secrets.REPO_NAME }}
-          ENVIRONMENT: ${{ secrets.ENV }}
+          ENVIRONMENT: ${{ secrets.ENV }}  
           REPO_SLUG: ${{ secrets.REPO_SLUG }}
         run: |
           curl -X POST -H 'Content-type: application/json' --data '{
@@ -106,7 +104,7 @@ jobs:
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           REPO_NAME: ${{ secrets.REPO_NAME }}
-          ENVIRONMENT: ${{ secrets.ENV }}
+          ENVIRONMENT: ${{ secrets.ENV }}  
           REPO_SLUG: ${{ secrets.REPO_SLUG }}
         run: |
           curl -X POST -H 'Content-type: application/json' --data '{

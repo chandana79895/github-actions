@@ -1,20 +1,15 @@
 name: Build and Deploy
 
 on:
-  push:
-    branches:
-      - feature/*
   pull_request:
-    types: [closed]
+    types: [opened, synchronize, reopened, closed]
     branches:
       - poc
 
 jobs:
-
-  deployment:
+  unit_test:
+    if: github.event_name == 'pull_request' && (github.event.action == 'opened' || github.event.action == 'synchronize' || github.event.action == 'reopened')
     runs-on: ubuntu-latest
-    environment: 
-      name: poc
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -24,10 +19,10 @@ jobs:
         with:
           node-version: '18.x'
 
-      - name: Unit-test
+      - name: Install dependencies and run tests
         run: |
-          npm i
-          npm run test 
+          npm install
+          npm run test
 
   if_merged:
     runs-on: ubuntu-latest

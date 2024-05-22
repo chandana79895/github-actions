@@ -24,7 +24,7 @@ jobs:
         with:
           node-version: '18.x'
 
-      - name: Unit-tests
+      - name: Unit-test
         run: |
           npm i
           npm run test 

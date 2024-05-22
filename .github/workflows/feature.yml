@@ -1,15 +1,34 @@
 name: Build and Deploy
 
 on:
-  # push:
-  #   branches:
-  #     - feature/*
+  push:
+    branches:
+      - feature/*
   pull_request:
     types: [closed]
     branches:
       - poc
 
 jobs:
+
+  deployment:
+    runs-on: ubuntu-latest
+    environment: 
+      name: poc
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18.x'
+
+      - name: Unit-test
+        run: |
+          npm i
+          npm run test 
+
   if_merged:
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && (github.ref == 'refs/heads/poc') || (github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true && github.ref == 'refs/heads/poc')
@@ -44,7 +63,7 @@ jobs:
           ENV: ${{ secrets.ENV }}
         run: |
           aws cloudformation validate-template --template-body file://portal.yml
-          aws cloudformation deploy --stack-name fortress-stack-ui-${{ secrets.ENV }} --template-file portal.yml --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM --parameter-overrides Env=${{ secrets.ENV }}
+          aws cloudformation deploy --stack-name test-stack-ui-${{ secrets.ENV }} --template-file portal.yml --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM --parameter-overrides Env=${{ secrets.ENV }}
 
       - name: Deploying to S3 bucket
         env:

@@ -21,7 +21,7 @@ jobs:
 
       - name: Install dependencies and run tests
         run: |
-          npm install
+          npm i
           npm run test
 
   if_merged:

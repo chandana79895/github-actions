@@ -30,6 +30,9 @@ function App() {
     return savedStore ? JSON.parse(savedStore) : { label: "", value: "" };
   });
 
+  const sessionTimeout = process.env.REACT_APP_SESSION;
+  console.log(`Session Timeout: ${sessionTimeout}`);
+
   const [organizationID, setOrganizationID] = useState(() => {
     return localStorage.getItem("organizationID") || "";
   });

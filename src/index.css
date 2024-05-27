@@ -1,5 +1,29 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+@font-face {
+  font-family: "Greycliff CF";
+  src: url('./assets/fonts/Greycliff CF v2.0/GreycliffCF-Regular.woff') format('woff'),
+       url('./assets/fonts/Greycliff CF v2.0/GreycliffCF-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Greycliff CF";
+  src: url('./assets/fonts/Greycliff CF v2.0/GreycliffCF-Bold.woff') format('woff'),
+       url('./assets/fonts/Greycliff CF v2.0/GreycliffCF-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Greycliff CF";
+  src: url('./assets/fonts/Greycliff CF v2.0/GreycliffCF-Medium.woff') format('woff'),
+       url('./assets/fonts/Greycliff CF v2.0/GreycliffCF-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+
+:root {  
+  font-family: "Greycliff CF";
  
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -28,4 +52,12 @@ body {
 
 .mb-15px {
   margin-bottom: 15px;
+}
+
+.pb-0 {
+  padding-bottom: 0;
+}
+
+.height-50 {
+  height: 50px;
 }

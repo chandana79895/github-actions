@@ -3,11 +3,14 @@ import { Grid, InputAdornment } from "@mui/material";
 import search from "../../assets/icons/search.svg";
 import LabelledInput from "../../components/LabelledInput";
 import Button from "../../components/Button";
-import Card from "../../components/Card"; // Import the CustomCard component
-import { useNavigate } from "react-router-dom";
-import { t } from "i18next";
+import Card from "../../components/Card";
+import "./MemberSearchPage.css"
+import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router";
+
 
 function MemberSearchPage() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [memberID, setMemberID] = useState("");
   const [loading, setLoading] = useState(false);
@@ -16,6 +19,7 @@ function MemberSearchPage() {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
+      navigate("/member-details")
     }, 2000);
   };
 
@@ -26,7 +30,13 @@ function MemberSearchPage() {
   return (
     <div className="cards-container">
       <Card title={t("memberLookup")}>
-        <Grid item xs={12} className="input-container">
+        <Grid item xs={14} className="input-container pb-0">
+          <Button title={t("scanQRCode")} onClick={scanQRCode} className="scan-button"/>
+        </Grid>
+      </Card>
+
+      <Card>
+        <Grid item xs={12}>
           <LabelledInput
             label={t("memberIDorCardNumber")}
             value={memberID}
@@ -40,6 +50,7 @@ function MemberSearchPage() {
               ),
             }}
             headerVariant="h5"
+            className="mb-15px"
           />
         </Grid>
         <Button
@@ -49,12 +60,6 @@ function MemberSearchPage() {
           loadingText={t("searching")}
           loading={loading}
         />
-      </Card>
-
-      <Card>
-        <Grid item xs={12}>
-          <Button title={t("scanQRCode")} onClick={scanQRCode} />
-        </Grid>
       </Card>
     </div>
   );

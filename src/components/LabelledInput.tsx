@@ -1,4 +1,4 @@
-import { InputAdornment, TextField, Typography, TypographyProps } from "@mui/material";
+import { InputAdornment, TextField, TextFieldProps, Typography, TypographyProps } from "@mui/material";
 import Autocomplete from "@mui/material/Autocomplete";
 import check from "../assets/icons/check.svg";
 import dropdown_down from "../assets/icons/dropdown_down.svg";
@@ -13,7 +13,7 @@ type LabelledInputProps = {
   placeholder?: string;
   type?: string;
   error?: boolean;
-  inputProps?: any;
+  inputProps?: TextFieldProps["InputProps"];
   className?: string;
   inputType?: "text" | "autocomplete"; // Change inputType options
   options?: { label: string; value: string }[];

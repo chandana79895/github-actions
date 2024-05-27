@@ -1,61 +1,86 @@
 import "./LoginPage.css";
-import { Avatar, Box, Grid,Typography } from "@mui/material";
-import { useContext, useState } from "react";
-import goToPass from '../../assets/icons/goToPass.svg';
+import { Avatar, Box, Grid, Typography } from "@mui/material";
+import { useContext, useEffect, useState } from "react";
+import goToPass from "../../assets/icons/goToPass.svg";
 import LabelledInput from "../../components/LabelledInput";
 import Button from "../../components/Button";
 import ErrorMessage from "../../components/ErrorMessage";
-import {Md5} from 'ts-md5';
-import {encode as base64_encode} from 'base-64'
+import { Md5 } from "ts-md5";
+import { encode as base64_encode } from "base-64";
 import { useNavigate } from "react-router";
 import routes from "../../routes";
-import { AppContext } from "../../store/AppContext";
 import { useTranslation } from "react-i18next";
 import { getApi } from "../../api/utils/http";
 import { Endpoints } from "../../api/const/endpoints";
+import { AppContext } from "@/store/AppContext";
+import * as Yup from "yup";
 
 function LoginPage() {
-  const {t} = useTranslation();
-  const [username, setUsername] = useState("")
-  const [password, setPassword] = useState("")
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState(false) // need to fix the error handling and time out 
+  const { t } = useTranslation();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('invalidUsernameorPassword');
+  const { organizationID, setOrganizationID } = useContext(AppContext);
 
-  const navigate = useNavigate()
-  
+  const navigate = useNavigate();
 
-  const handleSubmit = () => {
+  // Redirect to location search page if organizationID is present
+  useEffect(() => {
+    if (organizationID !== '') {
+      navigate('/' + routes[2].path, { replace: true })
+    }
+  }, [organizationID, navigate]);
+
+  const handleSubmit = async () => {
     setLoading(true)
-    const hashedPass=  Md5.hashStr(password).toString();
-    const hashedToken =  base64_encode(`${username}:${hashedPass}`);
-    console.info(hashedToken);
-    setTimeout(() => { // simulate api call, will be removed
-      // setError(true)
-      navigate('/'+routes[2].path,{replace:true})
-      setLoading(false)
-    }, 2000)
-    getApi(Endpoints.login,hashedToken).then(
-        (loginResponse)=>{
-          // need to replace this with the api call
-          console.log(loginResponse)
-          setError(true)
-          // setLoading(false)
-        }
-    )
+    setError(false)
+
+    try {
+      await validationSchema.validate({ username, password }); // Validate username and password
+      const hashedPass = Md5.hashStr(password).toString();
+      const hashedToken = base64_encode(`${username}:${hashedPass}`);
+      const payload = { username: username, authToken: `Basic ${hashedToken}` }
+
+      getApi(Endpoints.login, payload, "POST")
+        .then((loginResponse) => {
+          const orgID = loginResponse?.data?.response?.organization?.id ?? '';
+          setOrganizationID(orgID)
+          localStorage.setItem("organizationID", orgID);
+        })
+        .catch((err) => {
+          const responseKey = err?.response?.data?.responseKey
+          responseKey && setErrorMessage(responseKey);
+          setError(true);
+          setLoading(false)
+        })
+
+    } catch (error) {
+      if (error instanceof Yup.ValidationError) {
+        setErrorMessage(error?.message);
+        setError(true);
+        setLoading(false)
+      }
+    }
   }
 
-  const {language} = useContext(AppContext);
-  console.log(language);
-
-  
+  useEffect(() => {
+    document.documentElement.classList.add("login-page");
+    return () => {
+      document.documentElement.classList.remove("login-page");
+    };
+  }, []);
 
   return (
     <div className="login-page-container">
-      <Grid container className="login-container" >
-        <Grid item xs={12} m={2} maxWidth={['330px', '400px']} >
-          <Box className="login-avatar-container" >
+      <Grid container className="login-container">
+        <Grid item xs={12} m={2} maxWidth={["330px", "400px"]}>
+          <Box className="login-avatar-container">
             <Avatar alt="Logo" src={goToPass} className="login-avatar" />
-            <Typography variant="h1" mb={'6px'}>{t("staffLogin")}</Typography>
+            <Typography variant="h1" mb={"6px"}>
+              {t("staffLogin")}
+            </Typography>
           </Box>
 
           <LabelledInput
@@ -74,17 +99,16 @@ function LoginPage() {
             data-testid="password"
             setValue={setPassword}
             value={password}
-            placeholder={t("enterTemporaryPassword")}
+            placeholder={t("enterPassword")}
             type="password"
             error={error}
             className="mb-15px"
             headerVariant="subtitle1"
           />
 
-          {error && <ErrorMessage message="Invalid Username or Password" />}
+          {error && <ErrorMessage className="mb-15px" message={t(errorMessage)} />}
 
           <Button
-            className="login-button"
             disabled={!username || !password || loading}
             onClick={handleSubmit}
             title={t("login")}
@@ -98,3 +122,12 @@ function LoginPage() {
 }
 
 export default LoginPage;
+
+// Note: the error message is a key from the translations
+const validationSchema = Yup.object().shape({
+  username: Yup.string()
+    .max(50, 'usernameMaxLength')
+    .matches(/^\S*$/, 'usernameNoSpace'),
+  password: Yup.string()
+    .min(8, 'passwordMinLength'),
+});

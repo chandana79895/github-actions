@@ -1,74 +1,73 @@
-.login-nav{
-    justify-content: center;
-    text-align: center;
-    align-items: flex-end;
-    display: flex;
-    height: 120px;
-    background: #535353;
-    color: white;
-    width: 100%;
-  }
-  
-  
-  .nav {
-    align-items: flex-end;
-    display: flex;
-    height: 120px;
-    background: #535353;
-    color: white;
-    width: 100%;
-  }
+.login-nav {
+  justify-content: center;
+  text-align: center;
+  align-items: flex-end;
+  display: flex;
+  height: 80px;
+  background: #535353;
+  color: white;
+  width: 100%;
+}
+
+.nav {
+  align-items: flex-end;
+  display: flex;
+  height: 120px;
+  background: #535353;
+  color: white;
+  width: 100%;
+}
 .cards-container {
-    margin-top: 105px;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .input-container {
-    padding-top: 30px;
-    padding-bottom: 30px;
-  }
-  
-  .MuiAutocomplete-hasPopupIcon.MuiAutocomplete-hasClearIcon.css-clttge-MuiAutocomplete-root .MuiOutlinedInput-root{
-    padding: 0px 10px !important;
-  }
+  margin-top: 105px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 
-  .menu-icon-container{
-    width: 100%;
-  }
+.input-container {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
 
-  .back-icon{
-    padding: 10px;
-    margin-left: 10px;
-  }
+.MuiAutocomplete-hasPopupIcon.MuiAutocomplete-hasClearIcon.css-clttge-MuiAutocomplete-root
+  .MuiOutlinedInput-root {
+  padding: 0px 10px !important;
+}
 
-  .hamburger-icon{
-    float: right;
-  }
-  .logo{
-    height: 60px;
-    width: 60px;
-    display: block;
-    align-self: center;
-    margin-left: 39px;
-    margin-bottom: 30px;
-  }
+.menu-icon-container {
+  width: 100%;
+}
 
-  .close-icon{
-    float: right;
-  }
+.back-icon {
+  padding: 10px;
+  margin-left: 10px;
+}
 
-  .menu-list{
-    margin-top:20px !important;
-    padding: 20px !important;
-  }
+.hamburger-icon {
+  float: right;
+}
+.logo {
+  height: 60px;
+  width: 60px;
+  display: block;
+  align-self: center;
+  margin-left: 39px;
+  margin-bottom: 30px;
+}
 
-  
- .img-btn{
-    background: none;
-    border: none;
+.close-icon {
+  float: right;
+}
+
+.menu-list {
+  margin-top: 20px !important;
+  padding: 20px !important;
+}
+
+.img-btn {
+  background: none;
+  border: none;
 }
 
 .MuiListItem-root {
@@ -78,7 +77,16 @@
 }
 
 .MuiListItem-divider {
-  border-color: #FFFFFF !important;
-  max-width: 190px !important;
+  border-color: #ffffff !important;
+  max-width: 200px !important;
   margin: auto !important;
+}
+
+.flex-align-center {
+  display: flex;
+  align-items: center;
+}
+
+.pl-10 {
+  padding-left: 10px;
 }

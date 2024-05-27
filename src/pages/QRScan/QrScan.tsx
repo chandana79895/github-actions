@@ -1,46 +1,91 @@
-import { useState, useRef, SetStateAction, useEffect } from "react";
-import QrReader from "react-qr-scanner";
+import { useState, useRef, useEffect } from "react";
 import { Grid } from "@mui/material";
 import "./QrScan.css";
 import Button from "../../components/Button";
-import { BrowserBarcodeReader } from "@zxing/library";
+import { BrowserMultiFormatReader } from "@zxing/browser";
 import qrScannerGrid from "../../assets/icons/qrScannerGrid.png";
+import { Modal } from "@/components/Modal";
+import { t } from "i18next";
+import { useNavigate } from "react-router";
 
 const QrScan = () => {
+  const navigate = useNavigate();
   const [scannedData, setScannedData] = useState("");
   const [showPopup, setShowPopup] = useState(false);
-  const webcamRef = useRef(null);
+  const [error, setError] = useState(false);
+  const videoRef = useRef(null);
+  const codeReader = useRef(new BrowserMultiFormatReader());
+  const [stream, setStream] = useState(null);
 
-  const handleError = (error: any) => {
-    console.error("Error:", error);
-  };
-
-  const handleScan = (result: { text: SetStateAction<string> }) => {
-    if (result) {
-      setScannedData(result.text);
-    }
-    return;
-  };
-
-  const capture = async () => {
-    // if (webcamRef.current && webcamRef.current.getScreenshot) {
-    const imageSrc = webcamRef.current.getScreenshot();
-    const codeReader = new BrowserBarcodeReader();
+  const handleScan = async () => {
     try {
-      const result = await codeReader.decodeFromImage(undefined, imageSrc);
+      const result = await codeReader.current.decodeOnceFromVideoDevice(
+        undefined,
+        videoRef.current
+      );
       setScannedData(result.getText());
+      setError(false);
     } catch (err) {
       console.error("Error decoding QR code:", err);
-      // }
+      setError(true);
     }
+  };
+  const startVideo = async () => {
+    try {
+      const constraints = {
+        video: {
+          // facingMode: "environment",
+          width: { ideal: 1920 },
+          height: { ideal: 1080 },
+        },
+      };
+      const mediaStream = await navigator.mediaDevices.getUserMedia(
+        constraints
+      );
+      videoRef.current.srcObject = mediaStream;
+      setStream(mediaStream);
+      videoRef.current.play();
+    } catch (err) {
+      console.error("Error accessing camera:", err);
+      setError(true);
+    }
+  };
+
+  const handleCloseModal = () => {
+    setShowPopup(false);
+    setError(false);
+    window.location.reload();
+  };
+
+  const handleTryAgain = () => {
+    setShowPopup(false);
+    setError(false);
+    window.location.reload();
   };
 
   useEffect(() => {
     if (scannedData) {
       setShowPopup(true);
-      setTimeout(() => setShowPopup(false), 3000);
+      setTimeout(() => {
+        setShowPopup(false);
+        navigate("/member-details");
+      }, 3000);
     }
   }, [scannedData]);
+
+  useEffect(() => {
+    handleScan();
+    return () => {
+      if (stream) {
+        stream.getTracks().forEach((track) => track.stop());
+      }
+    };
+  }, [stream]);
+
+  useEffect(() => {
+    startVideo();
+  }, []);
+
   return (
     <Grid
       className="scanner-page"
@@ -49,19 +94,23 @@ const QrScan = () => {
       flexDirection={"column"}
     >
       <img src={qrScannerGrid} alt="QR Scanner Grid" className="qr-grid" />
-      <QrReader
-        className="scan-box"
-        onError={handleError}
-        onScan={handleScan}
-        constraints={{ facingMode: "environment" }}
-      />
+      <video ref={videoRef} className="scan-box" />
       <Button
         className="scan-button"
         title="Manual Lookup"
-        onClick={capture}
+        onClick={handleScan}
         loadingText="Scanning"
       />
-      {showPopup && <div className="popup">Scan complete</div>}
+      <Modal
+        error={error}
+        open={showPopup}
+        buttonText={t("tryAgain")}
+        successText={t("scanSuccess")}
+        errorText={t("errorScanFailed")}
+        onClose={handleCloseModal}
+        onClick={handleTryAgain}
+        successMessage={`${scannedData}`}
+      />
     </Grid>
   );
 };

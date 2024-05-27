@@ -1,0 +1,17 @@
+.location-search-btn {
+  border: none;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+}
+
+.location-search-btn:hover {
+  text-decoration: underline;
+}
+.font-white {
+  color: white !important;
+}
+.button {
+  display: flex; 
+  justify-content: center;
+}

@@ -1,8 +1,8 @@
 name: Build and Deploy
 
 on:
-  pull_request:
-    types: [opened, synchronize, reopened, closed]
+  push:
+    # types: [opened, synchronize, reopened, closed]
     branches:
       - poc
 
@@ -24,9 +24,9 @@ jobs:
           npm i
           npm run test 
 
-  if_merged:
+  deploy:
     runs-on: ubuntu-latest
-    if: github.event_name == 'push' && (github.ref == 'refs/heads/poc') || (github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true && github.ref == 'refs/heads/poc')
+    # if: github.event_name == 'push' && (github.ref == 'refs/heads/poc') || (github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true && github.ref == 'refs/heads/poc')
     environment:
       name: poc
     steps:

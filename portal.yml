@@ -9,6 +9,7 @@ Parameters:
       - dev
       - stage
       - prod
+      - poc
 
 Conditions:
   IsDev: !Equals [!Ref Env, dev]

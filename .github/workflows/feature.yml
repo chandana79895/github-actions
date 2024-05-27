@@ -54,7 +54,9 @@ jobs:
           audience: sts.amazonaws.com
 
       - name: Create .env file
-        run: echo "REACT_APP_SESSION=${{ secrets.REACT_APP_SESSION }}" > .env      
+        run: |
+          echo "REACT_APP_SESSION=${{ secrets.REACT_APP_SESSION }}" > .env
+          cat .env # This line prints the .env file to the log for debugging 
 
       - name: Deploying distribution
         env:

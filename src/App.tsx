@@ -48,7 +48,7 @@ function App() {
     return localStorage.getItem("organizationID") || "";
   });
   const sessionTimeout = process.env.VITE_APP_SESSION;
-  console.log(process.env.VITE_APP_SESSION); // This should output 120000
+  console.log(`Session Timeout: ${sessionTimeout}`); // This line checks the value
 
   useOrganizationRedirect(organizationID, navigate);
   useLanguageChange(language, i18n);

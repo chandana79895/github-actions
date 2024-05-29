@@ -47,8 +47,8 @@ function App() {
   const [organizationID, setOrganizationID] = useState(() => {
     return localStorage.getItem("organizationID") || "";
   });
-  const session_time = import.meta.env.VITE_APP_SESSION;
-  console.log(`Session Timeout: ${session_time}`); 
+  // const session_time = import.meta.env.VITE_APP_SESSION;
+  // console.log(`Session Timeout: ${session_time}`); 
 
   useOrganizationRedirect(organizationID, navigate);
   useLanguageChange(language, i18n);

@@ -10,8 +10,8 @@ Parameters:
       - stage
       - prod
       - poc
-  VITE_APP_SESSION:
-    Type: String    
+  # VITE_APP_SESSION:
+  #   Type: String    
 
 Conditions:
   IsDev: !Equals [!Ref Env, dev]

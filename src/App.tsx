@@ -47,7 +47,7 @@ function App() {
   const [organizationID, setOrganizationID] = useState(() => {
     return localStorage.getItem("organizationID") || "";
   });
-  const sessionTimeout = process.env.REACT_APP_SESSION;
+  const sessionTimeout = process.env.VITE_APP_SESSION;
   console.log(`Session Timeout: ${sessionTimeout}`); // This line checks the value
 
   useOrganizationRedirect(organizationID, navigate);

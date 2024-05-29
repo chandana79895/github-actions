@@ -54,7 +54,7 @@ jobs:
           audience: sts.amazonaws.com
 
       - name: Create .env file
-        run: echo "VITE_APP_SESSION=${{ secrets.REACT_APP_SESSION }}" > .env      
+        run: echo "VITE_APP_SESSION=${{ secrets.VITE_APP_SESSION }}" > .env      
 
       - name: Deploying distribution
         env:

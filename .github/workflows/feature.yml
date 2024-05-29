@@ -1,14 +1,14 @@
 name: Build and Deploy
 
 on:
-  pull_request:
+  push:
     types: [opened, synchronize, reopened, closed]
     branches:
-      - poc
+      - feature/test-purpose
 
 jobs:
   unit_test:
-    # if: github.event_name == 'pull_request' && (github.event.action == 'opened' || github.event.action == 'synchronize' || github.event.action == 'reopened')
+    if: github.event_name == 'pull_request' && (github.event.action == 'opened' || github.event.action == 'synchronize' || github.event.action == 'reopened')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -26,7 +26,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    if: github.event_name == 'push' && (github.ref == 'refs/heads/poc') || (github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true && github.ref == 'refs/heads/poc')
+    # if: github.event_name == 'push' && (github.ref == 'refs/heads/poc') || (github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true && github.ref == 'refs/heads/poc')
     environment:
       name: poc
     steps:
@@ -53,8 +53,8 @@ jobs:
           role-duration-seconds: 1200
           audience: sts.amazonaws.com
 
-      # - name: Create .env file
-      #   run: echo "REACT_APP_SESSION=${{ secrets.REACT_APP_SESSION }}" > .env      
+      - name: Create .env file
+        run: echo "VITE_APP_SESSION=${{ secrets.REACT_APP_SESSION }}" > .env      
 
       - name: Deploying distribution
         env:

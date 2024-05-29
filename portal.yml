@@ -15,6 +15,7 @@ Conditions:
   IsDev: !Equals [!Ref Env, dev]
   IsStage: !Equals [!Ref Env, stage]
   IsProd: !Equals [!Ref Env, prod]
+  IsPoc: !Equals [!Ref Env, poc]
   
 Resources:
   OriginAccessIdentity:
@@ -38,7 +39,7 @@ Resources:
         RestrictPublicBuckets: true
       Tags:
         - Key: ProjectName
-          Value: Fortress
+          Value: test
         - Key: Environment
           Value: !If [IsDev, Development, !Ref Env]
 
@@ -54,10 +55,10 @@ Resources:
             Action: s3:GetObject
             Resource: !Sub arn:aws:s3:::${StaticResourcesBucket}/*
 
-  # FortressIPSet:
+  # testIPSet:
   #   Type: 'AWS::WAFv2::IPSet'
   #   Properties:
-  #     Name: Fortress-IPSet
+  #     Name: test-IPSet
   #     Scope: CLOUDFRONT
   #     IPAddressVersion: IPV4
   #     Addresses:
@@ -66,17 +67,17 @@ Resources:
   #       - "14.97.205.158/32"
   #       - "192.168.1.242/32"
 
-  # FortressWebACL:
+  # testWebACL:
   #   Type: AWS::WAFv2::WebACL
   #   Properties:
-  #     Name: Fortress-WebACL
+  #     Name: test-WebACL
   #     Scope: CLOUDFRONT
   #     DefaultAction:
   #       Allow: {}
   #     VisibilityConfig: 
   #       SampledRequestsEnabled: true
   #       CloudWatchMetricsEnabled: true
-  #       MetricName: "FortressWebACL"
+  #       MetricName: "testWebACL"
   #     Rules:
   #       - Name: AllowIPRule
   #         Priority: 1
@@ -90,14 +91,14 @@ Resources:
   #           NotStatement:
   #             Statement:
   #               IPSetReferenceStatement:
-  #                 Arn: !GetAtt FortressIPSet.Arn          
+  #                 Arn: !GetAtt testIPSet.Arn          
 
   Distribution:
     Type: AWS::CloudFront::Distribution
     Properties:
       DistributionConfig:
-        # WebACLId: !GetAtt FortressWebACL.Arn
-        Comment: !Sub "Fortress-${Env}"
+        # WebACLId: !GetAtt testWebACL.Arn
+        Comment: !Sub "test-${Env}"
         Origins:
           - DomainName: !Sub ${StaticResourcesBucket}.s3.${AWS::Region}.amazonaws.com
             Id: S3Origin
@@ -134,6 +135,6 @@ Resources:
         PriceClass: PriceClass_All
       Tags:
         - Key: Project_Name
-          Value: Fortress
+          Value: test
         - Key: Environment
           Value: !If [IsDev, Development, !Ref Env]

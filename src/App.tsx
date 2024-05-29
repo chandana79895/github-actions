@@ -20,7 +20,7 @@ import {
   useLocalStorageProperty,
   useLocalStorageStore,
 } from "./api/utils/useLocalStorage";
-import session_time from "./api/const/sessionTimeOut";
+import config from "./api/const/sessionTimeOut"; 
 import NotFound from "./pages/notFound/NotFound";
 
 interface RouteItem {
@@ -47,7 +47,7 @@ function App() {
   const [organizationID, setOrganizationID] = useState(() => {
     return localStorage.getItem("organizationID") || "";
   });
-  const sessionTimeout = session_time.VITE_APP_SESSION;
+  const sessionTimeout = config.session_time.VITE_APP_SESSION;
   console.log(`Session Timeout: ${sessionTimeout}`); 
 
   useOrganizationRedirect(organizationID, navigate);
@@ -99,7 +99,7 @@ function App() {
     </div>
   );
   const handleVisibilityChangeCallback = handleVisibilityChange(
-    session_time,
+    config.session_time,
     setShowIdleModal
   );
 

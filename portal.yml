@@ -64,7 +64,9 @@ Resources:
       IPAddressVersion: IPV4
       Addresses:
         - "115.98.183.226/32"
-        - "223.185.131.187/32"
+        - "152.58.194.253/32"
+        - "115.98.183.226/32"
+
 
   testWebACL:
     Type: AWS::WAFv2::WebACL
@@ -79,7 +81,7 @@ Resources:
         MetricName: "testWebACL"
       Rules:
         - Name: BlockNotInIPSet
-          Priority: 1
+          Priority: 0
           Action:
             Allow: {}
           VisibilityConfig:
@@ -87,10 +89,20 @@ Resources:
             CloudWatchMetricsEnabled: true
             MetricName: block_not_in_ipset
           Statement:
-            NotStatement:
-              Statement:
-                IPSetReferenceStatement:
-                  Arn: !GetAtt testIPSet.Arn          
+            IPSetReferenceStatement:
+              ARN: !GetAtt testIPSet.Arn
+        - Name: blockrule
+          Priority: 1
+          Action:
+            Block: {}
+          VisibilityConfig:
+            SampledRequestsEnabled: true
+            CloudWatchMetricsEnabled: true
+            MetricName: blockrule
+          Statement:
+            GeoMatchStatement:
+              CountryCodes:
+                - IN
 
   Distribution:
     Type: AWS::CloudFront::Distribution

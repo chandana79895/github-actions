@@ -53,8 +53,11 @@ jobs:
           role-duration-seconds: 1200
           audience: sts.amazonaws.com
 
-      - name: Create .env file
-        run: echo "VITE_APP_SESSION=${{ secrets.VITE_APP_SESSION }}" > .env      
+      - name: Load .env variables
+        run: |
+          echo "Loading .env variables"
+          cat .env
+          export $(cat .env | xargs)     
 
       - name: Deploying distribution
         env:

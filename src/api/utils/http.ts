@@ -1,8 +1,8 @@
 import axios from "axios";
-
+import config from "../const/sessionTimeOut"; 
 // const baseUrl = "https://apac.api.capillarytech.com/v1.1";
-const baseUrl='https://4863-14-99-84-194.ngrok-free.app/'; // Temporary ngrok URL, to be replaced with actual API URL
-
+const baseUrl=config.ApiUrl.VITE_APP_BASE_URL; // Temporary ngrok URL, to be replaced with actual API URL
+console.log(`ApiBaseUrl: ${baseUrl}`);
 type methodType = "GET" | "POST" | "PUT" | "DELETE";
 
 export function getApi(endpoint: string, reqBody: any, method: methodType) {

@@ -47,6 +47,8 @@ function App() {
   const [organizationID, setOrganizationID] = useState(() => {
     return localStorage.getItem("organizationID") || "";
   });
+  const sessionTimeout = process.env.REACT_APP_SESSION;
+  console.log(`Session Timeout: ${sessionTimeout}`); // This line checks the value
 
   useOrganizationRedirect(organizationID, navigate);
   useLanguageChange(language, i18n);

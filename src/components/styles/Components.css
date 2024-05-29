@@ -3,7 +3,8 @@
   text-align: center;
   align-items: flex-end;
   display: flex;
-  height: 80px;
+  height: 8vh;
+  /* height: 80px; */
   background: #535353;
   color: white;
   width: 100%;
@@ -12,7 +13,7 @@
 .nav {
   align-items: flex-end;
   display: flex;
-  height: 120px;
+  height: 12vh;
   background: #535353;
   color: white;
   width: 100%;
@@ -40,7 +41,7 @@
 }
 
 .back-icon {
-  padding: 10px;
+  padding: 10px ;
   margin-left: 10px;
 }
 
@@ -50,10 +51,11 @@
 .logo {
   height: 60px;
   width: 60px;
-  display: block;
+  display: flex;
   align-self: center;
+  align-items: center;
   margin-left: 39px;
-  margin-bottom: 30px;
+  margin-bottom: 10%;
 }
 
 .close-icon {

@@ -10,10 +10,10 @@ import "./styles/Menu.css";
 import globe from "../assets/icons/globe.svg";
 
 export default function MenuComponent({ setLanguage, language }) {
-  const { pathname } = useLocation();
   const navigate = useNavigate();
-  const [isLogin, setIsLogin] = useState(false);
+  const { pathname } = useLocation();
   const [open, setOpen] = useState(false);
+  const [isLogin, setIsLogin] = useState(false);
   const { property, store } = useContext(AppContext);
 
   useEffect(() => {
@@ -40,6 +40,26 @@ export default function MenuComponent({ setLanguage, language }) {
   const handleLocationSearchClick = () => {
     navigate("/location-search");
   };
+
+  function storeNameDisplay(text: string, maxLength: number) {
+    const parts = text.split("-");
+    if (parts.length > 1) {
+      const firstPart = parts[0].trim();
+      const secondPart = parts.slice(1).join("-").trim();
+      const truncatedSecondPart =
+        secondPart.length > maxLength
+          ? secondPart.substring(0, maxLength) + "..."
+          : secondPart;
+      return (
+        <>
+          {firstPart}
+          <br />
+          {truncatedSecondPart}
+        </>
+      );
+    }
+    return text;
+  }
 
   return (
     <>
@@ -79,9 +99,8 @@ export default function MenuComponent({ setLanguage, language }) {
                   className="location-search-btn"
                   onClick={handleLocationSearchClick}
                 >
-                  <Typography variant="h5" color={"white"}>
-                    {property.label} <br />
-                    {store.label}
+                  <Typography variant="h5" color={"white"} className="ellipsis">
+                    {storeNameDisplay(store.value, 15)}
                   </Typography>
                 </button>
               ) : (

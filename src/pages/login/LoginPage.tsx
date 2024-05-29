@@ -5,11 +5,11 @@ import goToPass from "../../assets/icons/goToPass.svg";
 import LabelledInput from "../../components/LabelledInput";
 import Button from "../../components/Button";
 import ErrorMessage from "../../components/ErrorMessage";
-import { Md5 } from "ts-md5";
-import { encode as base64_encode } from "base-64";
 import { useNavigate } from "react-router";
 import routes from "../../routes";
 import { useTranslation } from "react-i18next";
+import { Md5 } from "ts-md5";
+import { encode as base64_encode } from "base-64";
 import { getApi } from "../../api/utils/http";
 import { Endpoints } from "../../api/const/endpoints";
 import { AppContext } from "@/store/AppContext";
@@ -33,9 +33,12 @@ function LoginPage() {
     }
   }, [organizationID, navigate]);
 
-  const handleSubmit = async () => {
+  const handleSubmit =  async () => {
     setLoading(true)
     setError(false)
+          setOrganizationID("orgID")
+    localStorage.setItem("organizationID", 'orgID');
+    navigate('/' + routes[2].path, { replace: true })
 
     try {
       await validationSchema.validate({ username, password }); // Validate username and password

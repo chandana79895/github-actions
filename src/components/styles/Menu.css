@@ -7,11 +7,16 @@
 
 .location-search-btn:hover {
   text-decoration: underline;
+  color: white;
 }
 .font-white {
   color: white !important;
 }
 .button {
-  display: flex; 
+  display: flex;
   justify-content: center;
+  padding-bottom: 2%;
+}
+.ellipsis {
+  padding-bottom: 4%;
 }

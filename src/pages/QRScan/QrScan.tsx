@@ -7,7 +7,7 @@ import qrScannerGrid from "../../assets/icons/qrScannerGrid.png";
 import { Modal } from "@/components/Modal";
 import { t } from "i18next";
 import { useNavigate } from "react-router";
-
+ 
 const QrScan = () => {
   const navigate = useNavigate();
   const [scannedData, setScannedData] = useState("");
@@ -16,7 +16,7 @@ const QrScan = () => {
   const videoRef = useRef(null);
   const codeReader = useRef(new BrowserMultiFormatReader());
   const [stream, setStream] = useState(null);
-
+ 
   const handleScan = async () => {
     try {
       const result = await codeReader.current.decodeOnceFromVideoDevice(
@@ -30,6 +30,9 @@ const QrScan = () => {
       setError(true);
     }
   };
+  const handleManualLookUp = ()=>{
+    navigate("/member-search")
+  }
   const startVideo = async () => {
     try {
       const constraints = {
@@ -50,19 +53,19 @@ const QrScan = () => {
       setError(true);
     }
   };
-
+ 
   const handleCloseModal = () => {
     setShowPopup(false);
     setError(false);
     window.location.reload();
   };
-
+ 
   const handleTryAgain = () => {
     setShowPopup(false);
     setError(false);
     window.location.reload();
   };
-
+ 
   useEffect(() => {
     if (scannedData) {
       setShowPopup(true);
@@ -72,7 +75,7 @@ const QrScan = () => {
       }, 3000);
     }
   }, [scannedData]);
-
+ 
   useEffect(() => {
     handleScan();
     return () => {
@@ -81,11 +84,11 @@ const QrScan = () => {
       }
     };
   }, [stream]);
-
+ 
   useEffect(() => {
     startVideo();
   }, []);
-
+ 
   return (
     <Grid
       className="scanner-page"
@@ -98,7 +101,7 @@ const QrScan = () => {
       <Button
         className="scan-button"
         title="Manual Lookup"
-        onClick={handleScan}
+        onClick={handleManualLookUp}
         loadingText="Scanning"
       />
       <Modal
@@ -114,5 +117,6 @@ const QrScan = () => {
     </Grid>
   );
 };
-
+ 
 export default QrScan;
+ 

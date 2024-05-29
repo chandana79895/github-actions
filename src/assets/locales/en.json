@@ -32,5 +32,8 @@
     "accountIsLocked": "Your account is locked. Ask your manager for unlock the account.",
     "usernameMaxLength": "Username must be less than 50 characters",
     "usernameNoSpace": "Username must not contain any spaces",
-    "passwordMinLength": "Password must be at least 8 characters"
+    "passwordMinLength": "Password must be at least 8 characters",
+    "pageNotFound": "Oops! Page not found.",
+    "sessionTimedOut":"Session Timed Out",
+    "pleaseLoginToContinue":"Please login to continue"
 }

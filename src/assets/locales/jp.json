@@ -32,5 +32,8 @@
     "accountIsLocked": "あなたのアカウントはロックされています。アカウントのロックを解除するようにマネージャーに依頼してください。",
     "usernameMaxLength": "ユーザー名は50文字未満である必要があります",
     "usernameNoSpace": "ユーザー名にはスペースを含めることはできません",
-    "passwordMinLength": "パスワードは8文字以上でなければなりません"
+    "passwordMinLength": "パスワードは8文字以上でなければなりません",
+    "pageNotFound": "おっとっと！ページが見つかりません。",
+    "sessionTimedOut":"セッションがタイムアウトしました",
+    "pleaseLoginToContinue":"続行するにはログインしてください"
 }

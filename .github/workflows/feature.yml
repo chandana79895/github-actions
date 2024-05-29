@@ -53,16 +53,15 @@ jobs:
           role-duration-seconds: 1200
           audience: sts.amazonaws.com
 
-      # - name: Load .env variables
-      #   run: |
-      #     echo "Loading .env variables"
-      #     cat .env
-      #     export $(cat .env | xargs)     
+      - name: Set up .env file
+        env:
+          VITE_APP_SESSION: ${{ secrets.VITE_APP_SESSION }}
+        run: |
+          echo "VITE_APP_SESSION=${{ secrets.VITE_APP_SESSION }}" > .env 
 
       - name: Deploying distribution
         env:
           ENV: ${{ secrets.ENV }}
-          VITE_APP_SESSION: ${{ secrets.VITE_APP_SESSION }}
         run: |
           aws cloudformation validate-template --template-body file://portal.yml
           aws cloudformation deploy --stack-name test-stack-ui-${{ secrets.ENV }} --template-file portal.yml --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM --parameter-overrides Env=${{ secrets.ENV }}
@@ -70,7 +69,6 @@ jobs:
       - name: Deploying to S3 bucket
         env:
           CFD_ID: ${{ secrets.CFD_ID }}
-          VITE_APP_SESSION: ${{ secrets.VITE_APP_SESSION }}
         run: |
           # printenv >  .env.${{ secrets.ENV }}
           # cat .env.${{ secrets.ENV }}

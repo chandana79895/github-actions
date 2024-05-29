@@ -42,7 +42,7 @@ jobs:
         run: |
           npm install
           export CI=false
-          npm run build
+          npm run build:dev
 
       - name: Set up AWS CLI
         uses: aws-actions/configure-aws-credentials@v2
@@ -57,7 +57,7 @@ jobs:
         env:
           VITE_APP_SESSION: ${{ secrets.VITE_APP_SESSION }}
         run: |
-          echo "VITE_APP_SESSION=${{ secrets.VITE_APP_SESSION }}" > .env 
+          echo "VITE_APP_SESSION=${{ secrets.VITE_APP_SESSION }}" > .env.${{ secrets.ENV }} 
 
       - name: Deploying distribution
         env:

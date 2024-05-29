@@ -20,7 +20,7 @@ import {
   useLocalStorageProperty,
   useLocalStorageStore,
 } from "./api/utils/useLocalStorage";
-import { session_time } from "./api/const/sessionTimeOut";
+import session_time from "./api/const/sessionTimeOut";
 import NotFound from "./pages/notFound/NotFound";
 
 interface RouteItem {
@@ -47,8 +47,8 @@ function App() {
   const [organizationID, setOrganizationID] = useState(() => {
     return localStorage.getItem("organizationID") || "";
   });
-  // const session_time = import.meta.env.VITE_APP_SESSION;
-  // console.log(`Session Timeout: ${session_time}`); 
+  const sessionTimeout = session_time.VITE_APP_SESSION;
+  console.log(`Session Timeout: ${sessionTimeout}`); 
 
   useOrganizationRedirect(organizationID, navigate);
   useLanguageChange(language, i18n);

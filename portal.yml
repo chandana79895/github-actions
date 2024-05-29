@@ -72,7 +72,7 @@ Resources:
       Name: test-WebACL
       Scope: CLOUDFRONT
       DefaultAction:
-        Allow: {}
+        Block: {}
       VisibilityConfig: 
         SampledRequestsEnabled: true
         CloudWatchMetricsEnabled: true
@@ -81,7 +81,7 @@ Resources:
         - Name: BlockNotInIPSet
           Priority: 1
           Action:
-            Block: {}
+            Allow: {}
           VisibilityConfig:
             SampledRequestsEnabled: true
             CloudWatchMetricsEnabled: true

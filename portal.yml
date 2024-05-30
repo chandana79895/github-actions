@@ -138,9 +138,10 @@ Resources:
   WAFLoggingConfiguration:
     Type: 'AWS::WAFv2::LoggingConfiguration'
     Properties:
+      DependsOn: WAFLogGroup
       ResourceArn: !GetAtt WebACL.Arn
       LogDestinationConfigs:
-        - !GetAtt WAFLogGroup.Arn
+        - !Sub 'arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/waf/CLOUDFRONT/CloudFrontWhitelistWebACL'
       LoggingFilter:
         DefaultBehavior: 'KEEP'
         Filters:

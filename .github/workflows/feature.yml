@@ -42,7 +42,7 @@ jobs:
         run: |
           npm install
           export CI=false
-          npm run build:dev
+          npm run build:${{ secrets.ENV }}
 
       - name: Set up AWS CLI
         uses: aws-actions/configure-aws-credentials@v2

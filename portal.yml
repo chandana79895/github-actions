@@ -28,7 +28,7 @@ Resources:
   StaticResourcesBucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: !Sub 'chandanatest-poc' # TODO fetch name form env suffix env on bucket
+      BucketName: !Sub '${AWS::StackName}' # TODO fetch name form env suffix env on bucket
       BucketEncryption:
         ServerSideEncryptionConfiguration:
           - ServerSideEncryptionByDefault:

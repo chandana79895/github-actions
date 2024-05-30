@@ -65,6 +65,7 @@ Resources:
       Addresses: 
         - '14.97.205.158/32'
         - '106.221.189.5/32'
+        - '49.207.212.96/32'
 
   WhitelistRule:
     Type: 'AWS::WAFv2::RuleGroup'
@@ -77,8 +78,8 @@ Resources:
         CloudWatchMetricsEnabled: true
         MetricName: 'WhitelistRule'
       Rules:
-        - Name: 'AllowWhitelistIPs'
-          Priority: 1
+        - Name: 'AllowIpRule'
+          Priority: 0
           Action: 
             Allow: {}
           Statement: 
@@ -87,7 +88,21 @@ Resources:
           VisibilityConfig:
             SampledRequestsEnabled: true
             CloudWatchMetricsEnabled: true
-            MetricName: 'AllowWhitelistIPs'
+            MetricName: 'AllowIpRule'
+        - Name: 'BlockRule'
+          Priority: 1
+          Action: 
+            Block: {}
+          Statement:
+            NotStatement:
+              Statement:
+                GeoMatchStatement:
+                  CountryCodes: 
+                    - 'JP'
+          VisibilityConfig:
+            SampledRequestsEnabled: true
+            CloudWatchMetricsEnabled: true
+            MetricName: 'BlockRule'
 
 
   WebACL:

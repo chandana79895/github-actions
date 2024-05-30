@@ -20,7 +20,6 @@ import {
   useLocalStorageProperty,
   useLocalStorageStore,
 } from "./api/utils/useLocalStorage";
-import config from "./api/const/sessionTimeOut"; 
 import NotFound from "./pages/notFound/NotFound";
 
 interface RouteItem {
@@ -47,7 +46,7 @@ function App() {
   const [organizationID, setOrganizationID] = useState(() => {
     return localStorage.getItem("organizationID") || "";
   });
-  const sessionTimeout = config.session_time.VITE_APP_SESSION;
+  const sessionTimeout = process.env.VITE_APP_SESSION;
   console.log(`Session Timeout: ${sessionTimeout}`); 
 
   useOrganizationRedirect(organizationID, navigate);
@@ -99,7 +98,7 @@ function App() {
     </div>
   );
   const handleVisibilityChangeCallback = handleVisibilityChange(
-    config.session_time,
+    process.env.VITE_APP_SESSION,
     setShowIdleModal
   );
 
@@ -126,7 +125,7 @@ function App() {
     <AppContext.Provider value={contextValue}>
       {shouldUseIdleTimer ? (
         <IdleTimerProvider
-          timeout={session_time}
+          timeout={sessionTimeout}
           onIdle={handleOnIdle}
           onActive={handleOnActive}
           onAction={handleOnAction}

@@ -1,7 +1,5 @@
 import axios from "axios";
-import config from "../const/sessionTimeOut"; 
-// const baseUrl = "https://apac.api.capillarytech.com/v1.1";
-const baseUrl=config.ApiUrl.VITE_APP_BASE_URL; // Temporary ngrok URL, to be replaced with actual API URL
+const baseUrl=process.env.VITE_APP_BASE_URL;
 console.log(`ApiBaseUrl: ${baseUrl}`);
 type methodType = "GET" | "POST" | "PUT" | "DELETE";
 

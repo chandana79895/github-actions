@@ -84,7 +84,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: poc
-    needs: if_merged
+    needs: deploy
     if: success()
     steps:
       - name: Notify Slack for pipeline success
@@ -129,7 +129,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: poc
-    needs: if_merged
+    needs: deploy
     if: failure()
     steps:
       - name: Notify Slack for pipeline failure

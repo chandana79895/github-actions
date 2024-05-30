@@ -65,8 +65,7 @@ Resources:
       Addresses:
         - "152.58.194.253/32"
         - "115.98.183.226/32"
-
-
+        
   testWebACL:
     Type: AWS::WAFv2::WebACL
     Properties:

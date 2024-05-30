@@ -8,7 +8,7 @@ on:
 
 jobs:
   unit_test:
-    # if: github.event_name == 'pull_request' && (github.event.action == 'opened' || github.event.action == 'synchronize' || github.event.action == 'reopened')
+    if: github.event_name == 'pull_request' && (github.event.action == 'opened' || github.event.action == 'synchronize' || github.event.action == 'reopened')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -56,8 +56,10 @@ jobs:
       - name: Set up .env file
         env:
           VITE_APP_SESSION: ${{ secrets.VITE_APP_SESSION }}
+          VITE_APP_BASE_URL: ${{ secrets.VITE_APP_BASE_URL }}
         run: |
           echo "VITE_APP_SESSION=${{ secrets.VITE_APP_SESSION }}" > .env.${{ secrets.ENV }} 
+          echo "VITE_APP_BASE_URL=${{ secrets.VITE_APP_BASE_URL }}" > .env.${{ secrets.ENV }} 
 
       - name: Deploying distribution
         env:

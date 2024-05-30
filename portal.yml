@@ -56,57 +56,68 @@ Resources:
             Action: s3:GetObject
             Resource: !Sub arn:aws:s3:::${StaticResourcesBucket}/*
 
-  testIPSet:
+  WhitelistIPSet:
     Type: 'AWS::WAFv2::IPSet'
+    Properties: 
+      Name: 'WhitelistIPSet'
+      Scope: 'CLOUDFRONT'
+      IPAddressVersion: 'IPV4'
+      Addresses: 
+        - '14.97.205.158/32'
+
+  WhitelistRule:
+    Type: 'AWS::WAFv2::RuleGroup'
     Properties:
-      Name: test-IPSet
-      Scope: CLOUDFRONT
-      IPAddressVersion: IPV4
-      Addresses:
-        - "152.58.194.253/32"
-        - "115.98.183.226/32"
-        
-  testWebACL:
-    Type: AWS::WAFv2::WebACL
-    Properties:
-      Name: test-WebACL
-      Scope: CLOUDFRONT
-      DefaultAction:
-        Block: {}
+      Name: 'WhitelistRule'
+      Scope: 'CLOUDFRONT'
+      Capacity: 100
       VisibilityConfig: 
         SampledRequestsEnabled: true
         CloudWatchMetricsEnabled: true
-        MetricName: "testWebACL"
+        MetricName: 'WhitelistRule'
       Rules:
-        - Name: BlockNotInIPSet
-          Priority: 0
-          Action:
-            Allow: {}
-          VisibilityConfig:
-            SampledRequestsEnabled: true
-            CloudWatchMetricsEnabled: true
-            MetricName: block_not_in_ipset
-          Statement:
-            IPSetReferenceStatement:
-              ARN: !GetAtt testIPSet.Arn
-        - Name: blockrule
+        - Name: 'AllowWhitelistIPs'
           Priority: 1
-          Action:
-            Block: {}
+          Action: 
+            Allow: {}
+          Statement: 
+            IPSetReferenceStatement:
+              ARN: !GetAtt WhitelistIPSet.Arn
           VisibilityConfig:
             SampledRequestsEnabled: true
             CloudWatchMetricsEnabled: true
-            MetricName: blockrule
+            MetricName: 'AllowWhitelistIPs'
+
+
+  WebACL:
+    Type: 'AWS::WAFv2::WebACL'
+    Properties:
+      Name: 'CloudFrontWhitelistWebACL'
+      Scope: 'CLOUDFRONT'
+      DefaultAction:
+        Block: {}
+      VisibilityConfig:
+        SampledRequestsEnabled: true
+        CloudWatchMetricsEnabled: true
+        MetricName: 'CloudFrontWhitelistWebACL'
+      Rules:
+        - Name: 'WhitelistRule'
+          Priority: 1
+          OverrideAction:
+            None: {}
           Statement:
-            GeoMatchStatement:
-              CountryCodes:
-                - IN
+            RuleGroupReferenceStatement:
+              ARN: !GetAtt WhitelistRule.Arn
+          VisibilityConfig:
+            SampledRequestsEnabled: true
+            CloudWatchMetricsEnabled: true
+            MetricName: 'WhitelistRule'
 
   Distribution:
     Type: AWS::CloudFront::Distribution
     Properties:
       DistributionConfig:
-        WebACLId: !GetAtt testWebACL.Arn
+        WebACLId: !GetAtt WebACL.Arn
         Comment: !Sub "test-${Env}"
         Origins:
           - DomainName: !Sub ${StaticResourcesBucket}.s3.${AWS::Region}.amazonaws.com

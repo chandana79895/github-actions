@@ -8,7 +8,11 @@ Parameters:
       - dev
       - stage
       - prod
-      - poc  
+      - poc 
+
+  LogGroupPrefix:
+    Type: String
+    Default: "waflogstest"     
 
 Conditions:
   IsDev: !Equals [!Ref Env, dev]

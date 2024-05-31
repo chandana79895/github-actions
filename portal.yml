@@ -64,6 +64,7 @@ Resources:
         - '14.97.205.158/32'
         - '106.221.189.5/32'
         - '49.207.212.96/32'
+        - '14.99.84.194/32'
 
   WhitelistRule:
     Type: 'AWS::WAFv2::RuleGroup'
@@ -136,7 +137,8 @@ Resources:
     Type: 'AWS::WAFv2::LoggingConfiguration'
     Properties:
       ResourceArn: !GetAtt WebACL.Arn
-      LogDestinationConfigsArn: !GetAtt WafLogGroup.Arn
+      LogDestinationConfigs:
+        - arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/waf/CLOUDFRONT/CloudFrontWhitelistWebACL:*
       LoggingFilter:
         DefaultBehavior: 'KEEP'
         Filters:

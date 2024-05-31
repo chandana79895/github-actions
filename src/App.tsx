@@ -125,7 +125,7 @@ function App() {
     <AppContext.Provider value={contextValue}>
       {shouldUseIdleTimer ? (
         <IdleTimerProvider
-          timeout={sessionTimeout}
+          timeout={+sessionTimeout}
           onIdle={handleOnIdle}
           onActive={handleOnActive}
           onAction={handleOnAction}

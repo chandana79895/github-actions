@@ -143,8 +143,8 @@ Resources:
       ResourceArn: !GetAtt WebACL.Arn
       LogDestinationConfigs:
         - !Sub "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:aws-waf-logs-${LogGroupPrefix}"
-      DependsOn:
-        - WAFLogGroup
+      # DependsOn:
+      #   - WAFLogGroup
       LoggingFilter:
         DefaultBehavior: 'KEEP'
         Filters:

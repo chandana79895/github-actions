@@ -8,7 +8,11 @@ Parameters:
       - dev
       - stage
       - prod
-      - poc  
+      - poc 
+
+  LogGroupPrefix:
+    Type: String
+    Default: "waflogstest"     
 
 Conditions:
   IsDev: !Equals [!Ref Env, dev]
@@ -130,7 +134,7 @@ Resources:
   WAFLogGroup:
     Type: 'AWS::Logs::LogGroup'
     Properties:
-      LogGroupName: 'aws-waf-logs-CloudFrontWhitelistWebACL'
+      LogGroupName: !Sub aws-waf-logs-${LogGroupPrefix}
       RetentionInDays: 7
 
   WAFLoggingConfiguration:
@@ -138,7 +142,9 @@ Resources:
     Properties:
       ResourceArn: !GetAtt WebACL.Arn
       LogDestinationConfigs:
-        - !Sub 'arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:aws-waf-logs-CloudFrontWhitelistWebACL'
+        - !Sub "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:aws-waf-logs-${LogGroupPrefix}"
+      DependsOn:
+        - WAFLogGroup
       LoggingFilter:
         DefaultBehavior: 'KEEP'
         Filters:

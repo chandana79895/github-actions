@@ -138,7 +138,7 @@ Resources:
     Properties:
       ResourceArn: !GetAtt WebACL.Arn
       LogDestinationConfigs:
-        - !GetAtt WAFLogGroup.Arn
+        - 'arn:aws:logs:us-east-1:973620134507:log-group:/aws/waf/CLOUDFRONT/CloudFrontWhitelistWebACL:*'
       LoggingFilter:
         DefaultBehavior: 'KEEP'
         Filters:

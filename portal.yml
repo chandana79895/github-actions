@@ -134,7 +134,7 @@ Resources:
   WAFLogGroup:
     Type: 'AWS::Logs::LogGroup'
     Properties:
-      LogGroupName: !Sub aws-waf-logs-${LogGroupPrefix}
+      LogGroupName: 'aws-waf-logs-${LogGroupPrefix}'
       RetentionInDays: 7
 
   WAFLoggingConfiguration:

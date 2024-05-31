@@ -132,13 +132,13 @@ Resources:
             MetricName: 'WhitelistRule'
 
   WAFLogGroup:
-    Type: 'AWS::Logs::LogGroup'
+    Type: sAWS::Logs::LogGroup
     Properties:
       LogGroupName: 'aws-waf-logs-${LogGroupPrefix}'
       RetentionInDays: 7
 
   WAFLoggingConfiguration:
-    Type: 'AWS::WAFv2::LoggingConfiguration'
+    Type: AWS::WAFv2::LoggingConfiguration
     Properties:
       ResourceArn: !GetAtt WebACL.Arn
       LogDestinationConfigs:

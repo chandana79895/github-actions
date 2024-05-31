@@ -134,7 +134,7 @@ Resources:
   WAFLogGroup:
     Type: AWS::Logs::LogGroup
     Properties:
-      LogGroupName: 'aws-waf-logs-${LogGroupPrefix}'
+      LogGroupName: !Sub 'aws-waf-logs-${Env}'
       RetentionInDays: 7
 
   WAFLoggingConfiguration:
@@ -142,9 +142,7 @@ Resources:
     Properties:
       ResourceArn: !GetAtt WebACL.Arn
       LogDestinationConfigs:
-        - !Sub "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:aws-waf-logs-${LogGroupPrefix}"
-      # DependsOn:
-      #   - WAFLogGroup
+        - !Sub 'arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:aws-waf-logs-${Env}'
       LoggingFilter:
         DefaultBehavior: 'KEEP'
         Filters:

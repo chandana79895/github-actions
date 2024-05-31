@@ -1,6 +1,5 @@
 AWSTemplateFormatVersion: "2010-09-09"
 
-#TODO:  add params for check same template
 Parameters:
   Env:
     Type: String
@@ -17,18 +16,17 @@ Conditions:
   IsProd: !Equals [!Ref Env, prod]
   IsPoc: !Equals [!Ref Env, poc]
 
-  
 Resources:
   OriginAccessIdentity:
     Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
     Properties:
       CloudFrontOriginAccessIdentityConfig:
-        Comment: !Sub ${AWS::StackName}-s3-origin-oai # take stack name from env , change env based on deployment
+        Comment: !Sub ${AWS::StackName}-s3-origin-oai
 
   StaticResourcesBucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: !Sub '${AWS::StackName}' # TODO fetch name form env suffix env on bucket
+      BucketName: !Sub '${AWS::StackName}-${Env}'
       BucketEncryption:
         ServerSideEncryptionConfiguration:
           - ServerSideEncryptionByDefault:
@@ -104,7 +102,6 @@ Resources:
             CloudWatchMetricsEnabled: true
             MetricName: 'BlockRule'
 
-
   WebACL:
     Type: 'AWS::WAFv2::WebACL'
     Properties:
@@ -137,7 +134,6 @@ Resources:
 
   WAFLoggingConfiguration:
     Type: 'AWS::WAFv2::LoggingConfiguration'
-    DependsOn: WAFLogGroup
     Properties:
       ResourceArn: !GetAtt WebACL.Arn
       LogDestinationConfigs:
@@ -199,3 +195,8 @@ Resources:
           Value: test
         - Key: Environment
           Value: !If [IsDev, Development, !Ref Env]
+
+Outputs:
+  DistributionDomainName:
+    Value: !GetAtt Distribution.DomainName
+    Description: The domain name of the CloudFront distribution

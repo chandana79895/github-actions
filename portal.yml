@@ -127,29 +127,29 @@ Resources:
             CloudWatchMetricsEnabled: true
             MetricName: 'WhitelistRule'
 
-  WAFLogGroup:
-    Type: 'AWS::Logs::LogGroup'
-    Properties:
-      LogGroupName: 'aws-waf-logs-CloudFrontWhitelistWebACL'
-      RetentionInDays: 7
+  # WAFLogGroup:
+  #   Type: 'AWS::Logs::LogGroup'
+  #   Properties:
+  #     LogGroupName: 'aws-waf-logs-CloudFrontWhitelistWebACL'
+  #     RetentionInDays: 7
 
-  WAFLoggingConfiguration:
-    Type: 'AWS::WAFv2::LoggingConfiguration'
-    Properties:
-      ResourceArn: !GetAtt WebACL.Arn
-      LogDestinationConfigs:
-        - !Sub 'arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:aws-waf-logs-CloudFrontWhitelistWebACL'
-      LoggingFilter:
-        DefaultBehavior: 'KEEP'
-        Filters:
-          - Behavior: 'KEEP'
-            Requirement: 'MEETS_ANY'
-            Conditions:
-              - ActionCondition:
-                  Action: 'BLOCK'
-      RedactedFields:
-        - SingleHeader:
-            Name: 'Authorization'
+  # WAFLoggingConfiguration:
+  #   Type: 'AWS::WAFv2::LoggingConfiguration'
+  #   Properties:
+  #     ResourceArn: !GetAtt WebACL.Arn
+  #     LogDestinationConfigs:
+  #       - !Sub 'arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:aws-waf-logs-CloudFrontWhitelistWebACL'
+  #     LoggingFilter:
+  #       DefaultBehavior: 'KEEP'
+  #       Filters:
+  #         - Behavior: 'KEEP'
+  #           Requirement: 'MEETS_ANY'
+  #           Conditions:
+  #             - ActionCondition:
+  #                 Action: 'BLOCK'
+  #     RedactedFields:
+  #       - SingleHeader:
+  #           Name: 'Authorization'
 
   Distribution:
     Type: AWS::CloudFront::Distribution

@@ -4,7 +4,7 @@ on:
   push:
     types: [opened, synchronize, reopened, closed]
     branches:
-      - feature/test-purpose
+      - feature/delete-branch-test
 
 jobs:
   unit_test:

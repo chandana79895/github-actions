@@ -1,7 +1,7 @@
 name: Build and Deploy
 
 on:
-  push:
+  pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
       - feature/delete-branch-test
@@ -189,6 +189,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         run: |
           BRANCH_NAME=$(gh pr view ${{ github.event.pull_request.number }} --json headRefName -q .headRefName)
-          if [ "$BRANCH_NAME" != "feature/*" ] && [ "$BRANCH_NAME" != "develop" ]; then
+          if [ "$BRANCH_NAME" != "feature/*" ] && [ "$BRANCH_NAME" != "poc" ]; then
             gh api -X DELETE /repos/${{ github.repository }}/git/refs/heads/$BRANCH_NAME
           fi        

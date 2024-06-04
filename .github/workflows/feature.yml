@@ -2,7 +2,7 @@ name: Build and Deploy
 
 on:
   push:
-    # types: [opened, synchronize, reopened, closed]
+    types: [opened, synchronize, reopened, closed]
     branches:
       - feature/test-purpose
 
@@ -26,7 +26,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    # if: github.event_name == 'push' && (github.ref == 'refs/heads/poc') || (github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true && github.ref == 'refs/heads/poc')
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/poc') || (github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true && github.ref == 'refs/heads/poc')
     environment:
       name: poc
     steps:
@@ -80,92 +80,115 @@ jobs:
           aws s3 sync ./dist s3://test-stack-ui-${{ secrets.ENV}}/
           aws cloudfront create-invalidation --distribution-id ${{ secrets.CFD_ID }} --paths "/*"
 
-  # notify_on_success:
-  #   runs-on: ubuntu-latest
-  #   environment:
-  #     name: poc
-  #   needs: deploy
-  #   if: success()
-  #   steps:
-  #     - name: Notify Slack for pipeline success
-  #       env:
-  #         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-  #         REPO_NAME: ${{ secrets.REPO_NAME }}
-  #         ENVIRONMENT: ${{ secrets.ENV }}  
-  #         REPO_SLUG: ${{ secrets.REPO_SLUG }}
-  #       run: |
-  #         curl -X POST -H 'Content-type: application/json' --data '{
-  #           "text": "GitHub Pipeline Status Notification",
-  #           "attachments": [
-  #             {
-  #               "fields": [
-  #                 {
-  #                   "title": "Repository",
-  #                   "value": "'${REPO_NAME}'"
-  #                 },
-  #                 {
-  #                   "title": "Environment",
-  #                   "value": "'${ENVIRONMENT}'"
-  #                 },
-  #                 {
-  #                   "title": "Status",
-  #                   "value": "SUCCESS",
-  #                   "color": "00FF00"
-  #                 },
-  #                 {
-  #                   "title": "Pipeline URL",
-  #                   "value": "https://github.com/${{ secrets.REPO_SLUG }}/${{ secrets.REPO_NAME }}/actions/runs/${{ github.run_id }}"
-  #                 },
-  #                 {
-  #                   "title": "Branch",
-  #                   "value": "${{ github.ref }}"
-  #                 }
-  #               ]
-  #             }
-  #           ]
-  #         }' $SLACK_WEBHOOK_URL
+  notify_on_success:
+    runs-on: ubuntu-latest
+    environment:
+      name: poc
+    needs: deploy
+    if: success()
+    steps:
+      - name: Notify Slack for pipeline success
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          REPO_NAME: ${{ secrets.REPO_NAME }}
+          ENVIRONMENT: ${{ secrets.ENV }}  
+          REPO_SLUG: ${{ secrets.REPO_SLUG }}
+        run: |
+          curl -X POST -H 'Content-type: application/json' --data '{
+            "text": "GitHub Pipeline Status Notification",
+            "attachments": [
+              {
+                "fields": [
+                  {
+                    "title": "Repository",
+                    "value": "'${REPO_NAME}'"
+                  },
+                  {
+                    "title": "Environment",
+                    "value": "'${ENVIRONMENT}'"
+                  },
+                  {
+                    "title": "Status",
+                    "value": "SUCCESS",
+                    "color": "00FF00"
+                  },
+                  {
+                    "title": "Pipeline URL",
+                    "value": "https://github.com/${{ secrets.REPO_SLUG }}/${{ secrets.REPO_NAME }}/actions/runs/${{ github.run_id }}"
+                  },
+                  {
+                    "title": "Branch",
+                    "value": "${{ github.ref }}"
+                  }
+                ]
+              }
+            ]
+          }' $SLACK_WEBHOOK_URL
 
-  # notify_on_failure:
-  #   runs-on: ubuntu-latest
-  #   environment:
-  #     name: poc
-  #   needs: deploy
-  #   if: failure()
-  #   steps:
-  #     - name: Notify Slack for pipeline failure
-  #       env:
-  #         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-  #         REPO_NAME: ${{ secrets.REPO_NAME }}
-  #         ENVIRONMENT: ${{ secrets.ENV }} 
-  #         REPO_SLUG: ${{ secrets.REPO_SLUG }}
-  #       run: |
-  #         curl -X POST -H 'Content-type: application/json' --data '{
-  #           "text": "GitHub Pipeline Status Notification",
-  #           "attachments": [
-  #             {
-  #               "fields": [
-  #                 {
-  #                   "title": "Repository",
-  #                   "value": "'${REPO_NAME}'"
-  #                 },
-  #                 {
-  #                   "title": "Environment",
-  #                   "value": "'${ENVIRONMENT}'"
-  #                 },
-  #                 {
-  #                   "title": "Status",
-  #                   "value": "FAILED",
-  #                   "color": "#FF0000"
-  #                 },
-  #                 {
-  #                   "title": "Pipeline URL",
-  #                   "value": "https://github.com/${{ secrets.REPO_SLUG }}/${{ secrets.REPO_NAME }}/actions/runs/${{ github.run_id }}"
-  #                 },
-  #                 {
-  #                   "title": "Branch",
-  #                   "value": "${{ github.ref }}"
-  #                 }
-  #               ]
-  #             }
-  #           ]
-  #         }' $SLACK_WEBHOOK_URL
+  notify_on_failure:
+    runs-on: ubuntu-latest
+    environment:
+      name: poc
+    needs: deploy
+    if: failure()
+    steps:
+      - name: Notify Slack for pipeline failure
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          REPO_NAME: ${{ secrets.REPO_NAME }}
+          ENVIRONMENT: ${{ secrets.ENV }} 
+          REPO_SLUG: ${{ secrets.REPO_SLUG }}
+        run: |
+          curl -X POST -H 'Content-type: application/json' --data '{
+            "text": "GitHub Pipeline Status Notification",
+            "attachments": [
+              {
+                "fields": [
+                  {
+                    "title": "Repository",
+                    "value": "'${REPO_NAME}'"
+                  },
+                  {
+                    "title": "Environment",
+                    "value": "'${ENVIRONMENT}'"
+                  },
+                  {
+                    "title": "Status",
+                    "value": "FAILED",
+                    "color": "#FF0000"
+                  },
+                  {
+                    "title": "Pipeline URL",
+                    "value": "https://github.com/${{ secrets.REPO_SLUG }}/${{ secrets.REPO_NAME }}/actions/runs/${{ github.run_id }}"
+                  },
+                  {
+                    "title": "Branch",
+                    "value": "${{ github.ref }}"
+                  }
+                ]
+              }
+            ]
+          }' $SLACK_WEBHOOK_URL
+
+  delete-branch:
+    runs-on: ubuntu-latest
+    environment:
+      name: poc
+    if: github.event.pull_request.merged == true
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Set up GitHub CLI
+        uses: actions/setup-gh-cli@v1
+
+      - name: Delete branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        run: |
+          BRANCH_NAME=$(gh pr view ${{ github.event.pull_request.number }} --json headRefName -q .headRefName)
+          if [ "$BRANCH_NAME" != "feature/*" ] && [ "$BRANCH_NAME" != "develop" ]; then
+            gh api -X DELETE /repos/${{ github.repository }}/git/refs/heads/$BRANCH_NAME
+          fi        

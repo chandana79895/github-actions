@@ -38,12 +38,6 @@ jobs:
         with:
           node-version: '18.x'
 
-      - name: Install dependencies and build
-        run: |
-          npm install
-          export CI=false
-          npm run build:${{ secrets.ENV }}
-
       - name: Set up AWS CLI
         uses: aws-actions/configure-aws-credentials@v2
         with:
@@ -70,12 +64,15 @@ jobs:
           aws cloudformation validate-template --template-body file://portal.yml
           aws cloudformation deploy --stack-name test-stack-ui-${{ secrets.ENV }} --template-file portal.yml --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM --parameter-overrides Env=${{ secrets.ENV }}
 
-      - name: Deploying to S3 bucket
+      - name: Build and Deploying FE Code
         env:
           CFD_ID: ${{ secrets.CFD_ID }}
         run: |
           # printenv >  .env.${{ secrets.ENV }}
           ls -ltrha
+          npm install
+          export CI=false
+          npm run build:${{ secrets.ENV }}
           cat .env.${{ secrets.ENV }}
           aws s3 rm s3://test-stack-ui-${{ secrets.ENV }}/ --recursive
           aws s3 sync ./dist s3://test-stack-ui-${{ secrets.ENV}}/

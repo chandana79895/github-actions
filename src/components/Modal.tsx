@@ -30,26 +30,31 @@ export const Modal = ({
     <div>
       <Dialog open={open} onClose={onClose} className="box">
         <DialogContent className="modal-content">
-          <div className="modal-icon">
-            {error ? (
+          {error ? (
+            <div className="modal-icon">
               <CancelOutlinedIcon className="error-icon" />
-            ) : (
+            </div>
+          ) : (
+            <div>
               <CheckCircle className="success-icon" />
-            )}
-          </div>
-          <div className="modal-title">
-            <Typography>{error ? errorText : successText}</Typography>
-          </div>
-          <div className="modal-title">
-            <Typography>{successMessage ? successMessage : ""}</Typography>
-          </div>
-          {buttonText && error && (
-            <Button
-              title={buttonText}
-              onClick={onClick}
-              loadingText="Scanning"
-            />
+            </div>
           )}
+          {error ? (
+            <div className={"modal-title"}>
+              <Typography>{errorText}</Typography>
+            </div>
+          ) : (
+            <div>
+              <Typography>{successText}</Typography>
+            </div>
+          )}
+          <br />
+          {successMessage && (
+            <div className={error && "modal-title"}>
+              <Typography>{successMessage}</Typography>
+            </div>
+          )}
+          <Button title={buttonText} onClick={onClick} loadingText="Scanning" />
         </DialogContent>
       </Dialog>
     </div>

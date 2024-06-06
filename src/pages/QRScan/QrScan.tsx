@@ -7,7 +7,16 @@ import qrScannerGrid from "../../assets/icons/qrScannerGrid.png";
 import { Modal } from "@/components/Modal";
 import { t } from "i18next";
 import { useNavigate } from "react-router";
- 
+import {
+  handleScan,
+  handleManualLookUp,
+  startVideo,
+  handleCloseModal,
+  handleTryAgain,
+  stopVideo,
+} from "./QrScanUtils";
+import { rsp } from "@/constants/tests/shortPath";
+
 const QrScan = () => {
   const navigate = useNavigate();
   const [scannedData, setScannedData] = useState("");
@@ -16,56 +25,7 @@ const QrScan = () => {
   const videoRef = useRef(null);
   const codeReader = useRef(new BrowserMultiFormatReader());
   const [stream, setStream] = useState(null);
- 
-  const handleScan = async () => {
-    try {
-      const result = await codeReader.current.decodeOnceFromVideoDevice(
-        undefined,
-        videoRef.current
-      );
-      setScannedData(result.getText());
-      setError(false);
-    } catch (err) {
-      console.error("Error decoding QR code:", err);
-      setError(true);
-    }
-  };
-  const handleManualLookUp = ()=>{
-    navigate("/member-search")
-  }
-  const startVideo = async () => {
-    try {
-      const constraints = {
-        video: {
-          // facingMode: "environment",
-          width: { ideal: 1920 },
-          height: { ideal: 1080 },
-        },
-      };
-      const mediaStream = await navigator.mediaDevices.getUserMedia(
-        constraints
-      );
-      videoRef.current.srcObject = mediaStream;
-      setStream(mediaStream);
-      videoRef.current.play();
-    } catch (err) {
-      console.error("Error accessing camera:", err);
-      setError(true);
-    }
-  };
- 
-  const handleCloseModal = () => {
-    setShowPopup(false);
-    setError(false);
-    window.location.reload();
-  };
- 
-  const handleTryAgain = () => {
-    setShowPopup(false);
-    setError(false);
-    window.location.reload();
-  };
- 
+
   useEffect(() => {
     if (scannedData) {
       setShowPopup(true);
@@ -74,35 +34,49 @@ const QrScan = () => {
         navigate("/member-details");
       }, 3000);
     }
-  }, [scannedData]);
- 
+  }, [scannedData, navigate]);
+
   useEffect(() => {
-    handleScan();
+    handleScan(codeReader, videoRef, setScannedData, setError);
     return () => {
-      if (stream) {
-        stream.getTracks().forEach((track) => track.stop());
-      }
+      stopVideo(videoRef, setStream, setError);
     };
   }, [stream]);
- 
+
   useEffect(() => {
-    startVideo();
+    startVideo(videoRef, setStream, setError);
   }, []);
- 
+
+  //for generating test IDs
+  const currentPage = rsp("qr-scan");
+
   return (
     <Grid
       className="scanner-page"
       justifyContent={"center"}
       alignItems={"center"}
       flexDirection={"column"}
+      data-testid={`${currentPage}CONT`}
+      id={`${currentPage}CONT`}
     >
-      <img src={qrScannerGrid} alt="QR Scanner Grid" className="qr-grid" />
-      <video ref={videoRef} className="scan-box" />
+      <img
+        src={qrScannerGrid}
+        alt="QR Scanner Grid"
+        className="qr-grid"
+        data-testid={`${currentPage}GRID`}
+        id={`${currentPage}GRID`}
+      />
+      <video
+        ref={videoRef}
+        className="scan-box"
+        data-testid={`${currentPage}VID`}
+        id={`${currentPage}VID`} />
       <Button
         className="scan-button"
         title="Manual Lookup"
-        onClick={handleManualLookUp}
+        onClick={() => handleManualLookUp(navigate)}
         loadingText="Scanning"
+        testID={`${currentPage}MANU`}
       />
       <Modal
         error={error}
@@ -110,13 +84,12 @@ const QrScan = () => {
         buttonText={t("tryAgain")}
         successText={t("scanSuccess")}
         errorText={t("errorScanFailed")}
-        onClose={handleCloseModal}
-        onClick={handleTryAgain}
+        onClose={() => handleCloseModal(setShowPopup, setError)}
+        onClick={() => handleTryAgain(setShowPopup, setError)}
         successMessage={`${scannedData}`}
       />
     </Grid>
   );
 };
- 
+
 export default QrScan;
- 

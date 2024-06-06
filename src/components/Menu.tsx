@@ -8,6 +8,7 @@ import MenuModal from "./MenuModal";
 import { AppContext } from "@/store/AppContext";
 import "./styles/Menu.css";
 import globe from "../assets/icons/globe.svg";
+import { rsp } from "@/constants/tests/shortPath";
 
 export default function MenuComponent({ setLanguage, language }) {
   const navigate = useNavigate();
@@ -15,6 +16,7 @@ export default function MenuComponent({ setLanguage, language }) {
   const [open, setOpen] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
   const { property, store } = useContext(AppContext);
+  const [testID, setTestID] = useState('')
 
   useEffect(() => {
     if (pathname === "/login" || pathname === "/") {
@@ -22,6 +24,7 @@ export default function MenuComponent({ setLanguage, language }) {
     } else {
       setIsLogin(false);
     }
+    setTestID(`${rsp(pathname.split("/")[1])}MENU`)
   }, [isLogin, pathname]);
 
   const handleClickOpen = () => {
@@ -67,50 +70,69 @@ export default function MenuComponent({ setLanguage, language }) {
         container
         justifyContent="space-between"
         className={isLogin ? "login-nav" : "nav"}
+        id={testID}
+        data-testid={testID}
       >
-        {isLogin && (
-          <>
-            <Grid item xs={12}>
-              <div onClick={handleClickOpen} className="button">
-                <Box display={"flex"} flexDirection={"row"} columnGap={1}>
-                  <img src={globe} />
-                  {language}
-                </Box>
-              </div>
-            </Grid>
-          </>
-        )}
-        {!isLogin && (
+        {isLogin ? (
+          <Grid item xs={12}>
+            <div
+              onClick={handleClickOpen}
+              className="button"
+              id={`${testID}I0`}
+              data-testid={`${testID}I0`}
+            >
+              <Box display={"flex"} flexDirection={"row"} columnGap={1}>
+                <img src={globe} alt='' />
+                {language}
+              </Box>
+            </div>
+          </Grid>
+        ) : (
           <>
             <Grid item>
-              <button className="img-btn" onClick={handleBackIconClick}>
-                {" "}
-                <img
-                  slot="start"
-                  className="back-icon"
-                  src={backIcon}
-                  alt="Search"
-                />{" "}
-              </button>
+            {!pathname.includes("/location-search") ? (
+                <button
+                  className="img-btn"
+                  onClick={handleBackIconClick}
+                  id={`${testID}I1`}
+                  data-testid={`${testID}I1`}
+                >
+                  <img
+                    slot="start"
+                    className="back-icon"
+                    src={backIcon}
+                    alt="Search"
+                  />
+                </button>
+              ) : (
+                <div 
+                className="logo1"
+                 />
+              )}
             </Grid>
             <Grid item>
               {property.label && pathname !== "/location-search" ? (
                 <button
                   className="location-search-btn"
                   onClick={handleLocationSearchClick}
+                  id={`${testID}I2`}
+                  data-testid={`${testID}I2`}
                 >
                   <Typography variant="h5" color={"white"} className="ellipsis">
                     {storeNameDisplay(store.value, 15)}
                   </Typography>
                 </button>
               ) : (
-                <>
-                  <img className="logo" src={logo} alt="Fortress" />
-                </>
+                <img className="logo" src={logo} alt="Fortress"
+                  id={`${testID}I2`}
+                  data-testid={`${testID}I2`}
+                />
               )}
             </Grid>
             <Grid item>
-              <button className="img-btn" onClick={handleClickOpen}>
+              <button className="img-btn" onClick={handleClickOpen}
+                id={`${testID}I3`}
+                data-testid={`${testID}I3`}>
                 <img
                   slot="end"
                   className="hamburger-icon"

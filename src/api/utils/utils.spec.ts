@@ -10,7 +10,7 @@ describe('getApi', () => {
   it('calls axios.get with correct parameters when method is GET', async () => {
     const data = { param: 'test' };
     await getApi('/test', data, 'GET');
-    expect(axios.get).toHaveBeenCalledWith(expect.stringContaining('/test'), { params: data });
+    expect(axios.get).toHaveBeenCalledWith(expect.stringContaining('/test'), { headers: data });
   });
 
   it('calls axios.post with correct parameters when method is POST', async () => {

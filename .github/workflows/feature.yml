@@ -52,8 +52,8 @@ jobs:
           VITE_APP_SESSION: ${{ secrets.VITE_APP_SESSION }}
           VITE_APP_BASE_URL: ${{ secrets.VITE_APP_BASE_URL }}
         run: |
-          echo "VITE_APP_SESSION=${{ secrets.VITE_APP_SESSION }}" > .env.${{ secrets.ENV }} 
-          echo "VITE_APP_BASE_URL=${{ secrets.VITE_APP_BASE_URL }}" > .env.${{ secrets.ENV }} 
+          echo "VITE_APP_SESSION=${{ secrets.VITE_APP_SESSION }}" >> .env.${{ secrets.ENV }} 
+          echo "VITE_APP_BASE_URL=${{ secrets.VITE_APP_BASE_URL }}" >> .env.${{ secrets.ENV }} 
 
       - name: Deploying distribution
         env:

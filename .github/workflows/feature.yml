@@ -75,7 +75,8 @@ jobs:
           CFD_ID: ${{ secrets.CFD_ID }}
         run: |
           # printenv >  .env.${{ secrets.ENV }}
-          # cat .env.${{ secrets.ENV }}
+          ls -ltrha
+          cat .env.${{ secrets.ENV }}
           aws s3 rm s3://test-stack-ui-${{ secrets.ENV }}/ --recursive
           aws s3 sync ./dist s3://test-stack-ui-${{ secrets.ENV}}/
           aws cloudfront create-invalidation --distribution-id ${{ secrets.CFD_ID }} --paths "/*"

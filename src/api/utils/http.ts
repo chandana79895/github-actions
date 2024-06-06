@@ -4,7 +4,9 @@ import { baseUrl_const } from "../const/env";
 const baseUrl = baseUrl_const
 // const baseUrl = process.env.VITE_APP_BASE_URL;
 // const baseUrl = "https://0abf-14-99-84-194.ngrok-free.app/";
-
+console.log(`
+ApiBaseUrl:
+${baseUrl}`);
 type methodType = "GET" | "POST" | "PUT" | "DELETE";
 
 export function getApi(endpoint: string, reqBody: object, method: methodType) {

@@ -100,7 +100,9 @@ function App() {
     session_time,
     setShowIdleModal
   );
-
+  console.log(`
+  session_time:
+  ${session_time}`);
   useEffect(() => {
     document.addEventListener(
       "visibilitychange",

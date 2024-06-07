@@ -7,6 +7,8 @@ on:
 jobs:
   delete-branch:
     runs-on: ubuntu-latest
+    environment:
+      name: poc
     if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'develop'
     steps:
       - name: Checkout repository

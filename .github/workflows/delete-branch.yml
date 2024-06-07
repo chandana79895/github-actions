@@ -5,7 +5,7 @@ on:
     types: [closed]
 
 jobs:
-  delete-branch:
+  delete-branc:
     runs-on: ubuntu-latest
     if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'develop'
     steps:

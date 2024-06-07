@@ -26,7 +26,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    # if: github.event_name == 'push' && (github.ref == 'refs/heads/poc') || (github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true && github.ref == 'refs/heads/poc')
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/poc') || (github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'develop')
     environment:
       name: poc
     steps:
@@ -80,8 +80,6 @@ jobs:
 
   notify_on_success:
     runs-on: ubuntu-latest
-    environment:
-      name: poc
     needs: deploy
     if: success()
     steps:
@@ -125,8 +123,6 @@ jobs:
 
   notify_on_failure:
     runs-on: ubuntu-latest
-    environment:
-      name: poc
     needs: deploy
     if: failure()
     steps:
@@ -167,3 +163,20 @@ jobs:
               }
             ]
           }' $SLACK_WEBHOOK_URL
+
+  # delete-branch:
+  #   runs-on: ubuntu-latest
+  #   if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'develop'
+  #   steps:
+  #     - name: Checkout repository
+  #       uses: actions/checkout@v2
+
+  #     - name: Delete branch
+  #       env:
+  #         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+  #       run: |
+  #         branch=${{ github.event.pull_request.head.ref }}
+  #         if [[ "$branch" != feature/* ]] && [[ "$branch" != feat/* ]]; then
+  #           git remote set-url origin https://x-access-token:${ACCESS_TOKEN}@github.com/${{ github.repository }}
+  #           git push origin --delete $branch
+  #         fi        

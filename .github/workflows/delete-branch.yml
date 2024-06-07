@@ -1,0 +1,23 @@
+name: Delete branch after PR merge
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  delete-branch:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'develop'
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Delete branch
+        env:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        run: |
+          branch=${{ github.event.pull_request.head.ref }}
+          if [[ "$branch" != feature/* ]] && [[ "$branch" != feat/* ]]; then
+            git remote set-url origin https://x-access-token:${ACCESS_TOKEN}@github.com/${{ github.repository }}
+            git push origin --delete $branch
+          fi

@@ -21,4 +21,5 @@ jobs:
             git push origin --delete $branch
           fi
         env:
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          ENV: ${{ secrets.ENV }}
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}

@@ -26,7 +26,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    if: github.event_name == 'push' && (github.ref == 'refs/heads/poc') || (github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true && github.ref == 'refs/heads/poc')
+    # if: github.event_name == 'push' && (github.ref == 'refs/heads/poc') || (github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true && github.ref == 'refs/heads/poc')
     environment:
       name: poc
     steps:
@@ -167,26 +167,3 @@ jobs:
               }
             ]
           }' $SLACK_WEBHOOK_URL
-
-  delete-branch:
-    runs-on: ubuntu-latest
-    environment:
-      name: poc
-    if: github.event.pull_request.merged == true
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-
-      - name: Set up GitHub CLI
-        uses: actions/setup-gh-cli@v1
-
-      - name: Delete branch
-        env:
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        run: |
-          BRANCH_NAME=$(gh pr view ${{ github.event.pull_request.number }} --json headRefName -q .headRefName)
-          if [ "$BRANCH_NAME" != "feature/*" ] && [ "$BRANCH_NAME" != "poc" ]; then
-            gh api -X DELETE /repos/${{ github.repository }}/git/refs/heads/$BRANCH_NAME
-          fi        

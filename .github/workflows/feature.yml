@@ -169,21 +169,24 @@ jobs:
           }' $SLACK_WEBHOOK_URL
 
   delete-branch:
-    runs-on: ubuntu-latest
-    needs: deploy
-    environment:
-      name: poc
-    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'develop'
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+  runs-on: ubuntu-latest
+  needs: deploy
+  if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'develop'
+  steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
 
-      - name: Delete branch
-        env:
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        run: |
-          branch=${{ github.event.pull_request.head.ref }}
-          if [[ "$branch" != feature/* ]] && [[ "$branch" != feat/* ]]; then
-            git remote set-url origin https://x-access-token:${ACCESS_TOKEN}@github.com/${{ github.repository }}
-            git push origin --delete $branch
-          fi        
+    - name: Delete branch
+      env:
+        GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+      run: |
+        branch=${{ github.event.pull_request.head.ref }}
+        echo "Deleting branch: $branch"
+        if [[ "$branch" != "feature/*" ]] && [[ "$branch" != "feat/*" ]]; then
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}
+          git push origin --delete "$branch"
+        else
+          echo "Branch $branch is protected and will not be deleted."
+        fi

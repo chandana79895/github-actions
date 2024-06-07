@@ -1,3 +1,4 @@
+import EarnPointsPage from "./pages/EarnPoints/EarnPointsPage";
 import QrScan from "./pages/QRScan/QrScan";
 import ReceiptUpload from "./pages/ReceiptScan/ReceiptUpload";
 import LocationSearchPage from "./pages/locationSearch/LocationSearchPage";
@@ -33,6 +34,10 @@ const routes = [
   {
     path: "receipt",
     component: <ReceiptUpload />,
+  },
+  {
+    path: "earn-points",
+    component: <EarnPointsPage />,
   },
 ];
 

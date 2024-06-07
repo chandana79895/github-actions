@@ -14,59 +14,72 @@ import { getApi } from "../../api/utils/http";
 import { Endpoints } from "../../api/const/endpoints";
 import { AppContext } from "@/store/AppContext";
 import * as Yup from "yup";
+import { getWords } from "@/constants/tests/words";
+import { rsp } from "@/constants/tests/shortPath";
 
 function LoginPage() {
   const { t } = useTranslation();
+  const [devices, setDevices] = useState([]);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('invalidUsernameorPassword');
-  const { organizationID, setOrganizationID } = useContext(AppContext);
+  const [errorMessage, setErrorMessage] = useState("invalidUsernameorPassword");
+  const { organizationID, setOrganizationID, setProperty, setStore } =
+    useContext(AppContext);
 
   const navigate = useNavigate();
 
   // Redirect to location search page if organizationID is present
   useEffect(() => {
-    if (organizationID !== '') {
-      navigate('/' + routes[2].path, { replace: true })
+    if (organizationID !== "") {
+      navigate("/" + routes[2].path, { replace: true });
     }
   }, [organizationID, navigate]);
+  useEffect(() => {
+    getDeviceInfo();
+  }, []);
 
-  const handleSubmit =  async () => {
-    setLoading(true)
-    setError(false)
-          setOrganizationID("orgID")
-    localStorage.setItem("organizationID", 'orgID');
-    navigate('/' + routes[2].path, { replace: true })
+  const handleSubmit = async () => {
+    setLoading(true);
+    setError(false);
+    // setOrganizationID("orgID") //TODO:Remove after live APIs
+    // localStorage.setItem("organizationID", 'orgID');//TODO:Remove after live APIs
+    // navigate('/' + routes[2].path, { replace: true })//TODO:Remove after live APIs
 
     try {
       await validationSchema.validate({ username, password }); // Validate username and password
       const hashedPass = Md5.hashStr(password).toString();
       const hashedToken = base64_encode(`${username}:${hashedPass}`);
-      const payload = { username: username, authToken: `Basic ${hashedToken}` }
+      const payload = { username: username, authToken: `Basic ${hashedToken}` };
 
       getApi(Endpoints.login, payload, "POST")
         .then((loginResponse) => {
-          const orgID = loginResponse?.data?.response?.organization?.id ?? '';
-          setOrganizationID(orgID)
+          const orgID = loginResponse?.data?.response?.organization?.id ?? "";
+          setOrganizationID(orgID);
           localStorage.setItem("organizationID", orgID);
+
+          // populate property and store from previous session
+          const session = loginResponse?.data?.response?.session_profile;
+          if (session) {
+            setProperty({ label: session.location, value: session.location });
+            setStore({ label: session.store, value: session.store });
+          }
         })
         .catch((err) => {
-          const responseKey = err?.response?.data?.responseKey
+          const responseKey = err?.response?.data?.responseKey;
           responseKey && setErrorMessage(responseKey);
           setError(true);
-          setLoading(false)
-        })
-
+          setLoading(false);
+        });
     } catch (error) {
       if (error instanceof Yup.ValidationError) {
         setErrorMessage(error?.message);
         setError(true);
-        setLoading(false)
+        setLoading(false);
       }
     }
-  }
+  };
 
   useEffect(() => {
     document.documentElement.classList.add("login-page");
@@ -74,14 +87,46 @@ function LoginPage() {
       document.documentElement.classList.remove("login-page");
     };
   }, []);
+  console.log("Devices",devices)
+  const getDeviceInfo = async () => {
+    try {
+      const devices = await navigator.mediaDevices.enumerateDevices();
+      setDevices(devices);
+      console.log("DEVICES", devices);
+    } catch (err) {
+      console.error("Error fetching devices:", err);
+    }
+  };
+
+  // for generating test ID's
+  const currentPage = rsp("location-search");
+  const shortPathSL = getWords("staffLogin");
 
   return (
-    <div className="login-page-container">
+    <div
+      className="login-page-container"
+      id={`${currentPage}CONT`}
+      data-testid={`${currentPage}CONT`}
+    >
       <Grid container className="login-container">
         <Grid item xs={12} m={2} maxWidth={["330px", "400px"]}>
-          <Box className="login-avatar-container">
-            <Avatar alt="Logo" src={goToPass} className="login-avatar" />
-            <Typography variant="h1" mb={"6px"}>
+          <Box
+            className="login-avatar-container"
+            id={`${currentPage}ACONT`}
+            data-testid={`${currentPage}ACONT`}
+          >
+            <Avatar
+              alt="Logo"
+              src={goToPass}
+              className="login-avatar"
+              data-testid={`${currentPage}AVT`}
+            />
+            <Typography
+              variant="h1"
+              mb={"6px"}
+              id={`${currentPage}${shortPathSL}`}
+              data-testid={`${currentPage}${shortPathSL}`}
+            >
               {t("staffLogin")}
             </Typography>
           </Box>
@@ -89,12 +134,12 @@ function LoginPage() {
           <LabelledInput
             label={t("username")}
             setValue={setUsername}
-            data-testid="username"
             value={username}
             placeholder={t("enterEmployeeID")}
             error={error}
             className="mb-15px"
             headerVariant="subtitle1"
+            testID={`${currentPage}${getWords("username")}`}
           />
 
           <LabelledInput
@@ -107,9 +152,16 @@ function LoginPage() {
             error={error}
             className="mb-15px"
             headerVariant="subtitle1"
+            testID={`${currentPage}${getWords("enterPassword")}`}
           />
 
-          {error && <ErrorMessage className="mb-15px" message={t(errorMessage)} />}
+          {error && (
+            <ErrorMessage
+              className="mb-15px"
+              message={t(errorMessage)}
+              testID={currentPage}
+            />
+          )}
 
           <Button
             disabled={!username || !password || loading}
@@ -117,6 +169,7 @@ function LoginPage() {
             title={t("login")}
             loading={loading}
             loadingText={t("loading")}
+            testID={`${currentPage}${getWords("login")}`}
           />
         </Grid>
       </Grid>
@@ -129,8 +182,7 @@ export default LoginPage;
 // Note: the error message is a key from the translations
 const validationSchema = Yup.object().shape({
   username: Yup.string()
-    .max(50, 'usernameMaxLength')
-    .matches(/^\S*$/, 'usernameNoSpace'),
-  password: Yup.string()
-    .min(8, 'passwordMinLength'),
+    .max(50, "usernameMaxLength")
+    .matches(/^\S*$/, "usernameNoSpace"),
+  password: Yup.string().min(8, "passwordMinLength"),
 });

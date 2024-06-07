@@ -2,9 +2,16 @@ import Button from "@/components/Button";
 import Card from "../../components/Card";
 import { useTranslation } from "react-i18next";
 import MemberCard from "@/components/MemberCard";
+import { rsp } from "@/constants/tests/shortPath";
+import { getWords } from "@/constants/tests/words";
+import { useNavigate } from "react-router";
 
 const MemberDetails = () => {
-  const handleSubmit = () => { }
+  const navigate = useNavigate();
+
+  const handleSubmit = () => {
+    navigate("/earn-points")
+   }
   const { t } = useTranslation();
   const dummyData = { //dummy data, to be replaced with api call
     name: "Hikari Tanaka",
@@ -15,13 +22,24 @@ const MemberDetails = () => {
     expiryDate: "2024/01/01",
   }
 
-  return (
-    <div className="cards-container">
-      <MemberCard {...dummyData} />
+  // used for generating testIDs
+  const currentPage = rsp('member-details');
 
-      <Card title={t("earnPoints")}  >
+  return (
+    <div
+      className="cards-container"
+      id={currentPage + "CONT"}
+      data-testid={currentPage + "CONT"}
+    >
+      <MemberCard {...dummyData} testID={currentPage} />
+
+      <Card title={t("earnPoints")} testID={currentPage + getWords("earnPoints")} >
         <div className="height-50" />
-        <Button title={t("enterInformationDirectly")} onClick={handleSubmit} />
+        <Button
+          title={t("enterInformationDirectly")}
+          onClick={handleSubmit}
+          testID={currentPage + getWords('enterInformationDirectly')}
+        />
       </Card>
     </div>
   )

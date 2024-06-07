@@ -7,6 +7,8 @@ import Card from "../../components/Card";
 import "./MemberSearchPage.css"
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router";
+import { rsp } from "@/constants/tests/shortPath";
+import { getWords } from "@/constants/tests/words";
 
 
 function MemberSearchPage() {
@@ -27,15 +29,23 @@ function MemberSearchPage() {
     navigate("/qr-scan");
   };
 
+  const currentPage = rsp('member-search');
+  const memberLookup = getWords('memberLookup');
+
   return (
-    <div className="cards-container">
-      <Card title={t("memberLookup")}>
+    <div className="cards-container" id={`${currentPage}CONT`} data-testid={`${currentPage}CONT`}>
+      <Card title={t("memberLookup")} testID={currentPage + memberLookup + '1'}>
         <Grid item xs={14} className="input-container pb-0">
-          <Button title={t("scanQRCode")} onClick={scanQRCode} className="scan-button"/>
+          <Button
+            title={t("scanQRCode")}
+            onClick={scanQRCode}
+            className="scan-button"
+            testID={`${currentPage}${getWords('scanQRCode')}`}
+          />
         </Grid>
       </Card>
 
-      <Card>
+      <Card testID={currentPage + memberLookup + '2'}>
         <Grid item xs={12}>
           <LabelledInput
             label={t("memberIDorCardNumber")}
@@ -51,6 +61,7 @@ function MemberSearchPage() {
             }}
             headerVariant="h5"
             className="mb-15px"
+            testID={`${currentPage}${getWords('memberIDorCardNumber')}`}
           />
         </Grid>
         <Button
@@ -59,6 +70,7 @@ function MemberSearchPage() {
           onClick={searchMember}
           loadingText={t("searching")}
           loading={loading}
+          testID={`${currentPage}${getWords('search')}`}
         />
       </Card>
     </div>

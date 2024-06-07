@@ -9,6 +9,8 @@ type ButtonProps = {
   disabled?: boolean;
   className?: string;
   icon?: ReactNode;
+  testID?: string;
+  variant?:any
 };
 
 // Button component with loading state
@@ -20,6 +22,8 @@ const Button: FC<ButtonProps> = ({
   loadingText,
   className,
   icon,
+  variant,
+  testID=''
 }) => {
   return (
     <MuiButton
@@ -30,6 +34,9 @@ const Button: FC<ButtonProps> = ({
         alignItems: "center",
         ...(className && { className }),
       }}
+      variant={variant}
+      data-testid={`${testID}B`}
+      id={`${testID}B`}
     >
       {loading ? (
         <>

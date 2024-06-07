@@ -61,3 +61,22 @@ body {
 .height-50 {
   height: 50px;
 }
+
+.txt-req{
+  text-align: end;
+}
+.txt-cntr{
+  text-align: center;
+}
+.mar-top{
+  margin-top: unset;
+}
+.txt-end{
+  display: flex;
+  justify-content: end;
+  margin-bottom: -39px !important;
+}
+
+.pad-0 input{
+  padding: 0 !important;
+}

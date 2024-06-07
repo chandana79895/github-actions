@@ -6,112 +6,43 @@ import Card from "../../components/Card";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router";
 import { AppContext } from "@/store/AppContext";
-// import { getApi } from "@/api/utils/http";
-// import { Endpoints } from "@/api/const/endpoints";
+import { getApi } from "@/api/utils/http";
+import { Endpoints } from "@/api/const/endpoints";
+import { getWords } from "@/constants/tests/words";
+import { rsp } from "@/constants/tests/shortPath";
 
 function LocationSearchPage() {
   const { t } = useTranslation();
   const [loading, setLoading] = useState(false);
+  const [locations, setLocations] = useState([]);
   const navigate = useNavigate();
   const { property, setProperty, store, setStore } = useContext(AppContext);
-  // const payload = {
-  //   authorization:
-  //     "Basic emFwY29tX3Rlc3Q6YmY2MDkwMmRiYjQxZjhjYTFhNGM4ZmQzMDQ1MmU2Yjg=",
-  // };
-  // const response = getApi(Endpoints.property, payload, "POST")
-  // .then((e) => {
-  //   console.log("e", e.data);
-  // });
-  const response = [
-    {
-      location: "Akasaka",
-      entities: [
-        {
-          name: "HMH01101A_Akasaka Restaurant2",
-          code: "demo.nascar.solutions4",
-          property: "HMH01101 - MyStays Akasaka2",
-        },
-        {
-          name: "HMH01101A_Akasaka Restaurant2",
-          code: "demo.fortress.solution3",
-          property: "HMH01101 - MyStays Akasaka2",
-        },
-        {
-          name: "HMH01101A_Akasaka Restaurant",
-          code: "demo.fortress.solution2",
-          property: "HMH01101 - MyStays Akasaka",
-        },
-        {
-          name: "HMH01101B_Akasaka Spa",
-          code: "demo.fortress.solutions",
-          property: "HMH01101 - MyStays Akasaka",
-        },
-        {
-          name: "HMH01101B_Akasaka Spa2",
-          code: "demo.fortress.solution4",
-          property: "HMH01101 - MyStays Akasaka2",
-        },
-      ],
-    },
-    {
-      location: "Akasaka2",
-      entities: [
-        {
-          name: "HMH01101A_Akasaka Restaurant2",
-          code: "demo.nascar.solutions4",
-          property: "HMH01101 - MyStays Akasaka2 Secondary",
-        },
-        {
-          name: "HMH01101A_Akasaka Restaurant2",
-          code: "demo.fortress.solution3",
-          property: "HMH01101 - MyStays Akasaka2 Secondary",
-        },
-        {
-          name: "HMH01101A_Akasaka Restaurant",
-          code: "demo.fortress.solution2",
-          property: "HMH01101 - MyStays Akasaka Secondary",
-        },
-        {
-          name: "HMH01101B_Akasaka Spa",
-          code: "demo.fortress.solutions",
-          property: "HMH01101 - MyStays Akasaka Secondary",
-        },
-        {
-          name: "HMH01101B_Akasaka Spa2",
-          code: "demo.fortress.solution4",
-          property: "HMH01101 - MyStays Akasaka2 Secondary",
-        },
-      ],
-    },
-  ];
-  useEffect(() => {
-    setStore({ label: "", value: "" });
-  }, [property]);
 
-  console.log("Response", response);
-  const handleSubmit = () => {
-    // mock function to simulate loading
+  const payload = {
+    "ngrok-skip-browser-warning": true,
+    authorization:
+      "Basic emFwY29tX3Rlc3Q6YmY2MDkwMmRiYjQxZjhjYTFhNGM4ZmQzMDQ1MmU2Yjg=",
+  };
+  const fetchLocations = async () => {
     setLoading(true);
-    setTimeout(() => {
+    try {
+      const response = await getApi(Endpoints.property, payload, "GET");
+      setLocations(response.data);
+    } catch (error) {
+      console.error("Error fetching locations:", error);
+    } finally {
       setLoading(false);
-    }, 2000);
-    navigate("/member-search");
+    }
   };
 
-  const location = response.map((item) => ({
-    label: item.location,
-    value: item.location,
-  }));
+  useEffect(() => {
+    fetchLocations();
+  }, []);
 
-  // Update entity based on selected location
-  const entity = property.value
-    ? response
-        .find((item) => item.location === property.value)
-        ?.entities.map((entity) => ({
-          label: entity.property,
-          value: entity.property,
-        }))
-    : [];
+  useEffect(() => {
+    setStore({ label: "", value: "" });
+  }, [property, setStore]);
+
   useEffect(() => {
     if (property.value) {
       setProperty(property);
@@ -119,20 +50,48 @@ function LocationSearchPage() {
     if (store.value) {
       setStore(store);
     }
-  }, []);
+  }, [property, setProperty, store, setStore]);
+
+  const handleSubmit = () => {
+    navigate("/member-search");
+  };
+
+  const locationOptions = locations?.map((item) => ({
+    label: item.location,
+    value: item.location,
+  }));
+
+  const entityOptions = property.value
+    ? locations
+        ?.find((item) => item.location === property.value)
+        ?.entities.map((entity) => ({
+          label: entity.property,
+          value: entity.property,
+        })) || []
+    : [];
+
+  const currentPage = rsp("location-search");
 
   return (
-    <div className="cards-container">
-      <Card title={t("chooseYourLocation")}>
+    <div
+      className="cards-container"
+      id={`${currentPage}CONT`}
+      data-testid={`${currentPage}CONT`}
+    >
+      <Card
+        title={t("chooseYourLocation")}
+        testID={currentPage + getWords("chooseYourLocation")}
+      >
         <Grid item xs={12} className="input-container">
           <LabelledInput
             label={t("lookupProperty")}
             value={property}
             inputType="autocomplete"
             setValue={setProperty}
-            options={location}
+            options={locationOptions}
             placeholder={t("enterPropertyName")}
             headerVariant="h5"
+            testID={`${currentPage}${getWords("lookupProperty")}`}
           />
           <br />
           <LabelledInput
@@ -140,10 +99,11 @@ function LocationSearchPage() {
             value={store}
             inputType="autocomplete"
             setValue={setStore}
-            options={entity}
+            options={entityOptions}
             placeholder={t("selectStore")}
             disabled={!property.value}
             headerVariant="h5"
+            testID={`${currentPage}${getWords("selectStore")}`}
           />
         </Grid>
         <Button
@@ -151,7 +111,7 @@ function LocationSearchPage() {
           disabled={!property.value || !store.value || loading}
           onClick={handleSubmit}
           loadingText={t("loading")}
-          loading={loading}
+          testID={`${currentPage}${getWords("chooseLocation")}`}
         />
       </Card>
     </div>

@@ -16,6 +16,7 @@ type MemberCardProps = {
   points?: string;
   setExpanded?: (expanded: boolean) => void;
   tier?: string;
+  testID?: string;
 }
 
 const MemberCard: FC<MemberCardProps> = ({
@@ -28,17 +29,19 @@ const MemberCard: FC<MemberCardProps> = ({
   points,
   setExpanded,
   tier,
+  testID
 }) => {
   const { t } = useTranslation();
   const palette = useTheme().palette;
+  const cardTestID = testID + 'MBRC';
   return (
-    <Card >
+    <Card testID={cardTestID}>
       <Grid container gap={1}>
         {/* If the card is expandable, it displays the dropdown icon on the right */}
         <Grid item xs={expandable ? 11 : 12} >
           <div className={`flex-align-center ${expanded && 'mb-15px'}`}>
-            <img src={user} />
-            <Typography variant="h2" className="pl-10"> {name}</Typography>
+            <img src={user} id={`${cardTestID}IM`} data-testid={`${cardTestID}IM`} />
+            <Typography variant="h2" className="pl-10" id={`${cardTestID}NM`} data-testid={`${cardTestID}NM`}>{name}</Typography>
           </div>
         </Grid>
 
@@ -49,13 +52,13 @@ const MemberCard: FC<MemberCardProps> = ({
         {/* Hidden unless the card is expanded, expended by default, can be overidden by passing props */}
         {expanded && <>
           <Grid item xs={12}>
-            <Typography variant="h3">{points} {t('validPoints')} </Typography>
+            <Typography variant="h3" id={`${cardTestID}PT`} data-testid={`${cardTestID}PT`}>{points} {t('validPoints')} </Typography>
           </Grid>
           <Grid item xs={12}>
-            <Typography variant="h6">{t('currentTier')}: {tier} | {t('membershipId')}: {membershipID} </Typography>
+            <Typography variant="h6" id={`${cardTestID}MID`} data-testid={`${cardTestID}MID`}>{t('currentTier')}: {tier} | {t('membershipId')}: {membershipID} </Typography>
           </Grid>
           <Grid item xs={12}>
-            <Typography variant="h6" color={palette.primary.main}>{expiringPoints} {t('pointsExpireon')} {expiryDate} </Typography>
+            <Typography variant="h6" color={palette.primary.main} id={`${cardTestID}PEX`} data-testid={`${cardTestID}PEX`}>{expiringPoints} {t('pointsExpireon')} {expiryDate} </Typography>
           </Grid>
         </>
         }

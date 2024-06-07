@@ -20,6 +20,7 @@ import {
   useLocalStorageProperty,
   useLocalStorageStore,
 } from "./api/utils/useLocalStorage";
+import {session_time} from "./api/const/sessionTimeOut";
 import NotFound from "./pages/notFound/NotFound";
 
 interface RouteItem {
@@ -46,8 +47,6 @@ function App() {
   const [organizationID, setOrganizationID] = useState(() => {
     return localStorage.getItem("organizationID") || "";
   });
-  const sessionTimeout = process.env.VITE_APP_SESSION;
-  console.log(`Session Timeout: ${sessionTimeout}`); 
 
   useOrganizationRedirect(organizationID, navigate);
   useLanguageChange(language, i18n);
@@ -98,10 +97,12 @@ function App() {
     </div>
   );
   const handleVisibilityChangeCallback = handleVisibilityChange(
-    process.env.VITE_APP_SESSION,
+    session_time,
     setShowIdleModal
   );
-
+  console.log(`
+  session_time:
+  ${session_time}`);
   useEffect(() => {
     document.addEventListener(
       "visibilitychange",
@@ -125,7 +126,7 @@ function App() {
     <AppContext.Provider value={contextValue}>
       {shouldUseIdleTimer ? (
         <IdleTimerProvider
-          timeout={+sessionTimeout}
+          timeout={+session_time}
           onIdle={handleOnIdle}
           onActive={handleOnActive}
           onAction={handleOnAction}

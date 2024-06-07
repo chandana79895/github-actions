@@ -92,7 +92,31 @@ Resources:
             NotStatement:
               Statement:
                 IPSetReferenceStatement:
-                  Arn: !GetAtt testIPSet.Arn          
+                  Arn: !GetAtt testIPSet.Arn  
+                  
+  WAFLogGroup:
+    Type: 'AWS::Logs::LogGroup'
+    Properties:
+      LogGroupName: '/aws/waf/CLOUDFRONT/testWebACL'
+      RetentionInDays: 7
+
+  WAFLoggingConfiguration:
+    Type: 'AWS::WAFv2::LoggingConfiguration'
+    Properties:
+      ResourceArn: !GetAtt testWebACL.Arn
+      LogDestinationConfigs:
+        - !GetAtt WAFLogGroup.Arn
+      LoggingFilter:
+        DefaultBehavior: 'KEEP'
+        Filters:
+          - Behavior: 'KEEP'
+            Requirement: 'MEETS_ANY'
+            Conditions:
+              - ActionCondition:
+                  Action: 'BLOCK'
+      RedactedFields:
+        - SingleHeader:
+            Name: 'Authorization'                        
 
   Distribution:
     Type: AWS::CloudFront::Distribution

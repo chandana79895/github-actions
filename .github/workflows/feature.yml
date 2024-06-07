@@ -182,9 +182,7 @@ jobs:
         run: |
           branch=${{ github.event.pull_request.head.ref }}
           echo "Deleting branch: $branch"
-          if [[ "$branch" != "feature/*" ]] && [[ "$branch" != "feat/*" ]]; then
-            git config --global user.name "github-actions[bot]"
-            git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          if [[ "$branch" != "feature/*" ]] && [[ "$branch" != "feat/*" ]]; 
             git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}
             git push origin --delete "$branch"
           else

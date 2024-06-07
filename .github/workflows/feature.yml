@@ -81,6 +81,8 @@ jobs:
   notify_on_success:
     runs-on: ubuntu-latest
     needs: deploy
+    environment:
+      name: poc
     if: success()
     steps:
       - name: Notify Slack for pipeline success
@@ -124,6 +126,8 @@ jobs:
   notify_on_failure:
     runs-on: ubuntu-latest
     needs: deploy
+    environment:
+      name: poc
     if: failure()
     steps:
       - name: Notify Slack for pipeline failure

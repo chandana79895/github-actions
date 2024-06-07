@@ -1,67 +1,93 @@
-import { useState, useRef, SetStateAction, useEffect } from "react";
-import QrReader from "react-qr-scanner";
+import { useState, useRef, useEffect } from "react";
 import { Grid } from "@mui/material";
 import "./QrScan.css";
 import Button from "../../components/Button";
-import { BrowserBarcodeReader } from "@zxing/library";
+import { BrowserMultiFormatReader } from "@zxing/browser";
 import qrScannerGrid from "../../assets/icons/qrScannerGrid.png";
+import { Modal } from "@/components/Modal";
+import { t } from "i18next";
+import { useNavigate } from "react-router";
+import {
+  handleScan,
+  handleManualLookUp,
+  startVideo,
+  handleCloseModal,
+  handleTryAgain,
+  stopVideo,
+} from "./QrScanUtils";
+import { rsp } from "@/constants/tests/shortPath";
 
 const QrScan = () => {
+  const navigate = useNavigate();
   const [scannedData, setScannedData] = useState("");
   const [showPopup, setShowPopup] = useState(false);
-  const webcamRef = useRef(null);
-
-  const handleError = (error: any) => {
-    console.error("Error:", error);
-  };
-
-  const handleScan = (result: { text: SetStateAction<string> }) => {
-    if (result) {
-      setScannedData(result.text);
-    }
-    return;
-  };
-
-  const capture = async () => {
-    // if (webcamRef.current && webcamRef.current.getScreenshot) {
-    const imageSrc = webcamRef.current.getScreenshot();
-    const codeReader = new BrowserBarcodeReader();
-    try {
-      const result = await codeReader.decodeFromImage(undefined, imageSrc);
-      setScannedData(result.getText());
-    } catch (err) {
-      console.error("Error decoding QR code:", err);
-      // }
-    }
-  };
+  const [error, setError] = useState(false);
+  const videoRef = useRef(null);
+  const codeReader = useRef(new BrowserMultiFormatReader());
+  const [stream, setStream] = useState(null);
 
   useEffect(() => {
     if (scannedData) {
       setShowPopup(true);
-      setTimeout(() => setShowPopup(false), 3000);
+      setTimeout(() => {
+        setShowPopup(false);
+        navigate("/member-details");
+      }, 3000);
     }
-  }, [scannedData]);
+  }, [scannedData, navigate]);
+
+  useEffect(() => {
+    handleScan(codeReader, videoRef, setScannedData, setError);
+    return () => {
+      stopVideo(videoRef, setStream, setError);
+    };
+  }, [stream]);
+
+  useEffect(() => {
+    startVideo(videoRef, setStream, setError);
+  }, []);
+
+  //for generating test IDs
+  const currentPage = rsp("qr-scan");
+
   return (
     <Grid
       className="scanner-page"
       justifyContent={"center"}
       alignItems={"center"}
       flexDirection={"column"}
+      data-testid={`${currentPage}CONT`}
+      id={`${currentPage}CONT`}
     >
-      <img src={qrScannerGrid} alt="QR Scanner Grid" className="qr-grid" />
-      <QrReader
-        className="scan-box"
-        onError={handleError}
-        onScan={handleScan}
-        constraints={{ facingMode: "environment" }}
+      <img
+        src={qrScannerGrid}
+        alt="QR Scanner Grid"
+        className="qr-grid"
+        data-testid={`${currentPage}GRID`}
+        id={`${currentPage}GRID`}
       />
+      <video
+        ref={videoRef}
+        className="scan-box"
+        data-testid={`${currentPage}VID`}
+        id={`${currentPage}VID`} />
       <Button
         className="scan-button"
         title="Manual Lookup"
-        onClick={capture}
+        onClick={() => handleManualLookUp(navigate)}
         loadingText="Scanning"
+        testID={`${currentPage}MANU`}
       />
-      {showPopup && <div className="popup">Scan complete</div>}
+      <Modal
+        error={error}
+        open={showPopup}
+        buttonText={t("tryAgain")}
+        successText={t("scanSuccess")}
+        errorText={t("errorScanFailed")}
+        onClose={() => handleCloseModal(setShowPopup, setError)}
+        onClick={() => handleTryAgain(setShowPopup, setError)}
+        successMessage={`${scannedData}`}
+      />
     </Grid>
   );
 };

@@ -1,0 +1,27 @@
+.box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.modal-content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center; 
+}
+.modal-icon {
+  margin: 20%;
+}
+.modal-title {
+  margin-bottom: 20%;
+}
+.error-icon {
+  color: red;
+}
+
+.success-icon {
+  color: green;
+}

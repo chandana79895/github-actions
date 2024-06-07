@@ -185,6 +185,4 @@ jobs:
           if [[ "$branch" != "feature/*" ]] && [[ "$branch" != "feat/*" ]]; 
             git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}
             git push origin --delete "$branch"
-          else
-            echo "Branch $branch is protected and will not be deleted."
           fi

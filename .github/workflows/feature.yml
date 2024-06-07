@@ -4,7 +4,7 @@ on:
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
-      - feature/delete-branch-test
+      - develop
 
 jobs:
   unit_tests:

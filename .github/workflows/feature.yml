@@ -170,7 +170,6 @@ jobs:
 
   delete-branch:
     runs-on: ubuntu-latest
-    needs: deploy
     if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'develop'
     steps:
       - name: Checkout repository
@@ -181,8 +180,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         run: |
           branch=${{ github.event.pull_request.head.ref }}
-          echo "Deleting branch: $branch"
-          if [[ "$branch" != "feature/*" ]] && [[ "$branch" != "feat/*" ]]; 
+          if [[ "$branch" != feature/* ]] && [[ "$branch" != feat/* ]]; then
             git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}
-            git push origin --delete "$branch"
+            git push origin --delete $branch
           fi

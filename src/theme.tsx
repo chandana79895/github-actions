@@ -12,7 +12,7 @@ const themeOptions: ThemeOptions = {
     },
     text: {
       primary: '#2E3823',
-      secondary: '#000000',
+      secondary: '#FFFFFF',
       disabled: '#A7A7A7',
     },
     error: {
@@ -20,6 +20,7 @@ const themeOptions: ThemeOptions = {
     },
   },
 
+  // Override the default text variants
   typography: {
     fontFamily: 'Greycliff CF',
     fontSize: 15,
@@ -31,6 +32,7 @@ const themeOptions: ThemeOptions = {
     h1: {
       fontSize: 30,
       fontWeight: '500',
+      color: '#303030 !important' 
     },    
     h2: {
       fontSize: 28,
@@ -92,7 +94,7 @@ const themeOptions: ThemeOptions = {
           borderRadius: 12,
           backgroundColor: '#FFFFFF',
           padding: '50px 20px',
-          width: '350px',
+          width: '80%',
           [theme.breakpoints.up('sm')]: {
             width: '450px',
           },
@@ -121,6 +123,14 @@ const themeOptions: ThemeOptions = {
           },
           width: '100%',
         }
+      },
+    },
+
+    MuiTypography: {
+      styleOverrides: {
+        root: ({theme}) => ({
+          color: theme.palette.text.primary,
+        }),
       },
     },
 

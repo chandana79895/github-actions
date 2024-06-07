@@ -8,6 +8,8 @@ pnpm-debug.log*
 lerna-debug.log*
 coverage 
 
+.env
+.env.*
 node_modules
 dist
 dist-ssr
@@ -23,3 +25,4 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+node_modules

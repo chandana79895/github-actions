@@ -3,9 +3,10 @@ export const MenuModalStyle = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: { xs: 300, sm : 400 },
+    maxWidth: { xs: '75%', sm : 400 },
+    maxHeight: '70%',
     bgcolor: 'primary.main',
-    padding: '30px',
-    color: '#fff',
+    padding: '20px',
     borderRadius: '8px',
+    overflow: 'auto',
 };

@@ -1,4 +1,6 @@
 export const Endpoints = {
-    login:'/organization/get',
-    locationSearch:'organization/entities?'
+    login:'login',
+    locationSearch:'organization/entities?',
+    property:'property',
+    logout:'user_profile_logout'
 }

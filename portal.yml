@@ -74,7 +74,31 @@ Resources:
             NotStatement:
               Statement:
                 IPSetReferenceStatement:
-                  Arn: !GetAtt FortressIPSet.Arn      
+                  Arn: !GetAtt FortressIPSet.Arn  
+
+  WAFLogGroup:
+    Type: 'AWS::Logs::LogGroup'
+    Properties:
+      LogGroupName: '/aws/waf/CLOUDFRONT/CloudFrontWhitelistWebACL'
+      RetentionInDays: 7
+
+  WAFLoggingConfiguration:
+    Type: 'AWS::WAFv2::LoggingConfiguration'
+    Properties:
+      ResourceArn: !GetAtt WebACL.Arn
+      LogDestinationConfigs:
+        - !GetAtt WAFLogGroup.Arn
+      LoggingFilter:
+        DefaultBehavior: 'KEEP'
+        Filters:
+          - Behavior: 'KEEP'
+            Requirement: 'MEETS_ANY'
+            Conditions:
+              - ActionCondition:
+                  Action: 'BLOCK'
+      RedactedFields:
+        - SingleHeader:
+            Name: 'Authorization'                    
 
   StaticResourcesBucketPolicy:
     Type: AWS::S3::BucketPolicy

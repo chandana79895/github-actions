@@ -180,7 +180,7 @@ jobs:
 
       - name: Delete branch
         env:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         run: |
           branch=${{ github.event.pull_request.head.ref }}
           if [[ "$branch" != feature/* ]] && [[ "$branch" != feat/* ]]; then

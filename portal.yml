@@ -99,16 +99,14 @@ Resources:
         - Name: AllowIP6Rule
           Priority: 1
           Action:
-            Block: {}
+            Allow: {}
           VisibilityConfig:
             SampledRequestsEnabled: true
             CloudWatchMetricsEnabled: true
             MetricName: allow_ip6
           Statement:
-            NotStatement:
-              Statement:
-                IPSetReferenceStatement:
-                  Arn: !GetAtt testIPSet6.Arn
+             IPSetReferenceStatement:
+                Arn: !GetAtt testIPv6.Arn
 
 
   # WAFLogGroup:

@@ -215,6 +215,6 @@ Resources:
     Type: Custom::UpdateIPSet
     Properties:
       ServiceToken: !GetAtt UpdateIPSetFunction.Arn
-      S3Bucket: '${StaticResourcesBucket}'
+      S3Bucket: !Ref StaticResourcesBucket
       S3Key: 'ip-list.json'
       IPSetName: !Ref testIPSet4

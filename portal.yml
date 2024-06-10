@@ -68,14 +68,14 @@ Resources:
         - "14.97.205.158/32"
         - "192.168.1.242/32"
 
-  testIPv6:
-    Type: 'AWS::WAFv2::IPSet'
-    Properties:
-      Name: test-IPv6Set
-      Scope: CLOUDFRONT
-      IPAddressVersion: IPV6
-      Addresses:
-        - "2600:1700:eec4:7e00:b1e5:3e3a:4940:5516/128"     
+  # testIPv6:
+  #   Type: 'AWS:WAFv2::IPSet'
+  #   Properties:
+  #     Name: test-IPv6Set
+  #     Scope: CLOUDFRONT
+  #     IPAddressVersion: IPv6
+  #     Addresses:
+  #       - "2600:1700:eec4:7e00:b1e5:3e3a:4940:5516/128"     
 
   testWebACL:
     Type: AWS::WAFv2::WebACL
@@ -89,71 +89,43 @@ Resources:
         CloudWatchMetricsEnabled: true
         MetricName: "testWebACL"
       Rules:
-        - Name: test-ipv6
-          Priority: 0
-          Statement:
-            IPSetReferenceStatement:
-              ARN: !Ref testIPv6
-          Action:
-            Allow: {}
-          VisibilityConfig:
-            SampledRequestsEnabled: true
-            CloudWatchMetricsEnabled: true
-            MetricName: test-ipv6
-        
-        - Name: privateip
+        - Name: AllowIPRule
           Priority: 1
-          Statement:
-            IPSetReferenceStatement:
-              ARN: !Ref testIPSet4
-          Action:
-            Allow: {}
-          VisibilityConfig:
-            SampledRequestsEnabled: true
-            CloudWatchMetricsEnabled: true
-            MetricName: privateip
-        - Name: block_rule
-          Priority: 2
-          Statement:
-            NotStatement:
-              Statement:
-                GeoMatchStatement:
-                  CountryCodes:
-                    - JP
           Action:
             Block: {}
           VisibilityConfig:
             SampledRequestsEnabled: true
             CloudWatchMetricsEnabled: true
-            MetricName: block_rule
-      VisibilityConfig:
-        SampledRequestsEnabled: true
-        CloudWatchMetricsEnabled: true
-        MetricName: testWebACL
+            MetricName: allow_ip
+          Statement:
+            NotStatement:
+              Statement:
+                IPSetReferenceStatement:
+                  Arn: !GetAtt testIPSet4.Arn            
                   
-  WAFLogGroup:
-    Type: 'AWS::Logs::LogGroup'
-    Properties:
-      LogGroupName: '/aws/waf/CLOUDFRONT/testWebACL'
-      RetentionInDays: 7
+  # WAFLogGroup:
+  #   Type: 'AWS::Logs::LogGroup'
+  #   Properties:
+  #     LogGroupName: '/aws/waf/CLOUDFRONT/testWebACL'
+  #     RetentionInDays: 7
 
-  WAFLoggingConfiguration:
-    Type: 'AWS::WAFv2::LoggingConfiguration'
-    Properties:
-      ResourceArn: !GetAtt testWebACL.Arn
-      LogDestinationConfigs:
-        - !GetAtt WAFLogGroup.Arn
-      LoggingFilter:
-        DefaultBehavior: 'KEEP'
-        Filters:
-          - Behavior: 'KEEP'
-            Requirement: 'MEETS_ANY'
-            Conditions:
-              - ActionCondition:
-                  Action: 'BLOCK'
-      RedactedFields:
-        - SingleHeader:
-            Name: 'Authorization'                        
+  # WAFLoggingConfiguration:
+  #   Type: 'AWS::WAFv2::LoggingConfiguration'
+  #   Properties:
+  #     ResourceArn: !GetAtt testWebACL.Arn
+  #     LogDestinationConfigs:
+  #       - !GetAtt WAFLogGroup.Arn
+  #     LoggingFilter:
+  #       DefaultBehavior: 'KEEP'
+  #       Filters:
+  #         - Behavior: 'KEEP'
+  #           Requirement: 'MEETS_ANY'
+  #           Conditions:
+  #             - ActionCondition:
+  #                 Action: 'BLOCK'
+  #     RedactedFields:
+  #       - SingleHeader:
+  #           Name: 'Authorization'                        
 
   Distribution:
     Type: AWS::CloudFront::Distribution
@@ -200,3 +172,75 @@ Resources:
           Value: test
         - Key: Environment
           Value: !If [IsDev, Development, !Ref Env]
+
+  # LambdaExecutionRole:
+  #   Type: AWS::IAM::Role
+  #   Properties:
+  #     AssumeRolePolicyDocument:
+  #       Version: '2012-10-17'
+  #       Statement:
+  #         - Effect: Allow
+  #           Principal:
+  #             Service: 
+  #               - lambda.amazonaws.com
+  #           Action: sts:AssumeRole
+  #     Policies:
+  #       - PolicyName: LambdaS3WAFPolicy
+  #         PolicyDocument:
+  #           Version: '2012-10-17'
+  #           Statement:
+  #             - Effect: Allow
+  #               Action:
+  #                 - s3:GetObject
+  #               Resource: !Sub arn:aws:s3:::${StaticResourcesBucket}/ip-list.json
+  #             - Effect: Allow
+  #               Action:
+  #                 - wafv2:UpdateIPSet
+  #                 - wafv2:GetIPSet
+  #               Resource: "*"
+
+  # UpdateIPSetFunction:
+  #   Type: AWS::Lambda::Function
+  #   Properties:
+  #     Handler: index.lambda_handler
+  #     Role: !GetAtt LambdaExecutionRole.Arn
+  #     Code:
+  #       ZipFile: |
+  #         import json
+  #         import boto3
+
+  #         s3_client = boto3.client('s3')
+  #         wafv2_client = boto3.client('wafv2')
+
+  #         def lambda_handler(event, context):
+  #             bucket_name = 'your-bucket-name'
+  #             object_key = 'ip-list.json'
+  #             ipset_id = 'your-ipset-id'
+  #             ipset_name = 'your-ipset-name'
+  #             scope = 'CLOUDFRONT'
+
+  #             response = s3_client.get_object(Bucket=bucket_name, Key=object_key)
+  #             ip_list = json.loads(response['Body'].read().decode('utf-8'))
+              
+  #             wafv2_client.update_ip_set(
+  #                 Name=ipset_name,
+  #                 Scope=scope,
+  #                 Id=ipset_id,
+  #                 Addresses=ip_list['IPAddresses'],
+  #                 LockToken=wafv2_client.get_ip_set(Name=ipset_name, Scope=scope, Id=ipset_id)['LockToken']
+  #             )
+              
+  #             return {
+  #                 'statusCode': 200,
+  #                 'body': json.dumps('IPSet updated successfully')
+  #             }
+  #     Runtime: python3.8
+  #     Timeout: 300
+
+  # CustomResource:
+  #   Type: Custom::UpdateIPSet
+  #   Properties:
+  #     ServiceToken: !GetAtt UpdateIPSetFunction.Arn
+  #     S3Bucket: 'your-bucket-name'
+  #     S3Key: 'ip-list.json'
+  #     IPSetName: !Ref testIPv4               

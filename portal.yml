@@ -1,6 +1,5 @@
 AWSTemplateFormatVersion: "2010-09-09"
 
-#TODO:  add params for check same template
 Parameters:
   Env:
     Type: String
@@ -17,18 +16,18 @@ Conditions:
   IsStage: !Equals [!Ref Env, stage]
   IsProd: !Equals [!Ref Env, prod]
   IsPoc: !Equals [!Ref Env, poc]
-  
+
 Resources:
   OriginAccessIdentity:
     Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
     Properties:
       CloudFrontOriginAccessIdentityConfig:
-        Comment: !Sub ${AWS::StackName}-s3-origin-oai # take stack name from env , change env based on deployment
+        Comment: !Sub ${AWS::StackName}-s3-origin-oai
 
   StaticResourcesBucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: !Sub ${AWS::StackName} # TODO fetch name form env suffix env on bucket
+      BucketName: !Sub ${AWS::StackName}
       BucketEncryption:
         ServerSideEncryptionConfiguration:
           - ServerSideEncryptionByDefault:
@@ -65,11 +64,11 @@ Resources:
       Addresses: []
 
   testIPv6:
-    Type: 'AWS:WAFv2::IPSet'
+    Type: 'AWS::WAFv2::IPSet'
     Properties:
       Name: test-IPv6Set
       Scope: CLOUDFRONT
-      IPAddressVersion: IPv6
+      IPAddressVersion: IPV6
       Addresses: []
 
   testWebACL:
@@ -79,7 +78,7 @@ Resources:
       Scope: CLOUDFRONT
       DefaultAction:
         Allow: {}
-      VisibilityConfig: 
+      VisibilityConfig:
         SampledRequestsEnabled: true
         CloudWatchMetricsEnabled: true
         MetricName: "testWebACL"
@@ -96,31 +95,13 @@ Resources:
             NotStatement:
               Statement:
                 IPSetReferenceStatement:
-                  Arn: !GetAtt testIPSet4.Arn            
-                  
+                  Arn: !GetAtt testIPSet4.Arn
+
   WAFLogGroup:
     Type: 'AWS::Logs::LogGroup'
     Properties:
-      LogGroupName: '/aws/waf/CLOUDFRONT/${testWebACL}'
+      LogGroupName: !Sub '/aws/waf/CLOUDFRONT/${testWebACL}'
       RetentionInDays: 7
-
-  # WAFLoggingConfiguration:
-  #   Type: 'AWS::WAFv2::LoggingConfiguration'
-  #   Properties:
-  #     ResourceArn: !GetAtt testWebACL.Arn
-  #     LogDestinationConfigs:
-  #       - !GetAtt WAFLogGroup.Arn
-  #     LoggingFilter:
-  #       DefaultBehavior: 'KEEP'
-  #       Filters:
-  #         - Behavior: 'KEEP'
-  #           Requirement: 'MEETS_ANY'
-  #           Conditions:
-  #             - ActionCondition:
-  #                 Action: 'BLOCK'
-  #     RedactedFields:
-  #       - SingleHeader:
-  #           Name: 'Authorization'                        
 
   Distribution:
     Type: AWS::CloudFront::Distribution
@@ -176,7 +157,7 @@ Resources:
         Statement:
           - Effect: Allow
             Principal:
-              Service: 
+              Service:
                 - lambda.amazonaws.com
             Action: sts:AssumeRole
       Policies:
@@ -217,11 +198,10 @@ Resources:
               ip_list = json.loads(response['Body'].read().decode('utf-8'))
               
               wafv2_client.update_ip_set(
-                  Name=ipset_name,
+                  Name=${testIPSet4},
                   Scope=scope,
-                  Id=ipset_id,
                   Addresses=ip_list['IPAddresses'],
-                  LockToken=wafv2_client.get_ip_set(Name=ipset_name, Scope=scope, Id=ipset_id)['LockToken']
+                  LockToken=wafv2_client.get_ip_set(Name=ipset_name, Scope=scope)['LockToken']
               )
               
               return {
@@ -237,4 +217,4 @@ Resources:
       ServiceToken: !GetAtt UpdateIPSetFunction.Arn
       S3Bucket: '${StaticResourcesBucket}'
       S3Key: 'ip-list.json'
-      IPSetName: !Ref testIPv4               
+      IPSetName: !Ref testIPSet4

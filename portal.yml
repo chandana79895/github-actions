@@ -96,12 +96,26 @@ Resources:
               Statement:
                 IPSetReferenceStatement:
                   Arn: !GetAtt testIPSet4.Arn
+        - Name: AllowIP6Rule
+          Priority: 1
+          Action:
+            Block: {}
+          VisibilityConfig:
+            SampledRequestsEnabled: true
+            CloudWatchMetricsEnabled: true
+            MetricName: allow_ip6
+          Statement:
+            NotStatement:
+              Statement:
+                IPSetReferenceStatement:
+                  Arn: !GetAtt testIPSet6.Arn
 
-  WAFLogGroup:
-    Type: 'AWS::Logs::LogGroup'
-    Properties:
-      LogGroupName: !Sub '/aws/waf/CLOUDFRONT/${testWebACL}'
-      RetentionInDays: 7
+
+  # WAFLogGroup:
+  #   Type: 'AWS::Logs::LogGroup'
+  #   Properties:
+  #     LogGroupName: !Sub '/aws/waf/CLOUDFRONT/${testWebACL}'
+  #     RetentionInDays: 7
 
   Distribution:
     Type: AWS::CloudFront::Distribution

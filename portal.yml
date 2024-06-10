@@ -97,11 +97,11 @@ Resources:
                 IPSetReferenceStatement:
                   Arn: !GetAtt testIPSet4.Arn
 
-  # WAFLogGroup:
-  #   Type: 'AWS::Logs::LogGroup'
-  #   Properties:
-  #     LogGroupName: !Sub '/aws/waf/CLOUDFRONT/${testWebACL}'
-  #     RetentionInDays: 7
+  WAFLogGroup:
+    Type: 'AWS::Logs::LogGroup'
+    Properties:
+      LogGroupName: !Sub '/aws/waf/CLOUDFRONT/${testWebACL}'
+      RetentionInDays: 7
 
   Distribution:
     Type: AWS::CloudFront::Distribution

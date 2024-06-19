@@ -63,20 +63,39 @@ jobs:
         run: |
           aws cloudformation validate-template --template-body file://portal.yml
           aws cloudformation deploy --stack-name test-stack-ui-${{ secrets.ENV }} --template-file portal.yml --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM --parameter-overrides Env=${{ secrets.ENV }}
+      
+  build-and-run-jar:
+    runs-on: ubuntu-latest
+    environment:
+      name: poc
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
 
-      - name: Build and Deploying FE Code
-        env:
-          CFD_ID: ${{ secrets.CFD_ID }}
-        run: |
-          # printenv >  .env.${{ secrets.ENV }}
-          ls -ltrha
-          npm install
-          export CI=false
-          npm run build:${{ secrets.ENV }}
-          cat .env.${{ secrets.ENV }}
-          aws s3 rm s3://test-stack-ui-${{ secrets.ENV }}/ --recursive
-          aws s3 sync ./dist s3://test-stack-ui-${{ secrets.ENV}}/
-          aws cloudfront create-invalidation --distribution-id ${{ secrets.CFD_ID }} --paths "/*"
+    - name: Set up JDK 11
+      uses: actions/setup-java@v3
+      with:
+        java-version: '11'
+        distribution: 'adopt'
+
+    - name: Build with Maven
+      run: mvn clean package
+
+    - name: Run JAR file
+      run: java -jar Capillary_Framework-0.0.1-SNAPSHOT.jar
+
+      # - name: Build and Deploying FE Code
+      #   env:
+      #     CFD_ID: ${{ secrets.CFD_ID }}
+      #   run: |
+      #     # printenv >  .env.${{ secrets.ENV }}
+      #     npm install
+      #     export CI=false
+      #     npm run build:${{ secrets.ENV }}
+      #     cat .env.${{ secrets.ENV }}
+      #     aws s3 rm s3://test-stack-ui-${{ secrets.ENV }}/ --recursive
+      #     aws s3 sync ./dist s3://test-stack-ui-${{ secrets.ENV}}/
+      #     aws cloudfront create-invalidation --distribution-id ${{ secrets.CFD_ID }} --paths "/*"
 
   # notify_on_success:
   #   runs-on: ubuntu-latest

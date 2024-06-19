@@ -1,0 +1,132 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 88, Failures: 13, Errors: 0, Skipped: 30, Time elapsed: 750.016 sec <<< FAILURE! - in TestSuite
+verifyHeaderOfMemberLookupScreen(zapcg.Capillary.LocationPageTestCases.Location_TestCases)  Time elapsed: 32.41 sec  <<< FAILURE!
+java.lang.AssertionError: The second dropdown selection does not partially match on the next page. expected [true] but found [false]
+	at zapcg.Capillary.LocationPageTestCases.Location_TestCases.verifyHeaderOfMemberLookupScreen(Location_TestCases.java:123)
+
+initialize(zapcg.Capillary.LoginTestCases.Login_Valid_TestCases)  Time elapsed: 3.245 sec  <<< FAILURE!
+org.openqa.selenium.NoSuchSessionException: 
+Session ID is null. Using WebDriver after calling quit()?
+Build info: version: '4.21.0', revision: '79ed462ef4'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [null, get {url=https://d1msv2sqknn4w4.cloudfront.net}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.57, chrome: {chromedriverVersion: 126.0.6478.61 (8dc092df54ce..., userDataDir: C:\Users\KAJALS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56747}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56747/devtoo..., se:cdpVersion: 126.0.6478.57, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+	at zapcg.Capillary.LoginTestCases.Login_Valid_TestCases.initialize(Login_Valid_TestCases.java:21)
+
+initialize(zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases)  Time elapsed: 1.61 sec  <<< FAILURE!
+org.openqa.selenium.NoSuchSessionException: 
+Session ID is null. Using WebDriver after calling quit()?
+Build info: version: '4.21.0', revision: '79ed462ef4'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [null, get {url=https://d1msv2sqknn4w4.cloudfront.net}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.57, chrome: {chromedriverVersion: 126.0.6478.61 (8dc092df54ce..., userDataDir: C:\Users\KAJALS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56747}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56747/devtoo..., se:cdpVersion: 126.0.6478.57, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.initialize(Login_Invalid_TestCases.java:22)
+
+initialize(zapcg.Capillary.LocationPageTestCases.Location_TestCases)  Time elapsed: 10.341 sec  <<< FAILURE!
+org.openqa.selenium.WebDriverException: 
+Failed to decode response from marionette
+Build info: version: '4.21.0', revision: '79ed462ef4'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [be07a10b-4fcf-47d5-b6b6-cf6b15a13a7d, findElement {using=xpath, value=//div[@class='MuiBox-root css-g9yypl' and contains(text(), 'Japanese')]}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240612091431, moz:debuggerAddress: 127.0.0.1:9008, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 34764, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:9008/devtool..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: be07a10b-4fcf-47d5-b6b6-cf6b15a13a7d
+	at zapcg.Capillary.LocationPageTestCases.Location_TestCases.initialize(Location_TestCases.java:29)
+
+testInvalidUsername(zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases)  Time elapsed: 30.849 sec  <<< FAILURE!
+org.openqa.selenium.NoSuchWindowException: 
+no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=126.0.6478.57)
+Build info: version: '4.21.0', revision: '79ed462ef4'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [61504f42515079fea8a55cabe06041dd, findElement {using=xpath, value=//h6[contains(text(),'Invalid username or password. Try again.')]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.57, chrome: {chromedriverVersion: 126.0.6478.61 (8dc092df54ce..., userDataDir: C:\Users\KAJALS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56948}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56948/devtoo..., se:cdpVersion: 126.0.6478.57, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 61504f42515079fea8a55cabe06041dd
+	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidUsername(Login_Invalid_TestCases.java:36)
+
+testInvalidPassword(zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases)  Time elapsed: 10.551 sec  <<< FAILURE!
+org.openqa.selenium.NoSuchWindowException: 
+no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=126.0.6478.57)
+Build info: version: '4.21.0', revision: '79ed462ef4'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [36a625879763707ae635782b70c48af6, findElement {using=xpath, value=//h6[@id='LSERRM' and contains(text(),"Invalid username or password. Try again.")]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.57, chrome: {chromedriverVersion: 126.0.6478.61 (8dc092df54ce..., userDataDir: C:\Users\KAJALS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57040}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57040/devtoo..., se:cdpVersion: 126.0.6478.57, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 36a625879763707ae635782b70c48af6
+	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidPassword(Login_Invalid_TestCases.java:44)
+
+verifyHeaderOfMemberLookupScreen(zapcg.Capillary.LocationPageTestCases.Location_TestCases)  Time elapsed: 32.577 sec  <<< FAILURE!
+java.lang.AssertionError: The second dropdown selection does not partially match on the next page. expected [true] but found [false]
+	at zapcg.Capillary.LocationPageTestCases.Location_TestCases.verifyHeaderOfMemberLookupScreen(Location_TestCases.java:123)
+
+testInvalidUsername(zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases)  Time elapsed: 60.451 sec  <<< FAILURE!
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //h6[contains(text(),'Invalid username or password. Try again.')]' (tried for 30 second(s) with 500 milliseconds interval)
+	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidUsername(Login_Invalid_TestCases.java:36)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: //h6[contains(text(),'Invalid username or password. Try again.')]
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.21.0', revision: '79ed462ef4'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [f2f62c43-8f74-4b22-8830-a704aa3b8fd8, findElement {using=xpath, value=//h6[contains(text(),'Invalid username or password. Try again.')]}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240617091959, moz:debuggerAddress: 127.0.0.1:39163, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 34804, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:39163/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: f2f62c43-8f74-4b22-8830-a704aa3b8fd8
+	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidUsername(Login_Invalid_TestCases.java:36)
+
+verifyHeaderOfMemberLookupScreen(zapcg.Capillary.LocationPageTestCases.Location_TestCases)  Time elapsed: 32.666 sec  <<< FAILURE!
+java.lang.AssertionError: The second dropdown selection does not partially match on the next page. expected [true] but found [false]
+	at zapcg.Capillary.LocationPageTestCases.Location_TestCases.verifyHeaderOfMemberLookupScreen(Location_TestCases.java:123)
+
+testInvalidUsername(zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases)  Time elapsed: 60.36 sec  <<< FAILURE!
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //h6[contains(text(),'Invalid username or password. Try again.')]' (tried for 30 second(s) with 500 milliseconds interval)
+	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidUsername(Login_Invalid_TestCases.java:36)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"xpath","selector":"//h6[contains(text(),'Invalid username or password. Try again.')]"}
+  (Session info: chrome=126.0.6478.57)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.21.0', revision: '79ed462ef4'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [09ea37edd6060b56c72587c3fc7a167f, findElement {using=xpath, value=//h6[contains(text(),'Invalid username or password. Try again.')]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.57, chrome: {chromedriverVersion: 126.0.6478.61 (8dc092df54ce..., userDataDir: C:\Users\KAJALS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57867}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57867/devtoo..., se:cdpVersion: 126.0.6478.57, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 09ea37edd6060b56c72587c3fc7a167f
+	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidUsername(Login_Invalid_TestCases.java:36)
+
+verifyHeaderOfMemberLookupScreen(zapcg.Capillary.LocationPageTestCases.Location_TestCases)  Time elapsed: 31.894 sec  <<< FAILURE!
+java.lang.AssertionError: The second dropdown selection does not partially match on the next page. expected [true] but found [false]
+	at zapcg.Capillary.LocationPageTestCases.Location_TestCases.verifyHeaderOfMemberLookupScreen(Location_TestCases.java:123)
+
+testInvalidUsername(zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases)  Time elapsed: 60.397 sec  <<< FAILURE!
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //h6[contains(text(),'Invalid username or password. Try again.')]' (tried for 30 second(s) with 500 milliseconds interval)
+	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidUsername(Login_Invalid_TestCases.java:36)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: //h6[contains(text(),'Invalid username or password. Try again.')]
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.21.0', revision: '79ed462ef4'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [8c0f2e42-352e-437c-b3ab-07121f622c62, findElement {using=xpath, value=//h6[contains(text(),'Invalid username or password. Try again.')]}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240617091959, moz:debuggerAddress: 127.0.0.1:42298, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 14732, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:42298/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: 8c0f2e42-352e-437c-b3ab-07121f622c62
+	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidUsername(Login_Invalid_TestCases.java:36)
+
+verifyHeaderOfMemberLookupScreen(zapcg.Capillary.LocationPageTestCases.Location_TestCases)  Time elapsed: 31.846 sec  <<< FAILURE!
+java.lang.AssertionError: 
+An error occurred while verifying the dropdown selections: Element <button id="LS014B" class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-y7km40" type="button"> is not clickable at point (225,472) because another element <li id="LS013OP0" class="MuiAutocomplete-option"> obscures it
+Build info: version: '4.21.0', revision: '79ed462ef4'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [f36fbe11-8ba8-43fd-b09d-d67966f67555, clickElement {id=57fb83b6-f29c-4262-b76d-5ff7667cfbb1}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240617091959, moz:debuggerAddress: 127.0.0.1:35458, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 24608, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:35458/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Element: [[FirefoxDriver: firefox on windows (f36fbe11-8ba8-43fd-b09d-d67966f67555)] -> xpath: //button[@id='LS014B']]
+Session ID: f36fbe11-8ba8-43fd-b09d-d67966f67555
+	at zapcg.Capillary.LocationPageTestCases.Location_TestCases.verifyHeaderOfMemberLookupScreen(Location_TestCases.java:126)
+

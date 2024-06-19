@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestSuite" time="750.016" tests="88" errors="0" skipped="30" failures="13">
+  <properties>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="java.vm.version" value="15.0.2+7-27"/>
+    <property name="sun.boot.library.path" value="C:\Program Files (x86)\Eclipse\eclipse\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_15.0.2.v20210201-0955\jre\bin"/>
+    <property name="maven.multiModuleProjectDirectory" value="C:\Users\KajalSharma\eclipse-workspace\Capillary\Capillary_Framework"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="path.separator" value=";"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="IN"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="C:\Users\KajalSharma\eclipse-workspace\Capillary\Capillary_Framework"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="java.runtime.version" value="15.0.2+7-27"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="C:\Users\KAJALS~1\AppData\Local\Temp\"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="classworlds.conf" value="C:\Capillary\Fortress-Staff-Portal-FrontEnd\testing\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf5167550400774910695.tmp"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files (x86)\Eclipse\eclipse\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_15.0.2.v20210201-0955\jre\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:/Program Files (x86)/Eclipse/eclipse//plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_15.0.2.v20210201-0955/jre/bin/server;C:/Program Files (x86)/Eclipse/eclipse//plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_15.0.2.v20210201-0955/jre/bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\Java\jdk-11\bin;C:\Maven\apache-maven-3.9.6\bin;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Users\KajalSharma\AppData\Local\Microsoft\WindowsApps;C:\Users\KajalSharma\AppData\Roaming\npm;C:\Program Files\JetBrains\IntelliJ IDEA 2024.1.2\bin;;C:\Program Files (x86)\Eclipse\eclipse;;."/>
+    <property name="jdk.debug" value="release"/>
+    <property name="java.class.version" value="59.0"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="10.0"/>
+    <property name="user.home" value="C:\Users\KajalSharma"/>
+    <property name="user.timezone" value="Asia/Calcutta"/>
+    <property name="file.encoding" value="Cp1252"/>
+    <property name="java.specification.version" value="15"/>
+    <property name="user.name" value="KajalSharma"/>
+    <property name="java.class.path" value="C:\Program Files (x86)\Eclipse\eclipse\plugins\org.eclipse.m2e.maven.runtime_1.16.0.20210129-0849\jars\plexus-classworlds-2.6.0.jar"/>
+    <property name="java.vm.specification.version" value="15"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -B install"/>
+    <property name="java.home" value="C:\Program Files (x86)\Eclipse\eclipse\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_15.0.2.v20210201-0955\jre"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="15.0.2"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="C:\Users\KajalSharma\eclipse-workspace\Capillary\Capillary_Framework\EMBEDDED"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.version.date" value="2021-01-19"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase name="testValidLogin" classname="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases" time="3.143"/>
+  <testcase name="testValidLogin" classname="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases" time="0">
+    <skipped message="Session ID is null. Using WebDriver after calling quit()?&#10;Build info: version: &apos;4.21.0&apos;, revision: &apos;79ed462ef4&apos;&#10;System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;15.0.2&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [null, get {url=https://d1msv2sqknn4w4.cloudfront.net}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.57, chrome: {chromedriverVersion: 126.0.6478.61 (8dc092df54ce..., userDataDir: C:\Users\KAJALS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56747}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56747/devtoo..., se:cdpVersion: 126.0.6478.57, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}"/>
+  </testcase>
+  <testcase name="testValidLogin" classname="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases" time="3.559"/>
+  <testcase name="testValidLogin" classname="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases" time="3.329"/>
+  <testcase name="testValidLogin" classname="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases" time="3.075"/>
+  <testcase name="testValidLogin" classname="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases" time="3.354"/>
+  <testcase name="testInvalidUsername" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="2.663"/>
+  <testcase name="testInvalidUsername" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0">
+    <skipped message="Session ID is null. Using WebDriver after calling quit()?&#10;Build info: version: &apos;4.21.0&apos;, revision: &apos;79ed462ef4&apos;&#10;System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;15.0.2&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [null, get {url=https://d1msv2sqknn4w4.cloudfront.net}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.57, chrome: {chromedriverVersion: 126.0.6478.61 (8dc092df54ce..., userDataDir: C:\Users\KAJALS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56747}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56747/devtoo..., se:cdpVersion: 126.0.6478.57, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}"/>
+  </testcase>
+  <testcase name="testInvalidUsername" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="30.849">
+    <failure message="no such window: target window already closed&#10;from unknown error: web view not found&#10;  (Session info: chrome=126.0.6478.57)&#10;Build info: version: &apos;4.21.0&apos;, revision: &apos;79ed462ef4&apos;&#10;System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;15.0.2&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [61504f42515079fea8a55cabe06041dd, findElement {using=xpath, value=//h6[contains(text(),&apos;Invalid username or password. Try again.&apos;)]}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.57, chrome: {chromedriverVersion: 126.0.6478.61 (8dc092df54ce..., userDataDir: C:\Users\KAJALS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56948}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56948/devtoo..., se:cdpVersion: 126.0.6478.57, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}&#10;Session ID: 61504f42515079fea8a55cabe06041dd" type="org.openqa.selenium.NoSuchWindowException">org.openqa.selenium.NoSuchWindowException: 
+no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=126.0.6478.57)
+Build info: version: '4.21.0', revision: '79ed462ef4'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [61504f42515079fea8a55cabe06041dd, findElement {using=xpath, value=//h6[contains(text(),'Invalid username or password. Try again.')]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.57, chrome: {chromedriverVersion: 126.0.6478.61 (8dc092df54ce..., userDataDir: C:\Users\KAJALS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56948}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56948/devtoo..., se:cdpVersion: 126.0.6478.57, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 61504f42515079fea8a55cabe06041dd
+	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidUsername(Login_Invalid_TestCases.java:36)
+</failure>
+    <system-out><![CDATA[Test execution completed on ChromeDriver with device: Tablet Landscape
+]]></system-out>
+    <system-err><![CDATA[Jun 18, 2024 12:38:04 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 126, returning the closest version; found: 125; Please update to a Selenium version that supports CDP version 126
+]]></system-err>
+  </testcase>
+  <testcase name="testInvalidUsername" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="60.451">
+    <failure message="Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: //h6[contains(text(),&apos;Invalid username or password. Try again.&apos;)]&apos; (tried for 30 second(s) with 500 milliseconds interval)" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //h6[contains(text(),'Invalid username or password. Try again.')]' (tried for 30 second(s) with 500 milliseconds interval)
+	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidUsername(Login_Invalid_TestCases.java:36)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: //h6[contains(text(),'Invalid username or password. Try again.')]
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.21.0', revision: '79ed462ef4'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [f2f62c43-8f74-4b22-8830-a704aa3b8fd8, findElement {using=xpath, value=//h6[contains(text(),'Invalid username or password. Try again.')]}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240617091959, moz:debuggerAddress: 127.0.0.1:39163, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 34804, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:39163/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: f2f62c43-8f74-4b22-8830-a704aa3b8fd8
+	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidUsername(Login_Invalid_TestCases.java:36)
+</failure>
+    <system-out><![CDATA[Test execution completed on FirefoxDriver with device: Tablet Landscape
+]]></system-out>
+    <system-err><![CDATA[Error closing WebDriver session: Tried to run command without establishing a connection
+Build info: version: '4.21.0', revision: '79ed462ef4'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [cb20db16-3b5e-4ced-a845-f6d228a093a7, quit {}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240617091959, moz:debuggerAddress: 127.0.0.1:22353, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 34556, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:22353/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: cb20db16-3b5e-4ced-a845-f6d228a093a7
+]]></system-err>
+  </testcase>
+  <testcase name="testInvalidUsername" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="60.36">
+    <failure message="Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: //h6[contains(text(),&apos;Invalid username or password. Try again.&apos;)]&apos; (tried for 30 second(s) with 500 milliseconds interval)" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //h6[contains(text(),'Invalid username or password. Try again.')]' (tried for 30 second(s) with 500 milliseconds interval)
+	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidUsername(Login_Invalid_TestCases.java:36)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"xpath","selector":"//h6[contains(text(),'Invalid username or password. Try again.')]"}
+  (Session info: chrome=126.0.6478.57)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.21.0', revision: '79ed462ef4'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [09ea37edd6060b56c72587c3fc7a167f, findElement {using=xpath, value=//h6[contains(text(),'Invalid username or password. Try again.')]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.57, chrome: {chromedriverVersion: 126.0.6478.61 (8dc092df54ce..., userDataDir: C:\Users\KAJALS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57867}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57867/devtoo..., se:cdpVersion: 126.0.6478.57, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 09ea37edd6060b56c72587c3fc7a167f
+	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidUsername(Login_Invalid_TestCases.java:36)
+</failure>
+    <system-out><![CDATA[Test execution completed on ChromeDriver with device: iPhone 11 Pro Portrait
+]]></system-out>
+    <system-err><![CDATA[Jun 18, 2024 12:43:15 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 126, returning the closest version; found: 125; Please update to a Selenium version that supports CDP version 126
+]]></system-err>
+  </testcase>
+  <testcase name="testInvalidUsername" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="60.397">
+    <failure message="Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: //h6[contains(text(),&apos;Invalid username or password. Try again.&apos;)]&apos; (tried for 30 second(s) with 500 milliseconds interval)" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //h6[contains(text(),'Invalid username or password. Try again.')]' (tried for 30 second(s) with 500 milliseconds interval)
+	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidUsername(Login_Invalid_TestCases.java:36)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: //h6[contains(text(),'Invalid username or password. Try again.')]
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.21.0', revision: '79ed462ef4'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [8c0f2e42-352e-437c-b3ab-07121f622c62, findElement {using=xpath, value=//h6[contains(text(),'Invalid username or password. Try again.')]}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240617091959, moz:debuggerAddress: 127.0.0.1:42298, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 14732, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:42298/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: 8c0f2e42-352e-437c-b3ab-07121f622c62
+	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidUsername(Login_Invalid_TestCases.java:36)
+</failure>
+    <system-out><![CDATA[Test execution completed on FirefoxDriver with device: iPhone 11 Pro Portrait
+]]></system-out>
+    <system-err><![CDATA[Error closing WebDriver session: Tried to run command without establishing a connection
+Build info: version: '4.21.0', revision: '79ed462ef4'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [57ee322d-655a-4947-ba64-f130f4470197, quit {}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240617091959, moz:debuggerAddress: 127.0.0.1:16688, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 31416, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:16688/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: 57ee322d-655a-4947-ba64-f130f4470197
+]]></system-err>
+  </testcase>
+  <testcase name="testInvalidPassword" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="2.337"/>
+  <testcase name="testInvalidPassword" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0">
+    <skipped message="Session ID is null. Using WebDriver after calling quit()?&#10;Build info: version: &apos;4.21.0&apos;, revision: &apos;79ed462ef4&apos;&#10;System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;15.0.2&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [null, get {url=https://d1msv2sqknn4w4.cloudfront.net}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.57, chrome: {chromedriverVersion: 126.0.6478.61 (8dc092df54ce..., userDataDir: C:\Users\KAJALS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56747}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56747/devtoo..., se:cdpVersion: 126.0.6478.57, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}"/>
+  </testcase>
+  <testcase name="testInvalidPassword" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="10.551">
+    <failure message="no such window: target window already closed&#10;from unknown error: web view not found&#10;  (Session info: chrome=126.0.6478.57)&#10;Build info: version: &apos;4.21.0&apos;, revision: &apos;79ed462ef4&apos;&#10;System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;15.0.2&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [36a625879763707ae635782b70c48af6, findElement {using=xpath, value=//h6[@id=&apos;LSERRM&apos; and contains(text(),&quot;Invalid username or password. Try again.&quot;)]}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.57, chrome: {chromedriverVersion: 126.0.6478.61 (8dc092df54ce..., userDataDir: C:\Users\KAJALS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57040}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57040/devtoo..., se:cdpVersion: 126.0.6478.57, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}&#10;Session ID: 36a625879763707ae635782b70c48af6" type="org.openqa.selenium.NoSuchWindowException">org.openqa.selenium.NoSuchWindowException: 
+no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=126.0.6478.57)
+Build info: version: '4.21.0', revision: '79ed462ef4'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [36a625879763707ae635782b70c48af6, findElement {using=xpath, value=//h6[@id='LSERRM' and contains(text(),"Invalid username or password. Try again.")]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.57, chrome: {chromedriverVersion: 126.0.6478.61 (8dc092df54ce..., userDataDir: C:\Users\KAJALS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57040}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57040/devtoo..., se:cdpVersion: 126.0.6478.57, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 36a625879763707ae635782b70c48af6
+	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidPassword(Login_Invalid_TestCases.java:44)
+</failure>
+    <system-out><![CDATA[Test execution completed on ChromeDriver with device: Tablet Landscape
+]]></system-out>
+    <system-err><![CDATA[Jun 18, 2024 12:38:39 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 126, returning the closest version; found: 125; Please update to a Selenium version that supports CDP version 126
+]]></system-err>
+  </testcase>
+  <testcase name="testInvalidPassword" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="2.516"/>
+  <testcase name="testInvalidPassword" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="1.892"/>
+  <testcase name="testInvalidPassword" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="2.203"/>
+  <testcase name="testTooLongUsername" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.674"/>
+  <testcase name="testTooLongUsername" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0">
+    <skipped message="Session ID is null. Using WebDriver after calling quit()?&#10;Build info: version: &apos;4.21.0&apos;, revision: &apos;79ed462ef4&apos;&#10;System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;15.0.2&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [null, get {url=https://d1msv2sqknn4w4.cloudfront.net}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.57, chrome: {chromedriverVersion: 126.0.6478.61 (8dc092df54ce..., userDataDir: C:\Users\KAJALS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56747}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56747/devtoo..., se:cdpVersion: 126.0.6478.57, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}"/>
+  </testcase>
+  <testcase name="testTooLongUsername" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.597"/>
+  <testcase name="testTooLongUsername" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.62"/>
+  <testcase name="testTooLongUsername" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.463"/>
+  <testcase name="testTooLongUsername" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.528"/>
+  <testcase name="testMinLengthPassword" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.438"/>
+  <testcase name="testMinLengthPassword" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0">
+    <skipped message="Session ID is null. Using WebDriver after calling quit()?&#10;Build info: version: &apos;4.21.0&apos;, revision: &apos;79ed462ef4&apos;&#10;System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;15.0.2&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [null, get {url=https://d1msv2sqknn4w4.cloudfront.net}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.57, chrome: {chromedriverVersion: 126.0.6478.61 (8dc092df54ce..., userDataDir: C:\Users\KAJALS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56747}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56747/devtoo..., se:cdpVersion: 126.0.6478.57, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}"/>
+  </testcase>
+  <testcase name="testMinLengthPassword" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.459"/>
+  <testcase name="testMinLengthPassword" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.474"/>
+  <testcase name="testMinLengthPassword" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.386"/>
+  <testcase name="testMinLengthPassword" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.413"/>
+  <testcase name="verifyHeaderOfMemberLookupScreen" classname="zapcg.Capillary.LocationPageTestCases.Location_TestCases" time="32.41">
+    <failure message="The second dropdown selection does not partially match on the next page. expected [true] but found [false]" type="java.lang.AssertionError">java.lang.AssertionError: The second dropdown selection does not partially match on the next page. expected [true] but found [false]
+	at zapcg.Capillary.LocationPageTestCases.Location_TestCases.verifyHeaderOfMemberLookupScreen(Location_TestCases.java:123)
+</failure>
+    <system-out><![CDATA[Test execution completed on ChromeDriver with device: Tablet Portrait
+]]></system-out>
+    <system-err><![CDATA[Jun 18, 2024 12:36:40 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 126, returning the closest version; found: 125; Please update to a Selenium version that supports CDP version 126
+]]></system-err>
+  </testcase>
+  <testcase name="verifyHeaderOfMemberLookupScreen" classname="zapcg.Capillary.LocationPageTestCases.Location_TestCases" time="0">
+    <skipped message="Failed to decode response from marionette&#10;Build info: version: &apos;4.21.0&apos;, revision: &apos;79ed462ef4&apos;&#10;System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;15.0.2&apos;&#10;Driver info: org.openqa.selenium.firefox.FirefoxDriver&#10;Command: [be07a10b-4fcf-47d5-b6b6-cf6b15a13a7d, findElement {using=xpath, value=//div[@class=&apos;MuiBox-root css-g9yypl&apos; and contains(text(), &apos;Japanese&apos;)]}]&#10;Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240612091431, moz:debuggerAddress: 127.0.0.1:9008, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 34764, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:9008/devtool..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}&#10;Session ID: be07a10b-4fcf-47d5-b6b6-cf6b15a13a7d"/>
+  </testcase>
+  <testcase name="verifyHeaderOfMemberLookupScreen" classname="zapcg.Capillary.LocationPageTestCases.Location_TestCases" time="32.577">
+    <failure message="The second dropdown selection does not partially match on the next page. expected [true] but found [false]" type="java.lang.AssertionError">java.lang.AssertionError: The second dropdown selection does not partially match on the next page. expected [true] but found [false]
+	at zapcg.Capillary.LocationPageTestCases.Location_TestCases.verifyHeaderOfMemberLookupScreen(Location_TestCases.java:123)
+</failure>
+    <system-out><![CDATA[Test execution completed on ChromeDriver with device: Tablet Landscape
+]]></system-out>
+    <system-err><![CDATA[Jun 18, 2024 12:39:03 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 126, returning the closest version; found: 125; Please update to a Selenium version that supports CDP version 126
+]]></system-err>
+  </testcase>
+  <testcase name="verifyHeaderOfMemberLookupScreen" classname="zapcg.Capillary.LocationPageTestCases.Location_TestCases" time="32.666">
+    <failure message="The second dropdown selection does not partially match on the next page. expected [true] but found [false]" type="java.lang.AssertionError">java.lang.AssertionError: The second dropdown selection does not partially match on the next page. expected [true] but found [false]
+	at zapcg.Capillary.LocationPageTestCases.Location_TestCases.verifyHeaderOfMemberLookupScreen(Location_TestCases.java:123)
+</failure>
+    <system-out><![CDATA[Test execution completed on FirefoxDriver with device: Tablet Landscape
+]]></system-out>
+  </testcase>
+  <testcase name="verifyHeaderOfMemberLookupScreen" classname="zapcg.Capillary.LocationPageTestCases.Location_TestCases" time="31.894">
+    <failure message="The second dropdown selection does not partially match on the next page. expected [true] but found [false]" type="java.lang.AssertionError">java.lang.AssertionError: The second dropdown selection does not partially match on the next page. expected [true] but found [false]
+	at zapcg.Capillary.LocationPageTestCases.Location_TestCases.verifyHeaderOfMemberLookupScreen(Location_TestCases.java:123)
+</failure>
+    <system-out><![CDATA[Test execution completed on ChromeDriver with device: iPhone 11 Pro Portrait
+]]></system-out>
+    <system-err><![CDATA[Jun 18, 2024 12:44:33 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 126, returning the closest version; found: 125; Please update to a Selenium version that supports CDP version 126
+]]></system-err>
+  </testcase>
+  <testcase name="verifyHeaderOfMemberLookupScreen" classname="zapcg.Capillary.LocationPageTestCases.Location_TestCases" time="31.846">
+    <failure message="An error occurred while verifying the dropdown selections: Element &lt;button id=&quot;LS014B&quot; class=&quot;MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-y7km40&quot; type=&quot;button&quot;&gt; is not clickable at point (225,472) because another element &lt;li id=&quot;LS013OP0&quot; class=&quot;MuiAutocomplete-option&quot;&gt; obscures it&#10;Build info: version: &apos;4.21.0&apos;, revision: &apos;79ed462ef4&apos;&#10;System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;15.0.2&apos;&#10;Driver info: org.openqa.selenium.firefox.FirefoxDriver&#10;Command: [f36fbe11-8ba8-43fd-b09d-d67966f67555, clickElement {id=57fb83b6-f29c-4262-b76d-5ff7667cfbb1}]&#10;Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240617091959, moz:debuggerAddress: 127.0.0.1:35458, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 24608, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:35458/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}&#10;Element: [[FirefoxDriver: firefox on windows (f36fbe11-8ba8-43fd-b09d-d67966f67555)] -&gt; xpath: //button[@id=&apos;LS014B&apos;]]&#10;Session ID: f36fbe11-8ba8-43fd-b09d-d67966f67555" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: 
+An error occurred while verifying the dropdown selections: Element <button id="LS014B" class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-y7km40" type="button"> is not clickable at point (225,472) because another element <li id="LS013OP0" class="MuiAutocomplete-option"> obscures it
+Build info: version: '4.21.0', revision: '79ed462ef4'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [f36fbe11-8ba8-43fd-b09d-d67966f67555, clickElement {id=57fb83b6-f29c-4262-b76d-5ff7667cfbb1}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240617091959, moz:debuggerAddress: 127.0.0.1:35458, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 24608, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:35458/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Element: [[FirefoxDriver: firefox on windows (f36fbe11-8ba8-43fd-b09d-d67966f67555)] -> xpath: //button[@id='LS014B']]
+Session ID: f36fbe11-8ba8-43fd-b09d-d67966f67555
+	at zapcg.Capillary.LocationPageTestCases.Location_TestCases.verifyHeaderOfMemberLookupScreen(Location_TestCases.java:126)
+]]></failure>
+    <system-out><![CDATA[Test execution completed on FirefoxDriver with device: iPhone 11 Pro Portrait
+]]></system-out>
+  </testcase>
+  <testcase name="testUsernameWithSpaces" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.482"/>
+  <testcase name="testUsernameWithSpaces" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0">
+    <skipped message="Session ID is null. Using WebDriver after calling quit()?&#10;Build info: version: &apos;4.21.0&apos;, revision: &apos;79ed462ef4&apos;&#10;System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;15.0.2&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [null, get {url=https://d1msv2sqknn4w4.cloudfront.net}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.57, chrome: {chromedriverVersion: 126.0.6478.61 (8dc092df54ce..., userDataDir: C:\Users\KAJALS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56747}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56747/devtoo..., se:cdpVersion: 126.0.6478.57, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}"/>
+  </testcase>
+  <testcase name="testUsernameWithSpaces" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.437"/>
+  <testcase name="testUsernameWithSpaces" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.457"/>
+  <testcase name="testUsernameWithSpaces" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.34"/>
+  <testcase name="testUsernameWithSpaces" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.453"/>
+  <testcase name="verifyForEnabledLoginButton" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="2.757"/>
+  <testcase name="verifyForEnabledLoginButton" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0">
+    <skipped message="Session ID is null. Using WebDriver after calling quit()?&#10;Build info: version: &apos;4.21.0&apos;, revision: &apos;79ed462ef4&apos;&#10;System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;15.0.2&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [null, get {url=https://d1msv2sqknn4w4.cloudfront.net}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.57, chrome: {chromedriverVersion: 126.0.6478.61 (8dc092df54ce..., userDataDir: C:\Users\KAJALS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56747}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56747/devtoo..., se:cdpVersion: 126.0.6478.57, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}"/>
+  </testcase>
+  <testcase name="verifyForEnabledLoginButton" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="2.778"/>
+  <testcase name="verifyForEnabledLoginButton" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="2.024"/>
+  <testcase name="verifyForEnabledLoginButton" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="1.997"/>
+  <testcase name="verifyForEnabledLoginButton" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="2.063"/>
+  <testcase name="verifyForDisabledLoginButtonForEmptyUsername" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.232"/>
+  <testcase name="verifyForDisabledLoginButtonForEmptyUsername" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0">
+    <skipped message="Session ID is null. Using WebDriver after calling quit()?&#10;Build info: version: &apos;4.21.0&apos;, revision: &apos;79ed462ef4&apos;&#10;System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;15.0.2&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [null, get {url=https://d1msv2sqknn4w4.cloudfront.net}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.57, chrome: {chromedriverVersion: 126.0.6478.61 (8dc092df54ce..., userDataDir: C:\Users\KAJALS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56747}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56747/devtoo..., se:cdpVersion: 126.0.6478.57, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}"/>
+  </testcase>
+  <testcase name="verifyForDisabledLoginButtonForEmptyUsername" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.219"/>
+  <testcase name="verifyForDisabledLoginButtonForEmptyUsername" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.111"/>
+  <testcase name="verifyForDisabledLoginButtonForEmptyUsername" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.2"/>
+  <testcase name="verifyForDisabledLoginButtonForEmptyUsername" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.116"/>
+  <testcase name="verifyForDisabledLoginButtonForEmptyPassword" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.295"/>
+  <testcase name="verifyForDisabledLoginButtonForEmptyPassword" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0">
+    <skipped message="Session ID is null. Using WebDriver after calling quit()?&#10;Build info: version: &apos;4.21.0&apos;, revision: &apos;79ed462ef4&apos;&#10;System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;15.0.2&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [null, get {url=https://d1msv2sqknn4w4.cloudfront.net}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.57, chrome: {chromedriverVersion: 126.0.6478.61 (8dc092df54ce..., userDataDir: C:\Users\KAJALS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56747}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56747/devtoo..., se:cdpVersion: 126.0.6478.57, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}"/>
+  </testcase>
+  <testcase name="verifyForDisabledLoginButtonForEmptyPassword" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.275"/>
+  <testcase name="verifyForDisabledLoginButtonForEmptyPassword" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.146"/>
+  <testcase name="verifyForDisabledLoginButtonForEmptyPassword" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.266"/>
+  <testcase name="verifyForDisabledLoginButtonForEmptyPassword" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.136"/>
+  <testcase name="verifyForDisabledLoginButtonForEmptyUsernamePassword" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.239"/>
+  <testcase name="verifyForDisabledLoginButtonForEmptyUsernamePassword" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0">
+    <skipped message="Session ID is null. Using WebDriver after calling quit()?&#10;Build info: version: &apos;4.21.0&apos;, revision: &apos;79ed462ef4&apos;&#10;System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;15.0.2&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [null, get {url=https://d1msv2sqknn4w4.cloudfront.net}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.57, chrome: {chromedriverVersion: 126.0.6478.61 (8dc092df54ce..., userDataDir: C:\Users\KAJALS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56747}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56747/devtoo..., se:cdpVersion: 126.0.6478.57, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}"/>
+  </testcase>
+  <testcase name="verifyForDisabledLoginButtonForEmptyUsernamePassword" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.192"/>
+  <testcase name="verifyForDisabledLoginButtonForEmptyUsernamePassword" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.091"/>
+  <testcase name="verifyForDisabledLoginButtonForEmptyUsernamePassword" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.167"/>
+  <testcase name="verifyForDisabledLoginButtonForEmptyUsernamePassword" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.092"/>
+  <testcase name="initialize" classname="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases" time="3.245">
+    <failure message="Session ID is null. Using WebDriver after calling quit()?&#10;Build info: version: &apos;4.21.0&apos;, revision: &apos;79ed462ef4&apos;&#10;System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;15.0.2&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [null, get {url=https://d1msv2sqknn4w4.cloudfront.net}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.57, chrome: {chromedriverVersion: 126.0.6478.61 (8dc092df54ce..., userDataDir: C:\Users\KAJALS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56747}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56747/devtoo..., se:cdpVersion: 126.0.6478.57, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}" type="org.openqa.selenium.NoSuchSessionException">org.openqa.selenium.NoSuchSessionException: 
+Session ID is null. Using WebDriver after calling quit()?
+Build info: version: '4.21.0', revision: '79ed462ef4'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [null, get {url=https://d1msv2sqknn4w4.cloudfront.net}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.57, chrome: {chromedriverVersion: 126.0.6478.61 (8dc092df54ce..., userDataDir: C:\Users\KAJALS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56747}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56747/devtoo..., se:cdpVersion: 126.0.6478.57, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+	at zapcg.Capillary.LoginTestCases.Login_Valid_TestCases.initialize(Login_Valid_TestCases.java:21)
+</failure>
+    <system-out><![CDATA[Test execution completed on ChromeDriver with device: Tablet Portrait
+]]></system-out>
+    <system-err><![CDATA[Error initializing WebDriver: Could not start a new session. Response code 500. Message: Process unexpectedly closed with status 0 
+Host info: host: 'ZCBLRLP0293', ip: '192.168.0.112'
+Build info: version: '4.21.0', revision: '79ed462ef4'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [null, newSession {capabilities=[Capabilities {acceptInsecureCerts: true, browserName: firefox, moz:debuggerAddress: true, moz:firefoxOptions: {}}]}]
+]]></system-err>
+  </testcase>
+  <testcase name="tearDown" classname="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="initialize" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="1.61">
+    <failure message="Session ID is null. Using WebDriver after calling quit()?&#10;Build info: version: &apos;4.21.0&apos;, revision: &apos;79ed462ef4&apos;&#10;System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;15.0.2&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [null, get {url=https://d1msv2sqknn4w4.cloudfront.net}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.57, chrome: {chromedriverVersion: 126.0.6478.61 (8dc092df54ce..., userDataDir: C:\Users\KAJALS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56747}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56747/devtoo..., se:cdpVersion: 126.0.6478.57, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}" type="org.openqa.selenium.NoSuchSessionException">org.openqa.selenium.NoSuchSessionException: 
+Session ID is null. Using WebDriver after calling quit()?
+Build info: version: '4.21.0', revision: '79ed462ef4'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [null, get {url=https://d1msv2sqknn4w4.cloudfront.net}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.57, chrome: {chromedriverVersion: 126.0.6478.61 (8dc092df54ce..., userDataDir: C:\Users\KAJALS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56747}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56747/devtoo..., se:cdpVersion: 126.0.6478.57, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.initialize(Login_Invalid_TestCases.java:22)
+</failure>
+    <system-err><![CDATA[Error initializing WebDriver: Could not start a new session. Response code 500. Message: Process unexpectedly closed with status 0 
+Host info: host: 'ZCBLRLP0293', ip: '192.168.0.112'
+Build info: version: '4.21.0', revision: '79ed462ef4'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [null, newSession {capabilities=[Capabilities {acceptInsecureCerts: true, browserName: firefox, moz:debuggerAddress: true, moz:firefoxOptions: {}}]}]
+]]></system-err>
+  </testcase>
+  <testcase name="initialize" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="initialize" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="initialize" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="initialize" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="initialize" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="initialize" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="initialize" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="initialize" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="tearDown" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="tearDown" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="tearDown" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="tearDown" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="tearDown" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="tearDown" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="tearDown" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="tearDown" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="tearDown" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="initialize" classname="zapcg.Capillary.LocationPageTestCases.Location_TestCases" time="10.341">
+    <failure message="Failed to decode response from marionette&#10;Build info: version: &apos;4.21.0&apos;, revision: &apos;79ed462ef4&apos;&#10;System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;15.0.2&apos;&#10;Driver info: org.openqa.selenium.firefox.FirefoxDriver&#10;Command: [be07a10b-4fcf-47d5-b6b6-cf6b15a13a7d, findElement {using=xpath, value=//div[@class=&apos;MuiBox-root css-g9yypl&apos; and contains(text(), &apos;Japanese&apos;)]}]&#10;Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240612091431, moz:debuggerAddress: 127.0.0.1:9008, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 34764, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:9008/devtool..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}&#10;Session ID: be07a10b-4fcf-47d5-b6b6-cf6b15a13a7d" type="org.openqa.selenium.WebDriverException">org.openqa.selenium.WebDriverException: 
+Failed to decode response from marionette
+Build info: version: '4.21.0', revision: '79ed462ef4'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [be07a10b-4fcf-47d5-b6b6-cf6b15a13a7d, findElement {using=xpath, value=//div[@class='MuiBox-root css-g9yypl' and contains(text(), 'Japanese')]}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240612091431, moz:debuggerAddress: 127.0.0.1:9008, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 34764, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:9008/devtool..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: be07a10b-4fcf-47d5-b6b6-cf6b15a13a7d
+	at zapcg.Capillary.LocationPageTestCases.Location_TestCases.initialize(Location_TestCases.java:29)
+</failure>
+  </testcase>
+  <testcase name="tearDown" classname="zapcg.Capillary.LocationPageTestCases.Location_TestCases" time="0">
+    <skipped/>
+  </testcase>
+</testsuite>

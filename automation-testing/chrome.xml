@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="TestSuite" thread-count="1" parallel="tests">
+  
+  <listeners>
+<listener class-name="zapcg.Capillary.ExtentReport.Listeners"/>
+<listener class-name="zapcg.Capillary.ExtentReport.ExtentReportNG"/>
+ </listeners>
+  
+  <test name="LoginTestsChromeBrowserTabletPortrait">
+    <parameter name="browser" value="chrome"/>
+    <parameter name="deviceName" value="Tablet Portrait"/> <!-- Tablet Portrait -->
+    <classes>
+      <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
+      <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
+      
+    </classes>
+  </test>
+
+
+<test name="LoginTestsChromeBrowserTabletLandscape">
+    <parameter name="browser" value="chrome"/>
+    <parameter name="deviceName" value="Tablet Landscape"/> <!-- Tablet Portrait -->
+    <classes>
+      <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
+        <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
+      
+    </classes>
+  </test>
+
+
+
+<test name="LoginTestsChromeBrowseriPhone11ProPortrait">
+    <parameter name="browser" value="chrome"/>
+    <parameter name="deviceName" value="iPhone 11 Pro Portrait"/> <!-- Tablet Portrait -->
+    <classes>
+      <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
+        <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
+      
+    </classes>
+  </test>
+  
+
+  
+  <test name="LoginTestsChromeBrowseriPhone11ProLandscape">
+    <parameter name="browser" value="chrome"/>
+    <parameter name="deviceName" value="iPhone 11 Pro Landscape"/> <!-- Tablet Portrait -->
+    <classes>
+      <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
+        <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
+      
+    </classes>
+  </test>
+  
+  
+  <test name="LoginTestsChromeBrowserGalaxyS20Portrait">
+    <parameter name="browser" value="chrome"/>
+    <parameter name="deviceName" value="Galaxy S20 Portrait"/> <!-- Tablet Portrait -->
+    <classes>
+      <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
+        <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
+      
+    </classes>
+  </test>
+  
+
+  
+</suite> <!-- Suite -->

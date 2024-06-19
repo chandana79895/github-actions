@@ -4,7 +4,7 @@ on:
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
-      - develop
+      - latest-code
 
 jobs:
   unit_tests:
@@ -26,7 +26,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    if: github.event_name == 'push' && (github.ref == 'refs/heads/poc') || (github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'develop')
+    # if: github.event_name == 'push' && (github.ref == 'refs/heads/poc') || (github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'develop')
     environment:
       name: poc
     steps:
@@ -78,110 +78,110 @@ jobs:
           aws s3 sync ./dist s3://test-stack-ui-${{ secrets.ENV}}/
           aws cloudfront create-invalidation --distribution-id ${{ secrets.CFD_ID }} --paths "/*"
 
-  notify_on_success:
-    runs-on: ubuntu-latest
-    needs: deploy
-    environment:
-      name: poc
-    if: success()
-    steps:
-      - name: Notify Slack for pipeline success
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          REPO_NAME: ${{ secrets.REPO_NAME }}
-          ENVIRONMENT: ${{ secrets.ENV }}  
-          REPO_SLUG: ${{ secrets.REPO_SLUG }}
-        run: |
-          curl -X POST -H 'Content-type: application/json' --data '{
-            "text": "GitHub Pipeline Status Notification",
-            "attachments": [
-              {
-                "fields": [
-                  {
-                    "title": "Repository",
-                    "value": "'${REPO_NAME}'"
-                  },
-                  {
-                    "title": "Environment",
-                    "value": "'${ENVIRONMENT}'"
-                  },
-                  {
-                    "title": "Status",
-                    "value": "SUCCESS",
-                    "color": "00FF00"
-                  },
-                  {
-                    "title": "Pipeline URL",
-                    "value": "https://github.com/${{ secrets.REPO_SLUG }}/${{ secrets.REPO_NAME }}/actions/runs/${{ github.run_id }}"
-                  },
-                  {
-                    "title": "Branch",
-                    "value": "${{ github.ref }}"
-                  }
-                ]
-              }
-            ]
-          }' $SLACK_WEBHOOK_URL
+  # notify_on_success:
+  #   runs-on: ubuntu-latest
+  #   needs: deploy
+  #   environment:
+  #     name: poc
+  #   if: success()
+  #   steps:
+  #     - name: Notify Slack for pipeline success
+  #       env:
+  #         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+  #         REPO_NAME: ${{ secrets.REPO_NAME }}
+  #         ENVIRONMENT: ${{ secrets.ENV }}  
+  #         REPO_SLUG: ${{ secrets.REPO_SLUG }}
+  #       run: |
+  #         curl -X POST -H 'Content-type: application/json' --data '{
+  #           "text": "GitHub Pipeline Status Notification",
+  #           "attachments": [
+  #             {
+  #               "fields": [
+  #                 {
+  #                   "title": "Repository",
+  #                   "value": "'${REPO_NAME}'"
+  #                 },
+  #                 {
+  #                   "title": "Environment",
+  #                   "value": "'${ENVIRONMENT}'"
+  #                 },
+  #                 {
+  #                   "title": "Status",
+  #                   "value": "SUCCESS",
+  #                   "color": "00FF00"
+  #                 },
+  #                 {
+  #                   "title": "Pipeline URL",
+  #                   "value": "https://github.com/${{ secrets.REPO_SLUG }}/${{ secrets.REPO_NAME }}/actions/runs/${{ github.run_id }}"
+  #                 },
+  #                 {
+  #                   "title": "Branch",
+  #                   "value": "${{ github.ref }}"
+  #                 }
+  #               ]
+  #             }
+  #           ]
+  #         }' $SLACK_WEBHOOK_URL
 
-  notify_on_failure:
-    runs-on: ubuntu-latest
-    needs: deploy
-    environment:
-      name: poc
-    if: failure()
-    steps:
-      - name: Notify Slack for pipeline failure
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          REPO_NAME: ${{ secrets.REPO_NAME }}
-          ENVIRONMENT: ${{ secrets.ENV }} 
-          REPO_SLUG: ${{ secrets.REPO_SLUG }}
-        run: |
-          curl -X POST -H 'Content-type: application/json' --data '{
-            "text": "GitHub Pipeline Status Notification",
-            "attachments": [
-              {
-                "fields": [
-                  {
-                    "title": "Repository",
-                    "value": "'${REPO_NAME}'"
-                  },
-                  {
-                    "title": "Environment",
-                    "value": "'${ENVIRONMENT}'"
-                  },
-                  {
-                    "title": "Status",
-                    "value": "FAILED",
-                    "color": "#FF0000"
-                  },
-                  {
-                    "title": "Pipeline URL",
-                    "value": "https://github.com/${{ secrets.REPO_SLUG }}/${{ secrets.REPO_NAME }}/actions/runs/${{ github.run_id }}"
-                  },
-                  {
-                    "title": "Branch",
-                    "value": "${{ github.ref }}"
-                  }
-                ]
-              }
-            ]
-          }' $SLACK_WEBHOOK_URL
+  # notify_on_failure:
+  #   runs-on: ubuntu-latest
+  #   needs: deploy
+  #   environment:
+  #     name: poc
+  #   if: failure()
+  #   steps:
+  #     - name: Notify Slack for pipeline failure
+  #       env:
+  #         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+  #         REPO_NAME: ${{ secrets.REPO_NAME }}
+  #         ENVIRONMENT: ${{ secrets.ENV }} 
+  #         REPO_SLUG: ${{ secrets.REPO_SLUG }}
+  #       run: |
+  #         curl -X POST -H 'Content-type: application/json' --data '{
+  #           "text": "GitHub Pipeline Status Notification",
+  #           "attachments": [
+  #             {
+  #               "fields": [
+  #                 {
+  #                   "title": "Repository",
+  #                   "value": "'${REPO_NAME}'"
+  #                 },
+  #                 {
+  #                   "title": "Environment",
+  #                   "value": "'${ENVIRONMENT}'"
+  #                 },
+  #                 {
+  #                   "title": "Status",
+  #                   "value": "FAILED",
+  #                   "color": "#FF0000"
+  #                 },
+  #                 {
+  #                   "title": "Pipeline URL",
+  #                   "value": "https://github.com/${{ secrets.REPO_SLUG }}/${{ secrets.REPO_NAME }}/actions/runs/${{ github.run_id }}"
+  #                 },
+  #                 {
+  #                   "title": "Branch",
+  #                   "value": "${{ github.ref }}"
+  #                 }
+  #               ]
+  #             }
+  #           ]
+  #         }' $SLACK_WEBHOOK_URL
 
-  delete-branch:
-    runs-on: ubuntu-latest
-    needs: deploy
-    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'develop'
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+  # delete-branch:
+  #   runs-on: ubuntu-latest
+  #   needs: deploy
+  #   if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'develop'
+  #   steps:
+  #     - name: Checkout repository
+  #       uses: actions/checkout@v2
 
-      - name: Delete branch
-        env:
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        run: |
-          branch=${{ github.event.pull_request.head.ref }}
-          if [[ "$branch" != feature/* ]] && [[ "$branch" != feat/* ]]; then
-            git remote set-url origin https://x-access-token:${ACCESS_TOKEN}@github.com/${{ github.repository }}
-            git push origin --delete $branch
-          fi
+  #     - name: Delete branch
+  #       env:
+  #         GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+  #       run: |
+  #         branch=${{ github.event.pull_request.head.ref }}
+  #         if [[ "$branch" != feature/* ]] && [[ "$branch" != feat/* ]]; then
+  #           git remote set-url origin https://x-access-token:${ACCESS_TOKEN}@github.com/${{ github.repository }}
+  #           git push origin --delete $branch
+  #         fi

@@ -2,6 +2,7 @@ import { getApi } from './http';
 import axios from 'axios';
 
 jest.mock('axios');
+
 describe('getApi', () => {
   it('throws an error when an unsupported method is passed', () => {
     expect(() => getApi('/test', {}, 'UNSUPPORTED' as any)).toThrow(`Unsupported method "UNSUPPORTED"`);
@@ -13,10 +14,18 @@ describe('getApi', () => {
     expect(axios.get).toHaveBeenCalledWith(expect.stringContaining('/test'), { headers: data });
   });
 
+
   it('calls axios.post with correct parameters when method is POST', async () => {
     const data = { param: 'test' };
     await getApi('/test', data, 'POST');
-    expect(axios.post).toHaveBeenCalledWith(expect.stringContaining('/test'), data);
+    expect(axios.post).toHaveBeenCalledWith(expect.stringContaining('/test'), data, undefined);
+  });
+
+  it('calls axios.post with correct parameters when method is POST_HEADER', async () => {
+    const data = { param: 'test' };
+    const customHeaders = { 'Content-Type': 'application/json' };
+    await getApi('/test', data, 'POST_HEADER', customHeaders);
+    expect(axios.post).toHaveBeenCalledWith(expect.stringContaining('/test'), data, { headers: customHeaders });
   });
 
   it('calls axios.put with correct parameters when method is PUT', async () => {

@@ -5,25 +5,36 @@ import MemberCard from "@/components/MemberCard";
 import { rsp } from "@/constants/tests/shortPath";
 import { getWords } from "@/constants/tests/words";
 import { useNavigate } from "react-router";
+import { useEffect, useState } from "react";
+import moment from "moment";
 
 const MemberDetails = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
+  const [memberData, setMemberData] = useState(null);
 
   const handleSubmit = () => {
-    navigate("/earn-points")
-   }
-  const { t } = useTranslation();
-  const dummyData = { //dummy data, to be replaced with api call
-    name: "Hikari Tanaka",
-    points: '16,000',
-    tier: "Silver",
-    membershipID: "123456789",
-    expiringPoints: '5,000',
-    expiryDate: "2024/01/01",
-  }
+    navigate("/earn-points");
+  };
+  const data = {
+    firstName: memberData?.firstName ,
+    lastName:  memberData?.lastName,
+    points: memberData?.loyaltyPoints,
+    tier: memberData?.currentSlab,
+    membershipID: memberData?.cardId,
+    expiringPoints: memberData?.expiryPoints,
+    pointsExpiryDate: moment(memberData?.pointsExpiryDate).format("YYYY/MM/DD"),
+  };
+
+  useEffect(() => {
+    const storedMemberData = JSON.parse(localStorage.getItem("memberData"));
+    if (storedMemberData) {
+      setMemberData(storedMemberData);
+    }
+  }, []);
 
   // used for generating testIDs
-  const currentPage = rsp('member-details');
+  const currentPage = rsp("member-details");
 
   return (
     <div
@@ -31,18 +42,20 @@ const MemberDetails = () => {
       id={currentPage + "CONT"}
       data-testid={currentPage + "CONT"}
     >
-      <MemberCard {...dummyData} testID={currentPage} />
-
-      <Card title={t("earnPoints")} testID={currentPage + getWords("earnPoints")} >
+      <MemberCard {...data} testID={currentPage} />
+      <Card
+        title={t("earnPoints")}
+        testID={currentPage + getWords("earnPoints")}
+      >
         <div className="height-50" />
         <Button
-          title={t("enterInformationDirectly")}
+          title={t("enterRecepitDetails")}
           onClick={handleSubmit}
-          testID={currentPage + getWords('enterInformationDirectly')}
+          testID={currentPage + getWords("enterRecepitDetails")}
         />
       </Card>
     </div>
-  )
-}
+  );
+};
 
-export default MemberDetails
+export default MemberDetails;

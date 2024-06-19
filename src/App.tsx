@@ -19,8 +19,9 @@ import {
   useLocalStorageLanguage,
   useLocalStorageProperty,
   useLocalStorageStore,
+  useLocalStorageEmployeeId
 } from "./api/utils/useLocalStorage";
-import {session_time} from "./api/const/sessionTimeOut";
+import { session_time } from "./api/const/sessionTimeOut";
 import NotFound from "./pages/notFound/NotFound";
 
 interface RouteItem {
@@ -48,11 +49,25 @@ function App() {
     return localStorage.getItem("organizationID") || "";
   });
 
+  const [employeeID, setemployeeID] = useState(() => {
+    return localStorage.getItem("employeeID") || "";
+  });
+  const [memberData, setMemberData] = useState({
+    firstName: "",
+    lastName: "",
+    loyaltyPoints: 0,
+    currentSlab: "",
+    pointsExpiryDate: "",
+    cardId: "",
+  });
+
   useOrganizationRedirect(organizationID, navigate);
   useLanguageChange(language, i18n);
   useLocalStorageLanguage(language);
   useLocalStorageProperty(property);
   useLocalStorageStore(store);
+  useLocalStorageEmployeeId(employeeID);
+
 
   const handleLanguageUpdate = (language) => {
     setLanguage(language);
@@ -67,17 +82,34 @@ function App() {
       property,
       setProperty,
       store,
+      employeeID,
+      setemployeeID,
       setStore,
+      memberData,
+      setMemberData,
       reset: () => {
         setProperty({ label: "", value: "" });
         setStore({ label: "", value: "" });
         setOrganizationID("");
+        setemployeeID("")
+        setMemberData({
+          firstName: "",
+          lastName: "",
+          loyaltyPoints: 0,
+          currentSlab: "",
+          pointsExpiryDate: "",
+          cardId: "",
+        });
         localStorage.removeItem("property");
         localStorage.removeItem("store");
         localStorage.removeItem("organizationID");
+        localStorage.removeItem("employeeID");
+        
+        localStorage.removeItem("memberData");
+        localStorage.removeItem("login_name");
       },
     }),
-    [language, property, store, organizationID]
+    [language, property, store, organizationID,employeeID, memberData]
   );
 
   const { handleOnIdle, handleOnActive, handleOnAction, handleModalClose } =
@@ -100,9 +132,7 @@ function App() {
     session_time,
     setShowIdleModal
   );
-  console.log(`
-  session_time:
-  ${session_time}`);
+
   useEffect(() => {
     document.addEventListener(
       "visibilitychange",
@@ -127,6 +157,7 @@ function App() {
       {shouldUseIdleTimer ? (
         <IdleTimerProvider
           timeout={+session_time}
+          // timeout={120000}
           onIdle={handleOnIdle}
           onActive={handleOnActive}
           onAction={handleOnAction}
@@ -149,7 +180,6 @@ function App() {
                       {t("pleaseLoginToContinue")}
                     </span>
                   }
-                  
                   buttonText={t("login")}
                 />
               </div>

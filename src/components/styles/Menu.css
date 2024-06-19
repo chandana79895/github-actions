@@ -20,3 +20,19 @@
 .ellipsis {
   padding-bottom: 4%;
 }
+.centered-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+}
+.username {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  padding-left: 39px;
+  padding-bottom: 5%;
+}

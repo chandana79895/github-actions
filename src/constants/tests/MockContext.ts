@@ -5,7 +5,16 @@ export const MockContext = {
   setStore: jest.fn(),
   reset: jest.fn(),
   language: 'en',
-  setLanguage:jest.fn(),
+  setLanguage: jest.fn(),
   organizationID: "",
-  setOrganizationID:  jest.fn(),
+  setOrganizationID: jest.fn(),
+  memberData: {
+    firstName: "",
+    lastName: "",
+    loyaltyPoints: 0,
+    currentSlab: "",
+    pointsExpiryDate: "",
+    cardId: ""
+  },
+  setMemberData: jest.fn()
 };

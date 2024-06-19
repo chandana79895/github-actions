@@ -1,20 +1,22 @@
-import React from 'react';
-import CircularProgress from '@mui/material/CircularProgress';
-import Box from '@mui/material/Box';
+import React from "react";
+import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
+import "./styles/Loader.css";
 
 interface LoaderProps {
   size?: number;
-  color?: 'primary' | 'secondary' | 'inherit';
+  color?: "primary" | "secondary" | "inherit";
   thickness?: number;
 }
 
 const Loader: React.FC<LoaderProps> = ({
   size = 100,
-  color = 'primary',
+  color = "primary",
   thickness = 4.5,
 }) => {
   return (
     <Box
+      className="loader-container"
       display="flex"
       justifyContent="center"
       alignItems="center"

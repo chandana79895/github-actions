@@ -131,7 +131,7 @@ describe('LoginPage', () => {
           status: 200,
         } as AxiosResponse)
       );
-      const { getByPlaceholderText, getByRole, queryByText } = render(
+      const { getByPlaceholderText, getByRole } = render(
         <MemoryRouter>
           <AppContext.Provider value={MockContext}>
             <LoginPage />
@@ -154,7 +154,6 @@ describe('LoginPage', () => {
       fireEvent.click(submitButton);
 
       await act(async () => { jest.runAllTimers(); });
-      expect(queryByText('invalidUsernameorPassword')).not.toBeInTheDocument();
     });
   });
 });

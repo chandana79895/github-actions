@@ -6,7 +6,7 @@ on:
     branches:
       - latest-code
   schedule:
-    - cron: '0 2 * * *'     
+    - cron: '55 6 * * *'     
 
 jobs:
   unit_tests:

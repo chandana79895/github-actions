@@ -5,6 +5,8 @@ on:
     # types: [opened, synchronize, reopened, closed]
     branches:
       - latest-code
+  schedule:
+    - cron: '0 2 * * *'     
 
 jobs:
   unit_tests:
@@ -65,6 +67,7 @@ jobs:
           aws cloudformation deploy --stack-name test-stack-ui-${{ secrets.ENV }} --template-file portal.yml --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM --parameter-overrides Env=${{ secrets.ENV }}
       
   build-and-run-jar:
+    if: github.event_name == 'schedule'
     runs-on: ubuntu-latest
     environment:
       name: poc
@@ -79,7 +82,12 @@ jobs:
         distribution: 'adopt'
 
     - name: Build with Maven
-      run: cd automation-testing && mvn clean package
+      run: |
+        cd automation-testing/ 
+        mvn clean 
+        mvn compile
+        mvn install
+           
 
     - name: Run JAR file
       run: cd automation-testing && java -jar Capillary_Framework-0.0.1-SNAPSHOT.jar

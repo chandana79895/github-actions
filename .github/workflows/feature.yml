@@ -86,11 +86,12 @@ jobs:
         cd automation-testing/ 
         mvn clean 
         mvn compile
-        mvn install
-           
+        mvn install          
 
     - name: Run JAR file
-      run: cd automation-testing && java -jar Capillary_Framework-0.0.1-SNAPSHOT.jar
+      run: |
+        cd automation-testing/target
+        java tf Capillary_Framework-0.0.1-SNAPSHOT.jar
 
       # - name: Build and Deploying FE Code
       #   env:

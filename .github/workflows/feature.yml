@@ -86,7 +86,8 @@ jobs:
         cd automation-testing/ 
         mvn clean 
         mvn compile
-        mvn install          
+        mvn test  
+        mvn install        
 
     - name: Run JAR file
       run: |

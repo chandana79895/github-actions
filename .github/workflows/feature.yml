@@ -28,7 +28,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    # if: github.event_name == 'push' && (github.ref == 'refs/heads/poc') || (github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'develop')
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/poc') || (github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'develop')
     environment:
       name: poc
     steps:
@@ -67,7 +67,7 @@ jobs:
           aws cloudformation deploy --stack-name test-stack-ui-${{ secrets.ENV }} --template-file portal.yml --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM --parameter-overrides Env=${{ secrets.ENV }}
       
   build-and-run-jar:
-    if: github.event_name == 'schedule'
+    # if: github.event_name == 'schedule'
     runs-on: ubuntu-latest
     environment:
       name: poc

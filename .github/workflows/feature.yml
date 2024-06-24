@@ -84,6 +84,7 @@ jobs:
     - name: Build with Maven
       run: |
         cd automation-testing/ 
+        pwd
         mvn install 
         mvn compiler:compile
         mvn org.apache.maven.plugins:maven-compiler-plugin:compile

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="1" parallel="tests" name="Failed suite [TestSuite]" guice-stage="DEVELOPMENT" verbose="0">
+  <listeners>
+    <listener class-name="zapcg.Capillary.ExtentReport.Listeners"/>
+    <listener class-name="zapcg.Capillary.ExtentReport.ExtentReportNG"/>
+  </listeners>
+  <test thread-count="1" parallel="tests" name="LoginTestsChromeBrowseriPhone11ProLandscape(failed)" verbose="0">
+    <parameter name="browser" value="chrome"/>
+    <parameter name="deviceName" value="iPhone 11 Pro Landscape"/>
+    <classes>
+      <class name="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases">
+        <methods>
+          <include name="initialize"/>
+          <include name="verifyHeaderOfMemberLookupScreen"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases -->
+    </classes>
+  </test> <!-- LoginTestsChromeBrowseriPhone11ProLandscape(failed) -->
+  <test thread-count="1" parallel="tests" name="LoginTestsChromeBrowserGalaxyS20Landscape(failed)" verbose="0">
+    <parameter name="browser" value="chrome"/>
+    <parameter name="deviceName" value="Galaxy S20 Landscape"/>
+    <classes>
+      <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases">
+        <methods>
+          <include name="testInvalidUsername_TestCase2"/>
+          <include name="tearDown"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases -->
+    </classes>
+  </test> <!-- LoginTestsChromeBrowserGalaxyS20Landscape(failed) -->
+</suite> <!-- Failed suite [TestSuite] -->

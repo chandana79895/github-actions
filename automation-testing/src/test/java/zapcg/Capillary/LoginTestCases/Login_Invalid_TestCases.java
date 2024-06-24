@@ -30,43 +30,43 @@ public class Login_Invalid_TestCases extends BaseTest{
    }
 	
 	@Test(priority = 2)
-   public void testInvalidUsername() throws InterruptedException {
+   public void testInvalidUsername_TestCase2() throws InterruptedException {
        
-       lp.login("abcdtyaa", "storeportal");
+       lp.login("zapcotest", "storeportal");
        lp.verifyInvalidUserNameError("Invalid username or password. Try again.");
 	}
 
 
    @Test(priority = 3)
-   public void testInvalidPassword() throws InterruptedException {
+   public void testInvalidPassword_TestCase3() throws InterruptedException {
    	
    	lp.login("zapcom_test2", "testtest");
        lp.verifyInvalidPasswordError("Invalid username or password. Try again."); 
    }
 
    @Test(priority = 4)
-   public void testTooLongUsername() throws InterruptedException {
+   public void testTooLongUsername_TestCase4() throws InterruptedException {
   
    	lp.login("abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz", "testtest22");
       lp.verifyMaxLengthForUserName("Username must be less than 50 characters");
    }
 
    @Test(priority = 5)
-   public void testMinLengthPassword() throws InterruptedException {
+   public void testMinLengthPassword_TestCase5() throws InterruptedException {
  
    	lp.login("zapcom_test2", "testte");
        lp.verifyMinLengthForPassword("Password must be at least 8 characters"); 
    }
 
    @Test(priority = 6)
-   public void testUsernameWithSpaces() throws InterruptedException {
+   public void testUsernameWithSpaces_TestCase6() throws InterruptedException {
  
    	lp.login("zapcom test2", "testtest1");
       lp.verifySpaceNotAllowedUserName("Username must not contain any spaces"); 
    }
 
    @Test(priority = 7)
-   public void verifyForEnabledLoginButton() throws InterruptedException {
+   public void verifyForEnabledLoginButton_TestCase7() throws InterruptedException {
    	
    	lp.login("testiuytree", "testtests");
       lp.verifyLoginButtonEnabled();
@@ -74,7 +74,7 @@ public class Login_Invalid_TestCases extends BaseTest{
   
    
    @Test(priority = 8)
-   public void verifyForDisabledLoginButtonForEmptyUsername() throws InterruptedException {
+   public void verifyForDisabledLoginButtonForEmptyUsername_TestCase8() throws InterruptedException {
    
    	lp.loginDisabledVerification("", "12345678");
      lp.verifyLoginButtonDisabled_EmptyUsername();
@@ -82,14 +82,14 @@ public class Login_Invalid_TestCases extends BaseTest{
    
    
    @Test(priority = 9)
-   public void verifyForDisabledLoginButtonForEmptyPassword() throws InterruptedException {
+   public void verifyForDisabledLoginButtonForEmptyPassword_TestCase9() throws InterruptedException {
   
    	lp.loginDisabledVerification("testEmptyPassword", "");
    	lp.verifyLoginButtonDisabled_EmptyPassword();
    }
    
    @Test(priority = 10)
-   public void verifyForDisabledLoginButtonForEmptyUsernamePassword() throws InterruptedException {
+   public void verifyForDisabledLoginButtonForEmptyUsernamePassword_TestCase10() throws InterruptedException {
    
    	lp.loginDisabledVerification("", "");
       lp.verifyLoginButtonDisabled_BlankInput();

@@ -13,21 +13,13 @@
     <classes>
       <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
       <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
-      <class name="zapcg.Capillary.LocationPageTestCases.Location_TestCases"/>
+      <class name="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases"/>
       
     </classes>
   </test>
 
 
-<test name="LoginTestsFirefoxBrowserTabletPortrait">
-    <parameter name="browser" value="firefox"/>
-    <parameter name="deviceName" value="Tablet Portrait"/> <!-- Tablet Portrait -->
-    <classes>
-      <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
-      <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
-      <class name="zapcg.Capillary.LocationPageTestCases.Location_TestCases"/>
-    </classes>
-  </test>
+
 
 <test name="LoginTestsChromeBrowserTabletLandscape">
     <parameter name="browser" value="chrome"/>
@@ -35,22 +27,11 @@
     <classes>
       <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
       <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
-      <class name="zapcg.Capillary.LocationPageTestCases.Location_TestCases"/>
+      <class name="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases"/>
       
     </classes>
   </test>
 
-  <test name="LoginTestsFirefoxBrowserTabletLandscape">
-    <parameter name="browser" value="firefox"/>
-    <parameter name="deviceName" value="Tablet Landscape"/> <!-- Tablet Portrait -->
-    <classes>
-      <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
-      <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
-       <class name="zapcg.Capillary.LocationPageTestCases.Location_TestCases"/>
-      
-    </classes>
-  </test>
-  
     
  <test name="LoginTestsChromeBrowseriPhone11ProPortrait">
     <parameter name="browser" value="chrome"/>
@@ -58,23 +39,51 @@
     <classes>
       <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
       <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
-      <class name="zapcg.Capillary.LocationPageTestCases.Location_TestCases"/>
+      <class name="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases"/>
       
     </classes>
   </test>
 
-  <test name="LoginTestsFirefoxBrowseriPhone11ProPortrait">
-    <parameter name="browser" value="firefox"/>
-    <parameter name="deviceName" value="iPhone 11 Pro Portrait"/> <!-- Tablet Portrait -->
+
+      
+      <test name="LoginTestsChromeBrowseriPhone11ProLandscape">
+    <parameter name="browser" value="chrome"/>
+    <parameter name="deviceName" value="iPhone 11 Pro Landscape"/> <!-- Tablet Portrait -->
     <classes>
       <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
       <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
-      <class name="zapcg.Capillary.LocationPageTestCases.Location_TestCases"/>
+      <class name="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases"/>
       
     </classes>
   </test>
-  
-    
+
  
+    
+ <test name="LoginTestsChromeBrowserGalaxyS20Portrait">
+    <parameter name="browser" value="chrome"/>
+    <parameter name="deviceName" value="Galaxy S20 Portrait"/> <!-- Tablet Portrait -->
+    <classes>
+      <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
+      <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
+      <class name="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases"/>
+      
+    </classes>
+  </test>
+
+
+  
+  
+  <test name="LoginTestsChromeBrowserGalaxyS20Landscape">
+    <parameter name="browser" value="chrome"/>
+    <parameter name="deviceName" value="Galaxy S20 Landscape"/> <!-- Tablet Portrait -->
+    <classes>
+      <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
+      <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
+      <class name="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases"/>
+      
+    </classes>
+  </test>
+
+
   
 </suite> <!-- Suite -->

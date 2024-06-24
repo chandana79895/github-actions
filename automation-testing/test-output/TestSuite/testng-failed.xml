@@ -9,13 +9,13 @@
     <parameter name="browser" value="chrome"/>
     <parameter name="deviceName" value="Tablet Portrait"/>
     <classes>
-      <class name="zapcg.Capillary.LocationPageTestCases.Location_TestCases">
+      <class name="zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases">
         <methods>
           <include name="tearDown"/>
+          <include name="verifyCardNumberFieldMaxLength"/>
           <include name="initialize"/>
-          <include name="verifyHeaderOfMemberLookupScreen"/>
         </methods>
-      </class> <!-- zapcg.Capillary.LocationPageTestCases.Location_TestCases -->
+      </class> <!-- zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases -->
     </classes>
   </test> <!-- LoginTestsChromeBrowserTabletPortrait(failed) -->
 </suite> <!-- Failed suite [TestSuite] -->

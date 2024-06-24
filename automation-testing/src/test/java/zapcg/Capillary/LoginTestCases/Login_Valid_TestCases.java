@@ -31,9 +31,9 @@ public class Login_Valid_TestCases extends BaseTest {
 	
 
 	@Test(priority = 1)
-    public void testValidLogin() throws InterruptedException {
+    public void testValidLogin_TestCase1() throws InterruptedException {
 	        lp.login("zapcom_test2", "storeportal");
-	        lp.verifySuccessfullLogin(driver,"https://d1msv2sqknn4w4.cloudfront.net/location-search");
+	        lp.verifySuccessfullLogin(driver,"https://d1msv2sqknn4w4.cloudfront.net/member-search");
 	        driver.close();
 		
         

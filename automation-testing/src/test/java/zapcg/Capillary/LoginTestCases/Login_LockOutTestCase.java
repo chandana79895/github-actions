@@ -32,7 +32,7 @@ public class Login_LockOutTestCase extends BaseTest{
 		
 
    @Test(priority=11)
-	public void verifyValidationMessageFor5InvalidLoginAttempt() throws InterruptedException
+	public void verifyValidationMessageFor5InvalidLoginAttempt_TestCase11() throws InterruptedException
 		//after 5 invalid attempts user won't be able to login for 30min
 	{	
        // Try logging in with invalid credentials 5 times

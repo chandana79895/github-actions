@@ -125,12 +125,12 @@ public class loginPage{
 		        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
 		        // Wait for the URL to change to the expected URL
-		        boolean isUrlChanged = wait.until(ExpectedConditions.urlToBe("https://d1msv2sqknn4w4.cloudfront.net/location-search"));
+		        boolean isUrlChanged = wait.until(ExpectedConditions.urlToBe("https://d1msv2sqknn4w4.cloudfront.net/member-search"));
 
 		        if (isUrlChanged) {
 		            String currentUrl = driver.getCurrentUrl();
 		            System.out.println("After successful logig, navigated to the Location screen: " + currentUrl);
-		            String expectedUrl1 = "https://d1msv2sqknn4w4.cloudfront.net/location-search";
+		            String expectedUrl1 = "https://d1msv2sqknn4w4.cloudfront.net/member-search";
 		            Assert.assertEquals(currentUrl, expectedUrl1, "The URL after login is incorrect. Login not successful.");
 		        } else {
 		            System.out.println("The URL did not change to the expected URL within the timeout period.i.e, no success login,");

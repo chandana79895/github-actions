@@ -10,7 +10,7 @@ on:
 
 jobs:
   unit_tests:
-    # if: github.event_name == 'pull_request' && (github.event.action == 'opened' || github.event.action == 'synchronize' || github.event.action == 'reopened')
+    if: github.event_name == 'pull_request' && (github.event.action == 'opened' || github.event.action == 'synchronize' || github.event.action == 'reopened')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -28,7 +28,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    # if: github.event_name == 'push' && (github.ref == 'refs/heads/poc') || (github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'develop')
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/poc') || (github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'develop')
     environment:
       name: poc
     steps:

@@ -4,7 +4,7 @@ on:
   push:
     # types: [opened, synchronize, reopened, closed]
     branches:
-      - latest-code
+      - develop
   schedule:
     - cron: '55 6 * * *'     
 

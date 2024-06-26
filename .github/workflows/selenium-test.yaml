@@ -37,4 +37,4 @@ jobs:
 
       run: |
         cd automation-testing/
-        mvn -B package --file chrome.xml
+        mvn -B package --file pom.xml

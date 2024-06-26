@@ -20,7 +20,5 @@ jobs:
             :crown: *An automated PR*
           pr_reviewer: "bablubharath"
           pr_label: "auto-pr"
-          pr_milestone: "Milestone 1"
-          pr_draft: true
           pr_allow_empty: true
           github_token: ${{ secrets.ACCESS_TOKEN }}

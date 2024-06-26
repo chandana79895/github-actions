@@ -82,14 +82,16 @@ jobs:
         distribution: 'adopt'
 
     - name: Build with Maven
-      env:
-        
-      run: |
-        cd automation-testing && mvn install        
-        mvn compiler:compile
-        mvn org.apache.maven.plugins:maven-compiler-plugin:compile
-        mvn org.apache.maven.plugins:maven-compiler-plugin:2.0.2:compile 
-        mvn test        
+      run: cd automation-testing && mvn clean package
+
+    - name: Run tests
+      run: cd automation-testing && mvn test
+
+    - name: Upload Surefire reports
+      uses: actions/upload-artifact@v3
+      with:
+        name: surefire-reports
+        path: cd automation-testing/target/surefire-reports/
 
     # - name: Run JAR file
     #   run: |

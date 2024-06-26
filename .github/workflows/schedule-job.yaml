@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-    - "schedule-job-check"  
+      - "schedule-job-check"
 
 jobs:
   pull-request:
@@ -9,18 +9,18 @@ jobs:
     environment:
       name: poc
     steps:
-    - uses: actions/checkout@v3
-    - name: pull-request
-    uses: diillson/auto-pull-request@v1.0.1
-      with:
-        source_branch: "schedule-job-check"                                 
-        destination_branch: "develop"                      
-        pr_title: "Pulling ${{ github.ref }} into develop" 
-        pr_body: |                                        
-          :crown: *An automated PR*
-        pr_reviewer: "bablubharath"  
-        pr_label: "auto-pr"                               
-        pr_milestone: "Milestone 1"                       
-        pr_draft: true                                    
-        pr_allow_empty: true                              
-        github_token: ${{ secrets.ACCESS_TOKEN }}      
+      - uses: actions/checkout@v3
+      - name: pull-request
+        uses: diillson/auto-pull-request@v1.0.1
+        with:
+          source_branch: "schedule-job-check"
+          destination_branch: "develop"
+          pr_title: "Pulling ${{ github.ref }} into develop"
+          pr_body: |
+            :crown: *An automated PR*
+          pr_reviewer: "bablubharath"
+          pr_label: "auto-pr"
+          pr_milestone: "Milestone 1"
+          pr_draft: true
+          pr_allow_empty: true
+          github_token: ${{ secrets.ACCESS_TOKEN }}

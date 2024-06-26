@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>16/2/0</td>
 </tr><tr>
-<td>Started on:</td><td>Mon Jun 24 18:08:27 IST 2024</td>
+<td>Started on:</td><td>Tue Jun 25 16:13:52 IST 2024</td>
 </tr>
-<tr><td>Total time:</td><td>204 seconds (204031 ms)</td>
+<tr><td>Total time:</td><td>208 seconds (208630 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,26 +76,26 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidPassword_TestCase3()'><b>testInvalidPassword_TestCase3</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
-<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: //h6[@id=&apos;LSERRM&apos; and contains(text(),&quot;Invalid username or password. Try again.&quot;)]&apos; (tried for 10 second(s) with 500 milliseconds interval)
+<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidUsername_TestCase2()'><b>testInvalidUsername_TestCase2</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: //h6[contains(text(),&apos;Invalid username or password. Try again.&apos;)]&apos; (tried for 30 second(s) with 500 milliseconds interval)
 	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-	at zapcg.Capillary.PageObject.loginPage.verifyInvalidPasswordError(loginPage.java:185)
-	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidPassword_TestCase3(Login_Invalid_TestCases.java:44)
+	at zapcg.Capillary.PageObject.loginPage.verifyInvalidUserNameError(loginPage.java:154)
+	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidUsername_TestCase2(Login_Invalid_TestCases.java:36)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
 	at java.base/java.lang.Thread.run(Thread.java:842)
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//h6[@id=&apos;LSERRM&apos; and contains(text(),&quot;Invalid username or password. Try again.&quot;)]&quot;}
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//h6[contains(text(),&apos;Invalid username or password. Try again.&apos;)]&quot;}
   (Session info: chrome=126.0.6478.62)
 For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Build info: version: &apos;4.21.0&apos;, revision: &apos;79ed462ef4&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.10&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [e90fa2e13320d5ba009421cf830c1bcc, findElement {using=xpath, value=//h6[@id=&apos;LSERRM&apos; and contains(text(),&quot;Invalid username or password. Try again.&quot;)]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.62, chrome: {chromedriverVersion: 126.0.6478.63 (df799988fdc9..., userDataDir: C:\Users\MANICH~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64382}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64382/devtoo..., se:cdpVersion: 126.0.6478.62, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: e90fa2e13320d5ba009421cf830c1bcc
+Command: [2f5f2891d5f0aca929000f28c8f70143, findElement {using=xpath, value=//h6[contains(text(),&apos;Invalid username or password. Try again.&apos;)]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.62, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\MANICH~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56035}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56035/devtoo..., se:cdpVersion: 126.0.6478.62, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 2f5f2891d5f0aca929000f28c8f70143
 	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
@@ -115,12 +115,12 @@ Session ID: e90fa2e13320d5ba009421cf830c1bcc
 	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:287)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
 	... 24 more
-... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace582780111", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace582780111'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: //h6[@id=&apos;LSERRM&apos; and contains(text(),&quot;Invalid username or password. Try again.&quot;)]&apos; (tried for 10 second(s) with 500 milliseconds interval)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1725055574", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1725055574'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: //h6[contains(text(),&apos;Invalid username or password. Try again.&apos;)]&apos; (tried for 30 second(s) with 500 milliseconds interval)
 	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-	at zapcg.Capillary.PageObject.loginPage.verifyInvalidPasswordError(loginPage.java:185)
-	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidPassword_TestCase3(Login_Invalid_TestCases.java:44)
+	at zapcg.Capillary.PageObject.loginPage.verifyInvalidUserNameError(loginPage.java:154)
+	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidUsername_TestCase2(Login_Invalid_TestCases.java:36)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -143,15 +143,15 @@ Session ID: e90fa2e13320d5ba009421cf830c1bcc
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
 	at java.base/java.lang.Thread.run(Thread.java:842)
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//h6[@id=&apos;LSERRM&apos; and contains(text(),&quot;Invalid username or password. Try again.&quot;)]&quot;}
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//h6[contains(text(),&apos;Invalid username or password. Try again.&apos;)]&quot;}
   (Session info: chrome=126.0.6478.62)
 For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Build info: version: &apos;4.21.0&apos;, revision: &apos;79ed462ef4&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.10&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [e90fa2e13320d5ba009421cf830c1bcc, findElement {using=xpath, value=//h6[@id=&apos;LSERRM&apos; and contains(text(),&quot;Invalid username or password. Try again.&quot;)]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.62, chrome: {chromedriverVersion: 126.0.6478.63 (df799988fdc9..., userDataDir: C:\Users\MANICH~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64382}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64382/devtoo..., se:cdpVersion: 126.0.6478.62, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: e90fa2e13320d5ba009421cf830c1bcc
+Command: [2f5f2891d5f0aca929000f28c8f70143, findElement {using=xpath, value=//h6[contains(text(),&apos;Invalid username or password. Try again.&apos;)]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.62, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\MANICH~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56035}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56035/devtoo..., se:cdpVersion: 126.0.6478.62, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 2f5f2891d5f0aca929000f28c8f70143
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -180,26 +180,26 @@ Session ID: e90fa2e13320d5ba009421cf830c1bcc
 <td>60</td>
 <td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@50b472aa</td></tr>
 <tr>
-<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidUsername_TestCase2()'><b>testInvalidUsername_TestCase2</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
-<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: //h6[contains(text(),&apos;Invalid username or password. Try again.&apos;)]&apos; (tried for 30 second(s) with 500 milliseconds interval)
+<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidPassword_TestCase3()'><b>testInvalidPassword_TestCase3</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: //h6[@id=&apos;LSERRM&apos; and contains(text(),&quot;Invalid username or password. Try again.&quot;)]&apos; (tried for 10 second(s) with 500 milliseconds interval)
 	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-	at zapcg.Capillary.PageObject.loginPage.verifyInvalidUserNameError(loginPage.java:154)
-	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidUsername_TestCase2(Login_Invalid_TestCases.java:36)
+	at zapcg.Capillary.PageObject.loginPage.verifyInvalidPasswordError(loginPage.java:185)
+	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidPassword_TestCase3(Login_Invalid_TestCases.java:44)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
 	at java.base/java.lang.Thread.run(Thread.java:842)
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//h6[contains(text(),&apos;Invalid username or password. Try again.&apos;)]&quot;}
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//h6[@id=&apos;LSERRM&apos; and contains(text(),&quot;Invalid username or password. Try again.&quot;)]&quot;}
   (Session info: chrome=126.0.6478.62)
 For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Build info: version: &apos;4.21.0&apos;, revision: &apos;79ed462ef4&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.10&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [5a2dd0ff9878ce704fdf423da2acfcbc, findElement {using=xpath, value=//h6[contains(text(),&apos;Invalid username or password. Try again.&apos;)]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.62, chrome: {chromedriverVersion: 126.0.6478.63 (df799988fdc9..., userDataDir: C:\Users\MANICH~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64319}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64319/devtoo..., se:cdpVersion: 126.0.6478.62, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 5a2dd0ff9878ce704fdf423da2acfcbc
+Command: [cc16d9cc819ff1e2d08b97013eb42ed1, findElement {using=xpath, value=//h6[@id=&apos;LSERRM&apos; and contains(text(),&quot;Invalid username or password. Try again.&quot;)]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.62, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\MANICH~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56091}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56091/devtoo..., se:cdpVersion: 126.0.6478.62, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: cc16d9cc819ff1e2d08b97013eb42ed1
 	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
@@ -219,12 +219,12 @@ Session ID: 5a2dd0ff9878ce704fdf423da2acfcbc
 	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:287)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
 	... 24 more
-... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1882381669", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1882381669'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: //h6[contains(text(),&apos;Invalid username or password. Try again.&apos;)]&apos; (tried for 30 second(s) with 500 milliseconds interval)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1637415137", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1637415137'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: //h6[@id=&apos;LSERRM&apos; and contains(text(),&quot;Invalid username or password. Try again.&quot;)]&apos; (tried for 10 second(s) with 500 milliseconds interval)
 	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-	at zapcg.Capillary.PageObject.loginPage.verifyInvalidUserNameError(loginPage.java:154)
-	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidUsername_TestCase2(Login_Invalid_TestCases.java:36)
+	at zapcg.Capillary.PageObject.loginPage.verifyInvalidPasswordError(loginPage.java:185)
+	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidPassword_TestCase3(Login_Invalid_TestCases.java:44)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -247,15 +247,15 @@ Session ID: 5a2dd0ff9878ce704fdf423da2acfcbc
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
 	at java.base/java.lang.Thread.run(Thread.java:842)
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//h6[contains(text(),&apos;Invalid username or password. Try again.&apos;)]&quot;}
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//h6[@id=&apos;LSERRM&apos; and contains(text(),&quot;Invalid username or password. Try again.&quot;)]&quot;}
   (Session info: chrome=126.0.6478.62)
 For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Build info: version: &apos;4.21.0&apos;, revision: &apos;79ed462ef4&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.10&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [5a2dd0ff9878ce704fdf423da2acfcbc, findElement {using=xpath, value=//h6[contains(text(),&apos;Invalid username or password. Try again.&apos;)]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.62, chrome: {chromedriverVersion: 126.0.6478.63 (df799988fdc9..., userDataDir: C:\Users\MANICH~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64319}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64319/devtoo..., se:cdpVersion: 126.0.6478.62, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 5a2dd0ff9878ce704fdf423da2acfcbc
+Command: [cc16d9cc819ff1e2d08b97013eb42ed1, findElement {using=xpath, value=//h6[@id=&apos;LSERRM&apos; and contains(text(),&quot;Invalid username or password. Try again.&quot;)]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.62, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\MANICH~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56091}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56091/devtoo..., se:cdpVersion: 126.0.6478.62, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: cc16d9cc819ff1e2d08b97013eb42ed1
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -293,6 +293,71 @@ Session ID: 5a2dd0ff9878ce704fdf423da2acfcbc
 <td><b>Instance</b></td>
 </tr>
 <tr>
+<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.verifyIfAbleToSelectOptionFromDropDown()'><b>verifyIfAbleToSelectOptionFromDropDown</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@31368b99</td></tr>
+<tr>
+<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.verifyHeaderOfMemberLookupScreen()'><b>verifyHeaderOfMemberLookupScreen</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
+<td></td>
+<td>1</td>
+<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@31368b99</td></tr>
+<tr>
+<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.verifyForDisabledLoginButtonForEmptyUsernamePassword_TestCase10()'><b>verifyForDisabledLoginButtonForEmptyUsernamePassword_TestCase10</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@50b472aa</td></tr>
+<tr>
+<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.verifyDropDownAvailability()'><b>verifyDropDownAvailability</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@31368b99</td></tr>
+<tr>
+<td title='zapcg.Capillary.LoginTestCases.Login_Valid_TestCases.testValidLogin_TestCase1()'><b>testValidLogin_TestCase1</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Valid_TestCases</td>
+<td></td>
+<td>2</td>
+<td>zapcg.Capillary.LoginTestCases.Login_Valid_TestCases@6ca8564a</td></tr>
+<tr>
+<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.verifyChooseLocationButtonAvailability()'><b>verifyChooseLocationButtonAvailability</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
+<td></td>
+<td>2</td>
+<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@31368b99</td></tr>
+<tr>
+<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.verifyForEnabledLoginButton_TestCase7()'><b>verifyForEnabledLoginButton_TestCase7</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
+<td></td>
+<td>2</td>
+<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@50b472aa</td></tr>
+<tr>
+<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testUsernameWithSpaces_TestCase6()'><b>testUsernameWithSpaces_TestCase6</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@50b472aa</td></tr>
+<tr>
+<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testTooLongUsername_TestCase4()'><b>testTooLongUsername_TestCase4</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@50b472aa</td></tr>
+<tr>
+<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.burgerIconLogout()'><b>burgerIconLogout</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@31368b99</td></tr>
+<tr>
+<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.burgerIconMemberLookupNavigation()'><b>burgerIconMemberLookupNavigation</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@31368b99</td></tr>
+<tr>
+<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.burgerIconMemberLocationNavigation()'><b>burgerIconMemberLocationNavigation</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@31368b99</td></tr>
+<tr>
+<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.chooseValidLocationForNewUser()'><b>chooseValidLocationForNewUser</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
+<td></td>
+<td>1</td>
+<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@31368b99</td></tr>
+<tr>
 <td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testMinLengthPassword_TestCase5()'><b>testMinLengthPassword_TestCase5</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
 <td></td>
 <td>0</td>
@@ -304,71 +369,6 @@ Session ID: 5a2dd0ff9878ce704fdf423da2acfcbc
 <td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@50b472aa</td></tr>
 <tr>
 <td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.verifyForDisabledLoginButtonForEmptyPassword_TestCase9()'><b>verifyForDisabledLoginButtonForEmptyPassword_TestCase9</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
-<td></td>
-<td>0</td>
-<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@50b472aa</td></tr>
-<tr>
-<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.verifyDropDownAvailability()'><b>verifyDropDownAvailability</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
-<td></td>
-<td>0</td>
-<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@31368b99</td></tr>
-<tr>
-<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testUsernameWithSpaces_TestCase6()'><b>testUsernameWithSpaces_TestCase6</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
-<td></td>
-<td>0</td>
-<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@50b472aa</td></tr>
-<tr>
-<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.burgerIconLogout()'><b>burgerIconLogout</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
-<td></td>
-<td>0</td>
-<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@31368b99</td></tr>
-<tr>
-<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.verifyChooseLocationButtonAvailability()'><b>verifyChooseLocationButtonAvailability</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
-<td></td>
-<td>2</td>
-<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@31368b99</td></tr>
-<tr>
-<td title='zapcg.Capillary.LoginTestCases.Login_Valid_TestCases.testValidLogin_TestCase1()'><b>testValidLogin_TestCase1</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Valid_TestCases</td>
-<td></td>
-<td>2</td>
-<td>zapcg.Capillary.LoginTestCases.Login_Valid_TestCases@6ca8564a</td></tr>
-<tr>
-<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.verifyForEnabledLoginButton_TestCase7()'><b>verifyForEnabledLoginButton_TestCase7</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
-<td></td>
-<td>2</td>
-<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@50b472aa</td></tr>
-<tr>
-<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.verifyHeaderOfMemberLookupScreen()'><b>verifyHeaderOfMemberLookupScreen</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
-<td></td>
-<td>1</td>
-<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@31368b99</td></tr>
-<tr>
-<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.verifyIfAbleToSelectOptionFromDropDown()'><b>verifyIfAbleToSelectOptionFromDropDown</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
-<td></td>
-<td>0</td>
-<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@31368b99</td></tr>
-<tr>
-<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testTooLongUsername_TestCase4()'><b>testTooLongUsername_TestCase4</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
-<td></td>
-<td>0</td>
-<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@50b472aa</td></tr>
-<tr>
-<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.burgerIconMemberLookupNavigation()'><b>burgerIconMemberLookupNavigation</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
-<td></td>
-<td>0</td>
-<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@31368b99</td></tr>
-<tr>
-<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.chooseValidLocationForNewUser()'><b>chooseValidLocationForNewUser</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
-<td></td>
-<td>1</td>
-<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@31368b99</td></tr>
-<tr>
-<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.burgerIconMemberLocationNavigation()'><b>burgerIconMemberLocationNavigation</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
-<td></td>
-<td>0</td>
-<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@31368b99</td></tr>
-<tr>
-<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.verifyForDisabledLoginButtonForEmptyUsernamePassword_TestCase10()'><b>verifyForDisabledLoginButtonForEmptyUsernamePassword_TestCase10</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
 <td></td>
 <td>0</td>
 <td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@50b472aa</td></tr>

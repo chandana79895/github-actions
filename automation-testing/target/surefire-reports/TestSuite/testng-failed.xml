@@ -54,7 +54,6 @@
       <class name="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases">
         <methods>
           <include name="initialize"/>
-          <include name="chooseValidLocationForNewUser"/>
           <include name="verifyHeaderOfMemberLookupScreen"/>
           <include name="tearDown"/>
         </methods>

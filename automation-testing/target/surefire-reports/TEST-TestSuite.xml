@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestSuite" time="1,246.329" tests="108" errors="0" skipped="0" failures="16">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestSuite" time="1,317.783" tests="108" errors="0" skipped="0" failures="15">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="17.0.10+11-LTS-240"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-17\bin"/>
-    <property name="maven.multiModuleProjectDirectory" value="C:/Users/ManiChandana/Fortress-Repos/github-actions/automation-testing"/>
+    <property name="maven.multiModuleProjectDirectory" value="C:\Users\ManiChandana\Fortress-Repos\github-actions\automation-testing"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="java.vendor.url" value="https://java.oracle.com/"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -24,22 +24,22 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="user.variant" value=""/>
     <property name="os.name" value="Windows 11"/>
-    <property name="classworlds.conf" value="C:/apache-maven-3.9.8/bin/m2.conf"/>
+    <property name="classworlds.conf" value="C:\apache-maven-3.9.8\bin\m2.conf"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.library.path" value="C:\Program Files\Java\jdk-17\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Users\ManiChandana\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\ManiChandana\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files\Git\cmd;C:\Program Files\Amazon\AWSCLIV2;C:\Program Files\nodejs;C:\ProgramData\chocolatey\bin;C:\Program Files\Java\jdk-17\bin;C:\Program Files\Docker\Docker\resources\bin;C:\Users\ManiChandana\Downloads\apache-maven-3.9.8\bin;C:\apache-maven-3.9.8\bin;C:\Users\ManiChandana\scoop\apps\openssl\current\bin;C:\Users\ManiChandana\AppData\Local\Programs\Python\Python312\Scripts;C:\Users\ManiChandana\AppData\Local\Programs\Python\Python312;C:\Users\ManiChandana\scoop\apps\gsudo\current;C:\Users\ManiChandana\scoop\shims;C:\Users\ManiChandana\AppData\Local\Microsoft\WindowsApps;C:\Users\ManiChandana\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\ManiChandana\AppData\Roaming\npm;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl;C:\Users\ManiChandana\bin;."/>
-    <property name="maven.conf" value="C:/apache-maven-3.9.8/conf"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-17\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\Amazon\AWSCLIV2\;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Program Files\Java\jdk-17\bin;C:\Program Files\Docker\Docker\resources\bin;C:\Users\ManiChandana\Downloads\apache-maven-3.9.8\bin;C:\apache-maven-3.9.8\bin;C:\Users\ManiChandana\scoop\apps\openssl\current\bin;C:\Users\ManiChandana\AppData\Local\Programs\Python\Python312\Scripts\;C:\Users\ManiChandana\AppData\Local\Programs\Python\Python312\;C:\Users\ManiChandana\scoop\apps\gsudo\current;C:\Users\ManiChandana\scoop\shims;C:\Users\ManiChandana\AppData\Local\Microsoft\WindowsApps;C:\Users\ManiChandana\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\ManiChandana\AppData\Roaming\npm;."/>
+    <property name="maven.conf" value="C:\apache-maven-3.9.8/conf"/>
     <property name="jdk.debug" value="release"/>
     <property name="java.class.version" value="61.0"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="os.version" value="10.0"/>
-    <property name="library.jansi.path" value="C:/apache-maven-3.9.8/lib/jansi-native"/>
+    <property name="library.jansi.path" value="C:\apache-maven-3.9.8\lib\jansi-native"/>
     <property name="user.home" value="C:\Users\ManiChandana"/>
     <property name="user.timezone" value="Asia/Calcutta"/>
     <property name="file.encoding" value="Cp1252"/>
     <property name="java.specification.version" value="17"/>
     <property name="user.name" value="ManiChandana"/>
-    <property name="java.class.path" value="C:/apache-maven-3.9.8/boot/plexus-classworlds-2.8.0.jar"/>
+    <property name="java.class.path" value="C:\apache-maven-3.9.8\boot\plexus-classworlds-2.8.0.jar"/>
     <property name="java.vm.specification.version" value="17"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher install"/>
@@ -60,57 +60,38 @@
     <property name="sun.stdout.encoding" value="cp437"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="chooseValidLocationForNewUser" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="5.845"/>
-  <testcase name="chooseValidLocationForNewUser" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="1.94"/>
-  <testcase name="chooseValidLocationForNewUser" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="1.377"/>
-  <testcase name="chooseValidLocationForNewUser" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="2.891">
-    <failure message="element click intercepted: Element &lt;button class=&quot;MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-y7km40&quot; tabindex=&quot;0&quot; type=&quot;button&quot; data-testid=&quot;LS014B&quot; id=&quot;LS014B&quot;&gt;...&lt;/button&gt; is not clickable at point (389, 208). Other element would receive the click: &lt;li tabindex=&quot;-1&quot; role=&quot;option&quot; id=&quot;LS013OP1&quot; data-option-index=&quot;1&quot; aria-disabled=&quot;false&quot; aria-selected=&quot;false&quot; class=&quot;MuiAutocomplete-option&quot; data-testid=&quot;LS013OP1&quot;&gt;...&lt;/li&gt;&#10;  (Session info: chrome=126.0.6478.62)&#10;Build info: version: &apos;4.21.0&apos;, revision: &apos;79ed462ef4&apos;&#10;System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.10&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [5b5b5514af41b5c88d5507794e0e13fe, clickElement {id=f.9B0FFD0D69DC76D080C71624E30E8051.d.FB5FDBDDC18E5646B0CAA3FA5B441EE2.e.54}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.62, chrome: {chromedriverVersion: 126.0.6478.63 (df799988fdc9..., userDataDir: C:\Users\MANICH~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64755}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64755/devtoo..., se:cdpVersion: 126.0.6478.62, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}&#10;Element: [[ChromeDriver: chrome on windows (5b5b5514af41b5c88d5507794e0e13fe)] -&gt; xpath: //button[@id=&apos;LS014B&apos;]]&#10;Session ID: 5b5b5514af41b5c88d5507794e0e13fe" type="org.openqa.selenium.ElementClickInterceptedException"><![CDATA[org.openqa.selenium.ElementClickInterceptedException: 
-element click intercepted: Element <button class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-y7km40" tabindex="0" type="button" data-testid="LS014B" id="LS014B">...</button> is not clickable at point (389, 208). Other element would receive the click: <li tabindex="-1" role="option" id="LS013OP1" data-option-index="1" aria-disabled="false" aria-selected="false" class="MuiAutocomplete-option" data-testid="LS013OP1">...</li>
-  (Session info: chrome=126.0.6478.62)
-Build info: version: '4.21.0', revision: '79ed462ef4'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [5b5b5514af41b5c88d5507794e0e13fe, clickElement {id=f.9B0FFD0D69DC76D080C71624E30E8051.d.FB5FDBDDC18E5646B0CAA3FA5B441EE2.e.54}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.62, chrome: {chromedriverVersion: 126.0.6478.63 (df799988fdc9..., userDataDir: C:\Users\MANICH~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64755}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64755/devtoo..., se:cdpVersion: 126.0.6478.62, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (5b5b5514af41b5c88d5507794e0e13fe)] -> xpath: //button[@id='LS014B']]
-Session ID: 5b5b5514af41b5c88d5507794e0e13fe
-	at zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.chooseValidLocationForNewUser(Location_ExistingUser_TestCases.java:53)
-]]></failure>
-    <system-out><![CDATA[Test execution completed on ChromeDriver with device: iPhone 11 Pro Portrait
-Test Started: chooseValidLocationForNewUser
-]]></system-out>
-    <system-err><![CDATA[Jun 24, 2024 6:11:51 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find an exact match for CDP version 126, returning the closest version; found: 125; Please update to a Selenium version that supports CDP version 126
-]]></system-err>
-  </testcase>
-  <testcase name="chooseValidLocationForNewUser" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="1.882"/>
-  <testcase name="chooseValidLocationForNewUser" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="2.929">
-    <failure message="element click intercepted: Element &lt;button class=&quot;MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-y7km40&quot; tabindex=&quot;0&quot; type=&quot;button&quot; data-testid=&quot;LS014B&quot; id=&quot;LS014B&quot;&gt;...&lt;/button&gt; is not clickable at point (383, 193). Other element would receive the click: &lt;li tabindex=&quot;-1&quot; role=&quot;option&quot; id=&quot;LS013OP1&quot; data-option-index=&quot;1&quot; aria-disabled=&quot;false&quot; aria-selected=&quot;false&quot; class=&quot;MuiAutocomplete-option&quot; data-testid=&quot;LS013OP1&quot;&gt;...&lt;/li&gt;&#10;  (Session info: chrome=126.0.6478.62)&#10;Build info: version: &apos;4.21.0&apos;, revision: &apos;79ed462ef4&apos;&#10;System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.10&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [e8ec341d0b7b3915aeb92665802ef310, clickElement {id=f.BF31A2FF7DCAE90896D1462179C7BA52.d.05633133EBAA860781206BD2C631E6E5.e.53}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.62, chrome: {chromedriverVersion: 126.0.6478.63 (df799988fdc9..., userDataDir: C:\Users\MANICH~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49703}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:49703/devtoo..., se:cdpVersion: 126.0.6478.62, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}&#10;Element: [[ChromeDriver: chrome on windows (e8ec341d0b7b3915aeb92665802ef310)] -&gt; xpath: //button[@id=&apos;LS014B&apos;]]&#10;Session ID: e8ec341d0b7b3915aeb92665802ef310" type="org.openqa.selenium.ElementClickInterceptedException"><![CDATA[org.openqa.selenium.ElementClickInterceptedException: 
+  <testcase name="chooseValidLocationForNewUser" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="5.33"/>
+  <testcase name="chooseValidLocationForNewUser" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="1.914"/>
+  <testcase name="chooseValidLocationForNewUser" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="1.937"/>
+  <testcase name="chooseValidLocationForNewUser" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="1.918"/>
+  <testcase name="chooseValidLocationForNewUser" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="2.45"/>
+  <testcase name="chooseValidLocationForNewUser" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="3.473">
+    <failure message="element click intercepted: Element &lt;button class=&quot;MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-y7km40&quot; tabindex=&quot;0&quot; type=&quot;button&quot; data-testid=&quot;LS014B&quot; id=&quot;LS014B&quot;&gt;...&lt;/button&gt; is not clickable at point (383, 193). Other element would receive the click: &lt;li tabindex=&quot;-1&quot; role=&quot;option&quot; id=&quot;LS013OP1&quot; data-option-index=&quot;1&quot; aria-disabled=&quot;false&quot; aria-selected=&quot;false&quot; class=&quot;MuiAutocomplete-option&quot; data-testid=&quot;LS013OP1&quot;&gt;...&lt;/li&gt;&#10;  (Session info: chrome=126.0.6478.62)&#10;Build info: version: &apos;4.21.0&apos;, revision: &apos;79ed462ef4&apos;&#10;System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.10&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [0593ae2063595f05b28a39da01ee1505, clickElement {id=f.8C544020C450652522A7EC69391AA474.d.A2F8B21F8EA7972870813B06D3424458.e.54}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.62, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\MANICH~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57503}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57503/devtoo..., se:cdpVersion: 126.0.6478.62, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}&#10;Element: [[ChromeDriver: chrome on windows (0593ae2063595f05b28a39da01ee1505)] -&gt; xpath: //button[@id=&apos;LS014B&apos;]]&#10;Session ID: 0593ae2063595f05b28a39da01ee1505" type="org.openqa.selenium.ElementClickInterceptedException"><![CDATA[org.openqa.selenium.ElementClickInterceptedException: 
 element click intercepted: Element <button class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-y7km40" tabindex="0" type="button" data-testid="LS014B" id="LS014B">...</button> is not clickable at point (383, 193). Other element would receive the click: <li tabindex="-1" role="option" id="LS013OP1" data-option-index="1" aria-disabled="false" aria-selected="false" class="MuiAutocomplete-option" data-testid="LS013OP1">...</li>
   (Session info: chrome=126.0.6478.62)
 Build info: version: '4.21.0', revision: '79ed462ef4'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [e8ec341d0b7b3915aeb92665802ef310, clickElement {id=f.BF31A2FF7DCAE90896D1462179C7BA52.d.05633133EBAA860781206BD2C631E6E5.e.53}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.62, chrome: {chromedriverVersion: 126.0.6478.63 (df799988fdc9..., userDataDir: C:\Users\MANICH~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49703}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:49703/devtoo..., se:cdpVersion: 126.0.6478.62, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (e8ec341d0b7b3915aeb92665802ef310)] -> xpath: //button[@id='LS014B']]
-Session ID: e8ec341d0b7b3915aeb92665802ef310
+Command: [0593ae2063595f05b28a39da01ee1505, clickElement {id=f.8C544020C450652522A7EC69391AA474.d.A2F8B21F8EA7972870813B06D3424458.e.54}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.62, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\MANICH~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57503}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57503/devtoo..., se:cdpVersion: 126.0.6478.62, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (0593ae2063595f05b28a39da01ee1505)] -> xpath: //button[@id='LS014B']]
+Session ID: 0593ae2063595f05b28a39da01ee1505
 	at zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.chooseValidLocationForNewUser(Location_ExistingUser_TestCases.java:53)
 ]]></failure>
     <system-out><![CDATA[Test execution completed on ChromeDriver with device: Galaxy S20 Portrait
 Test Started: chooseValidLocationForNewUser
 ]]></system-out>
-    <system-err><![CDATA[Jun 24, 2024 6:18:41 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+    <system-err><![CDATA[Jun 25, 2024 4:24:49 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find an exact match for CDP version 126, returning the closest version; found: 125; Please update to a Selenium version that supports CDP version 126
 ]]></system-err>
   </testcase>
-  <testcase name="testValidLogin_TestCase1" classname="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases" time="2.438"/>
-  <testcase name="testValidLogin_TestCase1" classname="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases" time="2.363"/>
-  <testcase name="testValidLogin_TestCase1" classname="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases" time="2.449"/>
-  <testcase name="testValidLogin_TestCase1" classname="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases" time="2.513"/>
-  <testcase name="testValidLogin_TestCase1" classname="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases" time="2.435"/>
-  <testcase name="testValidLogin_TestCase1" classname="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases" time="2.9"/>
-  <testcase name="testInvalidUsername_TestCase2" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="60.326">
+  <testcase name="testValidLogin_TestCase1" classname="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases" time="2.485"/>
+  <testcase name="testValidLogin_TestCase1" classname="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases" time="2.593"/>
+  <testcase name="testValidLogin_TestCase1" classname="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases" time="2.556"/>
+  <testcase name="testValidLogin_TestCase1" classname="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases" time="2.453"/>
+  <testcase name="testValidLogin_TestCase1" classname="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases" time="2.933"/>
+  <testcase name="testValidLogin_TestCase1" classname="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases" time="2.567"/>
+  <testcase name="testInvalidUsername_TestCase2" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="60.352">
     <failure message="Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: //h6[contains(text(),&apos;Invalid username or password. Try again.&apos;)]&apos; (tried for 30 second(s) with 500 milliseconds interval)" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //h6[contains(text(),'Invalid username or password. Try again.')]' (tried for 30 second(s) with 500 milliseconds interval)
 	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidUsername_TestCase2(Login_Invalid_TestCases.java:36)
 Caused by: org.openqa.selenium.NoSuchElementException: 
@@ -120,19 +101,19 @@ For documentation on this error, please visit: https://www.selenium.dev/document
 Build info: version: '4.21.0', revision: '79ed462ef4'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [bcd7934fe315c190cb672987699d0c32, findElement {using=xpath, value=//h6[contains(text(),'Invalid username or password. Try again.')]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.62, chrome: {chromedriverVersion: 126.0.6478.63 (df799988fdc9..., userDataDir: C:\Users\MANICH~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63324}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63324/devtoo..., se:cdpVersion: 126.0.6478.62, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: bcd7934fe315c190cb672987699d0c32
+Command: [73de644def708b1444c89ca6b402ccd5, findElement {using=xpath, value=//h6[contains(text(),'Invalid username or password. Try again.')]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.62, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\MANICH~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55233}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55233/devtoo..., se:cdpVersion: 126.0.6478.62, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 73de644def708b1444c89ca6b402ccd5
 	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidUsername_TestCase2(Login_Invalid_TestCases.java:36)
 </failure>
     <system-out><![CDATA[Test execution completed on ChromeDriver with device: Tablet Portrait
 Test Started: testInvalidUsername_TestCase2
 ]]></system-out>
-    <system-err><![CDATA[Jun 24, 2024 6:01:56 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+    <system-err><![CDATA[Jun 25, 2024 4:07:09 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find an exact match for CDP version 126, returning the closest version; found: 125; Please update to a Selenium version that supports CDP version 126
 ]]></system-err>
   </testcase>
-  <testcase name="testInvalidUsername_TestCase2" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="60.337">
+  <testcase name="testInvalidUsername_TestCase2" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="60.43">
     <failure message="Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: //h6[contains(text(),&apos;Invalid username or password. Try again.&apos;)]&apos; (tried for 30 second(s) with 500 milliseconds interval)" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //h6[contains(text(),'Invalid username or password. Try again.')]' (tried for 30 second(s) with 500 milliseconds interval)
 	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidUsername_TestCase2(Login_Invalid_TestCases.java:36)
 Caused by: org.openqa.selenium.NoSuchElementException: 
@@ -142,19 +123,19 @@ For documentation on this error, please visit: https://www.selenium.dev/document
 Build info: version: '4.21.0', revision: '79ed462ef4'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [3dc1e0068a341ea1948a02cd840d2aa8, findElement {using=xpath, value=//h6[contains(text(),'Invalid username or password. Try again.')]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.62, chrome: {chromedriverVersion: 126.0.6478.63 (df799988fdc9..., userDataDir: C:\Users\MANICH~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63815}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63815/devtoo..., se:cdpVersion: 126.0.6478.62, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 3dc1e0068a341ea1948a02cd840d2aa8
+Command: [8d8bf45fb76a9929d0dd4d62a13036c2, findElement {using=xpath, value=//h6[contains(text(),'Invalid username or password. Try again.')]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.62, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\MANICH~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55652}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55652/devtoo..., se:cdpVersion: 126.0.6478.62, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 8d8bf45fb76a9929d0dd4d62a13036c2
 	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidUsername_TestCase2(Login_Invalid_TestCases.java:36)
 </failure>
     <system-out><![CDATA[Test execution completed on ChromeDriver with device: Tablet Landscape
 Test Started: testInvalidUsername_TestCase2
 ]]></system-out>
-    <system-err><![CDATA[Jun 24, 2024 6:05:20 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+    <system-err><![CDATA[Jun 25, 2024 4:10:42 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find an exact match for CDP version 126, returning the closest version; found: 125; Please update to a Selenium version that supports CDP version 126
 ]]></system-err>
   </testcase>
-  <testcase name="testInvalidUsername_TestCase2" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="60.364">
+  <testcase name="testInvalidUsername_TestCase2" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="60.394">
     <failure message="Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: //h6[contains(text(),&apos;Invalid username or password. Try again.&apos;)]&apos; (tried for 30 second(s) with 500 milliseconds interval)" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //h6[contains(text(),'Invalid username or password. Try again.')]' (tried for 30 second(s) with 500 milliseconds interval)
 	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidUsername_TestCase2(Login_Invalid_TestCases.java:36)
 Caused by: org.openqa.selenium.NoSuchElementException: 
@@ -164,19 +145,19 @@ For documentation on this error, please visit: https://www.selenium.dev/document
 Build info: version: '4.21.0', revision: '79ed462ef4'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [5a2dd0ff9878ce704fdf423da2acfcbc, findElement {using=xpath, value=//h6[contains(text(),'Invalid username or password. Try again.')]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.62, chrome: {chromedriverVersion: 126.0.6478.63 (df799988fdc9..., userDataDir: C:\Users\MANICH~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64319}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64319/devtoo..., se:cdpVersion: 126.0.6478.62, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 5a2dd0ff9878ce704fdf423da2acfcbc
+Command: [2f5f2891d5f0aca929000f28c8f70143, findElement {using=xpath, value=//h6[contains(text(),'Invalid username or password. Try again.')]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.62, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\MANICH~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56035}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56035/devtoo..., se:cdpVersion: 126.0.6478.62, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 2f5f2891d5f0aca929000f28c8f70143
 	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidUsername_TestCase2(Login_Invalid_TestCases.java:36)
 </failure>
     <system-out><![CDATA[Test execution completed on ChromeDriver with device: iPhone 11 Pro Portrait
 Test Started: testInvalidUsername_TestCase2
 ]]></system-out>
-    <system-err><![CDATA[Jun 24, 2024 6:08:39 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+    <system-err><![CDATA[Jun 25, 2024 4:14:06 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find an exact match for CDP version 126, returning the closest version; found: 125; Please update to a Selenium version that supports CDP version 126
 ]]></system-err>
   </testcase>
-  <testcase name="testInvalidUsername_TestCase2" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="60.426">
+  <testcase name="testInvalidUsername_TestCase2" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="60.34">
     <failure message="Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: //h6[contains(text(),&apos;Invalid username or password. Try again.&apos;)]&apos; (tried for 30 second(s) with 500 milliseconds interval)" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //h6[contains(text(),'Invalid username or password. Try again.')]' (tried for 30 second(s) with 500 milliseconds interval)
 	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidUsername_TestCase2(Login_Invalid_TestCases.java:36)
 Caused by: org.openqa.selenium.NoSuchElementException: 
@@ -186,19 +167,19 @@ For documentation on this error, please visit: https://www.selenium.dev/document
 Build info: version: '4.21.0', revision: '79ed462ef4'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [025852a9947ceaf935c8bb324a5bcae2, findElement {using=xpath, value=//h6[contains(text(),'Invalid username or password. Try again.')]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.62, chrome: {chromedriverVersion: 126.0.6478.63 (df799988fdc9..., userDataDir: C:\Users\MANICH~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64810}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64810/devtoo..., se:cdpVersion: 126.0.6478.62, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 025852a9947ceaf935c8bb324a5bcae2
+Command: [0358d8308ddd751cb415e69bb09eb03c, findElement {using=xpath, value=//h6[contains(text(),'Invalid username or password. Try again.')]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.62, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\MANICH~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56422}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56422/devtoo..., se:cdpVersion: 126.0.6478.62, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 0358d8308ddd751cb415e69bb09eb03c
 	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidUsername_TestCase2(Login_Invalid_TestCases.java:36)
 </failure>
     <system-out><![CDATA[Test execution completed on ChromeDriver with device: iPhone 11 Pro Landscape
 Test Started: testInvalidUsername_TestCase2
 ]]></system-out>
-    <system-err><![CDATA[Jun 24, 2024 6:12:04 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+    <system-err><![CDATA[Jun 25, 2024 4:17:33 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find an exact match for CDP version 126, returning the closest version; found: 125; Please update to a Selenium version that supports CDP version 126
 ]]></system-err>
   </testcase>
-  <testcase name="testInvalidUsername_TestCase2" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="60.297">
+  <testcase name="testInvalidUsername_TestCase2" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="60.393">
     <failure message="Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: //h6[contains(text(),&apos;Invalid username or password. Try again.&apos;)]&apos; (tried for 30 second(s) with 500 milliseconds interval)" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //h6[contains(text(),'Invalid username or password. Try again.')]' (tried for 30 second(s) with 500 milliseconds interval)
 	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidUsername_TestCase2(Login_Invalid_TestCases.java:36)
 Caused by: org.openqa.selenium.NoSuchElementException: 
@@ -208,19 +189,19 @@ For documentation on this error, please visit: https://www.selenium.dev/document
 Build info: version: '4.21.0', revision: '79ed462ef4'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [fcdbe5b0b4cb83552693b33dc8079e94, findElement {using=xpath, value=//h6[contains(text(),'Invalid username or password. Try again.')]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.62, chrome: {chromedriverVersion: 126.0.6478.63 (df799988fdc9..., userDataDir: C:\Users\MANICH~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65371}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65371/devtoo..., se:cdpVersion: 126.0.6478.62, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: fcdbe5b0b4cb83552693b33dc8079e94
+Command: [b10a5dc601cc73f2041db3ccc6e19a87, findElement {using=xpath, value=//h6[contains(text(),'Invalid username or password. Try again.')]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.62, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\MANICH~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57052}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57052/devtoo..., se:cdpVersion: 126.0.6478.62, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: b10a5dc601cc73f2041db3ccc6e19a87
 	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidUsername_TestCase2(Login_Invalid_TestCases.java:36)
 </failure>
     <system-out><![CDATA[Test execution completed on ChromeDriver with device: Galaxy S20 Portrait
 Test Started: testInvalidUsername_TestCase2
 ]]></system-out>
-    <system-err><![CDATA[Jun 24, 2024 6:15:26 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+    <system-err><![CDATA[Jun 25, 2024 4:21:24 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find an exact match for CDP version 126, returning the closest version; found: 125; Please update to a Selenium version that supports CDP version 126
 ]]></system-err>
   </testcase>
-  <testcase name="testInvalidUsername_TestCase2" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="60.428">
+  <testcase name="testInvalidUsername_TestCase2" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="60.272">
     <failure message="Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: //h6[contains(text(),&apos;Invalid username or password. Try again.&apos;)]&apos; (tried for 30 second(s) with 500 milliseconds interval)" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //h6[contains(text(),'Invalid username or password. Try again.')]' (tried for 30 second(s) with 500 milliseconds interval)
 	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidUsername_TestCase2(Login_Invalid_TestCases.java:36)
 Caused by: org.openqa.selenium.NoSuchElementException: 
@@ -230,25 +211,25 @@ For documentation on this error, please visit: https://www.selenium.dev/document
 Build info: version: '4.21.0', revision: '79ed462ef4'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [b04a074cd00ac70936b99d51d5a7a314, findElement {using=xpath, value=//h6[contains(text(),'Invalid username or password. Try again.')]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.62, chrome: {chromedriverVersion: 126.0.6478.63 (df799988fdc9..., userDataDir: C:\Users\MANICH~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49751}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:49751/devtoo..., se:cdpVersion: 126.0.6478.62, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: b04a074cd00ac70936b99d51d5a7a314
+Command: [176d30174cc5e39d02ec2fd3b3d07112, findElement {using=xpath, value=//h6[contains(text(),'Invalid username or password. Try again.')]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.62, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\MANICH~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57551}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57551/devtoo..., se:cdpVersion: 126.0.6478.62, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 176d30174cc5e39d02ec2fd3b3d07112
 	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidUsername_TestCase2(Login_Invalid_TestCases.java:36)
 </failure>
     <system-out><![CDATA[Test execution completed on ChromeDriver with device: Galaxy S20 Landscape
 Test Started: testInvalidUsername_TestCase2
 ]]></system-out>
-    <system-err><![CDATA[Jun 24, 2024 6:18:54 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+    <system-err><![CDATA[Jun 25, 2024 4:25:02 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find an exact match for CDP version 126, returning the closest version; found: 125; Please update to a Selenium version that supports CDP version 126
 ]]></system-err>
   </testcase>
-  <testcase name="verifyDropDownAvailability" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.049"/>
-  <testcase name="verifyDropDownAvailability" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.048"/>
-  <testcase name="verifyDropDownAvailability" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.069"/>
-  <testcase name="verifyDropDownAvailability" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.061"/>
-  <testcase name="verifyDropDownAvailability" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.036"/>
-  <testcase name="verifyDropDownAvailability" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.108"/>
-  <testcase name="testInvalidPassword_TestCase3" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="60.29">
+  <testcase name="verifyDropDownAvailability" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.082"/>
+  <testcase name="verifyDropDownAvailability" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.052"/>
+  <testcase name="verifyDropDownAvailability" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.059"/>
+  <testcase name="verifyDropDownAvailability" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.056"/>
+  <testcase name="verifyDropDownAvailability" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.057"/>
+  <testcase name="verifyDropDownAvailability" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.043"/>
+  <testcase name="testInvalidPassword_TestCase3" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="60.698">
     <failure message="Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: //h6[@id=&apos;LSERRM&apos; and contains(text(),&quot;Invalid username or password. Try again.&quot;)]&apos; (tried for 10 second(s) with 500 milliseconds interval)" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //h6[@id='LSERRM' and contains(text(),"Invalid username or password. Try again.")]' (tried for 10 second(s) with 500 milliseconds interval)
 	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidPassword_TestCase3(Login_Invalid_TestCases.java:44)
 Caused by: org.openqa.selenium.NoSuchElementException: 
@@ -258,19 +239,19 @@ For documentation on this error, please visit: https://www.selenium.dev/document
 Build info: version: '4.21.0', revision: '79ed462ef4'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [c5969322dc200b8b707eb0b4cc037efd, findElement {using=xpath, value=//h6[@id='LSERRM' and contains(text(),"Invalid username or password. Try again.")]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.62, chrome: {chromedriverVersion: 126.0.6478.63 (df799988fdc9..., userDataDir: C:\Users\MANICH~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63400}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63400/devtoo..., se:cdpVersion: 126.0.6478.62, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: c5969322dc200b8b707eb0b4cc037efd
+Command: [4f60bdc1e58a6a7cf9645ec325dbf56c, findElement {using=xpath, value=//h6[@id='LSERRM' and contains(text(),"Invalid username or password. Try again.")]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.62, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\MANICH~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55295}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55295/devtoo..., se:cdpVersion: 126.0.6478.62, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 4f60bdc1e58a6a7cf9645ec325dbf56c
 	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidPassword_TestCase3(Login_Invalid_TestCases.java:44)
 </failure>
     <system-out><![CDATA[Test execution completed on ChromeDriver with device: Tablet Portrait
 Test Started: testInvalidPassword_TestCase3
 ]]></system-out>
-    <system-err><![CDATA[Jun 24, 2024 6:03:05 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+    <system-err><![CDATA[Jun 25, 2024 4:08:19 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find an exact match for CDP version 126, returning the closest version; found: 125; Please update to a Selenium version that supports CDP version 126
 ]]></system-err>
   </testcase>
-  <testcase name="testInvalidPassword_TestCase3" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="60.281">
+  <testcase name="testInvalidPassword_TestCase3" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="60.3">
     <failure message="Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: //h6[@id=&apos;LSERRM&apos; and contains(text(),&quot;Invalid username or password. Try again.&quot;)]&apos; (tried for 10 second(s) with 500 milliseconds interval)" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //h6[@id='LSERRM' and contains(text(),"Invalid username or password. Try again.")]' (tried for 10 second(s) with 500 milliseconds interval)
 	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidPassword_TestCase3(Login_Invalid_TestCases.java:44)
 Caused by: org.openqa.selenium.NoSuchElementException: 
@@ -280,19 +261,19 @@ For documentation on this error, please visit: https://www.selenium.dev/document
 Build info: version: '4.21.0', revision: '79ed462ef4'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [396536b5895c5b5eada88972e26fdcbd, findElement {using=xpath, value=//h6[@id='LSERRM' and contains(text(),"Invalid username or password. Try again.")]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.62, chrome: {chromedriverVersion: 126.0.6478.63 (df799988fdc9..., userDataDir: C:\Users\MANICH~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63891}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63891/devtoo..., se:cdpVersion: 126.0.6478.62, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 396536b5895c5b5eada88972e26fdcbd
+Command: [ff60b3c726fff87fce30ff971a159d96, findElement {using=xpath, value=//h6[@id='LSERRM' and contains(text(),"Invalid username or password. Try again.")]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.62, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\MANICH~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55698}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55698/devtoo..., se:cdpVersion: 126.0.6478.62, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: ff60b3c726fff87fce30ff971a159d96
 	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidPassword_TestCase3(Login_Invalid_TestCases.java:44)
 </failure>
     <system-out><![CDATA[Test execution completed on ChromeDriver with device: Tablet Landscape
 Test Started: testInvalidPassword_TestCase3
 ]]></system-out>
-    <system-err><![CDATA[Jun 24, 2024 6:06:28 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+    <system-err><![CDATA[Jun 25, 2024 4:11:51 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find an exact match for CDP version 126, returning the closest version; found: 125; Please update to a Selenium version that supports CDP version 126
 ]]></system-err>
   </testcase>
-  <testcase name="testInvalidPassword_TestCase3" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="60.334">
+  <testcase name="testInvalidPassword_TestCase3" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="60.383">
     <failure message="Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: //h6[@id=&apos;LSERRM&apos; and contains(text(),&quot;Invalid username or password. Try again.&quot;)]&apos; (tried for 10 second(s) with 500 milliseconds interval)" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //h6[@id='LSERRM' and contains(text(),"Invalid username or password. Try again.")]' (tried for 10 second(s) with 500 milliseconds interval)
 	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidPassword_TestCase3(Login_Invalid_TestCases.java:44)
 Caused by: org.openqa.selenium.NoSuchElementException: 
@@ -302,19 +283,19 @@ For documentation on this error, please visit: https://www.selenium.dev/document
 Build info: version: '4.21.0', revision: '79ed462ef4'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [e90fa2e13320d5ba009421cf830c1bcc, findElement {using=xpath, value=//h6[@id='LSERRM' and contains(text(),"Invalid username or password. Try again.")]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.62, chrome: {chromedriverVersion: 126.0.6478.63 (df799988fdc9..., userDataDir: C:\Users\MANICH~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64382}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64382/devtoo..., se:cdpVersion: 126.0.6478.62, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: e90fa2e13320d5ba009421cf830c1bcc
+Command: [cc16d9cc819ff1e2d08b97013eb42ed1, findElement {using=xpath, value=//h6[@id='LSERRM' and contains(text(),"Invalid username or password. Try again.")]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.62, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\MANICH~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56091}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56091/devtoo..., se:cdpVersion: 126.0.6478.62, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: cc16d9cc819ff1e2d08b97013eb42ed1
 	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidPassword_TestCase3(Login_Invalid_TestCases.java:44)
 </failure>
     <system-out><![CDATA[Test execution completed on ChromeDriver with device: iPhone 11 Pro Portrait
 Test Started: testInvalidPassword_TestCase3
 ]]></system-out>
-    <system-err><![CDATA[Jun 24, 2024 6:09:48 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+    <system-err><![CDATA[Jun 25, 2024 4:15:15 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find an exact match for CDP version 126, returning the closest version; found: 125; Please update to a Selenium version that supports CDP version 126
 ]]></system-err>
   </testcase>
-  <testcase name="testInvalidPassword_TestCase3" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="60.354">
+  <testcase name="testInvalidPassword_TestCase3" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="60.344">
     <failure message="Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: //h6[@id=&apos;LSERRM&apos; and contains(text(),&quot;Invalid username or password. Try again.&quot;)]&apos; (tried for 10 second(s) with 500 milliseconds interval)" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //h6[@id='LSERRM' and contains(text(),"Invalid username or password. Try again.")]' (tried for 10 second(s) with 500 milliseconds interval)
 	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidPassword_TestCase3(Login_Invalid_TestCases.java:44)
 Caused by: org.openqa.selenium.NoSuchElementException: 
@@ -324,19 +305,19 @@ For documentation on this error, please visit: https://www.selenium.dev/document
 Build info: version: '4.21.0', revision: '79ed462ef4'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [bf588d5879fdc913fd1d3ffbaebc24cd, findElement {using=xpath, value=//h6[@id='LSERRM' and contains(text(),"Invalid username or password. Try again.")]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.62, chrome: {chromedriverVersion: 126.0.6478.63 (df799988fdc9..., userDataDir: C:\Users\MANICH~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64881}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64881/devtoo..., se:cdpVersion: 126.0.6478.62, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: bf588d5879fdc913fd1d3ffbaebc24cd
+Command: [e929e6a6ca7288e96e346c90de5aedf2, findElement {using=xpath, value=//h6[@id='LSERRM' and contains(text(),"Invalid username or password. Try again.")]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.62, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\MANICH~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56584}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56584/devtoo..., se:cdpVersion: 126.0.6478.62, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: e929e6a6ca7288e96e346c90de5aedf2
 	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidPassword_TestCase3(Login_Invalid_TestCases.java:44)
 </failure>
     <system-out><![CDATA[Test execution completed on ChromeDriver with device: iPhone 11 Pro Landscape
 Test Started: testInvalidPassword_TestCase3
 ]]></system-out>
-    <system-err><![CDATA[Jun 24, 2024 6:13:13 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+    <system-err><![CDATA[Jun 25, 2024 4:18:40 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find an exact match for CDP version 126, returning the closest version; found: 125; Please update to a Selenium version that supports CDP version 126
 ]]></system-err>
   </testcase>
-  <testcase name="testInvalidPassword_TestCase3" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="60.27">
+  <testcase name="testInvalidPassword_TestCase3" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="60.34">
     <failure message="Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: //h6[@id=&apos;LSERRM&apos; and contains(text(),&quot;Invalid username or password. Try again.&quot;)]&apos; (tried for 10 second(s) with 500 milliseconds interval)" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //h6[@id='LSERRM' and contains(text(),"Invalid username or password. Try again.")]' (tried for 10 second(s) with 500 milliseconds interval)
 	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidPassword_TestCase3(Login_Invalid_TestCases.java:44)
 Caused by: org.openqa.selenium.NoSuchElementException: 
@@ -346,19 +327,19 @@ For documentation on this error, please visit: https://www.selenium.dev/document
 Build info: version: '4.21.0', revision: '79ed462ef4'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [04b9a6c8e19c9e0563075c5eb62d6603, findElement {using=xpath, value=//h6[@id='LSERRM' and contains(text(),"Invalid username or password. Try again.")]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.62, chrome: {chromedriverVersion: 126.0.6478.63 (df799988fdc9..., userDataDir: C:\Users\MANICH~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65437}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65437/devtoo..., se:cdpVersion: 126.0.6478.62, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 04b9a6c8e19c9e0563075c5eb62d6603
+Command: [21255b2c1f6689a806ed71f386327df3, findElement {using=xpath, value=//h6[@id='LSERRM' and contains(text(),"Invalid username or password. Try again.")]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.62, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\MANICH~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57142}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57142/devtoo..., se:cdpVersion: 126.0.6478.62, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 21255b2c1f6689a806ed71f386327df3
 	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidPassword_TestCase3(Login_Invalid_TestCases.java:44)
 </failure>
     <system-out><![CDATA[Test execution completed on ChromeDriver with device: Galaxy S20 Portrait
 Test Started: testInvalidPassword_TestCase3
 ]]></system-out>
-    <system-err><![CDATA[Jun 24, 2024 6:16:35 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+    <system-err><![CDATA[Jun 25, 2024 4:22:33 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find an exact match for CDP version 126, returning the closest version; found: 125; Please update to a Selenium version that supports CDP version 126
 ]]></system-err>
   </testcase>
-  <testcase name="testInvalidPassword_TestCase3" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="60.419">
+  <testcase name="testInvalidPassword_TestCase3" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="60.327">
     <failure message="Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: //h6[@id=&apos;LSERRM&apos; and contains(text(),&quot;Invalid username or password. Try again.&quot;)]&apos; (tried for 10 second(s) with 500 milliseconds interval)" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //h6[@id='LSERRM' and contains(text(),"Invalid username or password. Try again.")]' (tried for 10 second(s) with 500 milliseconds interval)
 	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidPassword_TestCase3(Login_Invalid_TestCases.java:44)
 Caused by: org.openqa.selenium.NoSuchElementException: 
@@ -368,134 +349,134 @@ For documentation on this error, please visit: https://www.selenium.dev/document
 Build info: version: '4.21.0', revision: '79ed462ef4'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [638c1f5ae2e69de87ec573da75c00de0, findElement {using=xpath, value=//h6[@id='LSERRM' and contains(text(),"Invalid username or password. Try again.")]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.62, chrome: {chromedriverVersion: 126.0.6478.63 (df799988fdc9..., userDataDir: C:\Users\MANICH~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49827}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:49827/devtoo..., se:cdpVersion: 126.0.6478.62, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 638c1f5ae2e69de87ec573da75c00de0
+Command: [b74538cc505408a11206e024c46a91d4, findElement {using=xpath, value=//h6[@id='LSERRM' and contains(text(),"Invalid username or password. Try again.")]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.62, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\MANICH~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57645}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57645/devtoo..., se:cdpVersion: 126.0.6478.62, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: b74538cc505408a11206e024c46a91d4
 	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidPassword_TestCase3(Login_Invalid_TestCases.java:44)
 </failure>
     <system-out><![CDATA[Test execution completed on ChromeDriver with device: Galaxy S20 Landscape
 Test Started: testInvalidPassword_TestCase3
 ]]></system-out>
-    <system-err><![CDATA[Jun 24, 2024 6:20:05 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+    <system-err><![CDATA[Jun 25, 2024 4:26:10 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find an exact match for CDP version 126, returning the closest version; found: 125; Please update to a Selenium version that supports CDP version 126
 ]]></system-err>
   </testcase>
+  <testcase name="verifyIfAbleToSelectOptionFromDropDown" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.238"/>
   <testcase name="verifyIfAbleToSelectOptionFromDropDown" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.178"/>
-  <testcase name="verifyIfAbleToSelectOptionFromDropDown" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.153"/>
-  <testcase name="verifyIfAbleToSelectOptionFromDropDown" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.165"/>
-  <testcase name="verifyIfAbleToSelectOptionFromDropDown" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.171"/>
-  <testcase name="verifyIfAbleToSelectOptionFromDropDown" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.177"/>
-  <testcase name="verifyIfAbleToSelectOptionFromDropDown" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.366"/>
-  <testcase name="testTooLongUsername_TestCase4" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.4"/>
-  <testcase name="testTooLongUsername_TestCase4" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.435"/>
-  <testcase name="testTooLongUsername_TestCase4" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.474"/>
-  <testcase name="testTooLongUsername_TestCase4" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.496"/>
-  <testcase name="testTooLongUsername_TestCase4" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.46"/>
-  <testcase name="testTooLongUsername_TestCase4" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.679"/>
-  <testcase name="verifyChooseLocationButtonAvailability" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="2.259"/>
-  <testcase name="verifyChooseLocationButtonAvailability" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="2.265"/>
-  <testcase name="verifyChooseLocationButtonAvailability" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="2.211"/>
-  <testcase name="verifyChooseLocationButtonAvailability" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="2.258"/>
-  <testcase name="verifyChooseLocationButtonAvailability" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="3.877"/>
-  <testcase name="verifyChooseLocationButtonAvailability" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="2.416"/>
-  <testcase name="testMinLengthPassword_TestCase5" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.299"/>
-  <testcase name="testMinLengthPassword_TestCase5" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.284"/>
-  <testcase name="testMinLengthPassword_TestCase5" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.286"/>
-  <testcase name="testMinLengthPassword_TestCase5" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.304"/>
-  <testcase name="testMinLengthPassword_TestCase5" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.274"/>
-  <testcase name="testMinLengthPassword_TestCase5" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.563"/>
-  <testcase name="verifyHeaderOfMemberLookupScreen" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="1.983"/>
-  <testcase name="verifyHeaderOfMemberLookupScreen" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="1.433"/>
-  <testcase name="verifyHeaderOfMemberLookupScreen" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="1.951"/>
-  <testcase name="verifyHeaderOfMemberLookupScreen" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="3.193">
-    <failure message="An error occurred while verifying the dropdown selections: element click intercepted: Element &lt;button class=&quot;MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-y7km40&quot; tabindex=&quot;0&quot; type=&quot;button&quot; data-testid=&quot;LS014B&quot; id=&quot;LS014B&quot;&gt;...&lt;/button&gt; is not clickable at point (389, 208). Other element would receive the click: &lt;li tabindex=&quot;-1&quot; role=&quot;option&quot; id=&quot;LS013OP1&quot; data-option-index=&quot;1&quot; aria-disabled=&quot;false&quot; aria-selected=&quot;false&quot; class=&quot;MuiAutocomplete-option&quot; data-testid=&quot;LS013OP1&quot;&gt;...&lt;/li&gt;&#10;  (Session info: chrome=126.0.6478.62)&#10;Build info: version: &apos;4.21.0&apos;, revision: &apos;79ed462ef4&apos;&#10;System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.10&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [54736f452dc4c8ac58517d2a392f662b, clickElement {id=f.A1AF7AF33AFE4ABD3FC932F153322155.d.1B9D5AD4C4709E29E46CAE9670D2CA0D.e.54}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.62, chrome: {chromedriverVersion: 126.0.6478.63 (df799988fdc9..., userDataDir: C:\Users\MANICH~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65100}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65100/devtoo..., se:cdpVersion: 126.0.6478.62, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}&#10;Element: [[ChromeDriver: chrome on windows (54736f452dc4c8ac58517d2a392f662b)] -&gt; xpath: //button[@id=&apos;LS014B&apos;]]&#10;Session ID: 54736f452dc4c8ac58517d2a392f662b" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: 
-An error occurred while verifying the dropdown selections: element click intercepted: Element <button class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-y7km40" tabindex="0" type="button" data-testid="LS014B" id="LS014B">...</button> is not clickable at point (389, 208). Other element would receive the click: <li tabindex="-1" role="option" id="LS013OP1" data-option-index="1" aria-disabled="false" aria-selected="false" class="MuiAutocomplete-option" data-testid="LS013OP1">...</li>
+  <testcase name="verifyIfAbleToSelectOptionFromDropDown" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.173"/>
+  <testcase name="verifyIfAbleToSelectOptionFromDropDown" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.17"/>
+  <testcase name="verifyIfAbleToSelectOptionFromDropDown" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.185"/>
+  <testcase name="verifyIfAbleToSelectOptionFromDropDown" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.179"/>
+  <testcase name="testTooLongUsername_TestCase4" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.618"/>
+  <testcase name="testTooLongUsername_TestCase4" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.485"/>
+  <testcase name="testTooLongUsername_TestCase4" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.472"/>
+  <testcase name="testTooLongUsername_TestCase4" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.479"/>
+  <testcase name="testTooLongUsername_TestCase4" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.462"/>
+  <testcase name="testTooLongUsername_TestCase4" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.501"/>
+  <testcase name="verifyChooseLocationButtonAvailability" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="2.275"/>
+  <testcase name="verifyChooseLocationButtonAvailability" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="2.281"/>
+  <testcase name="verifyChooseLocationButtonAvailability" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="2.244"/>
+  <testcase name="verifyChooseLocationButtonAvailability" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="2.216"/>
+  <testcase name="verifyChooseLocationButtonAvailability" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="2.26"/>
+  <testcase name="verifyChooseLocationButtonAvailability" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="1.653"/>
+  <testcase name="testMinLengthPassword_TestCase5" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.374"/>
+  <testcase name="testMinLengthPassword_TestCase5" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.337"/>
+  <testcase name="testMinLengthPassword_TestCase5" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.33"/>
+  <testcase name="testMinLengthPassword_TestCase5" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.353"/>
+  <testcase name="testMinLengthPassword_TestCase5" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.373"/>
+  <testcase name="testMinLengthPassword_TestCase5" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.32"/>
+  <testcase name="verifyHeaderOfMemberLookupScreen" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="2.028"/>
+  <testcase name="verifyHeaderOfMemberLookupScreen" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="1.987"/>
+  <testcase name="verifyHeaderOfMemberLookupScreen" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="1.998"/>
+  <testcase name="verifyHeaderOfMemberLookupScreen" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="31.939">
+    <failure message="An error occurred while verifying the dropdown selections: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//button[@id=&apos;MSMENUI2&apos;]&quot;}&#10;  (Session info: chrome=126.0.6478.62)&#10;For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception&#10;Build info: version: &apos;4.21.0&apos;, revision: &apos;79ed462ef4&apos;&#10;System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.10&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [e11a32b7ae50c07d9b5176460763df65, findElement {using=xpath, value=//button[@id=&apos;MSMENUI2&apos;]}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.62, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\MANICH~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56812}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56812/devtoo..., se:cdpVersion: 126.0.6478.62, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}&#10;Session ID: e11a32b7ae50c07d9b5176460763df65" type="java.lang.AssertionError">java.lang.AssertionError: 
+An error occurred while verifying the dropdown selections: no such element: Unable to locate element: {"method":"xpath","selector":"//button[@id='MSMENUI2']"}
   (Session info: chrome=126.0.6478.62)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Build info: version: '4.21.0', revision: '79ed462ef4'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [54736f452dc4c8ac58517d2a392f662b, clickElement {id=f.A1AF7AF33AFE4ABD3FC932F153322155.d.1B9D5AD4C4709E29E46CAE9670D2CA0D.e.54}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.62, chrome: {chromedriverVersion: 126.0.6478.63 (df799988fdc9..., userDataDir: C:\Users\MANICH~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65100}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65100/devtoo..., se:cdpVersion: 126.0.6478.62, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (54736f452dc4c8ac58517d2a392f662b)] -> xpath: //button[@id='LS014B']]
-Session ID: 54736f452dc4c8ac58517d2a392f662b
+Command: [e11a32b7ae50c07d9b5176460763df65, findElement {using=xpath, value=//button[@id='MSMENUI2']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.62, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\MANICH~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56812}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56812/devtoo..., se:cdpVersion: 126.0.6478.62, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: e11a32b7ae50c07d9b5176460763df65
 	at zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.verifyHeaderOfMemberLookupScreen(Location_ExistingUser_TestCases.java:150)
-]]></failure>
+</failure>
     <system-out><![CDATA[Test execution completed on ChromeDriver with device: iPhone 11 Pro Landscape
 Test Started: verifyHeaderOfMemberLookupScreen
 Selected option: HMH01101 - MyStays Akasaka
 ]]></system-out>
-    <system-err><![CDATA[Jun 24, 2024 6:14:34 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+    <system-err><![CDATA[Jun 25, 2024 4:20:01 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find an exact match for CDP version 126, returning the closest version; found: 125; Please update to a Selenium version that supports CDP version 126
 ]]></system-err>
   </testcase>
-  <testcase name="verifyHeaderOfMemberLookupScreen" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="1.956"/>
-  <testcase name="verifyHeaderOfMemberLookupScreen" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="3.178">
-    <failure message="An error occurred while verifying the dropdown selections: element click intercepted: Element &lt;button class=&quot;MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-y7km40&quot; tabindex=&quot;0&quot; type=&quot;button&quot; data-testid=&quot;LS014B&quot; id=&quot;LS014B&quot;&gt;...&lt;/button&gt; is not clickable at point (383, 193). Other element would receive the click: &lt;li tabindex=&quot;-1&quot; role=&quot;option&quot; id=&quot;LS013OP1&quot; data-option-index=&quot;1&quot; aria-disabled=&quot;false&quot; aria-selected=&quot;false&quot; class=&quot;MuiAutocomplete-option&quot; data-testid=&quot;LS013OP1&quot;&gt;...&lt;/li&gt;&#10;  (Session info: chrome=126.0.6478.62)&#10;Build info: version: &apos;4.21.0&apos;, revision: &apos;79ed462ef4&apos;&#10;System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.10&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [6f00c7c9e3657aaff6b2f7879a4a015b, clickElement {id=f.86C1E78ECB6A67DE57DA53A205D2D56C.d.5D09F1E3DD79D10733CC5446407832AA.e.55}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.62, chrome: {chromedriverVersion: 126.0.6478.63 (df799988fdc9..., userDataDir: C:\Users\MANICH~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49981}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:49981/devtoo..., se:cdpVersion: 126.0.6478.62, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}&#10;Element: [[ChromeDriver: chrome on windows (6f00c7c9e3657aaff6b2f7879a4a015b)] -&gt; xpath: //button[@id=&apos;LS014B&apos;]]&#10;Session ID: 6f00c7c9e3657aaff6b2f7879a4a015b" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: 
-An error occurred while verifying the dropdown selections: element click intercepted: Element <button class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-y7km40" tabindex="0" type="button" data-testid="LS014B" id="LS014B">...</button> is not clickable at point (383, 193). Other element would receive the click: <li tabindex="-1" role="option" id="LS013OP1" data-option-index="1" aria-disabled="false" aria-selected="false" class="MuiAutocomplete-option" data-testid="LS013OP1">...</li>
+  <testcase name="verifyHeaderOfMemberLookupScreen" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="6.362"/>
+  <testcase name="verifyHeaderOfMemberLookupScreen" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="31.964">
+    <failure message="An error occurred while verifying the dropdown selections: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//button[@id=&apos;MSMENUI2&apos;]&quot;}&#10;  (Session info: chrome=126.0.6478.62)&#10;For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception&#10;Build info: version: &apos;4.21.0&apos;, revision: &apos;79ed462ef4&apos;&#10;System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.10&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [ef9068b1e0f16e303461460b3220ca37, findElement {using=xpath, value=//button[@id=&apos;MSMENUI2&apos;]}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.62, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\MANICH~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57763}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57763/devtoo..., se:cdpVersion: 126.0.6478.62, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}&#10;Session ID: ef9068b1e0f16e303461460b3220ca37" type="java.lang.AssertionError">java.lang.AssertionError: 
+An error occurred while verifying the dropdown selections: no such element: Unable to locate element: {"method":"xpath","selector":"//button[@id='MSMENUI2']"}
   (Session info: chrome=126.0.6478.62)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Build info: version: '4.21.0', revision: '79ed462ef4'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [6f00c7c9e3657aaff6b2f7879a4a015b, clickElement {id=f.86C1E78ECB6A67DE57DA53A205D2D56C.d.5D09F1E3DD79D10733CC5446407832AA.e.55}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.62, chrome: {chromedriverVersion: 126.0.6478.63 (df799988fdc9..., userDataDir: C:\Users\MANICH~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49981}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:49981/devtoo..., se:cdpVersion: 126.0.6478.62, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (6f00c7c9e3657aaff6b2f7879a4a015b)] -> xpath: //button[@id='LS014B']]
-Session ID: 6f00c7c9e3657aaff6b2f7879a4a015b
+Command: [ef9068b1e0f16e303461460b3220ca37, findElement {using=xpath, value=//button[@id='MSMENUI2']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.62, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\MANICH~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57763}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57763/devtoo..., se:cdpVersion: 126.0.6478.62, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: ef9068b1e0f16e303461460b3220ca37
 	at zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.verifyHeaderOfMemberLookupScreen(Location_ExistingUser_TestCases.java:150)
-]]></failure>
+</failure>
     <system-out><![CDATA[Test execution completed on ChromeDriver with device: Galaxy S20 Landscape
 Test Started: verifyHeaderOfMemberLookupScreen
 Selected option: HMH01101 - MyStays Akasaka
 ]]></system-out>
-    <system-err><![CDATA[Jun 24, 2024 6:21:31 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+    <system-err><![CDATA[Jun 25, 2024 4:27:30 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find an exact match for CDP version 126, returning the closest version; found: 125; Please update to a Selenium version that supports CDP version 126
 ]]></system-err>
   </testcase>
-  <testcase name="burgerIconMemberLookupNavigation" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.121"/>
-  <testcase name="burgerIconMemberLookupNavigation" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.143"/>
   <testcase name="burgerIconMemberLookupNavigation" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.133"/>
-  <testcase name="burgerIconMemberLookupNavigation" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.112"/>
-  <testcase name="burgerIconMemberLookupNavigation" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.116"/>
-  <testcase name="burgerIconMemberLookupNavigation" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.271"/>
-  <testcase name="testUsernameWithSpaces_TestCase6" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.355"/>
-  <testcase name="testUsernameWithSpaces_TestCase6" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.293"/>
-  <testcase name="testUsernameWithSpaces_TestCase6" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.293"/>
-  <testcase name="testUsernameWithSpaces_TestCase6" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.31"/>
-  <testcase name="testUsernameWithSpaces_TestCase6" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.33"/>
-  <testcase name="testUsernameWithSpaces_TestCase6" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.605"/>
+  <testcase name="burgerIconMemberLookupNavigation" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.114"/>
+  <testcase name="burgerIconMemberLookupNavigation" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.133"/>
+  <testcase name="burgerIconMemberLookupNavigation" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.113"/>
+  <testcase name="burgerIconMemberLookupNavigation" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.12"/>
+  <testcase name="burgerIconMemberLookupNavigation" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.115"/>
+  <testcase name="testUsernameWithSpaces_TestCase6" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.352"/>
+  <testcase name="testUsernameWithSpaces_TestCase6" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.354"/>
+  <testcase name="testUsernameWithSpaces_TestCase6" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.312"/>
+  <testcase name="testUsernameWithSpaces_TestCase6" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.39"/>
+  <testcase name="testUsernameWithSpaces_TestCase6" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.332"/>
+  <testcase name="testUsernameWithSpaces_TestCase6" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.353"/>
+  <testcase name="burgerIconMemberLocationNavigation" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.13"/>
+  <testcase name="burgerIconMemberLocationNavigation" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.114"/>
+  <testcase name="burgerIconMemberLocationNavigation" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.115"/>
+  <testcase name="burgerIconMemberLocationNavigation" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.112"/>
   <testcase name="burgerIconMemberLocationNavigation" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.101"/>
-  <testcase name="burgerIconMemberLocationNavigation" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.099"/>
-  <testcase name="burgerIconMemberLocationNavigation" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.096"/>
-  <testcase name="burgerIconMemberLocationNavigation" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.102"/>
-  <testcase name="burgerIconMemberLocationNavigation" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.128"/>
-  <testcase name="burgerIconMemberLocationNavigation" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.286"/>
-  <testcase name="verifyForEnabledLoginButton_TestCase7" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="2.551"/>
-  <testcase name="verifyForEnabledLoginButton_TestCase7" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="2.469"/>
-  <testcase name="verifyForEnabledLoginButton_TestCase7" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="2.029"/>
-  <testcase name="verifyForEnabledLoginButton_TestCase7" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="2.507"/>
-  <testcase name="verifyForEnabledLoginButton_TestCase7" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="1.956"/>
-  <testcase name="verifyForEnabledLoginButton_TestCase7" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="2.3"/>
+  <testcase name="burgerIconMemberLocationNavigation" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.111"/>
+  <testcase name="verifyForEnabledLoginButton_TestCase7" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="2.526"/>
+  <testcase name="verifyForEnabledLoginButton_TestCase7" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="2.533"/>
+  <testcase name="verifyForEnabledLoginButton_TestCase7" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="2.527"/>
+  <testcase name="verifyForEnabledLoginButton_TestCase7" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="2.501"/>
+  <testcase name="verifyForEnabledLoginButton_TestCase7" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="1.906"/>
+  <testcase name="verifyForEnabledLoginButton_TestCase7" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="2.521"/>
+  <testcase name="burgerIconLogout" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.14"/>
+  <testcase name="burgerIconLogout" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.126"/>
+  <testcase name="burgerIconLogout" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.127"/>
   <testcase name="burgerIconLogout" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.119"/>
-  <testcase name="burgerIconLogout" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.124"/>
-  <testcase name="burgerIconLogout" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.112"/>
-  <testcase name="burgerIconLogout" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.123"/>
-  <testcase name="burgerIconLogout" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.111"/>
-  <testcase name="burgerIconLogout" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.206"/>
-  <testcase name="verifyForDisabledLoginButtonForEmptyUsername_TestCase8" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.146"/>
-  <testcase name="verifyForDisabledLoginButtonForEmptyUsername_TestCase8" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.162"/>
-  <testcase name="verifyForDisabledLoginButtonForEmptyUsername_TestCase8" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.139"/>
-  <testcase name="verifyForDisabledLoginButtonForEmptyUsername_TestCase8" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.151"/>
-  <testcase name="verifyForDisabledLoginButtonForEmptyUsername_TestCase8" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.143"/>
-  <testcase name="verifyForDisabledLoginButtonForEmptyUsername_TestCase8" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.298"/>
-  <testcase name="verifyForDisabledLoginButtonForEmptyPassword_TestCase9" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.182"/>
-  <testcase name="verifyForDisabledLoginButtonForEmptyPassword_TestCase9" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.175"/>
-  <testcase name="verifyForDisabledLoginButtonForEmptyPassword_TestCase9" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.176"/>
-  <testcase name="verifyForDisabledLoginButtonForEmptyPassword_TestCase9" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.26"/>
-  <testcase name="verifyForDisabledLoginButtonForEmptyPassword_TestCase9" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.183"/>
-  <testcase name="verifyForDisabledLoginButtonForEmptyPassword_TestCase9" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.299"/>
-  <testcase name="verifyForDisabledLoginButtonForEmptyUsernamePassword_TestCase10" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.123"/>
-  <testcase name="verifyForDisabledLoginButtonForEmptyUsernamePassword_TestCase10" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.134"/>
-  <testcase name="verifyForDisabledLoginButtonForEmptyUsernamePassword_TestCase10" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.184"/>
-  <testcase name="verifyForDisabledLoginButtonForEmptyUsernamePassword_TestCase10" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.153"/>
-  <testcase name="verifyForDisabledLoginButtonForEmptyUsernamePassword_TestCase10" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.147"/>
-  <testcase name="verifyForDisabledLoginButtonForEmptyUsernamePassword_TestCase10" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.236"/>
+  <testcase name="burgerIconLogout" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.135"/>
+  <testcase name="burgerIconLogout" classname="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases" time="0.118"/>
+  <testcase name="verifyForDisabledLoginButtonForEmptyUsername_TestCase8" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.171"/>
+  <testcase name="verifyForDisabledLoginButtonForEmptyUsername_TestCase8" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.17"/>
+  <testcase name="verifyForDisabledLoginButtonForEmptyUsername_TestCase8" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.168"/>
+  <testcase name="verifyForDisabledLoginButtonForEmptyUsername_TestCase8" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.164"/>
+  <testcase name="verifyForDisabledLoginButtonForEmptyUsername_TestCase8" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.166"/>
+  <testcase name="verifyForDisabledLoginButtonForEmptyUsername_TestCase8" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.173"/>
+  <testcase name="verifyForDisabledLoginButtonForEmptyPassword_TestCase9" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.192"/>
+  <testcase name="verifyForDisabledLoginButtonForEmptyPassword_TestCase9" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.228"/>
+  <testcase name="verifyForDisabledLoginButtonForEmptyPassword_TestCase9" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.24"/>
+  <testcase name="verifyForDisabledLoginButtonForEmptyPassword_TestCase9" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.217"/>
+  <testcase name="verifyForDisabledLoginButtonForEmptyPassword_TestCase9" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.22"/>
+  <testcase name="verifyForDisabledLoginButtonForEmptyPassword_TestCase9" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.236"/>
+  <testcase name="verifyForDisabledLoginButtonForEmptyUsernamePassword_TestCase10" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.143"/>
+  <testcase name="verifyForDisabledLoginButtonForEmptyUsernamePassword_TestCase10" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.185"/>
+  <testcase name="verifyForDisabledLoginButtonForEmptyUsernamePassword_TestCase10" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.145"/>
+  <testcase name="verifyForDisabledLoginButtonForEmptyUsernamePassword_TestCase10" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.146"/>
+  <testcase name="verifyForDisabledLoginButtonForEmptyUsernamePassword_TestCase10" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.148"/>
+  <testcase name="verifyForDisabledLoginButtonForEmptyUsernamePassword_TestCase10" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.162"/>
 </testsuite>

@@ -1,8 +1,0 @@
-zapcg\Capillary\LoginTestCases\Login_LockOutTestCase.class
-zapcg\Capillary\MemberLookupTestCases\memberLookup_Invalid_TestCases.class
-zapcg\Capillary\LocationPageTestCases\Location_TestCases.class
-zapcg\Capillary\LoginTestCases\Login_Valid_TestCases.class
-zapcg\Capillary\LoginTestCases\Login_Invalid_TestCases.class
-zapcg\Capillary\LocationPageTestCases\Location_ExistingUser_TestCases.class
-zapcg\Capillary\MemberLookupTestCases\MemberLookup_TestCases.class
-zapcg\Capillary\MemberDetailsTestCases\memberDetails_TestCases.class

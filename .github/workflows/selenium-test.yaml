@@ -38,3 +38,4 @@ jobs:
       run: |
         cd automation-testing/
         mvn -B package --file pom.xml
+        java -jar target/Capillary_Framework-0.0.1-SNAPSHOT.jar

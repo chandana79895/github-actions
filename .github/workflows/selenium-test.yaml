@@ -3,7 +3,11 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - feature/automation-testing-code
+      - latest-code
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - latest-code
 
 jobs:
   automation_testing:
@@ -31,18 +35,21 @@ jobs:
           sudo unzip chromedriver.zip -d /usr/local/bin/
           rm chromedriver.zip
 
-      - name: Start Xvfb
+      - name: Install Xvfb
+        run: sudo apt-get install -y xvfb
+
+      - name: Set up display and start Xvfb
         run: |
-          sudo apt-get install -y xvfb
-          Xvfb :99 -screen 0 1280x1024x24 &
           export DISPLAY=:99
+          Xvfb :99 -screen 0 1280x1024x24 &
+          sleep 3 # Give Xvfb some time to start
 
       - name: Run Selenium tests
-        env:
-          DISPLAY: :99
         run: |
+          export DISPLAY=:99
           cd automation-testing/
-          mvn clean install -Dwebdriver.chrome.driver=/usr/local/bin/chromedriver -Dwebdriver.chrome.whitelistedIps=
+          mvn clean install -Dwebdriver.chrome.driver=/usr/local/bin/chromedriver -Dwebdriver.chrome.args="--headless --no-sandbox --disable-dev-shm-usage"
+          cat target/surefire-reports/*.txt
 
   unit_test:
     if: github.event_name == 'pull_request' && (github.event.action == 'opened' || github.event.action == 'synchronize' || github.event.action == 'reopened')

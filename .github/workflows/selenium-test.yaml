@@ -3,7 +3,7 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - feature/latest-code
+      - feature/automation-testing-code
 
 jobs:
   automation_testing:
@@ -38,11 +38,11 @@ jobs:
           export DISPLAY=:99
 
       - name: Run Selenium tests
+        env:
+          DISPLAY: :99
         run: |
-          export DISPLAY=:99
           cd automation-testing/
-          mvn clean install
-          cat target/surefire-reports/*.txt
+          mvn clean install -Dwebdriver.chrome.driver=/usr/local/bin/chromedriver -Dwebdriver.chrome.whitelistedIps=
 
   unit_test:
     if: github.event_name == 'pull_request' && (github.event.action == 'opened' || github.event.action == 'synchronize' || github.event.action == 'reopened')

@@ -9,7 +9,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+// import io.github.bonigarcia.wdm.WebDriverManager;
 import zapcg.Cappilary.utils.ConfigReader;
 import zapcg.Cappilary.utils.DeviceData;
 

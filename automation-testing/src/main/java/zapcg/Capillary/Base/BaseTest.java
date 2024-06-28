@@ -30,7 +30,7 @@ public class BaseTest {
         try {
             if (browser.equalsIgnoreCase("chrome")) {
                 // Set up WebDriverManager for Chrome
-                WebDriverManager.chromedriver().version("126.0.6478.126-1").setup(); // Replace with your ChromeDriver version
+                WebDriverManager.chromedriver().version("93.0.4577.15").setup();
                 ChromeOptions options = new ChromeOptions();
                 options.addArguments("--remote-allow-origins=*");
                 options.setExperimentalOption("detach", true);

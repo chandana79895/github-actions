@@ -42,4 +42,4 @@ jobs:
           export DISPLAY=:99
           # Run Maven tests
           cd automation-testing/
-          mvn clean test
+          mvn clean install

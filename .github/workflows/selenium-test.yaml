@@ -1,49 +1,123 @@
-name: Java CI with Maven
+name: Build and Deploy
 
 on:
   push:
-    branches: [ latest-code ]
+    branches:
+      - feature/latest-code
 
 jobs:
   automation_testing:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+
       - name: Set up JDK 11
         uses: actions/setup-java@v2
         with:
           java-version: '11.0.22'
           distribution: 'adopt'
           cache: maven
-    
+
       - name: Install Chrome browser
         run: |
           sudo apt-get update
           sudo apt-get install -y google-chrome-stable
-          sudo apt-get install -y xvfb
-          sudo apt-get install -y libxi6 libgconf-2-4
-  
+
       - name: Download Chrome Driver
         run: |
           sudo apt-get install -y unzip
-          curl -sS -o chromedriver.zip https://chromedriver.storage.googleapis.com/$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE)/chromedriver_linux64.zip
-          unzip chromedriver.zip -d /usr/local/bin/
+          CHROME_DRIVER_VERSION=$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE)
+          curl -sS -o chromedriver.zip https://chromedriver.storage.googleapis.com/$CHROME_DRIVER_VERSION/chromedriver_linux64.zip
+          sudo unzip chromedriver.zip -d /usr/local/bin/
           rm chromedriver.zip
-  
+
       - name: Start Xvfb
         run: |
+          sudo apt-get install -y xvfb
           Xvfb :99 -screen 0 1280x1024x24 &
           export DISPLAY=:99
-          sleep 3 # Give Xvfb some time to start
-  
-      - name: Print Xvfb Display Status
-        run: |
-          ps -ef | grep Xvfb
-  
+
       - name: Run Selenium tests
         run: |
           export DISPLAY=:99
           cd automation-testing/
           mvn clean install
-          # Print the test results
           cat target/surefire-reports/*.txt
+
+  unit_test:
+    if: github.event_name == 'pull_request' && (github.event.action == 'opened' || github.event.action == 'synchronize' || github.event.action == 'reopened')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20.x'
+
+      - name: Unit-tests
+        run: |
+          npm i
+          npm run test
+
+  if_merged:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/develop') || (github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true && github.ref == 'refs/heads/develop')
+    environment:
+      name: dev
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20.x'
+
+      - name: Set up AWS CLI
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
+          role-duration-seconds: 1200
+          audience: sts.amazonaws.com
+
+      - name: Set up .env file
+        env:
+          VITE_APP_SESSION: ${{ secrets.VITE_APP_SESSION }}
+          VITE_APP_BASE_URL: ${{ secrets.VITE_APP_BASE_URL }}
+          VITE_APP_TRANSACTION_AMOUNT: ${{ secrets.VITE_APP_TRANSACTION_AMOUNT }}
+          VITE_APP_SCAN_LIMIT: ${{ secrets.VITE_APP_SCAN_LIMIT }}
+        run: |
+          echo "VITE_APP_SESSION=${{ secrets.VITE_APP_SESSION }}" >> .env.${{ secrets.ENV }}
+          echo "VITE_APP_BASE_URL=${{ secrets.VITE_APP_BASE_URL }}" >> .env.${{ secrets.ENV }}
+          echo "VITE_APP_TRANSACTION_AMOUNT=${{ secrets.VITE_APP_TRANSACTION_AMOUNT }}" >> .env.${{ secrets.ENV }}
+          echo "VITE_APP_SCAN_LIMIT=${{ secrets.VITE_APP_SCAN_LIMIT }}" >> .env.${{ secrets.ENV }}
+
+      - name: Deploying distribution
+        env:
+          ENV: ${{ secrets.ENV }}
+          VITE_APP_SESSION: ${{ secrets.VITE_APP_SESSION }}
+          VITE_APP_BASE_URL: ${{ secrets.VITE_APP_BASE_URL }}
+          VITE_APP_TRANSACTION_AMOUNT: ${{ secrets.VITE_APP_TRANSACTION_AMOUNT }}
+          VITE_APP_SCAN_LIMIT: ${{ secrets.VITE_APP_SCAN_LIMIT }}
+        run: |
+          aws cloudformation validate-template --template-body file://portal.yml
+          aws cloudformation deploy --stack-name fortress-stack-ui-${{ secrets.ENV }} --template-file portal.yml --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM --parameter-overrides Env=${{ secrets.ENV }}
+
+      - name: Deploying to S3 bucket
+        env:
+          CFD_ID: ${{ secrets.CFD_ID }}
+          VITE_APP_SESSION: ${{ secrets.VITE_APP_SESSION }}
+          VITE_APP_BASE_URL: ${{ secrets.VITE_APP_BASE_URL }}
+          VITE_APP_TRANSACTION_AMOUNT: ${{ secrets.VITE_APP_TRANSACTION_AMOUNT }}
+          VITE_APP_SCAN_LIMIT: ${{ secrets.VITE_APP_SCAN_LIMIT }}
+        run: |
+          npm install
+          export CI=false
+          npm run build:${{ secrets.ENV }}
+          aws s3 rm s3://fortress-stack-ui-${{ secrets.ENV }}/ --recursive
+          aws s3 sync ./dist s3://fortress-stack-ui-${{ secrets.ENV}}/
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.CFD_ID }} --paths "/*"

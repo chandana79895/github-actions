@@ -29,16 +29,17 @@ public class BaseTest {
     public void initialization(String browser) {
         try {
             if (browser.equalsIgnoreCase("chrome")) {
-                WebDriverManager.chromedriver().setup();
+                // Set up WebDriverManager for Chrome
+                WebDriverManager.chromedriver().version("126.0.6478.126-1").setup(); // Replace with your ChromeDriver version
                 ChromeOptions options = new ChromeOptions();
                 options.addArguments("--remote-allow-origins=*");
-                // Adding detach option
                 options.setExperimentalOption("detach", true);
                 driver = new ChromeDriver(options);
             } else if (browser.equalsIgnoreCase("firefox")) {
                 WebDriverManager.firefoxdriver().setup();
                 driver = new FirefoxDriver();
             }
+
 
             if (dimension != null) {
                 driver.manage().window().setSize(dimension);

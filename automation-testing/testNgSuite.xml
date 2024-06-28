@@ -7,8 +7,8 @@
 <listener class-name="zapcg.Capillary.ExtentReport.ExtentReportNG"/>
  </listeners>
   
-  <test name="LoginTestsChromeBrowserTabletPortrait">
-    <parameter name="browser" value="chrome"/>
+  <test name="LoginTestsfirefoxBrowserTabletPortrait">
+    <parameter name="browser" value="firefox"/>
     <parameter name="deviceName" value="Tablet Portrait"/> <!-- Tablet Portrait -->
     <classes>
       <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
@@ -21,8 +21,8 @@
 
 
 
-<test name="LoginTestsChromeBrowserTabletLandscape">
-    <parameter name="browser" value="chrome"/>
+<test name="LoginTestsfirefoxBrowserTabletLandscape">
+    <parameter name="browser" value="firefox"/>
     <parameter name="deviceName" value="Tablet Landscape"/> <!-- Tablet Portrait -->
     <classes>
       <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
@@ -33,8 +33,8 @@
   </test>
 
     
- <test name="LoginTestsChromeBrowseriPhone11ProPortrait">
-    <parameter name="browser" value="chrome"/>
+ <test name="LoginTestsfirefoxBrowseriPhone11ProPortrait">
+    <parameter name="browser" value="firefox"/>
     <parameter name="deviceName" value="iPhone 11 Pro Portrait"/> <!-- Tablet Portrait -->
     <classes>
       <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
@@ -46,8 +46,8 @@
 
 
       
-      <test name="LoginTestsChromeBrowseriPhone11ProLandscape">
-    <parameter name="browser" value="chrome"/>
+      <test name="LoginTestsfirefoxBrowseriPhone11ProLandscape">
+    <parameter name="browser" value="firefox"/>
     <parameter name="deviceName" value="iPhone 11 Pro Landscape"/> <!-- Tablet Portrait -->
     <classes>
       <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
@@ -59,8 +59,8 @@
 
  
     
- <test name="LoginTestsChromeBrowserGalaxyS20Portrait">
-    <parameter name="browser" value="chrome"/>
+ <test name="LoginTestsfirefoxBrowserGalaxyS20Portrait">
+    <parameter name="browser" value="firefox"/>
     <parameter name="deviceName" value="Galaxy S20 Portrait"/> <!-- Tablet Portrait -->
     <classes>
       <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
@@ -73,8 +73,8 @@
 
   
   
-  <test name="LoginTestsChromeBrowserGalaxyS20Landscape">
-    <parameter name="browser" value="chrome"/>
+  <test name="LoginTestsfirefoxBrowserGalaxyS20Landscape">
+    <parameter name="browser" value="firefox"/>
     <parameter name="deviceName" value="Galaxy S20 Landscape"/> <!-- Tablet Portrait -->
     <classes>
       <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>

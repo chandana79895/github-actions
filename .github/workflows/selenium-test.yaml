@@ -23,12 +23,22 @@ jobs:
       - name: Print Maven version
         run: mvn -version
       
-      - name: Set up Chrome
-         - uses: nanasess/setup-chromedriver@v2
+      - name: Install Chrome browser
         run: |
-              export DISPLAY=:99
-              chromedriver --url-base=/wd/hub & sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1
-              cd automation-testing/
-              mvn clean
-              mvn compile
-              mvn install
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable
+  
+      - name: Download Chrome Driver
+        run: |
+          sudo apt-get install -y unzip
+          curl -sS -o chromedriver.zip https://chromedriver.storage.googleapis.com/$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE)/chromedriver_linux64.zip
+          unzip chromedriver.zip -d /usr/local/bin/
+          rm chromedriver.zip
+  
+      - name: Run Selenium tests
+        run: |
+          # Start the virtual display
+          Xvfb :99 -screen 0 1280x1024x24 &
+          export DISPLAY=:99
+          # Run Maven tests
+          mvn clean test

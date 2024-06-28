@@ -1,11 +1,8 @@
 name: Java CI with Maven
 
 on:
-
   push:
-
     branches: [ latest-code ]
-
 
 jobs:
   automation_testing:
@@ -18,15 +15,13 @@ jobs:
           java-version: '11.0.22'
           distribution: 'adopt'
           cache: maven
-      - name: Print Java version
-        run: java -version
-      - name: Print Maven version
-        run: mvn -version
-      
+    
       - name: Install Chrome browser
         run: |
           sudo apt-get update
           sudo apt-get install -y google-chrome-stable
+          sudo apt-get install -y xvfb
+          sudo apt-get install -y libxi6 libgconf-2-4
   
       - name: Download Chrome Driver
         run: |
@@ -35,11 +30,20 @@ jobs:
           unzip chromedriver.zip -d /usr/local/bin/
           rm chromedriver.zip
   
-      - name: Run Selenium tests
+      - name: Start Xvfb
         run: |
-          # Start the virtual display
           Xvfb :99 -screen 0 1280x1024x24 &
           export DISPLAY=:99
-          # Run Maven tests
+          sleep 3 # Give Xvfb some time to start
+  
+      - name: Print Xvfb Display Status
+        run: |
+          ps -ef | grep Xvfb
+  
+      - name: Run Selenium tests
+        run: |
+          export DISPLAY=:99
           cd automation-testing/
           mvn clean install
+          # Print the test results
+          cat target/surefire-reports/*.txt

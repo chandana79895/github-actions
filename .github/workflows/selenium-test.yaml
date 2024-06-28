@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
   pull_request:
     branches:
-      - latest-cde
+      - latest-code
 
 jobs:
   automation_testing:
@@ -49,7 +49,12 @@ jobs:
           export DISPLAY=:99
           cd automation-testing/
           mvn clean install -Dwebdriver.chrome.driver=/usr/local/bin/chromedriver -Dwebdriver.chrome.args="--headless --no-sandbox --disable-dev-shm-usage"
-          cat target/surefire-reports/*.txt
+        env:
+          DISPLAY: :99
+
+      - name: Print test results
+        run: |
+          cat automation-testing/target/surefire-reports/*.txt
 
   unit_test:
     if: github.event_name == 'pull_request' && (github.event.action == 'opened' || github.event.action == 'synchronize' || github.event.action == 'reopened')

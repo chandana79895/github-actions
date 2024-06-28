@@ -40,8 +40,8 @@ public class memberLookup_Invalid_TestCases extends BaseTest {
   
 		
 		//memberID: starts with GT, length 11
-		@Test(priority=1)
-		public void verifyInvalidCardNumber() {
+		@Test(priority=25)
+		public void verifyInvalidMemberID() {
 			memberLookupPage mlp = new memberLookupPage(driver);
 			mlp.enterMemberId("GT0000898089");
 			mlp.clickOnSearchButton();
@@ -50,8 +50,8 @@ public class memberLookup_Invalid_TestCases extends BaseTest {
 			
 			}
 		
-		@Test(priority=2)
-		public void verifyCardNumberFieldMaxLength() {
+		@Test(priority=26)
+		public void verifyMemberIdFieldMaxLength() {
 			memberLookupPage mlp = new memberLookupPage(driver);
 			mlp.enterMemberId("GT00000367323323211");
 			mlp.clickOnSearchButton();
@@ -59,7 +59,39 @@ public class memberLookup_Invalid_TestCases extends BaseTest {
 			
 			
 			}
-	
+		
+		//valid card number:  7 to 11 characters.
+		@Test(priority=27)
+		public void verifyInvalidCardNumberMinLength() {
+			memberLookupPage mlp = new memberLookupPage(driver);
+			mlp.enterMemberId("123456");
+			mlp.clickOnSearchButton();
+			mlp.verifyValidationMessageForInvalidMemberId("No User or Customer found");
+			
+			
+			}
+		
+		//valid card number:  7 to 11 characters.
+		@Test(priority=28)
+		public void verifyCardNumberFieldMaxLength() {
+			memberLookupPage mlp = new memberLookupPage(driver);
+			mlp.enterMemberId("123456789098");
+			mlp.clickOnSearchButton();
+			mlp.verifyMaxLengthForMemberId("Length validation should display");
+			
+			
+			}
+		
+		
+		@Test(priority=29)
+		public void verifyForEmptyCardNumberButtonIsDisabled() {
+			memberLookupPage mlp = new memberLookupPage(driver);
+			mlp.enterMemberId("");
+			mlp.verifySearchButtonDisableForEmptyInput();
+			
+			
+			
+			}
 	
 	
 	

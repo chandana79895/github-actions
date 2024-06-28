@@ -9,46 +9,34 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">TestSuite</th></tr>
-<tr><td><a href="#t0">LoginTestsChromeBrowserTabletPortrait</a></td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">21,489</td><td></td><td></td></tr>
+<tr><td><a href="#t0">LoginTestsChromeBrowserTabletLandscape</a></td><td class="num">7</td><td class="num">0</td><td class="num">0</td><td class="num attn">2</td><td class="num">49,893</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">TestSuite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">LoginTestsChromeBrowserTabletPortrait &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases</td><td><a href="#m0">verifyCardNumberFieldMaxLength</a></td><td rowspan="1">1719212598132</td><td rowspan="1">1482</td></tr><tr><th colspan="4">LoginTestsChromeBrowserTabletPortrait &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases</td><td><a href="#m1">verifyInvalidCardNumber</a></td><td rowspan="1">1719212583993</td><td rowspan="1">9603</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">TestSuite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">LoginTestsChromeBrowserTabletLandscape &#8212; failed</th></tr><tr class="failedeven"><td rowspan="2">zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td><td><a href="#m0">testInvalidPassword_TestCase3</a></td><td rowspan="1">1719485016576</td><td rowspan="1">2367</td></tr><tr class="failedeven"><td><a href="#m1">testInvalidUsername_TestCase2</a></td><td rowspan="1">1719485007332</td><td rowspan="1">4950</td></tr><tr><th colspan="4">LoginTestsChromeBrowserTabletLandscape &#8212; passed</th></tr><tr class="passedeven"><td rowspan="7">zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td><td><a href="#m2">testMinLengthPassword_TestCase5</a></td><td rowspan="1">1719485027793</td><td rowspan="1">335</td></tr><tr class="passedeven"><td><a href="#m3">testTooLongUsername_TestCase4</a></td><td rowspan="1">1719485023299</td><td rowspan="1">547</td></tr><tr class="passedeven"><td><a href="#m4">testUsernameWithSpaces_TestCase6</a></td><td rowspan="1">1719485032040</td><td rowspan="1">358</td></tr><tr class="passedeven"><td><a href="#m5">verifyForDisabledLoginButtonForEmptyPassword_TestCase9</a></td><td rowspan="1">1719485046560</td><td rowspan="1">258</td></tr><tr class="passedeven"><td><a href="#m6">verifyForDisabledLoginButtonForEmptyUsernamePassword_TestCase10</a></td><td rowspan="1">1719485052069</td><td rowspan="1">160</td></tr><tr class="passedeven"><td><a href="#m7">verifyForDisabledLoginButtonForEmptyUsername_TestCase8</a></td><td rowspan="1">1719485042276</td><td rowspan="1">200</td></tr><tr class="passedeven"><td><a href="#m8">verifyForEnabledLoginButton_TestCase7</a></td><td rowspan="1">1719485036609</td><td rowspan="1">1550</td></tr></tbody>
 </table>
-<h2>LoginTestsChromeBrowserTabletPortrait</h2><h3 id="m0">zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases#verifyCardNumberFieldMaxLength</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.InvalidSelectorException: invalid selector
-from javascript error: {&quot;status&quot;:32,&quot;value&quot;:&quot;An invalid or illegal selector was specified&quot;}
-  (Session info: chrome=126.0.6478.57)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Build info: version: &apos;4.21.0&apos;, revision: &apos;79ed462ef4&apos;
-System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;15.0.2&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [495bf0566fd70de14c6e6a249d000cb2, findElement {using=id, value=}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.57, chrome: {chromedriverVersion: 126.0.6478.63 (df799988fdc9..., userDataDir: C:\Users\KAJALS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61954}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61954/devtoo..., se:cdpVersion: 126.0.6478.57, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 495bf0566fd70de14c6e6a249d000cb2
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:349)
-	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at com.sun.proxy.$Proxy13.isDisplayed(Unknown Source)
-	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:304)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:287)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
-	at zapcg.Capillary.PageObject.memberLookupPage.verifyMaxLengthForMemberId(memberLookupPage.java:161)
-	at zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyCardNumberFieldMaxLength(memberLookup_Invalid_TestCases.java:58)
+<h2>LoginTestsChromeBrowserTabletLandscape</h2><h3 id="m0">zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases#testInvalidPassword_TestCase3</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: The validation message not displaying for Invalid inputs expected [Invalid username or password. Try again.] but found [Invalid Username or Password. Try again.]
+	at zapcg.Capillary.PageObject.loginPage.verifyInvalidPasswordError(loginPage.java:219)
+	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidPassword_TestCase3(Login_Invalid_TestCases.java:44)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
 	at java.base/java.lang.Thread.run(Thread.java:832)
 ... Removed 22 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases#verifyInvalidCardNumber</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases#testInvalidUsername_TestCase2</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: The validation message not displaying for Invalid inputs expected [Invalid username or password. Try again.] but found [Invalid Username or Password. Try again.]
+	at zapcg.Capillary.PageObject.loginPage.verifyInvalidUserNameError(loginPage.java:182)
+	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidUsername_TestCase2(Login_Invalid_TestCases.java:36)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+... Removed 22 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases#testMinLengthPassword_TestCase5</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases#testTooLongUsername_TestCase4</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m4">zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases#testUsernameWithSpaces_TestCase6</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m5">zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases#verifyForDisabledLoginButtonForEmptyPassword_TestCase9</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m6">zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases#verifyForDisabledLoginButtonForEmptyUsernamePassword_TestCase10</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m7">zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases#verifyForDisabledLoginButtonForEmptyUsername_TestCase8</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m8">zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases#verifyForEnabledLoginButton_TestCase7</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

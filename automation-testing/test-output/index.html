@@ -25,7 +25,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+      <span class="top-banner-font-1">1 suite, 2 failed tests</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -92,7 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods, 1 failed,   1 passed</span>
+                    <span class="method-stats">9 methods, 2 failed,   7 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title failed">Failed methods</span>
@@ -103,7 +103,12 @@
                     <div class="method-list-content failed suite-TestSuite">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-TestSuite" title="zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases" class="method navigator-link" hash-for-method="verifyCardNumberFieldMaxLength">verifyCardNumberFieldMaxLength</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-TestSuite" title="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" class="method navigator-link" hash-for-method="testInvalidPassword_TestCase3">testInvalidPassword_TestCase3</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-TestSuite" title="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" class="method navigator-link" hash-for-method="testInvalidUsername_TestCase2">testInvalidUsername_TestCase2</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-TestSuite -->
@@ -117,7 +122,37 @@
                     <div class="method-list-content passed suite-TestSuite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-TestSuite" title="zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases" class="method navigator-link" hash-for-method="verifyInvalidCardNumber">verifyInvalidCardNumber</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-TestSuite" title="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" class="method navigator-link" hash-for-method="testMinLengthPassword_TestCase5">testMinLengthPassword_TestCase5</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-TestSuite" title="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" class="method navigator-link" hash-for-method="testTooLongUsername_TestCase4">testTooLongUsername_TestCase4</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-TestSuite" title="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" class="method navigator-link" hash-for-method="testUsernameWithSpaces_TestCase6">testUsernameWithSpaces_TestCase6</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-TestSuite" title="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" class="method navigator-link" hash-for-method="verifyForDisabledLoginButtonForEmptyPassword_TestCase9">verifyForDisabledLoginButtonForEmptyPassword_TestCase9</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-TestSuite" title="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" class="method navigator-link" hash-for-method="verifyForDisabledLoginButtonForEmptyUsernamePassword_TestCase10">verifyForDisabledLoginButtonForEmptyUsernamePassword_TestCase10</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-TestSuite" title="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" class="method navigator-link" hash-for-method="verifyForDisabledLoginButtonForEmptyUsername_TestCase8">verifyForDisabledLoginButtonForEmptyUsername_TestCase8</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-TestSuite" title="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" class="method navigator-link" hash-for-method="verifyForEnabledLoginButton_TestCase7">verifyForEnabledLoginButton_TestCase7</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-TestSuite -->
@@ -135,44 +170,34 @@
           <div class="suite-TestSuite-class-failed">
             <div class="main-panel-header rounded-window-top">
               <img src="failed.png"/>
-              <span class="class-name">zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases</span>
+              <span class="class-name">zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="verifyCardNumberFieldMaxLength">
-                  </a> <!-- verifyCardNumberFieldMaxLength -->
-                  <span class="method-name">verifyCardNumberFieldMaxLength</span>
-                  <div class="stack-trace">org.openqa.selenium.InvalidSelectorException: invalid selector
-from javascript error: {&quot;status&quot;:32,&quot;value&quot;:&quot;An invalid or illegal selector was specified&quot;}
-  (Session info: chrome=126.0.6478.57)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Build info: version: &apos;4.21.0&apos;, revision: &apos;79ed462ef4&apos;
-System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;15.0.2&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [495bf0566fd70de14c6e6a249d000cb2, findElement {using=id, value=}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.57, chrome: {chromedriverVersion: 126.0.6478.63 (df799988fdc9..., userDataDir: C:\Users\KAJALS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61954}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61954/devtoo..., se:cdpVersion: 126.0.6478.57, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 495bf0566fd70de14c6e6a249d000cb2
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:349)
-	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at com.sun.proxy.$Proxy13.isDisplayed(Unknown Source)
-	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:304)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:287)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
-	at zapcg.Capillary.PageObject.memberLookupPage.verifyMaxLengthForMemberId(memberLookupPage.java:161)
-	at zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyCardNumberFieldMaxLength(memberLookup_Invalid_TestCases.java:58)
+                  <a name="testInvalidPassword_TestCase3">
+                  </a> <!-- testInvalidPassword_TestCase3 -->
+                  <span class="method-name">testInvalidPassword_TestCase3</span>
+                  <div class="stack-trace">java.lang.AssertionError: The validation message not displaying for Invalid inputs expected [Invalid username or password. Try again.] but found [Invalid Username or Password. Try again.]
+	at zapcg.Capillary.PageObject.loginPage.verifyInvalidPasswordError(loginPage.java:219)
+	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidPassword_TestCase3(Login_Invalid_TestCases.java:44)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+... Removed 22 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testInvalidUsername_TestCase2">
+                  </a> <!-- testInvalidUsername_TestCase2 -->
+                  <span class="method-name">testInvalidUsername_TestCase2</span>
+                  <div class="stack-trace">java.lang.AssertionError: The validation message not displaying for Invalid inputs expected [Invalid username or password. Try again.] but found [Invalid Username or Password. Try again.]
+	at zapcg.Capillary.PageObject.loginPage.verifyInvalidUserNameError(loginPage.java:182)
+	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidUsername_TestCase2(Login_Invalid_TestCases.java:36)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
@@ -187,14 +212,56 @@ Session ID: 495bf0566fd70de14c6e6a249d000cb2
           <div class="suite-TestSuite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases</span>
+              <span class="class-name">zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="verifyInvalidCardNumber">
-                  </a> <!-- verifyInvalidCardNumber -->
-                  <span class="method-name">verifyInvalidCardNumber</span>
+                  <a name="testMinLengthPassword_TestCase5">
+                  </a> <!-- testMinLengthPassword_TestCase5 -->
+                  <span class="method-name">testMinLengthPassword_TestCase5</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testTooLongUsername_TestCase4">
+                  </a> <!-- testTooLongUsername_TestCase4 -->
+                  <span class="method-name">testTooLongUsername_TestCase4</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testUsernameWithSpaces_TestCase6">
+                  </a> <!-- testUsernameWithSpaces_TestCase6 -->
+                  <span class="method-name">testUsernameWithSpaces_TestCase6</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyForDisabledLoginButtonForEmptyPassword_TestCase9">
+                  </a> <!-- verifyForDisabledLoginButtonForEmptyPassword_TestCase9 -->
+                  <span class="method-name">verifyForDisabledLoginButtonForEmptyPassword_TestCase9</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyForDisabledLoginButtonForEmptyUsernamePassword_TestCase10">
+                  </a> <!-- verifyForDisabledLoginButtonForEmptyUsernamePassword_TestCase10 -->
+                  <span class="method-name">verifyForDisabledLoginButtonForEmptyUsernamePassword_TestCase10</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyForDisabledLoginButtonForEmptyUsername_TestCase8">
+                  </a> <!-- verifyForDisabledLoginButtonForEmptyUsername_TestCase8 -->
+                  <span class="method-name">verifyForDisabledLoginButtonForEmptyUsername_TestCase8</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyForEnabledLoginButton_TestCase7">
+                  </a> <!-- verifyForEnabledLoginButton_TestCase7 -->
+                  <span class="method-name">verifyForEnabledLoginButton_TestCase7</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -213,13 +280,13 @@ Session ID: 495bf0566fd70de14c6e6a249d000cb2
     &lt;listener class-name=&quot;zapcg.Capillary.ExtentReport.Listeners&quot;/&gt;
     &lt;listener class-name=&quot;zapcg.Capillary.ExtentReport.ExtentReportNG&quot;/&gt;
   &lt;/listeners&gt;
-  &lt;test thread-count=&quot;1&quot; parallel=&quot;tests&quot; name=&quot;LoginTestsChromeBrowserTabletPortrait&quot;&gt;
+  &lt;test thread-count=&quot;1&quot; parallel=&quot;tests&quot; name=&quot;LoginTestsChromeBrowserTabletLandscape&quot;&gt;
     &lt;parameter name=&quot;browser&quot; value=&quot;chrome&quot;/&gt;
-    &lt;parameter name=&quot;deviceName&quot; value=&quot;Tablet Portrait&quot;/&gt;
+    &lt;parameter name=&quot;deviceName&quot; value=&quot;Tablet Landscape&quot;/&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases&quot;/&gt;
+      &lt;class name=&quot;zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases&quot;/&gt;
     &lt;/classes&gt;
-  &lt;/test&gt; &lt;!-- LoginTestsChromeBrowserTabletPortrait --&gt;
+  &lt;/test&gt; &lt;!-- LoginTestsChromeBrowserTabletLandscape --&gt;
 &lt;/suite&gt; &lt;!-- TestSuite --&gt;
             </pre>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -231,7 +298,7 @@ Session ID: 495bf0566fd70de14c6e6a249d000cb2
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">LoginTestsChromeBrowserTabletPortrait (1 class)</span>
+                <span class="test-name">LoginTestsChromeBrowserTabletLandscape (1 class)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -257,20 +324,48 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(2);
+data.addRows(9);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'verifyInvalidCardNumber')
-data.setCell(0, 2, 'zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases')
-data.setCell(0, 3, 9603);
+data.setCell(0, 1, 'testInvalidUsername_TestCase2')
+data.setCell(0, 2, 'zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases')
+data.setCell(0, 3, 4950);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'verifyCardNumberFieldMaxLength')
-data.setCell(1, 2, 'zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases')
-data.setCell(1, 3, 1482);
+data.setCell(1, 1, 'testInvalidPassword_TestCase3')
+data.setCell(1, 2, 'zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases')
+data.setCell(1, 3, 2367);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'verifyForEnabledLoginButton_TestCase7')
+data.setCell(2, 2, 'zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases')
+data.setCell(2, 3, 1550);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'testTooLongUsername_TestCase4')
+data.setCell(3, 2, 'zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases')
+data.setCell(3, 3, 547);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'testUsernameWithSpaces_TestCase6')
+data.setCell(4, 2, 'zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases')
+data.setCell(4, 3, 358);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'testMinLengthPassword_TestCase5')
+data.setCell(5, 2, 'zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases')
+data.setCell(5, 3, 335);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'verifyForDisabledLoginButtonForEmptyPassword_TestCase9')
+data.setCell(6, 2, 'zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases')
+data.setCell(6, 3, 258);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'verifyForDisabledLoginButtonForEmptyUsername_TestCase8')
+data.setCell(7, 2, 'zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases')
+data.setCell(7, 3, 200);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 'verifyForDisabledLoginButtonForEmptyUsernamePassword_TestCase10')
+data.setCell(8, 2, 'zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases')
+data.setCell(8, 3, 160);
 window.suiteTableData['TestSuite']= { tableData: data, tableDiv: 'times-div-TestSuite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 21 seconds</span>
+              <span class="suite-total-time">Total running time: 49 seconds</span>
               <div id="times-div-TestSuite">
               </div> <!-- times-div-TestSuite -->
             </div> <!-- times-div -->
@@ -296,32 +391,118 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
-                <span class="method-name">initialize(chrome, Tablet Portrait)</span>
+                <span class="method-name">initialize(chrome, Tablet Landscape)</span>
                 <span class="method-start">0 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="test-method">
-                <span class="method-name">verifyInvalidCardNumber</span>
-                <span class="method-start">5137 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">tearDown</span>
-                <span class="method-start">14745 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="configuration-method before">
-                <span class="method-name">initialize(chrome, Tablet Portrait)</span>
-                <span class="method-start">15465 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">verifyCardNumberFieldMaxLength</span>
-                <span class="method-start">19276 ms</span>
+                <span class="method-name">testInvalidUsername_TestCase2</span>
+                <span class="method-start">4311 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">20763 ms</span>
+                <span class="method-start">9265 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">initialize(chrome, Tablet Landscape)</span>
+                <span class="method-start">9954 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testInvalidPassword_TestCase3</span>
+                <span class="method-start">13555 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">15924 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">initialize(chrome, Tablet Landscape)</span>
+                <span class="method-start">16568 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testTooLongUsername_TestCase4</span>
+                <span class="method-start">20278 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">20826 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">initialize(chrome, Tablet Landscape)</span>
+                <span class="method-start">21433 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testMinLengthPassword_TestCase5</span>
+                <span class="method-start">24772 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">25108 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">initialize(chrome, Tablet Landscape)</span>
+                <span class="method-start">25739 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testUsernameWithSpaces_TestCase6</span>
+                <span class="method-start">29019 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">29378 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">initialize(chrome, Tablet Landscape)</span>
+                <span class="method-start">29998 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">verifyForEnabledLoginButton_TestCase7</span>
+                <span class="method-start">33588 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">35139 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">initialize(chrome, Tablet Landscape)</span>
+                <span class="method-start">35787 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">verifyForDisabledLoginButtonForEmptyUsername_TestCase8</span>
+                <span class="method-start">39255 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">39456 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">initialize(chrome, Tablet Landscape)</span>
+                <span class="method-start">40098 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">verifyForDisabledLoginButtonForEmptyPassword_TestCase9</span>
+                <span class="method-start">43539 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">43798 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">initialize(chrome, Tablet Landscape)</span>
+                <span class="method-start">44431 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">verifyForDisabledLoginButtonForEmptyUsernamePassword_TestCase10</span>
+                <span class="method-start">49048 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">49208 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

@@ -84,14 +84,14 @@ public class MemberLookup_TestCases extends BaseTest {
 	*/
 	
 		
-		@Test(priority=1)
+		@Test(priority=19)
 		public void verifyScanButtonAvailability() {
 				memberLookupPage mlp = new memberLookupPage(driver);
 				mlp.verifyScanButtonEnabled();
 				
 			}
 	
-		@Test(priority=2)
+		@Test(priority=20)
 		public void enterValidMemberId() {
 				memberLookupPage mlp = new memberLookupPage(driver);
 				mlp.enterMemberId("GT000003673");
@@ -100,14 +100,50 @@ public class MemberLookup_TestCases extends BaseTest {
 		
 			}
 	
-		@Test(priority=3)
+		@Test(priority=21)
 		public void verifyHeaderHyperlink() {
 			memberLookupPage mlp = new memberLookupPage(driver);
 			mlp.clickOnHyperlink();
 			mlp.headerHyperlinkVerification(driver, "https://d1msv2sqknn4w4.cloudfront.net/location-search");
 			}
+		
 	
-	
+		@Test(priority = 22 )
+        public void burgerIconMemberLookupNavigation() throws InterruptedException {
+        	
+			memberLookupPage mlp = new memberLookupPage(driver);
+        	
+        	mlp.clickOnHamburgerIcon();
+        	mlp.chooseMemberLookupOption();
+        	mlp.verifySuccessfullNavigationFromMemberLookupToMemberLookupScreen(driver,"https://d1msv2sqknn4w4.cloudfront.net/member-search" );
+        	System.out.println("Navigation from Hamburger icon on member lookup screen working fine for 'Member Lookup Screen'");
+        	
+		}
+		
+
+		@Test(priority = 23)
+        public void burgerIconLocationNavigation() throws InterruptedException {
+        	
+			memberLookupPage mlp = new memberLookupPage(driver);
+        	
+        	mlp.clickOnHamburgerIcon();
+        	mlp.chooseLocationFromHamburger();
+        	mlp.verifySuccessfullNavigationFromMemberLookupToLocationScreen(driver,"https://d1msv2sqknn4w4.cloudfront.net/location-search" );
+        	System.out.println("Navigation from Hamburger icon on Location screen working fine for 'Location option'");
+        	
+		}
+		
+		@Test(priority = 24)
+        public void burgerIconLogout() throws InterruptedException {
+        	
+			memberLookupPage mlp = new memberLookupPage(driver);
+        	mlp.clickOnHamburgerIcon();
+        	mlp.chooseLogout();
+        	mlp.verifyLogoutOptionOnMemberLookupScreen(driver,"https://d1msv2sqknn4w4.cloudfront.net/login" );
+        	System.out.println("Logout option under Hamburger icon on Location screen working fine");
+        	
+		}
+		
 	
 	
 

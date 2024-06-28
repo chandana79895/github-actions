@@ -7,12 +7,12 @@
 <listener class-name="zapcg.Capillary.ExtentReport.ExtentReportNG"/>
  </listeners>
   
-  <test name="LoginTestsChromeBrowserTabletPortrait">
+  <test name="LoginTestsChromeBrowserTabletLandscape">
     <parameter name="browser" value="chrome"/>
-    <parameter name="deviceName" value="Tablet Portrait"/> <!-- Tablet Portrait -->
+    <parameter name="deviceName" value="Tablet Landscape"/> <!-- Tablet Portrait -->
     <classes>
      
-       <class name="zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases"/>
+       <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
      
       
     </classes>

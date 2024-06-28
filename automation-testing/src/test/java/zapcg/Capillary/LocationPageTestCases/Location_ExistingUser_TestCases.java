@@ -40,7 +40,7 @@ public class Location_ExistingUser_TestCases extends BaseTest{
 			}
                 
           
-                @Test(priority = 1)
+                @Test(priority = 11)
                 public void chooseValidLocationForNewUser() throws InterruptedException {
                 	
                     locationSelectionPage locp = new locationSelectionPage(driver);
@@ -59,7 +59,7 @@ public class Location_ExistingUser_TestCases extends BaseTest{
             		}
                 
                 
-                @Test(priority = 2)
+                @Test(priority = 12)
                 public void verifyDropDownAvailability() throws InterruptedException {
                 	
                 	locationSelectionPage locp = new locationSelectionPage(driver);
@@ -69,7 +69,7 @@ public class Location_ExistingUser_TestCases extends BaseTest{
                 }
                 
                 
-                @Test(priority = 3 )
+                @Test(priority = 13 )
                 public void verifyIfAbleToSelectOptionFromDropDown() throws InterruptedException {
                 	
                 	locationSelectionPage locp = new locationSelectionPage(driver);
@@ -91,7 +91,7 @@ public class Location_ExistingUser_TestCases extends BaseTest{
                     }  
                 }
                 
-                @Test(priority = 4 )
+                @Test(priority = 14 )
                 public void verifyChooseLocationButtonAvailability() throws InterruptedException {
                 	
                 	locationSelectionPage locp = new locationSelectionPage(driver);
@@ -109,7 +109,7 @@ public class Location_ExistingUser_TestCases extends BaseTest{
 
               
                 
-                @Test(priority = 5)
+                @Test(priority = 15)
                 public void verifyHeaderOfMemberLookupScreen() {
                 	
                 	locationSelectionPage locp = new locationSelectionPage(driver);
@@ -154,7 +154,7 @@ public class Location_ExistingUser_TestCases extends BaseTest{
                 
            
 			
-			@Test(priority = 6 )
+			@Test(priority = 16 )
             public void burgerIconMemberLookupNavigation() throws InterruptedException {
             	
             	locationSelectionPage locp = new locationSelectionPage(driver);
@@ -167,7 +167,7 @@ public class Location_ExistingUser_TestCases extends BaseTest{
 			}
 			
 
-			@Test(priority = 7 )
+			@Test(priority = 17 )
             public void burgerIconMemberLocationNavigation() throws InterruptedException {
             	
             	locationSelectionPage locp = new locationSelectionPage(driver);
@@ -179,7 +179,7 @@ public class Location_ExistingUser_TestCases extends BaseTest{
             	
 			}
 			
-			@Test(priority = 8 )
+			@Test(priority = 18 )
             public void burgerIconLogout() throws InterruptedException {
             	
             	locationSelectionPage locp = new locationSelectionPage(driver);

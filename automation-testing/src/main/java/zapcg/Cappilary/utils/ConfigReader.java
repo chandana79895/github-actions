@@ -12,7 +12,7 @@ public class ConfigReader {
     }
 
     private void loadProperties() {
-        try (FileInputStream input = new FileInputStream(System.getProperty("user.dir") + "\\src\\main\\java\\zapcg\\Capillary\\Base\\config.properties")) {
+        try (FileInputStream input = new FileInputStream(System.getProperty("user.dir") + "//src//main//java//zapcg//Capillary//Base//config.properties")) {
             properties = new Properties();
             properties.load(input);
         } catch (IOException e) {

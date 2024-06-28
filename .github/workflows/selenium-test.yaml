@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
   pull_request:
     branches:
-      - latest-code
+      - latest-cde
 
 jobs:
   automation_testing:
@@ -38,7 +38,7 @@ jobs:
       - name: Install Xvfb
         run: sudo apt-get install -y xvfb
 
-      - name: Set up display and start Xvfb
+      - name: Start Xvfb
         run: |
           export DISPLAY=:99
           Xvfb :99 -screen 0 1280x1024x24 &

@@ -27,20 +27,13 @@ public class BaseTest {
         this.deviceName = deviceName;
     }
 
-    public void initialization(String browser) {
-        try {
-            if (browser.equalsIgnoreCase("chrome")) {
-                WebDriverManager.chromedriver().setup();
-                ChromeOptions options = new ChromeOptions();
-                options.addArguments("--remote-allow-origins=*");
-                // options.addArguments("--headless");
-                options.addArguments("--no-sandbox");
-                options.addArguments("--disable-dev-shm-usage");
-                options.addArguments("--disable-gpu");
-                driver = new ChromeDriver(options);
-                driver.manage().window().maximize();
-                driver.get("https://d1msv2sqknn4w4.cloudfront.net/");
-                driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(TIMEOUT));
+    public static WebDriver initializeWebDriver() {
+        ChromeOptions options = new ChromeOptions();
+        // options.addArguments("--headless");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--remote-allow-origins=*");
+        options.addArguments("--disable-gpu");
 
             } else if (browser.equalsIgnoreCase("firefox")) {
                 WebDriverManager.firefoxdriver().setup();

@@ -1,18 +1,16 @@
 package zapcg.Capillary.LoginTestCases;
-
+ 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-
+ 
 import zapcg.Capillary.Base.BaseTest;
 import zapcg.Capillary.PageObject.loginPage;
-
-
+ 
+ 
 public class Login_Valid_TestCases extends BaseTest {
-	
 	 public loginPage lp;
 	 public String currentBrowser;
-	
 	 @BeforeMethod
 		@Parameters({"browser", "deviceName"})
 	   public void initialize(String browser, String deviceName) throws InterruptedException {
@@ -24,24 +22,17 @@ public class Login_Valid_TestCases extends BaseTest {
 	       lp = new loginPage(driver);
 	       lp.changeDefaultLanguage();
 	       lp.chooseEnglishLanguage();
-	       
 
+ 
 	   }
-	
-	
 
-	@Test(priority = 1)
+ 
+	@Test(priority = 1, dependsOnMethods = "initialize")
     public void testValidLogin_TestCase1() throws InterruptedException {
 	        lp.login("zapcom_test2", "storeportal");
 	        lp.verifySuccessfullLogin(driver,"https://d1msv2sqknn4w4.cloudfront.net/member-search");
 	        driver.close();
-		
-        
-		}
-	
-	
-	
-}
-	
-	
 
+		}
+
+}

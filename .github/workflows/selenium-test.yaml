@@ -34,15 +34,6 @@ jobs:
       - name: Verify Chrome installation
         run: google-chrome --version
 
-      - name: Download Chrome Driver
-        run: |
-          sudo apt-get install -y unzip
-          CHROME_DRIVER_VERSION=$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE)
-          curl -sS -o chromedriver.zip https://chromedriver.storage.googleapis.com/$CHROME_DRIVER_VERSION/chromedriver_linux64.zip
-          sudo unzip chromedriver.zip -d /usr/local/bin/
-          rm chromedriver.zip
-      - name: Verify ChromeDriver installation
-        run: chromedriver --version
 
       - name: Install Xvfb
         run: sudo apt-get install -y xvfb
@@ -52,7 +43,7 @@ jobs:
       - name: Start Xvfb
         run: |
           Xvfb :99 -screen 0 1280x1024x24 &
-          sleep 5 # Give Xvfb some time to start
+          sleep 30
       - name: Set DISPLAY environment variable
         run: echo "DISPLAY=:99" >> $GITHUB_ENV
 

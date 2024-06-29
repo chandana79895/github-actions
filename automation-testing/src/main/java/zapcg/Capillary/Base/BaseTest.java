@@ -25,16 +25,24 @@ public class BaseTest {
         baseUrl = configReader.getProperty("url");
         dimension = DeviceData.getDimension(deviceName);
         this.deviceName = deviceName;
+
+        initializeWebDriver(browser);
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
     }
 
-    public static WebDriver initializeWebDriver() {
-        ChromeOptions options = new ChromeOptions();
-        // options.addArguments("--headless");
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--remote-allow-origins=*");
-        options.addArguments("--disable-gpu");
-
+    public static void initializeWebDriver(String browser) {
+        try {
+            if (browser.equalsIgnoreCase("chrome")) {
+                WebDriverManager.chromedriver().setup();
+                ChromeOptions options = new ChromeOptions();
+                // Uncomment below line to run in headless mode if required
+                // options.addArguments("--headless");
+                options.addArguments("--no-sandbox");
+                options.addArguments("--disable-dev-shm-usage");
+                options.addArguments("--remote-allow-origins=*");
+                options.addArguments("--disable-gpu");
+                driver = new ChromeDriver(options);
             } else if (browser.equalsIgnoreCase("firefox")) {
                 WebDriverManager.firefoxdriver().setup();
                 driver = new FirefoxDriver();
@@ -43,8 +51,6 @@ public class BaseTest {
             if (dimension != null) {
                 driver.manage().window().setSize(dimension);
             }
-            driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
         } catch (Exception e) {
             System.err.println("Error initializing WebDriver: " + e.getMessage());
             if (driver != null) {

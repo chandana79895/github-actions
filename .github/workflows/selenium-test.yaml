@@ -30,10 +30,5 @@ jobs:
         run: google-chrome --version
 
       - name: Build with Maven
-        run: |
-          cd automation-testing/
-          mvn -B clean test -DXmlFile=testNgSuite.xml
-
-      - name: Print test results
-        run: |
-          cat target/surefire-reports/*.txt
+        working-directory: automation-testing
+        run: mvn test 

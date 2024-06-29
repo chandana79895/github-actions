@@ -34,18 +34,19 @@ jobs:
       - name: Verify Chrome installation
         run: google-chrome --version
 
-
-      - name: Install Xvfb
-        run: sudo apt-get install -y xvfb
-      - name: Verify Xvfb installation
-        run: xvfb-run --auto-servernum --server-args='-screen 0 1280x1024x24' echo "Xvfb is running"
-
-      - name: Start Xvfb
+      - name: Install Apache Maven 3.8.8
         run: |
-          Xvfb :99 -screen 0 1280x1024x24 &
-          sleep 30
-      - name: Set DISPLAY environment variable
-        run: echo "DISPLAY=:99" >> $GITHUB_ENV
+          wget https://archive.apache.org/dist/maven/maven-3/3.8.8/binaries/apache-maven-3.8.8-bin.tar.gz
+          sudo tar -xzvf apache-maven-3.8.8-bin.tar.gz -C /opt/
+          sudo ln -s /opt/apache-maven-3.8.8 /opt/maven
+          sudo ln -s /opt/maven/bin/mvn /usr/bin/mvn
+      - name: Set MAVEN_HOME
+        run: echo "MAVEN_HOME=/opt/maven" >> $GITHUB_ENV
+
+      - name: Verify Maven installation
+        run: |
+          mvn -version
+          echo $MAVEN_HOME
 
       - name: Run Selenium tests
         run: |

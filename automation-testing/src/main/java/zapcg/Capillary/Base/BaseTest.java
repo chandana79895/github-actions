@@ -1,13 +1,13 @@
 package zapcg.Capillary.Base;
 
 import java.time.Duration;
+
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import zapcg.Cappilary.utils.ConfigReader;
@@ -26,7 +26,6 @@ public class BaseTest {
         this.deviceName = deviceName;
     }
 
-    @BeforeMethod
     public void initialization(String browser) {
         try {
             if (browser.equalsIgnoreCase("chrome")) {
@@ -38,22 +37,17 @@ public class BaseTest {
                 options.addArguments("--disable-dev-shm-usage");
                 options.addArguments("--disable-gpu");
                 driver = new ChromeDriver(options);
-                System.out.println("Chrome initialized");
 
             } else if (browser.equalsIgnoreCase("firefox")) {
                 WebDriverManager.firefoxdriver().setup();
                 driver = new FirefoxDriver();
-                System.out.println("Firefox initialized");
             }
 
             if (dimension != null) {
                 driver.manage().window().setSize(dimension);
-                System.out.println("Window size set to: " + dimension.toString());
             }
             driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-            System.out.println("Timeouts set");
-
         } catch (Exception e) {
             System.err.println("Error initializing WebDriver: " + e.getMessage());
             if (driver != null) {

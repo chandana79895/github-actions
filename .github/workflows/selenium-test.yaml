@@ -31,4 +31,4 @@ jobs:
 
       - name: Build with Maven
         working-directory: automation-testing
-        run: mvn test 
+        run: mvn clean test 

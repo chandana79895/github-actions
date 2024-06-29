@@ -46,7 +46,8 @@ jobs:
 
       - name: Start Xvfb
         run: |
-          Xvfb :99 -screen 0 1280x1024x24
+          Xvfb :99 -screen 0 1280x1024x24 &
+          sleep 30
       - name: Set DISPLAY environment variable
         run: echo "DISPLAY=:99" >> $GITHUB_ENV
 

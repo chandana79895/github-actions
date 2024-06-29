@@ -39,7 +39,7 @@ public class BaseTest {
                 options.addArguments("--disable-gpu");
                 driver = new ChromeDriver(options);
                 driver.manage().window().maximize();
-                driver.get("https://opensource-demo.orangehrmlive.com/");
+                driver.get("https://d1msv2sqknn4w4.cloudfront.net/");
                 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(TIMEOUT));
 
             } else if (browser.equalsIgnoreCase("firefox")) {

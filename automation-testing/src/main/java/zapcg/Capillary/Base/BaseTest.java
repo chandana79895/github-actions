@@ -18,6 +18,7 @@ public class BaseTest {
     protected String baseUrl;
     protected Dimension dimension;
     protected String deviceName;
+    public final static int TIMEOUT = 10;
 
     public void setUp(String browser, String deviceName) {
         ConfigReader configReader = new ConfigReader();
@@ -37,6 +38,9 @@ public class BaseTest {
                 options.addArguments("--disable-dev-shm-usage");
                 options.addArguments("--disable-gpu");
                 driver = new ChromeDriver(options);
+                driver.manage().window().maximize();
+                driver.get("https://opensource-demo.orangehrmlive.com/");
+                driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(TIMEOUT));
 
             } else if (browser.equalsIgnoreCase("firefox")) {
                 WebDriverManager.firefoxdriver().setup();

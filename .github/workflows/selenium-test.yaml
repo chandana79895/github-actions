@@ -26,6 +26,8 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y google-chrome-stable
+      - name: Verify Chrome installation
+        run: google-chrome --version
 
       - name: Download Chrome Driver
         run: |
@@ -34,15 +36,20 @@ jobs:
           curl -sS -o chromedriver.zip https://chromedriver.storage.googleapis.com/$CHROME_DRIVER_VERSION/chromedriver_linux64.zip
           sudo unzip chromedriver.zip -d /usr/local/bin/
           rm chromedriver.zip
+      - name: Verify ChromeDriver installation
+        run: chromedriver --version
 
       - name: Install Xvfb
         run: sudo apt-get install -y xvfb
+      - name: Verify Xvfb installation
+        run: xvfb-run --auto-servernum --server-args='-screen 0 1280x1024x24' echo "Xvfb is running"
 
       - name: Start Xvfb
         run: |
-          export DISPLAY=:99
           Xvfb :99 -screen 0 1280x1024x24 &
           sleep 3 # Give Xvfb some time to start
+      - name: Set DISPLAY environment variable
+        run: echo "DISPLAY=:99" >> $GITHUB_ENV
 
       - name: Run Selenium tests
         run: |

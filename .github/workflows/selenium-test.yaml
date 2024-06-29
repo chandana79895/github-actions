@@ -48,7 +48,7 @@ jobs:
         run: |
           export DISPLAY=:99
           cd automation-testing/
-          mvn clean install -Dwebdriver.chrome.driver=/usr/local/bin/chromedriver -Dwebdriver.chrome.args="--headless --no-sandbox --disable-dev-shm-usage"
+          mvn clean install
         env:
           DISPLAY: :99
 

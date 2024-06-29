@@ -28,86 +28,10 @@ jobs:
         run: google-chrome --version
 
       - name: Build with Maven
-        run: mvn -B clean test
+        run: |
+          cd automation-testing/
+          mvn -B clean test
 
       - name: Print test results
         run: |
           cat target/surefire-reports/*.txt
-
-  unit_test:
-    if: github.event_name == 'pull_request' && (github.event.action == 'opened' || github.event.action == 'synchronize' || github.event.action == 'reopened')
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Install Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '20.x'
-
-      - name: Unit-tests
-        run: |
-          npm i
-          npm run test
-
-  if_merged:
-    runs-on: ubuntu-latest
-    if: github.event_name == 'push' && (github.ref == 'refs/heads/develop') || (github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true && github.ref == 'refs/heads/develop')
-    environment:
-      name: dev
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Install Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '20.x'
-
-      - name: Set up AWS CLI
-        uses: aws-actions/configure-aws-credentials@v2
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
-          role-duration-seconds: 1200
-          audience: sts.amazonaws.com
-
-      - name: Set up .env file
-        env:
-          VITE_APP_SESSION: ${{ secrets.VITE_APP_SESSION }}
-          VITE_APP_BASE_URL: ${{ secrets.VITE_APP_BASE_URL }}
-          VITE_APP_TRANSACTION_AMOUNT: ${{ secrets.VITE_APP_TRANSACTION_AMOUNT }}
-          VITE_APP_SCAN_LIMIT: ${{ secrets.VITE_APP_SCAN_LIMIT }}
-        run: |
-          echo "VITE_APP_SESSION=${{ secrets.VITE_APP_SESSION }}" >> .env.${{ secrets.ENV }}
-          echo "VITE_APP_BASE_URL=${{ secrets.VITE_APP_BASE_URL }}" >> .env.${{ secrets.ENV }}
-          echo "VITE_APP_TRANSACTION_AMOUNT=${{ secrets.VITE_APP_TRANSACTION_AMOUNT }}" >> .env.${{ secrets.ENV }}
-          echo "VITE_APP_SCAN_LIMIT=${{ secrets.VITE_APP_SCAN_LIMIT }}" >> .env.${{ secrets.ENV }}
-
-      - name: Deploying distribution
-        env:
-          ENV: ${{ secrets.ENV }}
-          VITE_APP_SESSION: ${{ secrets.VITE_APP_SESSION }}
-          VITE_APP_BASE_URL: ${{ secrets.VITE_APP_BASE_URL }}
-          VITE_APP_TRANSACTION_AMOUNT: ${{ secrets.VITE_APP_TRANSACTION_AMOUNT }}
-          VITE_APP_SCAN_LIMIT: ${{ secrets.VITE_APP_SCAN_LIMIT }}
-        run: |
-          aws cloudformation validate-template --template-body file://portal.yml
-          aws cloudformation deploy --stack-name fortress-stack-ui-${{ secrets.ENV }} --template-file portal.yml --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM --parameter-overrides Env=${{ secrets.ENV }}
-
-      - name: Deploying to S3 bucket
-        env:
-          CFD_ID: ${{ secrets.CFD_ID }}
-          VITE_APP_SESSION: ${{ secrets.VITE_APP_SESSION }}
-          VITE_APP_BASE_URL: ${{ secrets.VITE_APP_BASE_URL }}
-          VITE_APP_TRANSACTION_AMOUNT: ${{ secrets.VITE_APP_TRANSACTION_AMOUNT }}
-          VITE_APP_SCAN_LIMIT: ${{ secrets.VITE_APP_SCAN_LIMIT }}
-        run: |
-          npm install
-          export CI=false
-          npm run build:${{ secrets.ENV }}
-          aws s3 rm s3://fortress-stack-ui-${{ secrets.ENV }}/ --recursive
-          aws s3 sync ./dist s3://fortress-stack-ui-${{ secrets.ENV}}/
-          aws cloudfront create-invalidation --distribution-id ${{ secrets.CFD_ID }} --paths "/*"

@@ -3,17 +3,28 @@
 <suite name="TestSuite" thread-count="1" parallel="tests">
   
   <listeners>
-<listener class-name="zapcg.Capillary.ExtentReport.Listeners"/>
-<listener class-name="zapcg.Capillary.ExtentReport.ExtentReportNG"/>
+<listener class-name="zapcg.Capillary.ListenersConfiguration.Listeners"/>
+
  </listeners>
+ 
+ 
   
-  <test name="LoginTestschromeBrowserTabletPortrait">
+  <test name="LoginTestsChromeBrowserTabletPortrait">
     <parameter name="browser" value="chrome"/>
     <parameter name="deviceName" value="Tablet Portrait"/> <!-- Tablet Portrait -->
+  
+    
     <classes>
       <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
       <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
       <class name="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases"/>
+      <class name="zapcg.Capillary.MemberLookupTestCases.MemberLookup_Valid_TestCases"/>
+      <class name="zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases"/>
+      <class name="zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases"/>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases"/>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases"/>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint"/>
+      
       
     </classes>
   </test>
@@ -21,51 +32,75 @@
 
 
 
-<test name="LoginTestschromeBrowserTabletLandscape">
+<test name="LoginTestsChromeBrowserTabletLandscape">
     <parameter name="browser" value="chrome"/>
     <parameter name="deviceName" value="Tablet Landscape"/> <!-- Tablet Portrait -->
     <classes>
       <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
       <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
       <class name="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases"/>
+      <class name="zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases"/>
+      <class name="zapcg.Capillary.MemberLookupTestCases.MemberLookup_Valid_TestCases"/>
+      <class name="zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases"/>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases"/>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases"/>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint"/>
       
     </classes>
   </test>
 
     
- <test name="LoginTestschromeBrowseriPhone11ProPortrait">
+ <test name="LoginTestsChromeBrowseriPhone11ProPortrait">
     <parameter name="browser" value="chrome"/>
     <parameter name="deviceName" value="iPhone 11 Pro Portrait"/> <!-- Tablet Portrait -->
     <classes>
       <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
       <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
       <class name="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases"/>
+      <class name="zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases"/>
+      <class name="zapcg.Capillary.MemberLookupTestCases.MemberLookup_Valid_TestCases"/>
+      <class name="zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases"/>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases"/>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases"/>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint"/>
       
     </classes>
   </test>
 
 
       
-      <test name="LoginTestschromeBrowseriPhone11ProLandscape">
+      <test name="LoginTestsChromeBrowseriPhone11ProLandscape">
     <parameter name="browser" value="chrome"/>
     <parameter name="deviceName" value="iPhone 11 Pro Landscape"/> <!-- Tablet Portrait -->
     <classes>
       <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
       <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
       <class name="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases"/>
+      <class name="zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases"/>
+      <class name="zapcg.Capillary.MemberLookupTestCases.MemberLookup_Valid_TestCases"/>
+      <class name="zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases"/>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases"/>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases"/>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint"/>
       
     </classes>
   </test>
 
  
     
- <test name="LoginTestschromeBrowserGalaxyS20Portrait">
+ <test name="LoginTestsChromeBrowserGalaxyS20Portrait">
     <parameter name="browser" value="chrome"/>
     <parameter name="deviceName" value="Galaxy S20 Portrait"/> <!-- Tablet Portrait -->
     <classes>
       <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
       <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
       <class name="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases"/>
+      <class name="zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases"/>
+      <class name="zapcg.Capillary.MemberLookupTestCases.MemberLookup_Valid_TestCases"/>
+      <class name="zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases"/>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases"/>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases"/>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint"/>
       
     </classes>
   </test>
@@ -73,13 +108,140 @@
 
   
   
-  <test name="LoginTestschromeBrowserGalaxyS20Landscape">
+  <test name="LoginTestsChromeBrowserGalaxyS20Landscape">
     <parameter name="browser" value="chrome"/>
     <parameter name="deviceName" value="Galaxy S20 Landscape"/> <!-- Tablet Portrait -->
     <classes>
       <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
       <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
       <class name="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases"/>
+      <class name="zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases"/>
+      <class name="zapcg.Capillary.MemberLookupTestCases.MemberLookup_Valid_TestCases"/>
+      <class name="zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases"/>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases"/>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases"/>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint"/>
+      
+    </classes>
+  </test>
+
+
+
+
+
+
+
+
+<test name="LoginTestsFirefoxBrowserTabletPortrait">
+    <parameter name="browser" value="firefox"/>
+    <parameter name="deviceName" value="Tablet Portrait"/> <!-- Tablet Portrait -->
+    <classes>
+      <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
+      <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
+      <class name="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases"/>
+      <class name="zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases"/>
+      <class name="zapcg.Capillary.MemberLookupTestCases.MemberLookup_Valid_TestCases"/>
+      <class name="zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases"/>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases"/>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases"/>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint"/>
+      
+      
+    </classes>
+  </test>
+
+
+
+
+<test name="LoginTestsfirefoxBrowserTabletLandscape">
+    <parameter name="browser" value="firefox"/>
+    <parameter name="deviceName" value="Tablet Landscape"/> <!-- Tablet Portrait -->
+    <classes>
+      <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
+      <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
+      <class name="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases"/>
+      <class name="zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases"/>
+      <class name="zapcg.Capillary.MemberLookupTestCases.MemberLookup_Valid_TestCases"/>
+      <class name="zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases"/>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases"/>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases"/>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint"/>
+      
+    </classes>
+  </test>
+
+    
+ <test name="LoginTestsfirefoxBrowseriPhone11ProPortrait">
+    <parameter name="browser" value="firefox"/>
+    <parameter name="deviceName" value="iPhone 11 Pro Portrait"/> <!-- Tablet Portrait -->
+    <classes>
+      <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
+      <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
+      <class name="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases"/>
+      <class name="zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases"/>
+      <class name="zapcg.Capillary.MemberLookupTestCases.MemberLookup_Valid_TestCases"/>
+      <class name="zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases"/>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases"/>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases"/>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint"/>
+      
+    </classes>
+  </test>
+
+
+      
+      <test name="LoginTestsfirefoxBrowseriPhone11ProLandscape">
+    <parameter name="browser" value="firefox"/>
+    <parameter name="deviceName" value="iPhone 11 Pro Landscape"/> <!-- Tablet Portrait -->
+    <classes>
+      <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
+      <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
+      <class name="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases"/>
+      <class name="zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases"/>
+      <class name="zapcg.Capillary.MemberLookupTestCases.MemberLookup_Valid_TestCases"/>
+      <class name="zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases"/>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases"/>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases"/>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint"/>
+      
+    </classes>
+  </test>
+
+ 
+    
+ <test name="LoginTestsfirefoxBrowserGalaxyS20Portrait">
+    <parameter name="browser" value="firefox"/>
+    <parameter name="deviceName" value="Galaxy S20 Portrait"/> <!-- Tablet Portrait -->
+    <classes>
+      <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
+      <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
+      <class name="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases"/>
+      <class name="zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases"/>
+      <class name="zapcg.Capillary.MemberLookupTestCases.MemberLookup_Valid_TestCases"/>
+      <class name="zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases"/>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases"/>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases"/>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint"/>
+      
+    </classes>
+  </test>
+
+
+  
+  
+  <test name="LoginTestsfirefoxBrowserGalaxyS20Landscape">
+    <parameter name="browser" value="firefox"/>
+    <parameter name="deviceName" value="Galaxy S20 Landscape"/> <!-- Tablet Portrait -->
+    <classes>
+      <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
+      <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
+      <class name="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases"/>
+      <class name="zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases"/>
+      <class name="zapcg.Capillary.MemberLookupTestCases.MemberLookup_Valid_TestCases"/>
+      <class name="zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases"/>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases"/>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases"/>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint"/>
       
     </classes>
   </test>

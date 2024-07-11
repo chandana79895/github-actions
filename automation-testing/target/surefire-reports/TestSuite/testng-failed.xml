@@ -1,0 +1,806 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="1" parallel="tests" name="Failed suite [TestSuite]" guice-stage="DEVELOPMENT" verbose="0">
+  <listeners>
+    <listener class-name="zapcg.Capillary.ListenersConfiguration.Listeners"/>
+  </listeners>
+  <test thread-count="1" parallel="tests" name="LoginTestsChromeBrowserTabletPortrait(failed)" verbose="0">
+    <parameter name="browser" value="chrome"/>
+    <parameter name="deviceName" value="Tablet Portrait"/>
+    <classes>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases">
+        <methods>
+          <include name="verifyExceedThresoldSuccessMessage"/>
+          <include name="verifySuccessMessageForRedeemPoint"/>
+          <include name="initialize"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases -->
+      <class name="zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases">
+        <methods>
+          <include name="enterValidMemberId"/>
+          <include name="initialize"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases -->
+    </classes>
+  </test> <!-- LoginTestsChromeBrowserTabletPortrait(failed) -->
+  <test thread-count="1" parallel="tests" name="LoginTestsChromeBrowserTabletLandscape(failed)" verbose="0">
+    <parameter name="browser" value="chrome"/>
+    <parameter name="deviceName" value="Tablet Landscape"/>
+    <classes>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases">
+        <methods>
+          <include name="verifyExceedThresoldSuccessMessage"/>
+          <include name="verifySuccessMessageForRedeemPoint"/>
+          <include name="initialize"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases -->
+      <class name="zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases">
+        <methods>
+          <include name="enterValidMemberId"/>
+          <include name="initialize"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases -->
+    </classes>
+  </test> <!-- LoginTestsChromeBrowserTabletLandscape(failed) -->
+  <test thread-count="1" parallel="tests" name="LoginTestsChromeBrowseriPhone11ProPortrait(failed)" verbose="0">
+    <parameter name="browser" value="chrome"/>
+    <parameter name="deviceName" value="iPhone 11 Pro Portrait"/>
+    <classes>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases">
+        <methods>
+          <include name="verifyExceedThresoldSuccessMessage"/>
+          <include name="verifySuccessMessageForRedeemPoint"/>
+          <include name="initialize"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases -->
+      <class name="zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases">
+        <methods>
+          <include name="enterValidMemberId"/>
+          <include name="initialize"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases -->
+    </classes>
+  </test> <!-- LoginTestsChromeBrowseriPhone11ProPortrait(failed) -->
+  <test thread-count="1" parallel="tests" name="LoginTestsChromeBrowseriPhone11ProLandscape(failed)" verbose="0">
+    <parameter name="browser" value="chrome"/>
+    <parameter name="deviceName" value="iPhone 11 Pro Landscape"/>
+    <classes>
+      <class name="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases">
+        <methods>
+          <include name="initialize"/>
+          <include name="chooseValidLocationForNewUser"/>
+          <include name="verifyIfAbleToSelectOptionFromDropDown"/>
+          <include name="verifyHeaderOfMemberLookupScreen"/>
+          <include name="burgerIconMemberLocationNavigation"/>
+          <include name="navigatedFromLocationToLookupScreen"/>
+          <include name="tearDown"/>
+          <include name="verifyDropDownAvailability"/>
+          <include name="burgerIconMemberLookupNavigation"/>
+          <include name="burgerIconLogout"/>
+          <include name="verifyChooseLocationButtonAvailability"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases -->
+      <class name="zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases">
+        <methods>
+          <include name="verifyMemberIdFieldMaxLength"/>
+          <include name="verifyInvalidCardNumberMinLength"/>
+          <include name="verifyForEmptyCardNumberButtonIsDisabled"/>
+          <include name="tearDown"/>
+          <include name="verifyCardNumberFieldMaxLength"/>
+          <include name="verifyInvalidMemberID"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases -->
+      <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases">
+        <methods>
+          <include name="verifyTimeEqualToSystemCurrentTime"/>
+          <include name="verifyExceedThresoldSuccessMessage"/>
+          <include name="verifyTransactionAmountShouldNotBeEmpty"/>
+          <include name="emptyTxnAmountButGoToPassPointValue"/>
+          <include name="verifySuccessMessageForRedeemPoint"/>
+          <include name="initialize"/>
+          <include name="tearDown"/>
+          <include name="verifySuccessMessageForOnlyTransactionAmount"/>
+          <include name="verifyTaxAssumedAmount"/>
+          <include name="verifyEligibleEarningPoints"/>
+          <include name="verifyDateEqualToSystemCurrentDate"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases -->
+      <class name="zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases">
+        <methods>
+          <include name="enterValidMemberId"/>
+          <include name="verifyHeaderHyperlink"/>
+          <include name="initialize"/>
+          <include name="burgerIconLocationNavigation"/>
+          <include name="verifyScanButtonAvailability"/>
+          <include name="tearDown"/>
+          <include name="burgerIconMemberLookupNavigation"/>
+          <include name="burgerIconLogout"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases -->
+    </classes>
+  </test> <!-- LoginTestsChromeBrowseriPhone11ProLandscape(failed) -->
+  <test thread-count="1" parallel="tests" name="LoginTestsChromeBrowserGalaxyS20Portrait(failed)" verbose="0">
+    <parameter name="browser" value="chrome"/>
+    <parameter name="deviceName" value="Galaxy S20 Portrait"/>
+    <classes>
+      <class name="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases">
+        <methods>
+          <include name="initialize"/>
+          <include name="verifyHeaderOfMemberLookupScreen"/>
+          <include name="navigatedFromLocationToLookupScreen"/>
+          <include name="burgerIconMemberLocationNavigation"/>
+          <include name="tearDown"/>
+          <include name="burgerIconMemberLookupNavigation"/>
+          <include name="burgerIconLogout"/>
+          <include name="verifyChooseLocationButtonAvailability"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases -->
+      <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases">
+        <methods>
+          <include name="initialize"/>
+          <include name="tearDown"/>
+          <include name="testValidLogin_TestCase1"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.LoginTestCases.Login_Valid_TestCases -->
+      <class name="zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases">
+        <methods>
+          <include name="verifyHamBurgerMemberLookupOption"/>
+          <include name="verifyHamBurgerLocationOption"/>
+          <include name="verifyMemberDetailsNavigationFromMeberLookupScreen"/>
+          <include name="verifyExpiryDateEqualToSystemDateThenNoRedeem"/>
+          <include name="initialize"/>
+          <include name="verifyEnabledOfEnterReceiptDetailsButton"/>
+          <include name="verifyMemberDetailsDisplaying"/>
+          <include name="tearDown"/>
+          <include name="verifyMemberDetailsContentDisplaying"/>
+          <include name="verifyHeaderOfTheMemberDetailsScreen"/>
+          <include name="verifyHamBurgerLogoutOption"/>
+          <include name="verifyBackButton"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases -->
+      <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases">
+        <methods>
+          <include name="verifyTimeEqualToSystemCurrentTime"/>
+          <include name="verifyHamBurgerLocationOption"/>
+          <include name="emptyTxnAmountButGoToPassPointValue"/>
+          <include name="verifyMemberDetailsContentDisplayingOnEarnPointScreen"/>
+          <include name="initialize"/>
+          <include name="verifyNonEditableDateField"/>
+          <include name="verifyHeaderHyperlink"/>
+          <include name="verifySuccessMessageForOnlyTransactionAmount"/>
+          <include name="verifyEligibleEarningPoints"/>
+          <include name="verifyDateEqualToSystemCurrentDate"/>
+          <include name="verifyHamBurgerLogoutOption"/>
+          <include name="verifyNonEditableLocationField"/>
+          <include name="verifyExceedThresoldSuccessMessage"/>
+          <include name="verifyTransactionAmountShouldNotBeEmpty"/>
+          <include name="verifySuccessMessageForRedeemPoint"/>
+          <include name="verifyBackButtonNavigation"/>
+          <include name="tearDown"/>
+          <include name="verifyEarnPointsNavigationFromMeberDetailsScreen"/>
+          <include name="verifyTaxAssumedAmount"/>
+          <include name="verifyHamBurgerMemberLookupOption"/>
+          <include name="verifyNonEditableTimeField"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases -->
+      <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases">
+        <methods>
+          <include name="emptyTxnAmountButGoToPassPointValue"/>
+          <include name="tearDown"/>
+          <include name="goTOPassPointMoreThanTransactionAmount"/>
+          <include name="initialize"/>
+          <include name="verifyTransactionAmountShouldNotBeEmpty"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases -->
+      <class name="zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint">
+        <methods>
+          <include name="initialize"/>
+          <include name="tearDown"/>
+          <include name="testing"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint -->
+      <class name="zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases">
+        <methods>
+          <include name="enterValidMemberId"/>
+          <include name="verifyHeaderHyperlink"/>
+          <include name="initialize"/>
+          <include name="verifyScanButtonAvailability"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases -->
+    </classes>
+  </test> <!-- LoginTestsChromeBrowserGalaxyS20Portrait(failed) -->
+  <test thread-count="1" parallel="tests" name="LoginTestsChromeBrowserGalaxyS20Landscape(failed)" verbose="0">
+    <parameter name="browser" value="chrome"/>
+    <parameter name="deviceName" value="Galaxy S20 Landscape"/>
+    <classes>
+      <class name="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases">
+        <methods>
+          <include name="initialize"/>
+          <include name="verifyHeaderOfMemberLookupScreen"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases -->
+      <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases">
+        <methods>
+          <include name="verifyExceedThresoldSuccessMessage"/>
+          <include name="verifySuccessMessageForRedeemPoint"/>
+          <include name="initialize"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases -->
+      <class name="zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases">
+        <methods>
+          <include name="enterValidMemberId"/>
+          <include name="initialize"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases -->
+    </classes>
+  </test> <!-- LoginTestsChromeBrowserGalaxyS20Landscape(failed) -->
+  <test thread-count="1" parallel="tests" name="LoginTestsFirefoxBrowserTabletPortrait(failed)" verbose="0">
+    <parameter name="browser" value="firefox"/>
+    <parameter name="deviceName" value="Tablet Portrait"/>
+    <classes>
+      <class name="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases">
+        <methods>
+          <include name="initialize"/>
+          <include name="chooseValidLocationForNewUser"/>
+          <include name="verifyHeaderOfMemberLookupScreen"/>
+          <include name="navigatedFromLocationToLookupScreen"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases -->
+      <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases">
+        <methods>
+          <include name="tearDown"/>
+          <include name="initialize"/>
+          <include name="testValidLogin_TestCase1"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.LoginTestCases.Login_Valid_TestCases -->
+      <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases">
+        <methods>
+          <include name="verifyTimeEqualToSystemCurrentTime"/>
+          <include name="verifyExceedThresoldSuccessMessage"/>
+          <include name="verifySuccessMessageForRedeemPoint"/>
+          <include name="initialize"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases -->
+      <class name="zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases">
+        <methods>
+          <include name="verifyHamBurgerLocationOption"/>
+          <include name="verifyHamBurgerMemberLookupOption"/>
+          <include name="verifyMemberDetailsNavigationFromMeberLookupScreen"/>
+          <include name="initialize"/>
+          <include name="verifyExpiryDateEqualToSystemDateThenNoRedeem"/>
+          <include name="verifyEnabledOfEnterReceiptDetailsButton"/>
+          <include name="tearDown"/>
+          <include name="verifyMemberDetailsDisplaying"/>
+          <include name="verifyMemberDetailsContentDisplaying"/>
+          <include name="verifyHeaderOfTheMemberDetailsScreen"/>
+          <include name="verifyHamBurgerLogoutOption"/>
+          <include name="verifyBackButton"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases -->
+      <class name="zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint">
+        <methods>
+          <include name="initialize"/>
+          <include name="tearDown"/>
+          <include name="testing"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint -->
+      <class name="zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases">
+        <methods>
+          <include name="enterValidMemberId"/>
+          <include name="initialize"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases -->
+    </classes>
+  </test> <!-- LoginTestsFirefoxBrowserTabletPortrait(failed) -->
+  <test thread-count="1" parallel="tests" name="LoginTestsfirefoxBrowserTabletLandscape(failed)" verbose="0">
+    <parameter name="browser" value="firefox"/>
+    <parameter name="deviceName" value="Tablet Landscape"/>
+    <classes>
+      <class name="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases">
+        <methods>
+          <include name="initialize"/>
+          <include name="chooseValidLocationForNewUser"/>
+          <include name="verifyIfAbleToSelectOptionFromDropDown"/>
+          <include name="verifyHeaderOfMemberLookupScreen"/>
+          <include name="burgerIconMemberLocationNavigation"/>
+          <include name="navigatedFromLocationToLookupScreen"/>
+          <include name="tearDown"/>
+          <include name="verifyDropDownAvailability"/>
+          <include name="burgerIconMemberLookupNavigation"/>
+          <include name="burgerIconLogout"/>
+          <include name="verifyChooseLocationButtonAvailability"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases -->
+      <class name="zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases">
+        <methods>
+          <include name="verifyMemberIdFieldMaxLength"/>
+          <include name="verifyInvalidCardNumberMinLength"/>
+          <include name="verifyForEmptyCardNumberButtonIsDisabled"/>
+          <include name="tearDown"/>
+          <include name="verifyCardNumberFieldMaxLength"/>
+          <include name="verifyInvalidMemberID"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases -->
+      <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases">
+        <methods>
+          <include name="verifyExceedThresoldSuccessMessage"/>
+          <include name="verifyTimeEqualToSystemCurrentTime"/>
+          <include name="verifyTransactionAmountShouldNotBeEmpty"/>
+          <include name="emptyTxnAmountButGoToPassPointValue"/>
+          <include name="verifySuccessMessageForRedeemPoint"/>
+          <include name="initialize"/>
+          <include name="tearDown"/>
+          <include name="verifySuccessMessageForOnlyTransactionAmount"/>
+          <include name="verifyTaxAssumedAmount"/>
+          <include name="verifyEligibleEarningPoints"/>
+          <include name="verifyDateEqualToSystemCurrentDate"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases -->
+      <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases">
+        <methods>
+          <include name="tearDown"/>
+          <include name="goTOPassPointMoreThanTransactionAmount"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases -->
+      <class name="zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases">
+        <methods>
+          <include name="enterValidMemberId"/>
+          <include name="verifyHeaderHyperlink"/>
+          <include name="initialize"/>
+          <include name="burgerIconLocationNavigation"/>
+          <include name="verifyScanButtonAvailability"/>
+          <include name="tearDown"/>
+          <include name="burgerIconMemberLookupNavigation"/>
+          <include name="burgerIconLogout"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases -->
+    </classes>
+  </test> <!-- LoginTestsfirefoxBrowserTabletLandscape(failed) -->
+  <test thread-count="1" parallel="tests" name="LoginTestsfirefoxBrowseriPhone11ProPortrait(failed)" verbose="0">
+    <parameter name="browser" value="firefox"/>
+    <parameter name="deviceName" value="iPhone 11 Pro Portrait"/>
+    <classes>
+      <class name="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases">
+        <methods>
+          <include name="initialize"/>
+          <include name="chooseValidLocationForNewUser"/>
+          <include name="verifyIfAbleToSelectOptionFromDropDown"/>
+          <include name="verifyHeaderOfMemberLookupScreen"/>
+          <include name="navigatedFromLocationToLookupScreen"/>
+          <include name="burgerIconMemberLocationNavigation"/>
+          <include name="verifyDropDownAvailability"/>
+          <include name="tearDown"/>
+          <include name="burgerIconMemberLookupNavigation"/>
+          <include name="burgerIconLogout"/>
+          <include name="verifyChooseLocationButtonAvailability"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases -->
+      <class name="zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases">
+        <methods>
+          <include name="verifyMemberIdFieldMaxLength"/>
+          <include name="verifyInvalidCardNumberMinLength"/>
+          <include name="verifyForEmptyCardNumberButtonIsDisabled"/>
+          <include name="tearDown"/>
+          <include name="verifyCardNumberFieldMaxLength"/>
+          <include name="verifyInvalidMemberID"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases -->
+      <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases">
+        <methods>
+          <include name="initialize"/>
+          <include name="tearDown"/>
+          <include name="testValidLogin_TestCase1"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.LoginTestCases.Login_Valid_TestCases -->
+      <class name="zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases">
+        <methods>
+          <include name="verifyHamBurgerLocationOption"/>
+          <include name="verifyHamBurgerMemberLookupOption"/>
+          <include name="verifyMemberDetailsNavigationFromMeberLookupScreen"/>
+          <include name="verifyExpiryDateEqualToSystemDateThenNoRedeem"/>
+          <include name="initialize"/>
+          <include name="verifyEnabledOfEnterReceiptDetailsButton"/>
+          <include name="tearDown"/>
+          <include name="verifyMemberDetailsDisplaying"/>
+          <include name="verifyMemberDetailsContentDisplaying"/>
+          <include name="verifyHeaderOfTheMemberDetailsScreen"/>
+          <include name="verifyHamBurgerLogoutOption"/>
+          <include name="verifyBackButton"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases -->
+      <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases">
+        <methods>
+          <include name="verifyHamBurgerLocationOption"/>
+          <include name="verifyTimeEqualToSystemCurrentTime"/>
+          <include name="verifyMemberDetailsContentDisplayingOnEarnPointScreen"/>
+          <include name="emptyTxnAmountButGoToPassPointValue"/>
+          <include name="initialize"/>
+          <include name="verifyNonEditableDateField"/>
+          <include name="verifyHeaderHyperlink"/>
+          <include name="verifySuccessMessageForOnlyTransactionAmount"/>
+          <include name="verifyEligibleEarningPoints"/>
+          <include name="verifyDateEqualToSystemCurrentDate"/>
+          <include name="verifyHamBurgerLogoutOption"/>
+          <include name="verifyNonEditableLocationField"/>
+          <include name="verifyExceedThresoldSuccessMessage"/>
+          <include name="verifyTransactionAmountShouldNotBeEmpty"/>
+          <include name="verifySuccessMessageForRedeemPoint"/>
+          <include name="tearDown"/>
+          <include name="verifyBackButtonNavigation"/>
+          <include name="verifyEarnPointsNavigationFromMeberDetailsScreen"/>
+          <include name="verifyTaxAssumedAmount"/>
+          <include name="verifyHamBurgerMemberLookupOption"/>
+          <include name="verifyNonEditableTimeField"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases -->
+      <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases">
+        <methods>
+          <include name="emptyTxnAmountButGoToPassPointValue"/>
+          <include name="tearDown"/>
+          <include name="goTOPassPointMoreThanTransactionAmount"/>
+          <include name="initialize"/>
+          <include name="verifyTransactionAmountShouldNotBeEmpty"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases -->
+      <class name="zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint">
+        <methods>
+          <include name="initialize"/>
+          <include name="tearDown"/>
+          <include name="testing"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint -->
+      <class name="zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases">
+        <methods>
+          <include name="enterValidMemberId"/>
+          <include name="verifyHeaderHyperlink"/>
+          <include name="initialize"/>
+          <include name="burgerIconLocationNavigation"/>
+          <include name="verifyScanButtonAvailability"/>
+          <include name="tearDown"/>
+          <include name="burgerIconMemberLookupNavigation"/>
+          <include name="burgerIconLogout"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases -->
+    </classes>
+  </test> <!-- LoginTestsfirefoxBrowseriPhone11ProPortrait(failed) -->
+  <test thread-count="1" parallel="tests" name="LoginTestsfirefoxBrowseriPhone11ProLandscape(failed)" verbose="0">
+    <parameter name="browser" value="firefox"/>
+    <parameter name="deviceName" value="iPhone 11 Pro Landscape"/>
+    <classes>
+      <class name="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases">
+        <methods>
+          <include name="initialize"/>
+          <include name="chooseValidLocationForNewUser"/>
+          <include name="verifyIfAbleToSelectOptionFromDropDown"/>
+          <include name="verifyHeaderOfMemberLookupScreen"/>
+          <include name="burgerIconMemberLocationNavigation"/>
+          <include name="navigatedFromLocationToLookupScreen"/>
+          <include name="verifyDropDownAvailability"/>
+          <include name="tearDown"/>
+          <include name="burgerIconMemberLookupNavigation"/>
+          <include name="burgerIconLogout"/>
+          <include name="verifyChooseLocationButtonAvailability"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases -->
+      <class name="zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases">
+        <methods>
+          <include name="verifyMemberIdFieldMaxLength"/>
+          <include name="verifyInvalidCardNumberMinLength"/>
+          <include name="verifyForEmptyCardNumberButtonIsDisabled"/>
+          <include name="tearDown"/>
+          <include name="verifyCardNumberFieldMaxLength"/>
+          <include name="verifyInvalidMemberID"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases -->
+      <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases">
+        <methods>
+          <include name="initialize"/>
+          <include name="tearDown"/>
+          <include name="testValidLogin_TestCase1"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.LoginTestCases.Login_Valid_TestCases -->
+      <class name="zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases">
+        <methods>
+          <include name="verifyHamBurgerLocationOption"/>
+          <include name="verifyHamBurgerMemberLookupOption"/>
+          <include name="verifyMemberDetailsNavigationFromMeberLookupScreen"/>
+          <include name="verifyExpiryDateEqualToSystemDateThenNoRedeem"/>
+          <include name="initialize"/>
+          <include name="verifyEnabledOfEnterReceiptDetailsButton"/>
+          <include name="verifyMemberDetailsDisplaying"/>
+          <include name="tearDown"/>
+          <include name="verifyMemberDetailsContentDisplaying"/>
+          <include name="verifyHeaderOfTheMemberDetailsScreen"/>
+          <include name="verifyHamBurgerLogoutOption"/>
+          <include name="verifyBackButton"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases -->
+      <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases">
+        <methods>
+          <include name="verifyHamBurgerLocationOption"/>
+          <include name="verifyTimeEqualToSystemCurrentTime"/>
+          <include name="verifyMemberDetailsContentDisplayingOnEarnPointScreen"/>
+          <include name="emptyTxnAmountButGoToPassPointValue"/>
+          <include name="initialize"/>
+          <include name="verifyNonEditableDateField"/>
+          <include name="verifyHeaderHyperlink"/>
+          <include name="verifySuccessMessageForOnlyTransactionAmount"/>
+          <include name="verifyEligibleEarningPoints"/>
+          <include name="verifyDateEqualToSystemCurrentDate"/>
+          <include name="verifyHamBurgerLogoutOption"/>
+          <include name="verifyNonEditableLocationField"/>
+          <include name="verifyExceedThresoldSuccessMessage"/>
+          <include name="verifyTransactionAmountShouldNotBeEmpty"/>
+          <include name="verifySuccessMessageForRedeemPoint"/>
+          <include name="verifyBackButtonNavigation"/>
+          <include name="tearDown"/>
+          <include name="verifyEarnPointsNavigationFromMeberDetailsScreen"/>
+          <include name="verifyTaxAssumedAmount"/>
+          <include name="verifyNonEditableTimeField"/>
+          <include name="verifyHamBurgerMemberLookupOption"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases -->
+      <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases">
+        <methods>
+          <include name="emptyTxnAmountButGoToPassPointValue"/>
+          <include name="tearDown"/>
+          <include name="goTOPassPointMoreThanTransactionAmount"/>
+          <include name="initialize"/>
+          <include name="verifyTransactionAmountShouldNotBeEmpty"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases -->
+      <class name="zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint">
+        <methods>
+          <include name="initialize"/>
+          <include name="tearDown"/>
+          <include name="testing"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint -->
+      <class name="zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases">
+        <methods>
+          <include name="enterValidMemberId"/>
+          <include name="verifyHeaderHyperlink"/>
+          <include name="initialize"/>
+          <include name="burgerIconLocationNavigation"/>
+          <include name="verifyScanButtonAvailability"/>
+          <include name="tearDown"/>
+          <include name="burgerIconMemberLookupNavigation"/>
+          <include name="burgerIconLogout"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases -->
+    </classes>
+  </test> <!-- LoginTestsfirefoxBrowseriPhone11ProLandscape(failed) -->
+  <test thread-count="1" parallel="tests" name="LoginTestsfirefoxBrowserGalaxyS20Portrait(failed)" verbose="0">
+    <parameter name="browser" value="firefox"/>
+    <parameter name="deviceName" value="Galaxy S20 Portrait"/>
+    <classes>
+      <class name="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases">
+        <methods>
+          <include name="initialize"/>
+          <include name="chooseValidLocationForNewUser"/>
+          <include name="verifyIfAbleToSelectOptionFromDropDown"/>
+          <include name="verifyHeaderOfMemberLookupScreen"/>
+          <include name="burgerIconMemberLocationNavigation"/>
+          <include name="navigatedFromLocationToLookupScreen"/>
+          <include name="verifyDropDownAvailability"/>
+          <include name="tearDown"/>
+          <include name="burgerIconMemberLookupNavigation"/>
+          <include name="burgerIconLogout"/>
+          <include name="verifyChooseLocationButtonAvailability"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases -->
+      <class name="zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases">
+        <methods>
+          <include name="verifyMemberIdFieldMaxLength"/>
+          <include name="verifyInvalidCardNumberMinLength"/>
+          <include name="verifyForEmptyCardNumberButtonIsDisabled"/>
+          <include name="tearDown"/>
+          <include name="verifyCardNumberFieldMaxLength"/>
+          <include name="verifyInvalidMemberID"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases -->
+      <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases">
+        <methods>
+          <include name="initialize"/>
+          <include name="tearDown"/>
+          <include name="testValidLogin_TestCase1"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.LoginTestCases.Login_Valid_TestCases -->
+      <class name="zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases">
+        <methods>
+          <include name="verifyHamBurgerMemberLookupOption"/>
+          <include name="verifyHamBurgerLocationOption"/>
+          <include name="verifyMemberDetailsNavigationFromMeberLookupScreen"/>
+          <include name="initialize"/>
+          <include name="verifyExpiryDateEqualToSystemDateThenNoRedeem"/>
+          <include name="verifyEnabledOfEnterReceiptDetailsButton"/>
+          <include name="tearDown"/>
+          <include name="verifyMemberDetailsDisplaying"/>
+          <include name="verifyMemberDetailsContentDisplaying"/>
+          <include name="verifyHeaderOfTheMemberDetailsScreen"/>
+          <include name="verifyHamBurgerLogoutOption"/>
+          <include name="verifyBackButton"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases -->
+      <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases">
+        <methods>
+          <include name="verifyTimeEqualToSystemCurrentTime"/>
+          <include name="verifyHamBurgerLocationOption"/>
+          <include name="verifyMemberDetailsContentDisplayingOnEarnPointScreen"/>
+          <include name="emptyTxnAmountButGoToPassPointValue"/>
+          <include name="initialize"/>
+          <include name="verifyNonEditableDateField"/>
+          <include name="verifyHeaderHyperlink"/>
+          <include name="verifySuccessMessageForOnlyTransactionAmount"/>
+          <include name="verifyEligibleEarningPoints"/>
+          <include name="verifyDateEqualToSystemCurrentDate"/>
+          <include name="verifyHamBurgerLogoutOption"/>
+          <include name="verifyNonEditableLocationField"/>
+          <include name="verifyExceedThresoldSuccessMessage"/>
+          <include name="verifyTransactionAmountShouldNotBeEmpty"/>
+          <include name="verifySuccessMessageForRedeemPoint"/>
+          <include name="tearDown"/>
+          <include name="verifyBackButtonNavigation"/>
+          <include name="verifyTaxAssumedAmount"/>
+          <include name="verifyEarnPointsNavigationFromMeberDetailsScreen"/>
+          <include name="verifyNonEditableTimeField"/>
+          <include name="verifyHamBurgerMemberLookupOption"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases -->
+      <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases">
+        <methods>
+          <include name="emptyTxnAmountButGoToPassPointValue"/>
+          <include name="tearDown"/>
+          <include name="goTOPassPointMoreThanTransactionAmount"/>
+          <include name="initialize"/>
+          <include name="verifyTransactionAmountShouldNotBeEmpty"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases -->
+      <class name="zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint">
+        <methods>
+          <include name="initialize"/>
+          <include name="tearDown"/>
+          <include name="testing"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint -->
+      <class name="zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases">
+        <methods>
+          <include name="enterValidMemberId"/>
+          <include name="verifyHeaderHyperlink"/>
+          <include name="initialize"/>
+          <include name="burgerIconLocationNavigation"/>
+          <include name="verifyScanButtonAvailability"/>
+          <include name="tearDown"/>
+          <include name="burgerIconMemberLookupNavigation"/>
+          <include name="burgerIconLogout"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases -->
+    </classes>
+  </test> <!-- LoginTestsfirefoxBrowserGalaxyS20Portrait(failed) -->
+  <test thread-count="1" parallel="tests" name="LoginTestsfirefoxBrowserGalaxyS20Landscape(failed)" verbose="0">
+    <parameter name="browser" value="firefox"/>
+    <parameter name="deviceName" value="Galaxy S20 Landscape"/>
+    <classes>
+      <class name="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases">
+        <methods>
+          <include name="initialize"/>
+          <include name="chooseValidLocationForNewUser"/>
+          <include name="verifyIfAbleToSelectOptionFromDropDown"/>
+          <include name="verifyHeaderOfMemberLookupScreen"/>
+          <include name="burgerIconMemberLocationNavigation"/>
+          <include name="navigatedFromLocationToLookupScreen"/>
+          <include name="tearDown"/>
+          <include name="verifyDropDownAvailability"/>
+          <include name="burgerIconMemberLookupNavigation"/>
+          <include name="burgerIconLogout"/>
+          <include name="verifyChooseLocationButtonAvailability"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases -->
+      <class name="zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases">
+        <methods>
+          <include name="verifyMemberIdFieldMaxLength"/>
+          <include name="verifyInvalidCardNumberMinLength"/>
+          <include name="verifyForEmptyCardNumberButtonIsDisabled"/>
+          <include name="tearDown"/>
+          <include name="verifyCardNumberFieldMaxLength"/>
+          <include name="verifyInvalidMemberID"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases -->
+      <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases">
+        <methods>
+          <include name="initialize"/>
+          <include name="tearDown"/>
+          <include name="testValidLogin_TestCase1"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.LoginTestCases.Login_Valid_TestCases -->
+      <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases">
+        <methods>
+          <include name="emptyTxnAmountButGoToPassPointValue"/>
+          <include name="tearDown"/>
+          <include name="goTOPassPointMoreThanTransactionAmount"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases -->
+      <class name="zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases">
+        <methods>
+          <include name="verifyHamBurgerLocationOption"/>
+          <include name="verifyHamBurgerMemberLookupOption"/>
+          <include name="verifyMemberDetailsNavigationFromMeberLookupScreen"/>
+          <include name="verifyExpiryDateEqualToSystemDateThenNoRedeem"/>
+          <include name="initialize"/>
+          <include name="verifyEnabledOfEnterReceiptDetailsButton"/>
+          <include name="tearDown"/>
+          <include name="verifyMemberDetailsDisplaying"/>
+          <include name="verifyMemberDetailsContentDisplaying"/>
+          <include name="verifyHeaderOfTheMemberDetailsScreen"/>
+          <include name="verifyHamBurgerLogoutOption"/>
+          <include name="verifyBackButton"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases -->
+      <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases">
+        <methods>
+          <include name="verifyHamBurgerLocationOption"/>
+          <include name="verifyTimeEqualToSystemCurrentTime"/>
+          <include name="verifyMemberDetailsContentDisplayingOnEarnPointScreen"/>
+          <include name="emptyTxnAmountButGoToPassPointValue"/>
+          <include name="initialize"/>
+          <include name="verifyNonEditableDateField"/>
+          <include name="verifyHeaderHyperlink"/>
+          <include name="verifySuccessMessageForOnlyTransactionAmount"/>
+          <include name="verifyEligibleEarningPoints"/>
+          <include name="verifyDateEqualToSystemCurrentDate"/>
+          <include name="verifyHamBurgerLogoutOption"/>
+          <include name="verifyNonEditableLocationField"/>
+          <include name="verifyExceedThresoldSuccessMessage"/>
+          <include name="verifyTransactionAmountShouldNotBeEmpty"/>
+          <include name="verifySuccessMessageForRedeemPoint"/>
+          <include name="verifyBackButtonNavigation"/>
+          <include name="tearDown"/>
+          <include name="verifyEarnPointsNavigationFromMeberDetailsScreen"/>
+          <include name="verifyTaxAssumedAmount"/>
+          <include name="verifyNonEditableTimeField"/>
+          <include name="verifyHamBurgerMemberLookupOption"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases -->
+      <class name="zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint">
+        <methods>
+          <include name="initialize"/>
+          <include name="tearDown"/>
+          <include name="testing"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint -->
+      <class name="zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases">
+        <methods>
+          <include name="enterValidMemberId"/>
+          <include name="verifyHeaderHyperlink"/>
+          <include name="initialize"/>
+          <include name="burgerIconLocationNavigation"/>
+          <include name="verifyScanButtonAvailability"/>
+          <include name="tearDown"/>
+          <include name="burgerIconMemberLookupNavigation"/>
+          <include name="burgerIconLogout"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases -->
+    </classes>
+  </test> <!-- LoginTestsfirefoxBrowserGalaxyS20Landscape(failed) -->
+</suite> <!-- Failed suite [TestSuite] -->

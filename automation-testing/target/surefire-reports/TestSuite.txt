@@ -1,0 +1,1305 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 1264, Failures: 127, Errors: 0, Skipped: 730, Time elapsed: 8,874.476 s <<< FAILURE! - in TestSuite
+zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.verifySuccessMessageForRedeemPoint  Time elapsed: 60.627 s  <<< FAILURE!
+java.lang.AssertionError: An error occurred while verifying the success message: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //p[@id='EPMDLMSG' and contains(text(), 'transaction has been successfully submitted. They have earned 35 points and have spent 1 points.')]' (tried for 10 second(s) with 500 milliseconds interval)
+	at zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.verifySuccessMessageForRedeemPoint(EarnPoint_Valid_TestCases.java:232)
+
+zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.verifyExceedThresoldSuccessMessage  Time elapsed: 2.614 s  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.SearchContext.findElement(org.openqa.selenium.By)" because "this.searchContext" is null
+	at zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.verifyExceedThresoldSuccessMessage(EarnPoint_Valid_TestCases.java:288)
+
+zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.enterValidMemberId  Time elapsed: 61.44 s  <<< FAILURE!
+java.lang.AssertionError: An error occurred during navigation verification: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //div[@id='EPCONT']' (tried for 20 second(s) with 500 milliseconds interval)
+	at zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.enterValidMemberId(MemberLookup_TestCases.java:63)
+
+zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.verifySuccessMessageForRedeemPoint  Time elapsed: 60.582 s  <<< FAILURE!
+java.lang.AssertionError: An error occurred while verifying the success message: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //p[@id='EPMDLMSG' and contains(text(), 'transaction has been successfully submitted. They have earned 35 points and have spent 1 points.')]' (tried for 10 second(s) with 500 milliseconds interval)
+	at zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.verifySuccessMessageForRedeemPoint(EarnPoint_Valid_TestCases.java:232)
+
+zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.verifyExceedThresoldSuccessMessage  Time elapsed: 2.635 s  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.SearchContext.findElement(org.openqa.selenium.By)" because "this.searchContext" is null
+	at zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.verifyExceedThresoldSuccessMessage(EarnPoint_Valid_TestCases.java:288)
+
+zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.enterValidMemberId  Time elapsed: 61.769 s  <<< FAILURE!
+java.lang.AssertionError: An error occurred during navigation verification: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //div[@id='EPCONT']' (tried for 20 second(s) with 500 milliseconds interval)
+	at zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.enterValidMemberId(MemberLookup_TestCases.java:63)
+
+zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.verifySuccessMessageForRedeemPoint  Time elapsed: 60.499 s  <<< FAILURE!
+java.lang.AssertionError: An error occurred while verifying the success message: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //p[@id='EPMDLMSG' and contains(text(), 'transaction has been successfully submitted. They have earned 35 points and have spent 1 points.')]' (tried for 10 second(s) with 500 milliseconds interval)
+	at zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.verifySuccessMessageForRedeemPoint(EarnPoint_Valid_TestCases.java:232)
+
+zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.verifyExceedThresoldSuccessMessage  Time elapsed: 2.336 s  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.SearchContext.findElement(org.openqa.selenium.By)" because "this.searchContext" is null
+	at zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.verifyExceedThresoldSuccessMessage(EarnPoint_Valid_TestCases.java:288)
+
+zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.enterValidMemberId  Time elapsed: 61.79 s  <<< FAILURE!
+java.lang.AssertionError: An error occurred during navigation verification: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //div[@id='EPCONT']' (tried for 20 second(s) with 500 milliseconds interval)
+	at zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.enterValidMemberId(MemberLookup_TestCases.java:63)
+
+zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.initialize[chrome, iPhone 11 Pro Landscape](0)  Time elapsed: 36.091 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"xpath","selector":"//button[@id='MSMENUI3']"}
+  (Session info: chrome=126.0.6478.57)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [607795d46b2c3aaee0003743a8084fc8, findElement {value=//button[@id='MSMENUI3'], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.57, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\KAJALS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64511}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64511/devtoo..., se:cdpVersion: 126.0.6478.57, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 607795d46b2c3aaee0003743a8084fc8
+	at zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.initialize(Location_ExistingUser_TestCases.java:36)
+
+zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.initialize[chrome, iPhone 11 Pro Landscape](0)  Time elapsed: 33.896 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"css selector","selector":"#MS016IN"}
+  (Session info: chrome=126.0.6478.57)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [7ecc2eb227f7f096dc03533e5818ad50, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.57, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\KAJALS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64536}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64536/devtoo..., se:cdpVersion: 126.0.6478.57, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 7ecc2eb227f7f096dc03533e5818ad50
+	at zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.initialize(EarnPoint_Valid_TestCases.java:40)
+
+zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.verifyScanButtonAvailability  Time elapsed: 60.117 s  <<< FAILURE!
+java.lang.AssertionError: An unexpected error occurred: Expected condition failed: waiting for element to be clickable: Proxy element for: DefaultElementLocator 'By.xpath: //button[@id='MS020B']' (tried for 10 second(s) with 500 milliseconds interval)
+	at zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.verifyScanButtonAvailability(MemberLookup_TestCases.java:54)
+
+zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.enterValidMemberId  Time elapsed: 30.007 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"css selector","selector":"#MS016IN"}
+  (Session info: chrome=126.0.6478.57)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [f497bb0fdf779a5bcdb1e02066c3810a, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.57, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\KAJALS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64597}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64597/devtoo..., se:cdpVersion: 126.0.6478.57, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: f497bb0fdf779a5bcdb1e02066c3810a
+	at zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.enterValidMemberId(MemberLookup_TestCases.java:61)
+
+zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.verifyHeaderHyperlink  Time elapsed: 30.027 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"xpath","selector":"//button[@id='MSMENUI2']"}
+  (Session info: chrome=126.0.6478.57)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [5553353170385f6c0d7c29d379456774, findElement {value=//button[@id='MSMENUI2'], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.57, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\KAJALS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64623}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64623/devtoo..., se:cdpVersion: 126.0.6478.57, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 5553353170385f6c0d7c29d379456774
+	at zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.verifyHeaderHyperlink(MemberLookup_TestCases.java:70)
+
+zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.burgerIconMemberLookupNavigation  Time elapsed: 30.012 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"xpath","selector":"//button[@id='MSMENUI3']"}
+  (Session info: chrome=126.0.6478.57)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [cc588f99125eaff5debdd4da5463b015, findElement {value=//button[@id='MSMENUI3'], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.57, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\KAJALS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64650}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64650/devtoo..., se:cdpVersion: 126.0.6478.57, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: cc588f99125eaff5debdd4da5463b015
+	at zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.burgerIconMemberLookupNavigation(MemberLookup_TestCases.java:80)
+
+zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.burgerIconLocationNavigation  Time elapsed: 30.048 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"xpath","selector":"//button[@id='MSMENUI3']"}
+  (Session info: chrome=126.0.6478.57)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [dea593f10e77e8b158a309492703000c, findElement {value=//button[@id='MSMENUI3'], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.57, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\KAJALS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64682}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64682/devtoo..., se:cdpVersion: 126.0.6478.57, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: dea593f10e77e8b158a309492703000c
+	at zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.burgerIconLocationNavigation(MemberLookup_TestCases.java:93)
+
+zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.burgerIconLogout  Time elapsed: 30.05 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"xpath","selector":"//button[@id='MSMENUI3']"}
+  (Session info: chrome=126.0.6478.57)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [586dad0967c60de103cd1b1845e518bd, findElement {value=//button[@id='MSMENUI3'], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.57, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\KAJALS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64751}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64751/devtoo..., se:cdpVersion: 126.0.6478.57, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 586dad0967c60de103cd1b1845e518bd
+	at zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.burgerIconLogout(MemberLookup_TestCases.java:104)
+
+zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyInvalidMemberID  Time elapsed: 30.007 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"css selector","selector":"#MS016IN"}
+  (Session info: chrome=126.0.6478.57)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [824aff70862a534fa7d1cbcb44c47629, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.57, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\KAJALS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64825}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64825/devtoo..., se:cdpVersion: 126.0.6478.57, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 824aff70862a534fa7d1cbcb44c47629
+	at zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyInvalidMemberID(memberLookup_Invalid_TestCases.java:49)
+
+zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyMemberIdFieldMaxLength  Time elapsed: 30.061 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"css selector","selector":"#MS016IN"}
+  (Session info: chrome=126.0.6478.57)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [7bbc85ab7a589d6d934a866a074f3fb8, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.57, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\KAJALS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64880}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64880/devtoo..., se:cdpVersion: 126.0.6478.57, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 7bbc85ab7a589d6d934a866a074f3fb8
+	at zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyMemberIdFieldMaxLength(memberLookup_Invalid_TestCases.java:59)
+
+zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyInvalidCardNumberMinLength  Time elapsed: 30.012 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"css selector","selector":"#MS016IN"}
+  (Session info: chrome=126.0.6478.57)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [6db7a58df48b420806a31c1709d7250a, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.57, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\KAJALS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64930}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64930/devtoo..., se:cdpVersion: 126.0.6478.57, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 6db7a58df48b420806a31c1709d7250a
+	at zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyInvalidCardNumberMinLength(memberLookup_Invalid_TestCases.java:70)
+
+zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyCardNumberFieldMaxLength  Time elapsed: 30.077 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"css selector","selector":"#MS016IN"}
+  (Session info: chrome=126.0.6478.57)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [7841ba4a8b178b1d6e6c908f154a7aa6, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.57, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\KAJALS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64972}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64972/devtoo..., se:cdpVersion: 126.0.6478.57, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 7841ba4a8b178b1d6e6c908f154a7aa6
+	at zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyCardNumberFieldMaxLength(memberLookup_Invalid_TestCases.java:81)
+
+zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyForEmptyCardNumberButtonIsDisabled  Time elapsed: 30.02 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"css selector","selector":"#MS016IN"}
+  (Session info: chrome=126.0.6478.57)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [971c169fec14a82e180753f181519258, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.57, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\KAJALS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65005}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65005/devtoo..., se:cdpVersion: 126.0.6478.57, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 971c169fec14a82e180753f181519258
+	at zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyForEmptyCardNumberButtonIsDisabled(memberLookup_Invalid_TestCases.java:92)
+
+zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint.initialize[chrome, Galaxy S20 Portrait](0)  Time elapsed: 64.673 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"css selector","selector":"#MS016IN"}
+  (Session info: chrome=126.0.6478.57)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [0a6cf7dfbebec1a5a8625429bbde77c0, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.57, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\KAJALS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65036}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65036/devtoo..., se:cdpVersion: 126.0.6478.57, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 0a6cf7dfbebec1a5a8625429bbde77c0
+	at zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint.initialize(GoToPassPointMoreThanAvailablePoint.java:42)
+
+zapcg.Capillary.LoginTestCases.Login_Valid_TestCases.testValidLogin_TestCase1  Time elapsed: 60.49 s  <<< FAILURE!
+java.lang.AssertionError: Timeout waiting for either page to become visible: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //div[@id='MSCONT']' (tried for 20 second(s) with 500 milliseconds interval)
+	at zapcg.Capillary.LoginTestCases.Login_Valid_TestCases.testValidLogin_TestCase1(Login_Valid_TestCases.java:44)
+
+zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases.initialize[chrome, Galaxy S20 Portrait](0)  Time elapsed: 94.937 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"css selector","selector":"#MS016IN"}
+  (Session info: chrome=126.0.6478.57)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [adf3b4d4a6156349526db4852671fafc, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.57, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\KAJALS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65097}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65097/devtoo..., se:cdpVersion: 126.0.6478.57, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: adf3b4d4a6156349526db4852671fafc
+	at zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases.initialize(memberDetails_TestCases.java:35)
+
+zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.initialize[chrome, Galaxy S20 Portrait](0)  Time elapsed: 33.771 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"css selector","selector":"#MS016IN"}
+  (Session info: chrome=126.0.6478.57)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [1f56e95d6f707bd6649fad7f7b45f988, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.57, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\KAJALS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65121}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65121/devtoo..., se:cdpVersion: 126.0.6478.57, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 1f56e95d6f707bd6649fad7f7b45f988
+	at zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.initialize(EarnPoint_Valid_TestCases.java:40)
+
+zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases.initialize[chrome, Galaxy S20 Portrait](0)  Time elapsed: 33.851 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"css selector","selector":"#MS016IN"}
+  (Session info: chrome=126.0.6478.57)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [71b959ec3c1852e756cec8670a63fe22, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.57, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\KAJALS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65149}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65149/devtoo..., se:cdpVersion: 126.0.6478.57, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 71b959ec3c1852e756cec8670a63fe22
+	at zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases.initialize(EarnPoint_Invalid_TestCases.java:40)
+
+zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.initialize[chrome, Galaxy S20 Portrait](0)  Time elapsed: 35.095 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"xpath","selector":"//button[@id='MSMENUI3']"}
+  (Session info: chrome=126.0.6478.57)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [0314097ef25d954bb2cfd3e19f922b0e, findElement {value=//button[@id='MSMENUI3'], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.57, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\KAJALS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65480}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65480/devtoo..., se:cdpVersion: 126.0.6478.57, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 0314097ef25d954bb2cfd3e19f922b0e
+	at zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.initialize(Location_ExistingUser_TestCases.java:36)
+
+zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.verifyScanButtonAvailability  Time elapsed: 60.07 s  <<< FAILURE!
+java.lang.AssertionError: An unexpected error occurred: Expected condition failed: waiting for element to be clickable: Proxy element for: DefaultElementLocator 'By.xpath: //button[@id='MS020B']' (tried for 10 second(s) with 500 milliseconds interval)
+	at zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.verifyScanButtonAvailability(MemberLookup_TestCases.java:54)
+
+zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.enterValidMemberId  Time elapsed: 10.376 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to find element with locator By.id: MS016IN
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: driver.version: RemoteWebDriver
+	at zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.enterValidMemberId(MemberLookup_TestCases.java:61)
+
+zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.verifyHeaderHyperlink  Time elapsed: 30.037 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"xpath","selector":"//button[@id='MSMENUI2']"}
+  (Session info: chrome=126.0.6478.57)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [75346eede6fd6a1eef41231fb2201d22, findElement {value=//button[@id='MSMENUI2'], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.57, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\KAJALS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49193}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:49193/devtoo..., se:cdpVersion: 126.0.6478.57, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 75346eede6fd6a1eef41231fb2201d22
+	at zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.verifyHeaderHyperlink(MemberLookup_TestCases.java:70)
+
+zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.verifyHeaderOfMemberLookupScreen  Time elapsed: 3.115 s  <<< FAILURE!
+java.lang.AssertionError: 
+An error occurred while verifying the dropdown selections: element click intercepted: Element <button class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-y7km40" tabindex="0" type="button" data-testid="LS014B" id="LS014B">...</button> is not clickable at point (384, 194). Other element would receive the click: <li tabindex="-1" role="option" id="LS013OP1" data-option-index="1" aria-disabled="false" aria-selected="false" class="MuiAutocomplete-option" data-testid="LS013OP1">...</li>
+  (Session info: chrome=126.0.6478.57)
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [28c1cd6b56dc6795e30e81ec95439270, clickElement {id=f.96F56A357CA61046CAF15EBA57845CBB.d.DF3B6B890EF01A5A54F5CDB8BC4E1843.e.236}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.57, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\KAJALS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50937}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50937/devtoo..., se:cdpVersion: 126.0.6478.57, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (28c1cd6b56dc6795e30e81ec95439270)] -> xpath: //button[@id='LS014B']]
+Session ID: 28c1cd6b56dc6795e30e81ec95439270
+	at zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.verifyHeaderOfMemberLookupScreen(Location_ExistingUser_TestCases.java:152)
+
+zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.verifySuccessMessageForRedeemPoint  Time elapsed: 60.601 s  <<< FAILURE!
+java.lang.AssertionError: An error occurred while verifying the success message: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //p[@id='EPMDLMSG' and contains(text(), 'transaction has been successfully submitted. They have earned 35 points and have spent 1 points.')]' (tried for 10 second(s) with 500 milliseconds interval)
+	at zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.verifySuccessMessageForRedeemPoint(EarnPoint_Valid_TestCases.java:232)
+
+zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.verifyExceedThresoldSuccessMessage  Time elapsed: 1.954 s  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.SearchContext.findElement(org.openqa.selenium.By)" because "this.searchContext" is null
+	at zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.verifyExceedThresoldSuccessMessage(EarnPoint_Valid_TestCases.java:288)
+
+zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.enterValidMemberId  Time elapsed: 62.251 s  <<< FAILURE!
+java.lang.AssertionError: An error occurred during navigation verification: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //div[@id='EPCONT']' (tried for 20 second(s) with 500 milliseconds interval)
+	at zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.enterValidMemberId(MemberLookup_TestCases.java:63)
+
+zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint.initialize[firefox, Tablet Portrait](0)  Time elapsed: 5.321 s  <<< FAILURE!
+org.openqa.selenium.NoSuchSessionException: 
+Session ID is null. Using WebDriver after calling quit()?
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [null, get {url=https://d1msv2sqknn4w4.cloudfront.net}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.57, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\KAJALS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51445}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51445/devtoo..., se:cdpVersion: 126.0.6478.57, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+	at zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint.initialize(GoToPassPointMoreThanAvailablePoint.java:31)
+
+zapcg.Capillary.LoginTestCases.Login_Valid_TestCases.initialize[firefox, Tablet Portrait](0)  Time elapsed: 2.572 s  <<< FAILURE!
+org.openqa.selenium.NoSuchSessionException: 
+Session ID is null. Using WebDriver after calling quit()?
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [null, get {url=https://d1msv2sqknn4w4.cloudfront.net}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.57, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\KAJALS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51445}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51445/devtoo..., se:cdpVersion: 126.0.6478.57, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+	at zapcg.Capillary.LoginTestCases.Login_Valid_TestCases.initialize(Login_Valid_TestCases.java:28)
+
+zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases.initialize[firefox, Tablet Portrait](0)  Time elapsed: 44.035 s  <<< FAILURE!
+org.openqa.selenium.NoSuchSessionException: 
+Session ID is null. Using WebDriver after calling quit()?
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [null, get {url=https://d1msv2sqknn4w4.cloudfront.net}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240626091446, moz:debuggerAddress: 127.0.0.1:41435, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 47624, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:41435/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+	at zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases.initialize(memberDetails_TestCases.java:27)
+
+zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.chooseValidLocationForNewUser  Time elapsed: 1.556 s  <<< FAILURE!
+org.openqa.selenium.ElementClickInterceptedException: 
+Element <button id="LS014B" class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-y7km40" type="button"> is not clickable at point (378,533) because another element <li id="LS013OP1" class="MuiAutocomplete-option"> obscures it
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [448f6ee2-61bf-4406-8fa1-3e1b1eac6a2f, clickElement {id=b5e308dd-d9af-466e-af59-22e87a29bc3e}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:25805, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 58064, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:25805/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Element: [[FirefoxDriver: firefox on windows (448f6ee2-61bf-4406-8fa1-3e1b1eac6a2f)] -> xpath: //button[@id='LS014B']]
+Session ID: 448f6ee2-61bf-4406-8fa1-3e1b1eac6a2f
+	at zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.chooseValidLocationForNewUser(Location_ExistingUser_TestCases.java:54)
+
+zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.verifyTimeEqualToSystemCurrentTime  Time elapsed: 0.024 s  <<< FAILURE!
+java.lang.AssertionError: The time in the field should match the system time expected [12:15:02] but found [12:15:01]
+	at zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.verifyTimeEqualToSystemCurrentTime(EarnPoint_Valid_TestCases.java:155)
+
+zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.verifyHeaderOfMemberLookupScreen  Time elapsed: 1.275 s  <<< FAILURE!
+java.lang.AssertionError: 
+An error occurred while verifying the dropdown selections: Element <button id="LS014B" class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-y7km40" type="button"> is not clickable at point (378,533) because another element <li id="LS013OP1" class="MuiAutocomplete-option"> obscures it
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [16f9565c-98fe-4ae7-a632-1d7d24d163e5, clickElement {id=41ea3bd0-166e-4651-abcd-500946756e0b}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:9561, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 59040, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:9561/devtool..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Element: [[FirefoxDriver: firefox on windows (16f9565c-98fe-4ae7-a632-1d7d24d163e5)] -> xpath: //button[@id='LS014B']]
+Session ID: 16f9565c-98fe-4ae7-a632-1d7d24d163e5
+	at zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.verifyHeaderOfMemberLookupScreen(Location_ExistingUser_TestCases.java:152)
+
+zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.verifySuccessMessageForRedeemPoint  Time elapsed: 60.491 s  <<< FAILURE!
+java.lang.AssertionError: An error occurred while verifying the success message: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //p[@id='EPMDLMSG' and contains(text(), 'transaction has been successfully submitted. They have earned 35 points and have spent 1 points.')]' (tried for 10 second(s) with 500 milliseconds interval)
+	at zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.verifySuccessMessageForRedeemPoint(EarnPoint_Valid_TestCases.java:232)
+
+zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.verifyExceedThresoldSuccessMessage  Time elapsed: 2.676 s  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.SearchContext.findElement(org.openqa.selenium.By)" because "this.searchContext" is null
+	at zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.verifyExceedThresoldSuccessMessage(EarnPoint_Valid_TestCases.java:288)
+
+zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.navigatedFromLocationToLookupScreen  Time elapsed: 1.559 s  <<< FAILURE!
+org.openqa.selenium.ElementClickInterceptedException: 
+Element <button id="LS014B" class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-y7km40" type="button"> is not clickable at point (378,533) because another element <li id="LS013OP1" class="MuiAutocomplete-option"> obscures it
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [93bff3ef-3b4a-416e-848f-fdb21af27698, clickElement {id=d1c837a7-f717-4976-9279-2d878e917dc0}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:47331, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 51892, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:47331/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Element: [[FirefoxDriver: firefox on windows (93bff3ef-3b4a-416e-848f-fdb21af27698)] -> xpath: //button[@id='LS014B']]
+Session ID: 93bff3ef-3b4a-416e-848f-fdb21af27698
+	at zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.navigatedFromLocationToLookupScreen(Location_ExistingUser_TestCases.java:208)
+
+zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.enterValidMemberId  Time elapsed: 61.874 s  <<< FAILURE!
+java.lang.AssertionError: An error occurred during navigation verification: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //div[@id='EPCONT']' (tried for 20 second(s) with 500 milliseconds interval)
+	at zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.enterValidMemberId(MemberLookup_TestCases.java:63)
+
+zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases.goTOPassPointMoreThanTransactionAmount  Time elapsed: 60.445 s  <<< FAILURE!
+java.lang.AssertionError: An error occurred while verifying the Validation message: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //p[@id='EP041-helper-text' and contains(text(),'Entered Go To Pass points used is more than the Transaction Amount')]' (tried for 10 second(s) with 500 milliseconds interval)
+	at zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases.goTOPassPointMoreThanTransactionAmount(EarnPoint_Invalid_TestCases.java:79)
+
+zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.initialize[firefox, Tablet Landscape](0)  Time elapsed: 40.763 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: //button[@id='MSMENUI3']
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [3cdaba1b-184b-4e40-9f56-0f6504a99ed1, findElement {value=//button[@id='MSMENUI3'], using=xpath}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:22063, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 8820, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:22063/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: 3cdaba1b-184b-4e40-9f56-0f6504a99ed1
+	at zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.initialize(Location_ExistingUser_TestCases.java:36)
+
+zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.initialize[firefox, Tablet Landscape](0)  Time elapsed: 38.595 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: #MS016IN
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [0a977a7e-c72a-4f75-8b97-ea8e98741053, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:41240, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 58116, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:41240/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: 0a977a7e-c72a-4f75-8b97-ea8e98741053
+	at zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.initialize(EarnPoint_Valid_TestCases.java:40)
+
+zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.verifyScanButtonAvailability  Time elapsed: 60.019 s  <<< FAILURE!
+java.lang.AssertionError: An unexpected error occurred: Expected condition failed: waiting for element to be clickable: Proxy element for: DefaultElementLocator 'By.xpath: //button[@id='MS020B']' (tried for 10 second(s) with 500 milliseconds interval)
+	at zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.verifyScanButtonAvailability(MemberLookup_TestCases.java:54)
+
+zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.enterValidMemberId  Time elapsed: 30.01 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: #MS016IN
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [9899837a-b5bb-498b-a91c-438f30c5a3e4, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:42429, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 60140, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:42429/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: 9899837a-b5bb-498b-a91c-438f30c5a3e4
+	at zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.enterValidMemberId(MemberLookup_TestCases.java:61)
+
+zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.verifyHeaderHyperlink  Time elapsed: 30.006 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: //button[@id='MSMENUI2']
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [b26c3d3a-71d4-42c7-910e-b361f24c2756, findElement {value=//button[@id='MSMENUI2'], using=xpath}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:45494, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 43824, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:45494/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: b26c3d3a-71d4-42c7-910e-b361f24c2756
+	at zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.verifyHeaderHyperlink(MemberLookup_TestCases.java:70)
+
+zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.burgerIconMemberLookupNavigation  Time elapsed: 30.018 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: //button[@id='MSMENUI3']
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [d27dec0c-5e3c-418f-a94a-78ef5c16962e, findElement {value=//button[@id='MSMENUI3'], using=xpath}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:47891, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 55380, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:47891/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: d27dec0c-5e3c-418f-a94a-78ef5c16962e
+	at zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.burgerIconMemberLookupNavigation(MemberLookup_TestCases.java:80)
+
+zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.burgerIconLocationNavigation  Time elapsed: 30.026 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: //button[@id='MSMENUI3']
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [e691e9b6-4f58-46d6-bfeb-9e053c65a838, findElement {value=//button[@id='MSMENUI3'], using=xpath}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:48406, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 57684, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:48406/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: e691e9b6-4f58-46d6-bfeb-9e053c65a838
+	at zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.burgerIconLocationNavigation(MemberLookup_TestCases.java:93)
+
+zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.burgerIconLogout  Time elapsed: 30.006 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: //button[@id='MSMENUI3']
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [0ebf2890-3d89-468f-aef8-3fe4188ec089, findElement {value=//button[@id='MSMENUI3'], using=xpath}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:6618, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 46004, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:6618/devtool..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: 0ebf2890-3d89-468f-aef8-3fe4188ec089
+	at zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.burgerIconLogout(MemberLookup_TestCases.java:104)
+
+zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyInvalidMemberID  Time elapsed: 30.02 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: #MS016IN
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [2113ee0b-9adf-4751-9214-a6cfb3492d24, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:25383, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 54452, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:25383/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: 2113ee0b-9adf-4751-9214-a6cfb3492d24
+	at zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyInvalidMemberID(memberLookup_Invalid_TestCases.java:49)
+
+zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyMemberIdFieldMaxLength  Time elapsed: 30.01 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: #MS016IN
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [81d61e85-70d6-4779-98f0-db5f4c22f150, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:46541, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 59228, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:46541/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: 81d61e85-70d6-4779-98f0-db5f4c22f150
+	at zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyMemberIdFieldMaxLength(memberLookup_Invalid_TestCases.java:59)
+
+zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyInvalidCardNumberMinLength  Time elapsed: 30.019 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: #MS016IN
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [5b95c225-5adc-4e19-b9dd-7dea4ed3d15b, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:27557, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 46100, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:27557/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: 5b95c225-5adc-4e19-b9dd-7dea4ed3d15b
+	at zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyInvalidCardNumberMinLength(memberLookup_Invalid_TestCases.java:70)
+
+zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyCardNumberFieldMaxLength  Time elapsed: 30.005 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: #MS016IN
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [8ff94a60-bffd-4c30-96c0-9c13739d9309, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:32180, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 34540, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:32180/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: 8ff94a60-bffd-4c30-96c0-9c13739d9309
+	at zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyCardNumberFieldMaxLength(memberLookup_Invalid_TestCases.java:81)
+
+zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyForEmptyCardNumberButtonIsDisabled  Time elapsed: 30.006 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: #MS016IN
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [368eeda2-c2f3-4c52-9680-1cbe6650efbe, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:37002, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 56020, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:37002/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: 368eeda2-c2f3-4c52-9680-1cbe6650efbe
+	at zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyForEmptyCardNumberButtonIsDisabled(memberLookup_Invalid_TestCases.java:92)
+
+zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint.initialize[firefox, iPhone 11 Pro Portrait](0)  Time elapsed: 68.72 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: #MS016IN
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [d60fa3ee-2bc4-4411-85f0-ebe986ba289c, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:23661, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 32680, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:23661/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: d60fa3ee-2bc4-4411-85f0-ebe986ba289c
+	at zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint.initialize(GoToPassPointMoreThanAvailablePoint.java:42)
+
+zapcg.Capillary.LoginTestCases.Login_Valid_TestCases.testValidLogin_TestCase1  Time elapsed: 60.506 s  <<< FAILURE!
+java.lang.AssertionError: Timeout waiting for either page to become visible: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //div[@id='MSCONT']' (tried for 20 second(s) with 500 milliseconds interval)
+	at zapcg.Capillary.LoginTestCases.Login_Valid_TestCases.testValidLogin_TestCase1(Login_Valid_TestCases.java:44)
+
+zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases.initialize[firefox, iPhone 11 Pro Portrait](0)  Time elapsed: 99.069 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: #MS016IN
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [3fbffb82-2e03-4e1b-a54d-6faf0c25ffe9, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:35066, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 22092, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:35066/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: 3fbffb82-2e03-4e1b-a54d-6faf0c25ffe9
+	at zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases.initialize(memberDetails_TestCases.java:35)
+
+zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.initialize[firefox, iPhone 11 Pro Portrait](0)  Time elapsed: 38.509 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: #MS016IN
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [58917e30-005a-4e0a-9646-9ba182850487, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:24998, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 58832, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:24998/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: 58917e30-005a-4e0a-9646-9ba182850487
+	at zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.initialize(EarnPoint_Valid_TestCases.java:40)
+
+zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases.initialize[firefox, iPhone 11 Pro Portrait](0)  Time elapsed: 39.52 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: #MS016IN
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [24ccf3be-f649-452a-aba3-752008239fc2, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:43541, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 59532, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:43541/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: 24ccf3be-f649-452a-aba3-752008239fc2
+	at zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases.initialize(EarnPoint_Invalid_TestCases.java:40)
+
+zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.initialize[firefox, iPhone 11 Pro Portrait](0)  Time elapsed: 39.137 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: //button[@id='MSMENUI3']
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [861a7a1c-55dd-43ea-a3df-4a808f741465, findElement {value=//button[@id='MSMENUI3'], using=xpath}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:26421, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 57604, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:26421/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: 861a7a1c-55dd-43ea-a3df-4a808f741465
+	at zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.initialize(Location_ExistingUser_TestCases.java:36)
+
+zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.verifyScanButtonAvailability  Time elapsed: 60.031 s  <<< FAILURE!
+java.lang.AssertionError: An unexpected error occurred: Expected condition failed: waiting for element to be clickable: Proxy element for: DefaultElementLocator 'By.xpath: //button[@id='MS020B']' (tried for 10 second(s) with 500 milliseconds interval)
+	at zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.verifyScanButtonAvailability(MemberLookup_TestCases.java:54)
+
+zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.enterValidMemberId  Time elapsed: 30.021 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: #MS016IN
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [f43aa14b-c391-4752-8ba5-4a23b6590e42, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:39794, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 45436, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:39794/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: f43aa14b-c391-4752-8ba5-4a23b6590e42
+	at zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.enterValidMemberId(MemberLookup_TestCases.java:61)
+
+zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.verifyHeaderHyperlink  Time elapsed: 30.021 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: //button[@id='MSMENUI2']
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [2cb838f9-000e-4830-a21f-7dca122a807f, findElement {value=//button[@id='MSMENUI2'], using=xpath}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:17110, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 58188, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:17110/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: 2cb838f9-000e-4830-a21f-7dca122a807f
+	at zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.verifyHeaderHyperlink(MemberLookup_TestCases.java:70)
+
+zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.burgerIconMemberLookupNavigation  Time elapsed: 30.02 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: //button[@id='MSMENUI3']
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [a6203ccf-6ede-4d2a-a30b-1697bb45fa26, findElement {value=//button[@id='MSMENUI3'], using=xpath}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:46946, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 26172, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:46946/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: a6203ccf-6ede-4d2a-a30b-1697bb45fa26
+	at zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.burgerIconMemberLookupNavigation(MemberLookup_TestCases.java:80)
+
+zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.burgerIconLocationNavigation  Time elapsed: 30.015 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: //button[@id='MSMENUI3']
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [dd3bf870-14a9-4450-8185-1ef6a45a2b2b, findElement {value=//button[@id='MSMENUI3'], using=xpath}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:38616, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 54868, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:38616/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: dd3bf870-14a9-4450-8185-1ef6a45a2b2b
+	at zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.burgerIconLocationNavigation(MemberLookup_TestCases.java:93)
+
+zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.burgerIconLogout  Time elapsed: 30.009 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: //button[@id='MSMENUI3']
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [44927062-631e-4be8-9518-b4467252fcf6, findElement {value=//button[@id='MSMENUI3'], using=xpath}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:20744, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 34136, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:20744/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: 44927062-631e-4be8-9518-b4467252fcf6
+	at zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.burgerIconLogout(MemberLookup_TestCases.java:104)
+
+zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyInvalidMemberID  Time elapsed: 30.023 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: #MS016IN
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [f269dd1d-7ce9-47c1-b657-afc0986dacd7, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:17896, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 3616, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:17896/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: f269dd1d-7ce9-47c1-b657-afc0986dacd7
+	at zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyInvalidMemberID(memberLookup_Invalid_TestCases.java:49)
+
+zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyMemberIdFieldMaxLength  Time elapsed: 30.018 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: #MS016IN
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [e48222d2-2c9d-4a87-93bc-198650f5e988, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:24225, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 59912, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:24225/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: e48222d2-2c9d-4a87-93bc-198650f5e988
+	at zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyMemberIdFieldMaxLength(memberLookup_Invalid_TestCases.java:59)
+
+zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyInvalidCardNumberMinLength  Time elapsed: 30.013 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: #MS016IN
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [fd268b83-b0ec-45e7-a5c9-534708032620, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:26561, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 26584, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:26561/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: fd268b83-b0ec-45e7-a5c9-534708032620
+	at zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyInvalidCardNumberMinLength(memberLookup_Invalid_TestCases.java:70)
+
+zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyCardNumberFieldMaxLength  Time elapsed: 30.006 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: #MS016IN
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [5da8e088-3908-4cd6-8140-73e31cf6f5b4, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:1117, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 59584, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:1117/devtool..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: 5da8e088-3908-4cd6-8140-73e31cf6f5b4
+	at zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyCardNumberFieldMaxLength(memberLookup_Invalid_TestCases.java:81)
+
+zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyForEmptyCardNumberButtonIsDisabled  Time elapsed: 30.009 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: #MS016IN
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [b5da99d0-8202-44f2-b4c1-5a914d74224d, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:13344, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 11868, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:13344/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: b5da99d0-8202-44f2-b4c1-5a914d74224d
+	at zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyForEmptyCardNumberButtonIsDisabled(memberLookup_Invalid_TestCases.java:92)
+
+zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint.initialize[firefox, iPhone 11 Pro Landscape](0)  Time elapsed: 67.567 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: #MS016IN
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [11fb978a-94ee-4c23-90c0-7e997ff4a616, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:11746, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 34184, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:11746/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: 11fb978a-94ee-4c23-90c0-7e997ff4a616
+	at zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint.initialize(GoToPassPointMoreThanAvailablePoint.java:42)
+
+zapcg.Capillary.LoginTestCases.Login_Valid_TestCases.testValidLogin_TestCase1  Time elapsed: 60.429 s  <<< FAILURE!
+java.lang.AssertionError: Timeout waiting for either page to become visible: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //div[@id='MSCONT']' (tried for 20 second(s) with 500 milliseconds interval)
+	at zapcg.Capillary.LoginTestCases.Login_Valid_TestCases.testValidLogin_TestCase1(Login_Valid_TestCases.java:44)
+
+zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases.initialize[firefox, iPhone 11 Pro Landscape](0)  Time elapsed: 98.914 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: #MS016IN
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [51eb54fa-c878-4790-9865-4906cec5a603, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:18237, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 55904, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:18237/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: 51eb54fa-c878-4790-9865-4906cec5a603
+	at zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases.initialize(memberDetails_TestCases.java:35)
+
+zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.initialize[firefox, iPhone 11 Pro Landscape](0)  Time elapsed: 37.278 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: #MS016IN
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [6695fe23-675b-4da8-b878-ddaf312e2452, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:22100, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 24856, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:22100/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: 6695fe23-675b-4da8-b878-ddaf312e2452
+	at zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.initialize(EarnPoint_Valid_TestCases.java:40)
+
+zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases.initialize[firefox, iPhone 11 Pro Landscape](0)  Time elapsed: 37.388 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: #MS016IN
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [4cbfa314-921a-43cb-8edd-f7fdba341ef2, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:1080, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 46368, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:1080/devtool..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: 4cbfa314-921a-43cb-8edd-f7fdba341ef2
+	at zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases.initialize(EarnPoint_Invalid_TestCases.java:40)
+
+zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.initialize[firefox, iPhone 11 Pro Landscape](0)  Time elapsed: 37.597 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: //button[@id='MSMENUI3']
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [64083c07-0b17-4920-be92-e72d2b56c7e5, findElement {value=//button[@id='MSMENUI3'], using=xpath}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:11794, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 50028, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:11794/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: 64083c07-0b17-4920-be92-e72d2b56c7e5
+	at zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.initialize(Location_ExistingUser_TestCases.java:36)
+
+zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.verifyScanButtonAvailability  Time elapsed: 60.023 s  <<< FAILURE!
+java.lang.AssertionError: An unexpected error occurred: Expected condition failed: waiting for element to be clickable: Proxy element for: DefaultElementLocator 'By.xpath: //button[@id='MS020B']' (tried for 10 second(s) with 500 milliseconds interval)
+	at zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.verifyScanButtonAvailability(MemberLookup_TestCases.java:54)
+
+zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.enterValidMemberId  Time elapsed: 30.042 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: #MS016IN
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [e81c3883-7912-461f-801e-2a897f3efb07, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:28378, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 61064, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:28378/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: e81c3883-7912-461f-801e-2a897f3efb07
+	at zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.enterValidMemberId(MemberLookup_TestCases.java:61)
+
+zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.verifyHeaderHyperlink  Time elapsed: 30.011 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: //button[@id='MSMENUI2']
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [bd5cda43-78f9-43c8-ac62-0640e6c1b35d, findElement {value=//button[@id='MSMENUI2'], using=xpath}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:38332, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 61156, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:38332/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: bd5cda43-78f9-43c8-ac62-0640e6c1b35d
+	at zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.verifyHeaderHyperlink(MemberLookup_TestCases.java:70)
+
+zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.burgerIconMemberLookupNavigation  Time elapsed: 30.021 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: //button[@id='MSMENUI3']
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [5d7b67f9-7f52-4d72-a9e4-7204f265a544, findElement {value=//button[@id='MSMENUI3'], using=xpath}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:3781, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 29508, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:3781/devtool..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: 5d7b67f9-7f52-4d72-a9e4-7204f265a544
+	at zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.burgerIconMemberLookupNavigation(MemberLookup_TestCases.java:80)
+
+zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.burgerIconLocationNavigation  Time elapsed: 30.023 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: //button[@id='MSMENUI3']
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [cbcc52df-959c-4798-a864-07b2bef529ca, findElement {value=//button[@id='MSMENUI3'], using=xpath}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:38436, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 6648, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:38436/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: cbcc52df-959c-4798-a864-07b2bef529ca
+	at zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.burgerIconLocationNavigation(MemberLookup_TestCases.java:93)
+
+zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.burgerIconLogout  Time elapsed: 30.022 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: //button[@id='MSMENUI3']
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [9738099f-a061-4353-9353-47b74981a8f5, findElement {value=//button[@id='MSMENUI3'], using=xpath}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:16659, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 48848, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:16659/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: 9738099f-a061-4353-9353-47b74981a8f5
+	at zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.burgerIconLogout(MemberLookup_TestCases.java:104)
+
+zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyInvalidMemberID  Time elapsed: 30.008 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: #MS016IN
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [ee90ca55-d857-4854-8dcf-8a516dab9ec6, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:39386, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 32596, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:39386/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: ee90ca55-d857-4854-8dcf-8a516dab9ec6
+	at zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyInvalidMemberID(memberLookup_Invalid_TestCases.java:49)
+
+zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyMemberIdFieldMaxLength  Time elapsed: 30.019 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: #MS016IN
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [228273e4-ec3e-4e78-9f68-a6bb5bae8260, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:35305, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 39404, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:35305/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: 228273e4-ec3e-4e78-9f68-a6bb5bae8260
+	at zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyMemberIdFieldMaxLength(memberLookup_Invalid_TestCases.java:59)
+
+zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyInvalidCardNumberMinLength  Time elapsed: 30.019 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: #MS016IN
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [ed6029d1-9a33-4d06-af1c-fe910d2a916d, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:6763, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 59088, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:6763/devtool..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: ed6029d1-9a33-4d06-af1c-fe910d2a916d
+	at zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyInvalidCardNumberMinLength(memberLookup_Invalid_TestCases.java:70)
+
+zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyCardNumberFieldMaxLength  Time elapsed: 30.021 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: #MS016IN
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [cc56f79a-0380-40dd-8983-b8cc95417b4f, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:33801, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 47184, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:33801/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: cc56f79a-0380-40dd-8983-b8cc95417b4f
+	at zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyCardNumberFieldMaxLength(memberLookup_Invalid_TestCases.java:81)
+
+zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyForEmptyCardNumberButtonIsDisabled  Time elapsed: 30.008 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: #MS016IN
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [879a191d-47b7-4c63-9572-836858d12b1c, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:15177, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 61292, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:15177/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: 879a191d-47b7-4c63-9572-836858d12b1c
+	at zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyForEmptyCardNumberButtonIsDisabled(memberLookup_Invalid_TestCases.java:92)
+
+zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint.initialize[firefox, Galaxy S20 Portrait](0)  Time elapsed: 70.066 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: #MS016IN
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [4bcd7e50-5c13-49bd-b412-977d4cdadc43, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:9795, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 60368, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:9795/devtool..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: 4bcd7e50-5c13-49bd-b412-977d4cdadc43
+	at zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint.initialize(GoToPassPointMoreThanAvailablePoint.java:42)
+
+zapcg.Capillary.LoginTestCases.Login_Valid_TestCases.testValidLogin_TestCase1  Time elapsed: 60.486 s  <<< FAILURE!
+java.lang.AssertionError: Timeout waiting for either page to become visible: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //div[@id='MSCONT']' (tried for 20 second(s) with 500 milliseconds interval)
+	at zapcg.Capillary.LoginTestCases.Login_Valid_TestCases.testValidLogin_TestCase1(Login_Valid_TestCases.java:44)
+
+zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases.initialize[firefox, Galaxy S20 Portrait](0)  Time elapsed: 99.6 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: #MS016IN
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [c027d3e6-0b97-4033-acc4-8e3fb0063a8a, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:9955, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 47260, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:9955/devtool..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: c027d3e6-0b97-4033-acc4-8e3fb0063a8a
+	at zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases.initialize(memberDetails_TestCases.java:35)
+
+zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.initialize[firefox, Galaxy S20 Portrait](0)  Time elapsed: 38.897 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: #MS016IN
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [c55c92ea-39ca-4da0-9cdd-df6ab23fb5e5, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:2102, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 19408, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:2102/devtool..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: c55c92ea-39ca-4da0-9cdd-df6ab23fb5e5
+	at zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.initialize(EarnPoint_Valid_TestCases.java:40)
+
+zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases.initialize[firefox, Galaxy S20 Portrait](0)  Time elapsed: 38.374 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: #MS016IN
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [8b48ea9a-518b-443c-8082-6cabc4a1c7da, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:15701, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 61544, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:15701/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: 8b48ea9a-518b-443c-8082-6cabc4a1c7da
+	at zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases.initialize(EarnPoint_Invalid_TestCases.java:40)
+
+zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.initialize[firefox, Galaxy S20 Portrait](0)  Time elapsed: 39.336 s  <<< FAILURE!
+org.openqa.selenium.WebDriverException: 
+TypeError: can't access property "getActor", browsingContext.currentWindowGlobal is null
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [9a6a6583-681e-4853-93ab-b79102802bcc, findElement {value=//button[@id='MSMENUI3'], using=xpath}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:11867, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 65420, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:11867/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: 9a6a6583-681e-4853-93ab-b79102802bcc
+	at zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.initialize(Location_ExistingUser_TestCases.java:36)
+
+zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.verifyScanButtonAvailability  Time elapsed: 60.04 s  <<< FAILURE!
+java.lang.AssertionError: An unexpected error occurred: Expected condition failed: waiting for element to be clickable: Proxy element for: DefaultElementLocator 'By.xpath: //button[@id='MS020B']' (tried for 10 second(s) with 500 milliseconds interval)
+	at zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.verifyScanButtonAvailability(MemberLookup_TestCases.java:54)
+
+zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.enterValidMemberId  Time elapsed: 30.017 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: #MS016IN
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [3d1bfb37-e537-435b-b6ea-23f7955635b2, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:11924, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 48480, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:11924/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: 3d1bfb37-e537-435b-b6ea-23f7955635b2
+	at zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.enterValidMemberId(MemberLookup_TestCases.java:61)
+
+zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.verifyHeaderHyperlink  Time elapsed: 30.026 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: //button[@id='MSMENUI2']
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [fef787ca-a00e-464d-906f-e49f80004a46, findElement {value=//button[@id='MSMENUI2'], using=xpath}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:40598, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 62056, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:40598/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: fef787ca-a00e-464d-906f-e49f80004a46
+	at zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.verifyHeaderHyperlink(MemberLookup_TestCases.java:70)
+
+zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.burgerIconMemberLookupNavigation  Time elapsed: 30.018 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: //button[@id='MSMENUI3']
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [592ed548-d596-46f6-8867-bb18891fbcef, findElement {value=//button[@id='MSMENUI3'], using=xpath}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:2166, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 29548, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:2166/devtool..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: 592ed548-d596-46f6-8867-bb18891fbcef
+	at zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.burgerIconMemberLookupNavigation(MemberLookup_TestCases.java:80)
+
+zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.burgerIconLocationNavigation  Time elapsed: 30.009 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: //button[@id='MSMENUI3']
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [2e040ddf-90bf-4fea-8f7f-6782fa220ab7, findElement {value=//button[@id='MSMENUI3'], using=xpath}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:9559, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 47828, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:9559/devtool..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: 2e040ddf-90bf-4fea-8f7f-6782fa220ab7
+	at zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.burgerIconLocationNavigation(MemberLookup_TestCases.java:93)
+
+zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.burgerIconLogout  Time elapsed: 30.012 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: //button[@id='MSMENUI3']
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [3b43192d-161a-48ad-bc73-3846ce547dcf, findElement {value=//button[@id='MSMENUI3'], using=xpath}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:42982, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 36724, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:42982/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: 3b43192d-161a-48ad-bc73-3846ce547dcf
+	at zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.burgerIconLogout(MemberLookup_TestCases.java:104)
+
+zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyInvalidMemberID  Time elapsed: 30.006 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: #MS016IN
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [b9747054-638c-49ab-915d-d04e97a79807, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:31201, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 33484, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:31201/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: b9747054-638c-49ab-915d-d04e97a79807
+	at zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyInvalidMemberID(memberLookup_Invalid_TestCases.java:49)
+
+zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyMemberIdFieldMaxLength  Time elapsed: 30.014 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: #MS016IN
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [b0359ad1-06ee-43f2-b2b1-9dd00c27a2e5, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:19302, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 31396, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:19302/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: b0359ad1-06ee-43f2-b2b1-9dd00c27a2e5
+	at zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyMemberIdFieldMaxLength(memberLookup_Invalid_TestCases.java:59)
+
+zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyInvalidCardNumberMinLength  Time elapsed: 30.02 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: #MS016IN
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [f12d2483-4895-4046-a19a-222397eb81dc, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:33718, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 30580, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:33718/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: f12d2483-4895-4046-a19a-222397eb81dc
+	at zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyInvalidCardNumberMinLength(memberLookup_Invalid_TestCases.java:70)
+
+zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyCardNumberFieldMaxLength  Time elapsed: 30.011 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: #MS016IN
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [02147559-37da-45e1-b887-c06d1c3b3c07, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:17490, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 56516, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:17490/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: 02147559-37da-45e1-b887-c06d1c3b3c07
+	at zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyCardNumberFieldMaxLength(memberLookup_Invalid_TestCases.java:81)
+
+zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyForEmptyCardNumberButtonIsDisabled  Time elapsed: 30.022 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: #MS016IN
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [2e182af8-a0b3-4ea9-9a26-f329072a985e, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:8498, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 58988, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:8498/devtool..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: 2e182af8-a0b3-4ea9-9a26-f329072a985e
+	at zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyForEmptyCardNumberButtonIsDisabled(memberLookup_Invalid_TestCases.java:92)
+
+zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint.initialize[firefox, Galaxy S20 Landscape](0)  Time elapsed: 70.237 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: #MS016IN
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [c52e2bb7-6760-4d6d-833c-d1179e897723, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:31435, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 62376, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:31435/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: c52e2bb7-6760-4d6d-833c-d1179e897723
+	at zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint.initialize(GoToPassPointMoreThanAvailablePoint.java:42)
+
+zapcg.Capillary.LoginTestCases.Login_Valid_TestCases.testValidLogin_TestCase1  Time elapsed: 60.475 s  <<< FAILURE!
+java.lang.AssertionError: Timeout waiting for either page to become visible: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //div[@id='MSCONT']' (tried for 20 second(s) with 500 milliseconds interval)
+	at zapcg.Capillary.LoginTestCases.Login_Valid_TestCases.testValidLogin_TestCase1(Login_Valid_TestCases.java:44)
+
+zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases.initialize[firefox, Galaxy S20 Landscape](0)  Time elapsed: 101.673 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: #MS016IN
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [1ecd646d-f0d3-4c20-96fb-7f66f5cb5809, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:39132, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 50892, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:39132/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: 1ecd646d-f0d3-4c20-96fb-7f66f5cb5809
+	at zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases.initialize(memberDetails_TestCases.java:35)
+
+zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.initialize[firefox, Galaxy S20 Landscape](0)  Time elapsed: 39.623 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: #MS016IN
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [4503da74-b064-4a06-a9bd-c1b9bc440d96, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:41321, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 28688, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:41321/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: 4503da74-b064-4a06-a9bd-c1b9bc440d96
+	at zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.initialize(EarnPoint_Valid_TestCases.java:40)
+
+zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases.initialize[firefox, Galaxy S20 Landscape](0)  Time elapsed: 39.518 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: #MS016IN
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [10c8e325-d91d-48ef-9084-1e011170c1dd, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:12286, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 64436, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:12286/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: 10c8e325-d91d-48ef-9084-1e011170c1dd
+	at zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases.initialize(EarnPoint_Invalid_TestCases.java:40)
+
+zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.initialize[firefox, Galaxy S20 Landscape](0)  Time elapsed: 37.646 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: //button[@id='MSMENUI3']
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [217a7b38-d555-48b5-a4e0-76905db72f06, findElement {value=//button[@id='MSMENUI3'], using=xpath}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:31356, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 62788, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:31356/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: 217a7b38-d555-48b5-a4e0-76905db72f06
+	at zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.initialize(Location_ExistingUser_TestCases.java:36)
+
+zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.verifyScanButtonAvailability  Time elapsed: 60.015 s  <<< FAILURE!
+java.lang.AssertionError: An unexpected error occurred: Expected condition failed: waiting for element to be clickable: Proxy element for: DefaultElementLocator 'By.xpath: //button[@id='MS020B']' (tried for 10 second(s) with 500 milliseconds interval)
+	at zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.verifyScanButtonAvailability(MemberLookup_TestCases.java:54)
+
+zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.enterValidMemberId  Time elapsed: 30.019 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: #MS016IN
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [ad8c6789-957e-48ba-80fb-c4ec6bd2aab5, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:27835, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 43508, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:27835/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: ad8c6789-957e-48ba-80fb-c4ec6bd2aab5
+	at zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.enterValidMemberId(MemberLookup_TestCases.java:61)
+
+zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.verifyHeaderHyperlink  Time elapsed: 30.017 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: //button[@id='MSMENUI2']
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [7df0690e-9665-4acf-a7c0-4c3358e9c584, findElement {value=//button[@id='MSMENUI2'], using=xpath}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:15030, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 48596, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:15030/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: 7df0690e-9665-4acf-a7c0-4c3358e9c584
+	at zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.verifyHeaderHyperlink(MemberLookup_TestCases.java:70)
+
+zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.burgerIconMemberLookupNavigation  Time elapsed: 30.012 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: //button[@id='MSMENUI3']
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [d55ff908-e523-4eb3-b2f0-c3b2b742ba3f, findElement {value=//button[@id='MSMENUI3'], using=xpath}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:40188, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 18484, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:40188/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: d55ff908-e523-4eb3-b2f0-c3b2b742ba3f
+	at zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.burgerIconMemberLookupNavigation(MemberLookup_TestCases.java:80)
+
+zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.burgerIconLocationNavigation  Time elapsed: 30.008 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: //button[@id='MSMENUI3']
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [ea3ed8cf-1732-443a-ad8d-1c563c87b6e8, findElement {value=//button[@id='MSMENUI3'], using=xpath}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:49078, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 40652, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:49078/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: ea3ed8cf-1732-443a-ad8d-1c563c87b6e8
+	at zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.burgerIconLocationNavigation(MemberLookup_TestCases.java:93)
+
+zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.burgerIconLogout  Time elapsed: 30.012 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: //button[@id='MSMENUI3']
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [e007b571-842e-4669-852a-781737375634, findElement {value=//button[@id='MSMENUI3'], using=xpath}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:40693, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 65360, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:40693/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: e007b571-842e-4669-852a-781737375634
+	at zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.burgerIconLogout(MemberLookup_TestCases.java:104)
+
+zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyInvalidMemberID  Time elapsed: 30.024 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: #MS016IN
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [52c75651-dce8-47d3-8e98-2063298af989, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:10917, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 60884, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:10917/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: 52c75651-dce8-47d3-8e98-2063298af989
+	at zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyInvalidMemberID(memberLookup_Invalid_TestCases.java:49)
+
+zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyMemberIdFieldMaxLength  Time elapsed: 30.012 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: #MS016IN
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [b1e86d28-3e19-495d-85dd-51d18b25b958, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:16439, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 47672, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:16439/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: b1e86d28-3e19-495d-85dd-51d18b25b958
+	at zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyMemberIdFieldMaxLength(memberLookup_Invalid_TestCases.java:59)
+
+zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyInvalidCardNumberMinLength  Time elapsed: 30.013 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: #MS016IN
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [57baf9e7-fdef-4b8f-928d-51133987a135, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:6645, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 58472, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:6645/devtool..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: 57baf9e7-fdef-4b8f-928d-51133987a135
+	at zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyInvalidCardNumberMinLength(memberLookup_Invalid_TestCases.java:70)
+
+zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyCardNumberFieldMaxLength  Time elapsed: 30.013 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: #MS016IN
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [c795e926-24cc-49de-9c5e-f6e8bd2c3610, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:10575, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 56444, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:10575/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: c795e926-24cc-49de-9c5e-f6e8bd2c3610
+	at zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyCardNumberFieldMaxLength(memberLookup_Invalid_TestCases.java:81)
+
+zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyForEmptyCardNumberButtonIsDisabled  Time elapsed: 30.015 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: #MS016IN
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [04f569d1-4ae4-4520-bc75-3140304055af, findElement {value=MS016IN, using=id}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 128.0, moz:accessibilityChecks: false, moz:buildID: 20240628091536, moz:debuggerAddress: 127.0.0.1:46299, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 18756, moz:profile: C:\Users\KAJALS~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:46299/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: 04f569d1-4ae4-4520-bc75-3140304055af
+	at zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyForEmptyCardNumberButtonIsDisabled(memberLookup_Invalid_TestCases.java:92)
+

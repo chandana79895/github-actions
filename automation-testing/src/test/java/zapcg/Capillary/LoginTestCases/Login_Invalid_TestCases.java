@@ -2,11 +2,15 @@ package zapcg.Capillary.LoginTestCases;
 
 
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import zapcg.Capillary.Base.BaseTest;
 import zapcg.Capillary.PageObject.loginPage;
+
+
+@Listeners(zapcg.Capillary.ListenersConfiguration.Listeners.class)			
 
 public class Login_Invalid_TestCases extends BaseTest{
 	
@@ -29,67 +33,67 @@ public class Login_Invalid_TestCases extends BaseTest{
 
    }
 	
-	@Test(priority = 2)
-   public void testInvalidUsername_TestCase2() throws InterruptedException {
+	@Test(priority = 1,groups = "Login")
+   public void test_Invalid_Username() throws InterruptedException {
        
        lp.login("zapcotest", "storeportal");
        lp.verifyInvalidUserNameError("Invalid username or password. Try again.");
 	}
 
 
-   @Test(priority = 3)
-   public void testInvalidPassword_TestCase3() throws InterruptedException {
+   @Test(priority = 2, groups = "Login")
+   public void test_Invalid_Password() throws InterruptedException {
    	
    	lp.login("zapcom_test2", "testtest");
        lp.verifyInvalidPasswordError("Invalid username or password. Try again."); 
    }
 
-   @Test(priority = 4)
-   public void testTooLongUsername_TestCase4() throws InterruptedException {
+   @Test(priority = 3,groups = "Login")
+   public void test_TooLong_Username() throws InterruptedException {
   
    	lp.login("abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz", "testtest22");
       lp.verifyMaxLengthForUserName("Username must be less than 50 characters");
    }
 
-   @Test(priority = 5)
-   public void testMinLengthPassword_TestCase5() throws InterruptedException {
+   @Test(priority = 4,groups = "Login")
+   public void test_MinLength_Password() throws InterruptedException {
  
    	lp.login("zapcom_test2", "testte");
        lp.verifyMinLengthForPassword("Password must be at least 8 characters"); 
    }
 
-   @Test(priority = 6)
-   public void testUsernameWithSpaces_TestCase6() throws InterruptedException {
+   @Test(priority = 5,groups = "Login")
+   public void test_Username_WithSpaces() throws InterruptedException {
  
    	lp.login("zapcom test2", "testtest1");
       lp.verifySpaceNotAllowedUserName("Username must not contain any spaces"); 
    }
 
-   @Test(priority = 7)
-   public void verifyForEnabledLoginButton_TestCase7() throws InterruptedException {
+   @Test(priority = 6,groups = "Login")
+   public void verify_Enabled_LoginButton() throws InterruptedException {
    	
    	lp.login("testiuytree", "testtests");
       lp.verifyLoginButtonEnabled();
    }
   
    
-   @Test(priority = 8)
-   public void verifyForDisabledLoginButtonForEmptyUsername_TestCase8() throws InterruptedException {
+   @Test(priority = 7,groups = "Login")
+   public void verify_Disabled_LoginButton_EmptyUsername() throws InterruptedException {
    
    	lp.loginDisabledVerification("", "12345678");
      lp.verifyLoginButtonDisabled_EmptyUsername();
    }
    
    
-   @Test(priority = 9)
-   public void verifyForDisabledLoginButtonForEmptyPassword_TestCase9() throws InterruptedException {
+   @Test(priority = 8,groups = "Login")
+   public void verify_Disabled_LoginButton_EmptyPassword() throws InterruptedException {
   
    	lp.loginDisabledVerification("testEmptyPassword", "");
    	lp.verifyLoginButtonDisabled_EmptyPassword();
    }
    
-   @Test(priority = 10)
-   public void verifyForDisabledLoginButtonForEmptyUsernamePassword_TestCase10() throws InterruptedException {
+   @Test(priority = 9,groups = "Login")
+   public void verify_Disabled_LoginButton_EmptyUsernamePassword_TestCase10() throws InterruptedException {
    
    	lp.loginDisabledVerification("", "");
       lp.verifyLoginButtonDisabled_BlankInput();

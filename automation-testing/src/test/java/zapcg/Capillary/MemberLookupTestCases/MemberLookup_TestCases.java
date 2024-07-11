@@ -3,6 +3,7 @@ package zapcg.Capillary.MemberLookupTestCases;
 
 
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -11,6 +12,7 @@ import zapcg.Capillary.PageObject.locationSelectionPage;
 import zapcg.Capillary.PageObject.loginPage;
 import zapcg.Capillary.PageObject.memberLookupPage;
 
+@Listeners(zapcg.Capillary.ListenersConfiguration.Listeners.class)			
 
 public class MemberLookup_TestCases extends BaseTest {
 	 public loginPage lp;
@@ -30,58 +32,21 @@ public class MemberLookup_TestCases extends BaseTest {
 	       lp.changeDefaultLanguage();
 	       lp.chooseEnglishLanguage();
 	       lp.login("zapcom_test2", "storeportal");
-                 /*        
+                     /*  
                 //Choose location details
                 lsp=new locationSelectionPage(driver);
                 lsp.lookupPropertyOptions("Akasaka");
-                lsp.selectStoreOptions("store1");            
+                lsp.selectStoreOptions("HMH01101 - MyStays Akasaka2");            
                 */
 	       
                 //Click on scanQR code button
                 mlp=new memberLookupPage(driver);
                 
             
-            }/*
-		static {
-	        // Load the OpenCV native library
-	        System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-	    }
-          */
-        
+            }
     
-	/*
-	@Test(priority=1)
-		public void testQRCodeScan() throws IOException, NotFoundException {
-	
-        memberLookupPage mlp = new memberLookupPage(driver);
-        mlp.clickOnScanQRCodeButton();
 
-		try {
-        // Specify the path to the QR code image file
-        File qrCodeImageFile = new File("C:\\Users\\KajalSharma\\eclipse-workspace\\Capillary\\Capillary_Framework\\src\\main\\java\\TestQRCode\\Valid_QR_Code.jpg");
-     
-        // Read the image file
-        BufferedImage bufferedImage = ImageIO.read(qrCodeImageFile);
-	 
-     // Prepare the image for QR code decoding
-        LuminanceSource luminanceSource = new BufferedImageLuminanceSource(bufferedImage);
-        BinaryBitmap binaryBitmap = new BinaryBitmap(new HybridBinarizer(luminanceSource));
-
-        // Decode the QR code
-        Result result = new MultiFormatReader().decode(binaryBitmap);
-
-        // Print the QR code text
-        System.out.println("QR Code text: " + result.getText());
-    } catch (IOException e) {
-        System.err.println("IOException: Could not read the image file.");
-        e.printStackTrace();
-    } catch (NotFoundException e) {
-        System.err.println("NotFoundException: QR Code not found in the image.");
-        e.printStackTrace();
-    }
-	
-		}
-	*/
+		 
 	
 		
 		@Test(priority=19)
@@ -96,7 +61,7 @@ public class MemberLookup_TestCases extends BaseTest {
 				memberLookupPage mlp = new memberLookupPage(driver);
 				mlp.enterMemberId("GT000003673");
 				mlp.clickOnSearchButton();
-				mlp.verifySuccessfullNavigationToMemberDetailsPage(driver, "https://d1msv2sqknn4w4.cloudfront.net/member-details");
+				mlp.verifySuccessfullNavigationFromMemberLookupToMemberDetails(driver);
 		
 			}
 	
@@ -104,7 +69,7 @@ public class MemberLookup_TestCases extends BaseTest {
 		public void verifyHeaderHyperlink() {
 			memberLookupPage mlp = new memberLookupPage(driver);
 			mlp.clickOnHyperlink();
-			mlp.headerHyperlinkVerification(driver, "https://d1msv2sqknn4w4.cloudfront.net/location-search");
+			mlp.headerHyperlinkVerification(driver);
 			}
 		
 	
@@ -115,7 +80,7 @@ public class MemberLookup_TestCases extends BaseTest {
         	
         	mlp.clickOnHamburgerIcon();
         	mlp.chooseMemberLookupOption();
-        	mlp.verifySuccessfullNavigationFromMemberLookupToMemberLookupScreen(driver,"https://d1msv2sqknn4w4.cloudfront.net/member-search" );
+        	mlp.verifySuccessfullNavigationFromMemberLookupToMemberLookupScreen(driver );
         	System.out.println("Navigation from Hamburger icon on member lookup screen working fine for 'Member Lookup Screen'");
         	
 		}
@@ -128,7 +93,7 @@ public class MemberLookup_TestCases extends BaseTest {
         	
         	mlp.clickOnHamburgerIcon();
         	mlp.chooseLocationFromHamburger();
-        	mlp.verifySuccessfullNavigationFromMemberLookupToLocationScreen(driver,"https://d1msv2sqknn4w4.cloudfront.net/location-search" );
+        	mlp.verifySuccessfullNavigationFromMemberLookupToLocationScreen(driver );
         	System.out.println("Navigation from Hamburger icon on Location screen working fine for 'Location option'");
         	
 		}
@@ -139,7 +104,7 @@ public class MemberLookup_TestCases extends BaseTest {
 			memberLookupPage mlp = new memberLookupPage(driver);
         	mlp.clickOnHamburgerIcon();
         	mlp.chooseLogout();
-        	mlp.verifyLogoutOptionOnMemberLookupScreen(driver,"https://d1msv2sqknn4w4.cloudfront.net/login" );
+        	mlp.verifyLogoutOptionOnMemberLookupScreen(driver);
         	System.out.println("Logout option under Hamburger icon on Location screen working fine");
         	
 		}

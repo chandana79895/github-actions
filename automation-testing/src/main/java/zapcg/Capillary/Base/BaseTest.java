@@ -7,8 +7,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.annotations.AfterMethod;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 import zapcg.Cappilary.utils.ConfigReader;
 import zapcg.Cappilary.utils.DeviceData;
@@ -18,7 +18,6 @@ public class BaseTest {
     protected String baseUrl;
     protected Dimension dimension;
     protected String deviceName;
-    public final static int TIMEOUT = 10;
 
     public void setUp(String browser, String deviceName) {
         ConfigReader configReader = new ConfigReader();
@@ -30,26 +29,39 @@ public class BaseTest {
     public void initialization(String browser) {
         try {
             if (browser.equalsIgnoreCase("chrome")) {
-                WebDriverManager.chromedriver().setup();
+                // WebDriverManager.chromedriver().setup(); // Use WebDriverManager for managing ChromeDriver versions dynamically
+                System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
                 ChromeOptions options = new ChromeOptions();
                 options.addArguments("--remote-allow-origins=*");
-                options.addArguments("--headless");
+                options.addArguments("--headless"); // Enable headless mode
                 options.addArguments("--no-sandbox");
-                options.addArguments("--disable-dev-shm-usage");
-                options.addArguments("--disable-gpu");
-                driver = new ChromeDriver(options);
-                driver.manage().window().maximize();
-                driver.get("https://d1msv2sqknn4w4.cloudfront.net/");
-                driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(TIMEOUT));
+                options.setExperimentalOption("detach", true);
+                options.setAcceptInsecureCerts(true);
 
+                // Adding detach option
+                options.setExperimentalOption("detach", true);
+                // Handling SSL certificates
+                options.setAcceptInsecureCerts(true);
+
+                // Initialize ChromeDriver
+                driver = new ChromeDriver(options);
             } else if (browser.equalsIgnoreCase("firefox")) {
-                WebDriverManager.firefoxdriver().setup();
-                driver = new FirefoxDriver();
+                // WebDriverManager.firefoxdriver().setup(); // Use WebDriverManager for managing GeckoDriver versions dynamically
+                System.setProperty("webdriver.gecko.driver", "C:\\BrowserDriver\\FirefoxDriver\\geckodriver.exe"); // Adjust path as necessary
+                FirefoxOptions options = new FirefoxOptions();
+                // options.addArguments("--headless"); // Enable headless mode
+
+                // Handling SSL certificates
+                options.setAcceptInsecureCerts(true);
+
+                // Initialize FirefoxDriver
+                driver = new FirefoxDriver(options);
             }
 
             if (dimension != null) {
                 driver.manage().window().setSize(dimension);
             }
+
             driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
         } catch (Exception e) {

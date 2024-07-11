@@ -1,0 +1,514 @@
+<html>
+<head>
+<title>TestNG:  LoginTestsChromeBrowserTabletPortrait</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>LoginTestsChromeBrowserTabletPortrait</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>60/3/0</td>
+</tr><tr>
+<td>Started on:</td><td>Sat Jul 06 11:05:59 IST 2024</td>
+</tr>
+<tr><td>Total time:</td><td>601 seconds (601355 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.verifySuccessMessageForRedeemPoint()'><b>verifySuccessMessageForRedeemPoint</b><br>Test class: zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases</td>
+<td><div><pre>java.lang.AssertionError: An error occurred while verifying the success message: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: //p[@id=&apos;EPMDLMSG&apos; and contains(text(), &apos;transaction has been successfully submitted. They have earned 35 points and have spent 1 points.&apos;)]&apos; (tried for 10 second(s) with 500 milliseconds interval)
+	at zapcg.Capillary.PageObject.earnPointsPage.verifySuccessMessageIfRedeemingPoints(earnPointsPage.java:765)
+	at zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.verifySuccessMessageForRedeemPoint(EarnPoint_Valid_TestCases.java:232)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace702033881", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace702033881'><pre>java.lang.AssertionError: An error occurred while verifying the success message: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: //p[@id=&apos;EPMDLMSG&apos; and contains(text(), &apos;transaction has been successfully submitted. They have earned 35 points and have spent 1 points.&apos;)]&apos; (tried for 10 second(s) with 500 milliseconds interval)
+	at org.testng.Assert.fail(Assert.java:111)
+	at zapcg.Capillary.PageObject.earnPointsPage.verifySuccessMessageIfRedeemingPoints(earnPointsPage.java:765)
+	at zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.verifySuccessMessageForRedeemPoint(EarnPoint_Valid_TestCases.java:232)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:463)
+	at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+</pre></div></td>
+<td>60</td>
+<td>zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases@75ed9710</td></tr>
+<tr>
+<td title='zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.verifyExceedThresoldSuccessMessage()'><b>verifyExceedThresoldSuccessMessage</b><br>Test class: zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases</td>
+<td><div><pre>java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.SearchContext.findElement(org.openqa.selenium.By)&quot; because &quot;this.searchContext&quot; is null
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy15.sendKeys(Unknown Source)
+	at zapcg.Capillary.PageObject.memberLookupPage.enterMemberId(memberLookupPage.java:94)
+	at zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.verifyExceedThresoldSuccessMessage(EarnPoint_Valid_TestCases.java:288)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+... Removed 17 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1297290219", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1297290219'><pre>java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.SearchContext.findElement(org.openqa.selenium.By)&quot; because &quot;this.searchContext&quot; is null
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy15.sendKeys(Unknown Source)
+	at zapcg.Capillary.PageObject.memberLookupPage.enterMemberId(memberLookupPage.java:94)
+	at zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.verifyExceedThresoldSuccessMessage(EarnPoint_Valid_TestCases.java:288)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:463)
+	at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+</pre></div></td>
+<td>2</td>
+<td>zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases@75ed9710</td></tr>
+<tr>
+<td title='zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.enterValidMemberId()'><b>enterValidMemberId</b><br>Test class: zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases</td>
+<td><div><pre>java.lang.AssertionError: An error occurred during navigation verification: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: //div[@id=&apos;EPCONT&apos;]&apos; (tried for 20 second(s) with 500 milliseconds interval)
+	at zapcg.Capillary.PageObject.memberLookupPage.verifySuccessfullNavigationFromMemberDetailsToEarnPointsPage(memberLookupPage.java:400)
+	at zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.enterValidMemberId(MemberLookup_TestCases.java:63)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2082411910", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2082411910'><pre>java.lang.AssertionError: An error occurred during navigation verification: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: //div[@id=&apos;EPCONT&apos;]&apos; (tried for 20 second(s) with 500 milliseconds interval)
+	at org.testng.Assert.fail(Assert.java:111)
+	at zapcg.Capillary.PageObject.memberLookupPage.verifySuccessfullNavigationFromMemberDetailsToEarnPointsPage(memberLookupPage.java:400)
+	at zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.enterValidMemberId(MemberLookup_TestCases.java:63)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:463)
+	at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+</pre></div></td>
+<td>61</td>
+<td>zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases@40f1be1b</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases.verifyHamBurgerMemberLookupOption()'><b>verifyHamBurgerMemberLookupOption</b><br>Test class: zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases</td>
+<td></td>
+<td>2</td>
+<td>zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases@4cc6fa2a</td></tr>
+<tr>
+<td title='zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.verifyEligibleEarningPoints()'><b>verifyEligibleEarningPoints</b><br>Test class: zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases@75ed9710</td></tr>
+<tr>
+<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.verifyForDisabledLoginButtonForEmptyPassword_TestCase9()'><b>verifyForDisabledLoginButtonForEmptyPassword_TestCase9</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@66b7550d</td></tr>
+<tr>
+<td title='zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases.verifyEnabledOfEnterReceiptDetailsButton()'><b>verifyEnabledOfEnterReceiptDetailsButton</b><br>Test class: zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases</td>
+<td></td>
+<td>1</td>
+<td>zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases@4cc6fa2a</td></tr>
+<tr>
+<td title='zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.verifyNonEditableLocationField()'><b>verifyNonEditableLocationField</b><br>Test class: zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases@75ed9710</td></tr>
+<tr>
+<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.verifyHeaderOfMemberLookupScreen()'><b>verifyHeaderOfMemberLookupScreen</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
+<td></td>
+<td>2</td>
+<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@3543df7d</td></tr>
+<tr>
+<td title='zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyInvalidCardNumberMinLength()'><b>verifyInvalidCardNumberMinLength</b><br>Test class: zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases</td>
+<td></td>
+<td>3</td>
+<td>zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases@7a791b66</td></tr>
+<tr>
+<td title='zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.verifyHamBurgerLogoutOption()'><b>verifyHamBurgerLogoutOption</b><br>Test class: zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases</td>
+<td></td>
+<td>1</td>
+<td>zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases@75ed9710</td></tr>
+<tr>
+<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testUsernameWithSpaces_TestCase6()'><b>testUsernameWithSpaces_TestCase6</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@66b7550d</td></tr>
+<tr>
+<td title='zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.verifyNonEditableTimeField()'><b>verifyNonEditableTimeField</b><br>Test class: zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases@75ed9710</td></tr>
+<tr>
+<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.verifyForEnabledLoginButton_TestCase7()'><b>verifyForEnabledLoginButton_TestCase7</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
+<td></td>
+<td>2</td>
+<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@66b7550d</td></tr>
+<tr>
+<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.burgerIconMemberLocationNavigation()'><b>burgerIconMemberLocationNavigation</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@3543df7d</td></tr>
+<tr>
+<td title='zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.verifyHamBurgerMemberLookupOption()'><b>verifyHamBurgerMemberLookupOption</b><br>Test class: zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases</td>
+<td></td>
+<td>1</td>
+<td>zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases@75ed9710</td></tr>
+<tr>
+<td title='zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.verifyTaxAssumedAmount()'><b>verifyTaxAssumedAmount</b><br>Test class: zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases@75ed9710</td></tr>
+<tr>
+<td title='zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.verifyDateEqualToSystemCurrentDate()'><b>verifyDateEqualToSystemCurrentDate</b><br>Test class: zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases@75ed9710</td></tr>
+<tr>
+<td title='zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.verifyTransactionAmountShouldNotBeEmpty()'><b>verifyTransactionAmountShouldNotBeEmpty</b><br>Test class: zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases@75ed9710</td></tr>
+<tr>
+<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.verifyForDisabledLoginButtonForEmptyUsernamePassword_TestCase10()'><b>verifyForDisabledLoginButtonForEmptyUsernamePassword_TestCase10</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@66b7550d</td></tr>
+<tr>
+<td title='zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint.testing()'><b>testing</b><br>Test class: zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint@435871cb</td></tr>
+<tr>
+<td title='zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyMemberIdFieldMaxLength()'><b>verifyMemberIdFieldMaxLength</b><br>Test class: zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases</td>
+<td></td>
+<td>3</td>
+<td>zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases@7a791b66</td></tr>
+<tr>
+<td title='zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases.verifyExpiryDateEqualToSystemDateThenNoRedeem()'><b>verifyExpiryDateEqualToSystemDateThenNoRedeem</b><br>Test class: zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases@4cc6fa2a</td></tr>
+<tr>
+<td title='zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.verifyHeaderHyperlink()'><b>verifyHeaderHyperlink</b><br>Test class: zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases@75ed9710</td></tr>
+<tr>
+<td title='zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.verifyNonEditableDateField()'><b>verifyNonEditableDateField</b><br>Test class: zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases@75ed9710</td></tr>
+<tr>
+<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testTooLongUsername_TestCase4()'><b>testTooLongUsername_TestCase4</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@66b7550d</td></tr>
+<tr>
+<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.verifyDropDownAvailability()'><b>verifyDropDownAvailability</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@3543df7d</td></tr>
+<tr>
+<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidPassword_TestCase3()'><b>testInvalidPassword_TestCase3</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
+<td></td>
+<td>2</td>
+<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@66b7550d</td></tr>
+<tr>
+<td title='zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases.goTOPassPointMoreThanTransactionAmount()'><b>goTOPassPointMoreThanTransactionAmount</b><br>Test class: zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases@4fc5e095</td></tr>
+<tr>
+<td title='zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.burgerIconLocationNavigation()'><b>burgerIconLocationNavigation</b><br>Test class: zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases</td>
+<td></td>
+<td>1</td>
+<td>zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases@40f1be1b</td></tr>
+<tr>
+<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.burgerIconLogout()'><b>burgerIconLogout</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@3543df7d</td></tr>
+<tr>
+<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.verifyForDisabledLoginButtonForEmptyUsername_TestCase8()'><b>verifyForDisabledLoginButtonForEmptyUsername_TestCase8</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@66b7550d</td></tr>
+<tr>
+<td title='zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.verifyMemberDetailsContentDisplayingOnEarnPointScreen()'><b>verifyMemberDetailsContentDisplayingOnEarnPointScreen</b><br>Test class: zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases@75ed9710</td></tr>
+<tr>
+<td title='zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.verifyScanButtonAvailability()'><b>verifyScanButtonAvailability</b><br>Test class: zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases</td>
+<td></td>
+<td>1</td>
+<td>zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases@40f1be1b</td></tr>
+<tr>
+<td title='zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.emptyTxnAmountButGoToPassPointValue()'><b>emptyTxnAmountButGoToPassPointValue</b><br>Test class: zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases@75ed9710</td></tr>
+<tr>
+<td title='zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases.emptyTxnAmountButGoToPassPointValue()'><b>emptyTxnAmountButGoToPassPointValue</b><br>Test class: zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases@4fc5e095</td></tr>
+<tr>
+<td title='zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases.verifyHamBurgerLocationOption()'><b>verifyHamBurgerLocationOption</b><br>Test class: zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases</td>
+<td></td>
+<td>2</td>
+<td>zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases@4cc6fa2a</td></tr>
+<tr>
+<td title='zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.verifyBackButtonNavigation()'><b>verifyBackButtonNavigation</b><br>Test class: zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases@75ed9710</td></tr>
+<tr>
+<td title='zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases.verifyHamBurgerLogoutOption()'><b>verifyHamBurgerLogoutOption</b><br>Test class: zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases</td>
+<td></td>
+<td>2</td>
+<td>zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases@4cc6fa2a</td></tr>
+<tr>
+<td title='zapcg.Capillary.LoginTestCases.Login_Valid_TestCases.testValidLogin_TestCase1()'><b>testValidLogin_TestCase1</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Valid_TestCases</td>
+<td></td>
+<td>1</td>
+<td>zapcg.Capillary.LoginTestCases.Login_Valid_TestCases@14d14731</td></tr>
+<tr>
+<td title='zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.verifyHamBurgerLocationOption()'><b>verifyHamBurgerLocationOption</b><br>Test class: zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases</td>
+<td></td>
+<td>1</td>
+<td>zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases@75ed9710</td></tr>
+<tr>
+<td title='zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.burgerIconMemberLookupNavigation()'><b>burgerIconMemberLookupNavigation</b><br>Test class: zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases</td>
+<td></td>
+<td>1</td>
+<td>zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases@40f1be1b</td></tr>
+<tr>
+<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.burgerIconMemberLookupNavigation()'><b>burgerIconMemberLookupNavigation</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@3543df7d</td></tr>
+<tr>
+<td title='zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases.verifyMemberDetailsContentDisplaying()'><b>verifyMemberDetailsContentDisplaying</b><br>Test class: zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases</td>
+<td></td>
+<td>1</td>
+<td>zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases@4cc6fa2a</td></tr>
+<tr>
+<td title='zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases.verifyMemberDetailsDisplaying()'><b>verifyMemberDetailsDisplaying</b><br>Test class: zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases</td>
+<td></td>
+<td>1</td>
+<td>zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases@4cc6fa2a</td></tr>
+<tr>
+<td title='zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyInvalidMemberID()'><b>verifyInvalidMemberID</b><br>Test class: zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases</td>
+<td></td>
+<td>3</td>
+<td>zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases@7a791b66</td></tr>
+<tr>
+<td title='zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyCardNumberFieldMaxLength()'><b>verifyCardNumberFieldMaxLength</b><br>Test class: zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases</td>
+<td></td>
+<td>2</td>
+<td>zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases@7a791b66</td></tr>
+<tr>
+<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.verifyChooseLocationButtonAvailability()'><b>verifyChooseLocationButtonAvailability</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
+<td></td>
+<td>1</td>
+<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@3543df7d</td></tr>
+<tr>
+<td title='zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.verifyHeaderHyperlink()'><b>verifyHeaderHyperlink</b><br>Test class: zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases</td>
+<td></td>
+<td>1</td>
+<td>zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases@40f1be1b</td></tr>
+<tr>
+<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.chooseValidLocationForNewUser()'><b>chooseValidLocationForNewUser</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
+<td></td>
+<td>1</td>
+<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@3543df7d</td></tr>
+<tr>
+<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidUsername_TestCase2()'><b>testInvalidUsername_TestCase2</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
+<td></td>
+<td>2</td>
+<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@66b7550d</td></tr>
+<tr>
+<td title='zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases.burgerIconLogout()'><b>burgerIconLogout</b><br>Test class: zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases</td>
+<td></td>
+<td>1</td>
+<td>zapcg.Capillary.MemberLookupTestCases.MemberLookup_TestCases@40f1be1b</td></tr>
+<tr>
+<td title='zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases.verifyMemberDetailsNavigationFromMeberLookupScreen()'><b>verifyMemberDetailsNavigationFromMeberLookupScreen</b><br>Test class: zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases</td>
+<td></td>
+<td>1</td>
+<td>zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases@4cc6fa2a</td></tr>
+<tr>
+<td title='zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.verifyTimeEqualToSystemCurrentTime()'><b>verifyTimeEqualToSystemCurrentTime</b><br>Test class: zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases@75ed9710</td></tr>
+<tr>
+<td title='zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases.verifyHeaderOfTheMemberDetailsScreen()'><b>verifyHeaderOfTheMemberDetailsScreen</b><br>Test class: zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases</td>
+<td></td>
+<td>2</td>
+<td>zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases@4cc6fa2a</td></tr>
+<tr>
+<td title='zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases.verifyForEmptyCardNumberButtonIsDisabled()'><b>verifyForEmptyCardNumberButtonIsDisabled</b><br>Test class: zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases</td>
+<td></td>
+<td>1</td>
+<td>zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases@7a791b66</td></tr>
+<tr>
+<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.verifyIfAbleToSelectOptionFromDropDown()'><b>verifyIfAbleToSelectOptionFromDropDown</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@3543df7d</td></tr>
+<tr>
+<td title='zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases.verifyTransactionAmountShouldNotBeEmpty()'><b>verifyTransactionAmountShouldNotBeEmpty</b><br>Test class: zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases@4fc5e095</td></tr>
+<tr>
+<td title='zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.verifyEarnPointsNavigationFromMeberDetailsScreen()'><b>verifyEarnPointsNavigationFromMeberDetailsScreen</b><br>Test class: zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases@75ed9710</td></tr>
+<tr>
+<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testMinLengthPassword_TestCase5()'><b>testMinLengthPassword_TestCase5</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@66b7550d</td></tr>
+<tr>
+<td title='zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases.verifyBackButton()'><b>verifyBackButton</b><br>Test class: zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases</td>
+<td></td>
+<td>2</td>
+<td>zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases@4cc6fa2a</td></tr>
+<tr>
+<td title='zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases.verifySuccessMessageForOnlyTransactionAmount()'><b>verifySuccessMessageForOnlyTransactionAmount</b><br>Test class: zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases</td>
+<td></td>
+<td>2</td>
+<td>zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases@75ed9710</td></tr>
+<tr>
+<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.navigatedFromLocationToLookupScreen()'><b>navigatedFromLocationToLookupScreen</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
+<td></td>
+<td>1</td>
+<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@3543df7d</td></tr>
+</table><p>
+</body>
+</html>

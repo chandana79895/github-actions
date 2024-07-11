@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>LoginTestsChromeBrowseriPhone11ProLandscape</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>17/1/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>0/0/18</td>
 </tr><tr>
-<td>Started on:</td><td>Thu Jun 20 16:49:29 IST 2024</td>
+<td>Started on:</td><td>Fri Jul 05 13:42:07 IST 2024</td>
 </tr>
-<tr><td>Total time:</td><td>171 seconds (171439 ms)</td>
+<tr><td>Total time:</td><td>0 seconds (65 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -68,7 +68,7 @@ function toggleAllBoxes() {
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
 <table width='100%' border='1' class='invocation-failed'>
-<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td colspan='4' align='center'><b>FAILED CONFIGURATIONS</b></td></tr>
 <tr><td><b>Test method</b></td>
 <td><b>Attribute(s)</b></td>
 <td width="30%"><b>Exception</b></td>
@@ -76,63 +76,31 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidUsername_TestCase2()'><b>testInvalidUsername_TestCase2</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
-<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: //h6[contains(text(),&apos;Invalid username or password. Try again.&apos;)]&apos; (tried for 30 second(s) with 500 milliseconds interval)
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-	at zapcg.Capillary.PageObject.loginPage.verifyInvalidUserNameError(loginPage.java:154)
-	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidUsername_TestCase2(Login_Invalid_TestCases.java:36)
+<td title='zapcg.Capillary.LoginTestCases.Login_Valid_TestCases.beforeClass()'><b>beforeClass</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Valid_TestCases<br>Parameters: chrome, iPhone 11 Pro Landscape</td>
+<td><div><pre>java.lang.Error: Unresolved compilation problem: 
+	The method setUp(String, String) is undefined for the type BaseTest
+
+	at zapcg.Capillary.Base.BaseTest.beforeClass(BaseTest.java:47)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
 	at java.base/java.lang.Thread.run(Thread.java:832)
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//h6[contains(text(),&apos;Invalid username or password. Try again.&apos;)]&quot;}
-  (Session info: chrome=126.0.6478.57)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-Build info: version: &apos;4.21.0&apos;, revision: &apos;79ed462ef4&apos;
-System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;15.0.2&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [9330caa3d162bcc210ae25c79ade4b91, findElement {using=xpath, value=//h6[contains(text(),&apos;Invalid username or password. Try again.&apos;)]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.57, chrome: {chromedriverVersion: 126.0.6478.62 (b2781ca4c383..., userDataDir: C:\Users\KAJALS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:53906}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:53906/devtoo..., se:cdpVersion: 126.0.6478.57, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 9330caa3d162bcc210ae25c79ade4b91
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:349)
-	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at com.sun.proxy.$Proxy13.isDisplayed(Unknown Source)
-	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:304)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:287)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
-	... 24 more
-... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1816199297", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1816199297'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: //h6[contains(text(),&apos;Invalid username or password. Try again.&apos;)]&apos; (tried for 30 second(s) with 500 milliseconds interval)
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-	at zapcg.Capillary.PageObject.loginPage.verifyInvalidUserNameError(loginPage.java:154)
-	at zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidUsername_TestCase2(Login_Invalid_TestCases.java:36)
+... Removed 15 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace744865046", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace744865046'><pre>java.lang.Error: Unresolved compilation problem: 
+	The method setUp(String, String) is undefined for the type BaseTest
+
+	at zapcg.Capillary.Base.BaseTest.beforeClass(BaseTest.java:47)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
-	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
-	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
-	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+	at org.testng.internal.invokers.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:188)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at org.testng.TestRunner.privateRun(TestRunner.java:739)
 	at org.testng.TestRunner.run(TestRunner.java:614)
@@ -143,45 +111,90 @@ Session ID: 9330caa3d162bcc210ae25c79ade4b91
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
 	at java.base/java.lang.Thread.run(Thread.java:832)
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//h6[contains(text(),&apos;Invalid username or password. Try again.&apos;)]&quot;}
-  (Session info: chrome=126.0.6478.57)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-Build info: version: &apos;4.21.0&apos;, revision: &apos;79ed462ef4&apos;
-System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;15.0.2&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [9330caa3d162bcc210ae25c79ade4b91, findElement {using=xpath, value=//h6[contains(text(),&apos;Invalid username or password. Try again.&apos;)]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.57, chrome: {chromedriverVersion: 126.0.6478.62 (b2781ca4c383..., userDataDir: C:\Users\KAJALS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:53906}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:53906/devtoo..., se:cdpVersion: 126.0.6478.57, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 9330caa3d162bcc210ae25c79ade4b91
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:64)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:349)
-	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at com.sun.proxy.$Proxy13.isDisplayed(Unknown Source)
-	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:304)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:287)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
-	... 24 more
 </pre></div></td>
-<td>60</td>
-<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@7b4c50bc</td></tr>
+<td>0</td>
+<td>zapcg.Capillary.LoginTestCases.Login_Valid_TestCases@62435e70</td></tr>
+<tr>
+<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.beforeClass()'><b>beforeClass</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases<br>Parameters: chrome, iPhone 11 Pro Landscape</td>
+<td><div><pre>java.lang.Error: Unresolved compilation problem: 
+	The method setUp(String, String) is undefined for the type BaseTest
+
+	at zapcg.Capillary.Base.BaseTest.beforeClass(BaseTest.java:47)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+... Removed 15 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace661602824", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace661602824'><pre>java.lang.Error: Unresolved compilation problem: 
+	The method setUp(String, String) is undefined for the type BaseTest
+
+	at zapcg.Capillary.Base.BaseTest.beforeClass(BaseTest.java:47)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+	at org.testng.internal.invokers.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:188)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:463)
+	at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+</pre></div></td>
+<td>0</td>
+<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@339bf286</td></tr>
+<tr>
+<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.beforeClass()'><b>beforeClass</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases<br>Parameters: chrome, iPhone 11 Pro Landscape</td>
+<td><div><pre>java.lang.Error: Unresolved compilation problem: 
+	The method setUp(String, String) is undefined for the type BaseTest
+
+	at zapcg.Capillary.Base.BaseTest.beforeClass(BaseTest.java:47)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+... Removed 15 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1147882307", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1147882307'><pre>java.lang.Error: Unresolved compilation problem: 
+	The method setUp(String, String) is undefined for the type BaseTest
+
+	at zapcg.Capillary.Base.BaseTest.beforeClass(BaseTest.java:47)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+	at org.testng.internal.invokers.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:188)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:463)
+	at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+</pre></div></td>
+<td>0</td>
+<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@38be305c</td></tr>
 </table><p>
-<table width='100%' border='1' class='invocation-passed'>
-<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED CONFIGURATIONS</b></td></tr>
 <tr><td><b>Test method</b></td>
 <td><b>Attribute(s)</b></td>
 <td width="30%"><b>Exception</b></td>
@@ -189,90 +202,1001 @@ Session ID: 9330caa3d162bcc210ae25c79ade4b91
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.burgerIconLogout()'><b>burgerIconLogout</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
+<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.tearDown()'><b>tearDown</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
 <td></td>
 <td>0</td>
-<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@5884a914</td></tr>
+<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@339bf286</td></tr>
 <tr>
-<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.verifyHeaderOfMemberLookupScreen()'><b>verifyHeaderOfMemberLookupScreen</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
-<td></td>
-<td>2</td>
-<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@5884a914</td></tr>
-<tr>
-<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testTooLongUsername_TestCase4()'><b>testTooLongUsername_TestCase4</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
+<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.initialize()'><b>initialize</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
 <td></td>
 <td>0</td>
-<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@7b4c50bc</td></tr>
+<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@339bf286</td></tr>
 <tr>
-<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.verifyIfAbleToSelectOptionFromDropDown()'><b>verifyIfAbleToSelectOptionFromDropDown</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
+<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.beforeMethod()'><b>beforeMethod</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
 <td></td>
 <td>0</td>
-<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@5884a914</td></tr>
+<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@38be305c</td></tr>
 <tr>
-<td title='zapcg.Capillary.LoginTestCases.Login_Valid_TestCases.testValidLogin_TestCase1()'><b>testValidLogin_TestCase1</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Valid_TestCases</td>
-<td></td>
-<td>2</td>
-<td>zapcg.Capillary.LoginTestCases.Login_Valid_TestCases@4d15107f</td></tr>
-<tr>
-<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidPassword_TestCase3()'><b>testInvalidPassword_TestCase3</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
-<td></td>
-<td>2</td>
-<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@7b4c50bc</td></tr>
-<tr>
-<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.chooseValidLocationForNewUser()'><b>chooseValidLocationForNewUser</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
-<td></td>
-<td>2</td>
-<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@5884a914</td></tr>
-<tr>
-<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.verifyForDisabledLoginButtonForEmptyUsername_TestCase8()'><b>verifyForDisabledLoginButtonForEmptyUsername_TestCase8</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
+<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.beforeMethod()'><b>beforeMethod</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
 <td></td>
 <td>0</td>
-<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@7b4c50bc</td></tr>
+<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@339bf286</td></tr>
 <tr>
-<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.verifyForEnabledLoginButton_TestCase7()'><b>verifyForEnabledLoginButton_TestCase7</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
+<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.tearDown()'><b>tearDown</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
 <td></td>
-<td>2</td>
-<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@7b4c50bc</td></tr>
+<td>0</td>
+<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@38be305c</td></tr>
+<tr>
+<td title='zapcg.Capillary.LoginTestCases.Login_Valid_TestCases.initialize()'><b>initialize</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Valid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LoginTestCases.Login_Valid_TestCases@62435e70</td></tr>
+<tr>
+<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.beforeMethod()'><b>beforeMethod</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@339bf286</td></tr>
+<tr>
+<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.initialize()'><b>initialize</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@339bf286</td></tr>
+<tr>
+<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.tearDown()'><b>tearDown</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@38be305c</td></tr>
+<tr>
+<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.beforeMethod()'><b>beforeMethod</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@38be305c</td></tr>
+<tr>
+<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.beforeMethod()'><b>beforeMethod</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@339bf286</td></tr>
+<tr>
+<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.initialize()'><b>initialize</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@339bf286</td></tr>
+<tr>
+<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.tearDown()'><b>tearDown</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@38be305c</td></tr>
+<tr>
+<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.beforeMethod()'><b>beforeMethod</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@38be305c</td></tr>
+<tr>
+<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.initialize()'><b>initialize</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@38be305c</td></tr>
+<tr>
+<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.tearDown()'><b>tearDown</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@38be305c</td></tr>
+<tr>
+<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.beforeMethod()'><b>beforeMethod</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@339bf286</td></tr>
+<tr>
+<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.initialize()'><b>initialize</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@339bf286</td></tr>
+<tr>
+<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.tearDown()'><b>tearDown</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@38be305c</td></tr>
+<tr>
+<td title='zapcg.Capillary.LoginTestCases.Login_Valid_TestCases.afterClass()'><b>afterClass</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Valid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LoginTestCases.Login_Valid_TestCases@62435e70</td></tr>
+<tr>
+<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.initialize()'><b>initialize</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@339bf286</td></tr>
+<tr>
+<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.initialize()'><b>initialize</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@339bf286</td></tr>
+<tr>
+<td title='zapcg.Capillary.LoginTestCases.Login_Valid_TestCases.tearDown()'><b>tearDown</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Valid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LoginTestCases.Login_Valid_TestCases@62435e70</td></tr>
+<tr>
+<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.initialize()'><b>initialize</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@38be305c</td></tr>
+<tr>
+<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.initialize()'><b>initialize</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@38be305c</td></tr>
+<tr>
+<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.afterClass()'><b>afterClass</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@38be305c</td></tr>
+<tr>
+<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.tearDown()'><b>tearDown</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@339bf286</td></tr>
+<tr>
+<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.tearDown()'><b>tearDown</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@339bf286</td></tr>
+<tr>
+<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.initialize()'><b>initialize</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@38be305c</td></tr>
+<tr>
+<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.tearDown()'><b>tearDown</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@339bf286</td></tr>
+<tr>
+<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.initialize()'><b>initialize</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@38be305c</td></tr>
+<tr>
+<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.beforeMethod()'><b>beforeMethod</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@339bf286</td></tr>
+<tr>
+<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.tearDown()'><b>tearDown</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@339bf286</td></tr>
+<tr>
+<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.beforeMethod()'><b>beforeMethod</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@339bf286</td></tr>
+<tr>
+<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.beforeMethod()'><b>beforeMethod</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@38be305c</td></tr>
+<tr>
+<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.beforeMethod()'><b>beforeMethod</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@38be305c</td></tr>
+<tr>
+<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.beforeMethod()'><b>beforeMethod</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@339bf286</td></tr>
+<tr>
+<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.tearDown()'><b>tearDown</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@38be305c</td></tr>
+<tr>
+<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.tearDown()'><b>tearDown</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@339bf286</td></tr>
+<tr>
+<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.initialize()'><b>initialize</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@339bf286</td></tr>
+<tr>
+<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.initialize()'><b>initialize</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@339bf286</td></tr>
+<tr>
+<td title='zapcg.Capillary.LoginTestCases.Login_Valid_TestCases.beforeMethod()'><b>beforeMethod</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Valid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LoginTestCases.Login_Valid_TestCases@62435e70</td></tr>
+<tr>
+<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.tearDown()'><b>tearDown</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@339bf286</td></tr>
+<tr>
+<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.initialize()'><b>initialize</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@38be305c</td></tr>
+<tr>
+<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.tearDown()'><b>tearDown</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@38be305c</td></tr>
+<tr>
+<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.beforeMethod()'><b>beforeMethod</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@38be305c</td></tr>
+<tr>
+<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.initialize()'><b>initialize</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@38be305c</td></tr>
+<tr>
+<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.beforeMethod()'><b>beforeMethod</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@38be305c</td></tr>
+<tr>
+<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.beforeMethod()'><b>beforeMethod</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@339bf286</td></tr>
+<tr>
+<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.initialize()'><b>initialize</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@38be305c</td></tr>
+<tr>
+<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.beforeMethod()'><b>beforeMethod</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@38be305c</td></tr>
+<tr>
+<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.initialize()'><b>initialize</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@339bf286</td></tr>
+<tr>
+<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.tearDown()'><b>tearDown</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@339bf286</td></tr>
+<tr>
+<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.tearDown()'><b>tearDown</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@339bf286</td></tr>
+<tr>
+<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.tearDown()'><b>tearDown</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@38be305c</td></tr>
+<tr>
+<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.beforeMethod()'><b>beforeMethod</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@339bf286</td></tr>
+<tr>
+<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.afterClass()'><b>afterClass</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
+<td></td>
+<td>0</td>
+<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@339bf286</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
 <tr>
 <td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.verifyDropDownAvailability()'><b>verifyDropDownAvailability</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
-<td></td>
+<td><div><pre>java.lang.Error: Unresolved compilation problem: 
+	The method setUp(String, String) is undefined for the type BaseTest
+
+	at zapcg.Capillary.Base.BaseTest.beforeClass(BaseTest.java:47)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+... Removed 15 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1789780173", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1789780173'><pre>java.lang.Error: Unresolved compilation problem: 
+	The method setUp(String, String) is undefined for the type BaseTest
+
+	at zapcg.Capillary.Base.BaseTest.beforeClass(BaseTest.java:47)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+	at org.testng.internal.invokers.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:188)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:463)
+	at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+</pre></div></td>
 <td>0</td>
-<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@5884a914</td></tr>
+<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@38be305c</td></tr>
 <tr>
-<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.verifyForDisabledLoginButtonForEmptyUsernamePassword_TestCase10()'><b>verifyForDisabledLoginButtonForEmptyUsernamePassword_TestCase10</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
-<td></td>
+<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidUsername_TestCase2()'><b>testInvalidUsername_TestCase2</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
+<td><div><pre>java.lang.Error: Unresolved compilation problem: 
+	The method setUp(String, String) is undefined for the type BaseTest
+
+	at zapcg.Capillary.Base.BaseTest.beforeClass(BaseTest.java:47)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+... Removed 15 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace410315222", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace410315222'><pre>java.lang.Error: Unresolved compilation problem: 
+	The method setUp(String, String) is undefined for the type BaseTest
+
+	at zapcg.Capillary.Base.BaseTest.beforeClass(BaseTest.java:47)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+	at org.testng.internal.invokers.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:188)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:463)
+	at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+</pre></div></td>
 <td>0</td>
-<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@7b4c50bc</td></tr>
-<tr>
-<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.verifyChooseLocationButtonAvailability()'><b>verifyChooseLocationButtonAvailability</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
-<td></td>
-<td>2</td>
-<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@5884a914</td></tr>
-<tr>
-<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.burgerIconMemberLocationNavigation()'><b>burgerIconMemberLocationNavigation</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
-<td></td>
-<td>0</td>
-<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@5884a914</td></tr>
+<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@339bf286</td></tr>
 <tr>
 <td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.verifyForDisabledLoginButtonForEmptyPassword_TestCase9()'><b>verifyForDisabledLoginButtonForEmptyPassword_TestCase9</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
-<td></td>
+<td><div><pre>java.lang.Error: Unresolved compilation problem: 
+	The method setUp(String, String) is undefined for the type BaseTest
+
+	at zapcg.Capillary.Base.BaseTest.beforeClass(BaseTest.java:47)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+... Removed 15 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1798450705", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1798450705'><pre>java.lang.Error: Unresolved compilation problem: 
+	The method setUp(String, String) is undefined for the type BaseTest
+
+	at zapcg.Capillary.Base.BaseTest.beforeClass(BaseTest.java:47)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+	at org.testng.internal.invokers.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:188)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:463)
+	at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+</pre></div></td>
 <td>0</td>
-<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@7b4c50bc</td></tr>
+<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@339bf286</td></tr>
 <tr>
-<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testUsernameWithSpaces_TestCase6()'><b>testUsernameWithSpaces_TestCase6</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
-<td></td>
+<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testTooLongUsername_TestCase4()'><b>testTooLongUsername_TestCase4</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
+<td><div><pre>java.lang.Error: Unresolved compilation problem: 
+	The method setUp(String, String) is undefined for the type BaseTest
+
+	at zapcg.Capillary.Base.BaseTest.beforeClass(BaseTest.java:47)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+... Removed 15 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace241726572", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace241726572'><pre>java.lang.Error: Unresolved compilation problem: 
+	The method setUp(String, String) is undefined for the type BaseTest
+
+	at zapcg.Capillary.Base.BaseTest.beforeClass(BaseTest.java:47)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+	at org.testng.internal.invokers.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:188)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:463)
+	at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+</pre></div></td>
 <td>0</td>
-<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@7b4c50bc</td></tr>
+<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@339bf286</td></tr>
 <tr>
 <td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testMinLengthPassword_TestCase5()'><b>testMinLengthPassword_TestCase5</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
-<td></td>
+<td><div><pre>java.lang.Error: Unresolved compilation problem: 
+	The method setUp(String, String) is undefined for the type BaseTest
+
+	at zapcg.Capillary.Base.BaseTest.beforeClass(BaseTest.java:47)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+... Removed 15 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1343435126", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1343435126'><pre>java.lang.Error: Unresolved compilation problem: 
+	The method setUp(String, String) is undefined for the type BaseTest
+
+	at zapcg.Capillary.Base.BaseTest.beforeClass(BaseTest.java:47)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+	at org.testng.internal.invokers.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:188)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:463)
+	at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+</pre></div></td>
 <td>0</td>
-<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@7b4c50bc</td></tr>
+<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@339bf286</td></tr>
+<tr>
+<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.verifyHeaderOfMemberLookupScreen()'><b>verifyHeaderOfMemberLookupScreen</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
+<td><div><pre>java.lang.Error: Unresolved compilation problem: 
+	The method setUp(String, String) is undefined for the type BaseTest
+
+	at zapcg.Capillary.Base.BaseTest.beforeClass(BaseTest.java:47)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+... Removed 15 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace867709855", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace867709855'><pre>java.lang.Error: Unresolved compilation problem: 
+	The method setUp(String, String) is undefined for the type BaseTest
+
+	at zapcg.Capillary.Base.BaseTest.beforeClass(BaseTest.java:47)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+	at org.testng.internal.invokers.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:188)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:463)
+	at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+</pre></div></td>
+<td>0</td>
+<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@38be305c</td></tr>
+<tr>
+<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testInvalidPassword_TestCase3()'><b>testInvalidPassword_TestCase3</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
+<td><div><pre>java.lang.Error: Unresolved compilation problem: 
+	The method setUp(String, String) is undefined for the type BaseTest
+
+	at zapcg.Capillary.Base.BaseTest.beforeClass(BaseTest.java:47)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+... Removed 15 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace63966136", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace63966136'><pre>java.lang.Error: Unresolved compilation problem: 
+	The method setUp(String, String) is undefined for the type BaseTest
+
+	at zapcg.Capillary.Base.BaseTest.beforeClass(BaseTest.java:47)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+	at org.testng.internal.invokers.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:188)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:463)
+	at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+</pre></div></td>
+<td>0</td>
+<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@339bf286</td></tr>
+<tr>
+<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.verifyIfAbleToSelectOptionFromDropDown()'><b>verifyIfAbleToSelectOptionFromDropDown</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
+<td><div><pre>java.lang.Error: Unresolved compilation problem: 
+	The method setUp(String, String) is undefined for the type BaseTest
+
+	at zapcg.Capillary.Base.BaseTest.beforeClass(BaseTest.java:47)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+... Removed 15 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1654691208", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1654691208'><pre>java.lang.Error: Unresolved compilation problem: 
+	The method setUp(String, String) is undefined for the type BaseTest
+
+	at zapcg.Capillary.Base.BaseTest.beforeClass(BaseTest.java:47)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+	at org.testng.internal.invokers.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:188)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:463)
+	at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+</pre></div></td>
+<td>0</td>
+<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@38be305c</td></tr>
+<tr>
+<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.verifyChooseLocationButtonAvailability()'><b>verifyChooseLocationButtonAvailability</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
+<td><div><pre>java.lang.Error: Unresolved compilation problem: 
+	The method setUp(String, String) is undefined for the type BaseTest
+
+	at zapcg.Capillary.Base.BaseTest.beforeClass(BaseTest.java:47)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+... Removed 15 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1637024923", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1637024923'><pre>java.lang.Error: Unresolved compilation problem: 
+	The method setUp(String, String) is undefined for the type BaseTest
+
+	at zapcg.Capillary.Base.BaseTest.beforeClass(BaseTest.java:47)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+	at org.testng.internal.invokers.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:188)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:463)
+	at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+</pre></div></td>
+<td>0</td>
+<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@38be305c</td></tr>
 <tr>
 <td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.burgerIconMemberLookupNavigation()'><b>burgerIconMemberLookupNavigation</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
-<td></td>
+<td><div><pre>java.lang.Error: Unresolved compilation problem: 
+	The method setUp(String, String) is undefined for the type BaseTest
+
+	at zapcg.Capillary.Base.BaseTest.beforeClass(BaseTest.java:47)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+... Removed 15 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace697792830", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace697792830'><pre>java.lang.Error: Unresolved compilation problem: 
+	The method setUp(String, String) is undefined for the type BaseTest
+
+	at zapcg.Capillary.Base.BaseTest.beforeClass(BaseTest.java:47)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+	at org.testng.internal.invokers.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:188)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:463)
+	at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+</pre></div></td>
 <td>0</td>
-<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@5884a914</td></tr>
+<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@38be305c</td></tr>
+<tr>
+<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.burgerIconMemberLocationNavigation()'><b>burgerIconMemberLocationNavigation</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
+<td><div><pre>java.lang.Error: Unresolved compilation problem: 
+	The method setUp(String, String) is undefined for the type BaseTest
+
+	at zapcg.Capillary.Base.BaseTest.beforeClass(BaseTest.java:47)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+... Removed 15 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace341314344", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace341314344'><pre>java.lang.Error: Unresolved compilation problem: 
+	The method setUp(String, String) is undefined for the type BaseTest
+
+	at zapcg.Capillary.Base.BaseTest.beforeClass(BaseTest.java:47)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+	at org.testng.internal.invokers.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:188)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:463)
+	at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+</pre></div></td>
+<td>0</td>
+<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@38be305c</td></tr>
+<tr>
+<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.burgerIconLogout()'><b>burgerIconLogout</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
+<td><div><pre>java.lang.Error: Unresolved compilation problem: 
+	The method setUp(String, String) is undefined for the type BaseTest
+
+	at zapcg.Capillary.Base.BaseTest.beforeClass(BaseTest.java:47)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+... Removed 15 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace988310814", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace988310814'><pre>java.lang.Error: Unresolved compilation problem: 
+	The method setUp(String, String) is undefined for the type BaseTest
+
+	at zapcg.Capillary.Base.BaseTest.beforeClass(BaseTest.java:47)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+	at org.testng.internal.invokers.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:188)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:463)
+	at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+</pre></div></td>
+<td>0</td>
+<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@38be305c</td></tr>
+<tr>
+<td title='zapcg.Capillary.LoginTestCases.Login_Valid_TestCases.testValidLogin_TestCase1()'><b>testValidLogin_TestCase1</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Valid_TestCases</td>
+<td><div><pre>java.lang.Error: Unresolved compilation problem: 
+	The method setUp(String, String) is undefined for the type BaseTest
+
+	at zapcg.Capillary.Base.BaseTest.beforeClass(BaseTest.java:47)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+... Removed 15 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1006754166", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1006754166'><pre>java.lang.Error: Unresolved compilation problem: 
+	The method setUp(String, String) is undefined for the type BaseTest
+
+	at zapcg.Capillary.Base.BaseTest.beforeClass(BaseTest.java:47)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+	at org.testng.internal.invokers.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:188)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:463)
+	at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+</pre></div></td>
+<td>0</td>
+<td>zapcg.Capillary.LoginTestCases.Login_Valid_TestCases@62435e70</td></tr>
+<tr>
+<td title='zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases.chooseValidLocationForNewUser()'><b>chooseValidLocationForNewUser</b><br>Test class: zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases</td>
+<td><div><pre>java.lang.Error: Unresolved compilation problem: 
+	The method setUp(String, String) is undefined for the type BaseTest
+
+	at zapcg.Capillary.Base.BaseTest.beforeClass(BaseTest.java:47)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+... Removed 15 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace151480447", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace151480447'><pre>java.lang.Error: Unresolved compilation problem: 
+	The method setUp(String, String) is undefined for the type BaseTest
+
+	at zapcg.Capillary.Base.BaseTest.beforeClass(BaseTest.java:47)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+	at org.testng.internal.invokers.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:188)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:463)
+	at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+</pre></div></td>
+<td>0</td>
+<td>zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases@38be305c</td></tr>
+<tr>
+<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.testUsernameWithSpaces_TestCase6()'><b>testUsernameWithSpaces_TestCase6</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
+<td><div><pre>java.lang.Error: Unresolved compilation problem: 
+	The method setUp(String, String) is undefined for the type BaseTest
+
+	at zapcg.Capillary.Base.BaseTest.beforeClass(BaseTest.java:47)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+... Removed 15 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1410816204", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1410816204'><pre>java.lang.Error: Unresolved compilation problem: 
+	The method setUp(String, String) is undefined for the type BaseTest
+
+	at zapcg.Capillary.Base.BaseTest.beforeClass(BaseTest.java:47)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+	at org.testng.internal.invokers.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:188)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:463)
+	at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+</pre></div></td>
+<td>0</td>
+<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@339bf286</td></tr>
+<tr>
+<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.verifyForDisabledLoginButtonForEmptyUsernamePassword_TestCase10()'><b>verifyForDisabledLoginButtonForEmptyUsernamePassword_TestCase10</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
+<td><div><pre>java.lang.Error: Unresolved compilation problem: 
+	The method setUp(String, String) is undefined for the type BaseTest
+
+	at zapcg.Capillary.Base.BaseTest.beforeClass(BaseTest.java:47)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+... Removed 15 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace978436332", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace978436332'><pre>java.lang.Error: Unresolved compilation problem: 
+	The method setUp(String, String) is undefined for the type BaseTest
+
+	at zapcg.Capillary.Base.BaseTest.beforeClass(BaseTest.java:47)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+	at org.testng.internal.invokers.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:188)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:463)
+	at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+</pre></div></td>
+<td>0</td>
+<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@339bf286</td></tr>
+<tr>
+<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.verifyForEnabledLoginButton_TestCase7()'><b>verifyForEnabledLoginButton_TestCase7</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
+<td><div><pre>java.lang.Error: Unresolved compilation problem: 
+	The method setUp(String, String) is undefined for the type BaseTest
+
+	at zapcg.Capillary.Base.BaseTest.beforeClass(BaseTest.java:47)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+... Removed 15 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1461516898", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1461516898'><pre>java.lang.Error: Unresolved compilation problem: 
+	The method setUp(String, String) is undefined for the type BaseTest
+
+	at zapcg.Capillary.Base.BaseTest.beforeClass(BaseTest.java:47)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+	at org.testng.internal.invokers.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:188)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:463)
+	at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+</pre></div></td>
+<td>0</td>
+<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@339bf286</td></tr>
+<tr>
+<td title='zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases.verifyForDisabledLoginButtonForEmptyUsername_TestCase8()'><b>verifyForDisabledLoginButtonForEmptyUsername_TestCase8</b><br>Test class: zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases</td>
+<td><div><pre>java.lang.Error: Unresolved compilation problem: 
+	The method setUp(String, String) is undefined for the type BaseTest
+
+	at zapcg.Capillary.Base.BaseTest.beforeClass(BaseTest.java:47)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+... Removed 15 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace151271514", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace151271514'><pre>java.lang.Error: Unresolved compilation problem: 
+	The method setUp(String, String) is undefined for the type BaseTest
+
+	at zapcg.Capillary.Base.BaseTest.beforeClass(BaseTest.java:47)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+	at org.testng.internal.invokers.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:188)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:463)
+	at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+</pre></div></td>
+<td>0</td>
+<td>zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases@339bf286</td></tr>
 </table><p>
 </body>
 </html>

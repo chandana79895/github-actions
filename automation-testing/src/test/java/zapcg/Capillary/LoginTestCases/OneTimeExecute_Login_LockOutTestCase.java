@@ -69,7 +69,7 @@ public class OneTimeExecute_Login_LockOutTestCase extends BaseTest{
        // Attempt to log in again and verify user should be able to login using valid credentials
        lp.login("zapcom_test2", "storeportal");
        //write down the steps to verify the login to the portal successfully
-       lp.verifySuccessfullLogin(driver,"https://d1msv2sqknn4w4.cloudfront.net/location-search");
+       lp.verifySuccessfullLogin(driver,"https://d3che4praaad7h.cloudfront.net/location-search");
 
        
    }

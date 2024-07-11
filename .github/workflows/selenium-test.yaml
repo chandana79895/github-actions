@@ -10,7 +10,7 @@ on:
       - latest-code
 
 jobs:
-  automation_testing:
+  automation_testings:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code

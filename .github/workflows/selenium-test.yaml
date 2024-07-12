@@ -57,5 +57,5 @@ jobs:
         uses: actions/upload-artifact@v3
         with:       
           name: Report
-          path: ("user.dir")+"\\automation-testing\\Reports\\index.html
+          path: ("user.dir")+"\\automation-testing\\Reports\\index.html"
           if-no-files-found: warn

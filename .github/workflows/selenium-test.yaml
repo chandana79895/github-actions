@@ -4,12 +4,8 @@ on:
   push:
     branches:
       - latest-code
-  workflow_dispatch:
-  pull_request:
-    branches:
-      - latest-code
   schedule:
-    - cron: '45 14 * * *'
+    - cron: '* * * * *'
 
 jobs:
   automation_testings:

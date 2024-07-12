@@ -5,7 +5,7 @@ on:
     branches:
       - latest-code
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: "*/5 * * * *"  # This will run the job every 5 minutes
 
 jobs:
   automation_testings:

@@ -8,10 +8,13 @@ on:
   pull_request:
     branches:
       - latest-code
+  schedule:
+    - cron: '45 14 * * *'    
 
 jobs:
   automation_testings:
     runs-on: ubuntu-latest
+    needs: schedule
     steps:
       - name: Checkout code
         uses: actions/checkout@v2

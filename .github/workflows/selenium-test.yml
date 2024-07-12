@@ -5,7 +5,7 @@ on:
     branches:
       - 'latest-code'
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '0 18 * * 1-5'
 
 jobs:
   automation_testings:
@@ -15,6 +15,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        with:
+          ref: latest-code
 
       - name: Set up JDK 11
         uses: actions/setup-java@v2
@@ -22,6 +24,7 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
           cache: maven
+          ref: latest-code  
 
       - name: Update apt-get
         run: sudo apt-get update

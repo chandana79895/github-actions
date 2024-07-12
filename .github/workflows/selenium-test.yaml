@@ -51,13 +51,14 @@ jobs:
         run: |
           export DISPLAY=:99
           cd automation-testing/
-          ls -al
-          pwd
           xvfb-run -a mvn clean install 
 
       - name: Upload test report artifact
-        uses: actions/upload-artifact@v3
-        with:       
-            name: Report
-            path: ("user.dir")+"\\reports\\index.html"
-            if-no-files-found: warn
+        run: |
+          cd Reports/
+          ls -al
+        # uses: actions/upload-artifact@v3
+        # with:       
+        #     name: Report
+        #     path: ("user.dir")+"\\reports\\index.html"
+        #     if-no-files-found: warn

@@ -55,8 +55,9 @@ jobs:
           pwd
           xvfb-run -a mvn clean install 
 
-      - name: artifact
+      - name: Upload test report artifact
         uses: actions/upload-artifact@v3
         with:       
             name: Report
-            path: ("user.dir")+"//Reports//index.html  
+            path: Reports/index.html
+            if-no-files-found: warn

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="3" parallel="tests" name="Failed suite [Fortress_TestSuite]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="zapcg.Capillary.ListenersConfiguration.Listeners"/>
+  </listeners>
+  <test thread-count="3" parallel="tests" name="LoginTestsChromeBrowserTabletPortrait(failed)">
+    <parameter name="browser" value="chrome"/>
+    <parameter name="deviceName" value="Tablet Portrait"/>
+    <classes>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases">
+        <methods>
+          <include name="verify_SuccessMessage_For_RedeemPoint"/>
+          <include name="initialize"/>
+          <include name="tearDown"/>
+          <include name="verify_MemberDetails_Content_Displaying_On_EarnPointScreen"/>
+          <include name="verify_Time_Equal_To_System_CurrentTime"/>
+          <include name="verify_ExceedThresold_SuccessMessage"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases -->
+      <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases">
+        <methods>
+          <include name="tearDown"/>
+          <include name="goTOPassPoint_More_Than_TransactionAmount"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases -->
+    </classes>
+  </test> <!-- LoginTestsChromeBrowserTabletPortrait(failed) -->
+</suite> <!-- Failed suite [Fortress_TestSuite] -->

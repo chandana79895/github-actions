@@ -1,3 +1,5 @@
+[![Build and Deploy](https://github.com/chandana79895/github-actions/actions/workflows/selenium-test.yml/badge.svg?branch=latest-code&event=schedule)](https://github.com/chandana79895/github-actions/actions/workflows/selenium-test.yml)
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

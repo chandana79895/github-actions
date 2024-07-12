@@ -19,15 +19,19 @@ import { rsp } from "@/constants/tests/shortPath";
 
 function LoginPage() {
   const { t } = useTranslation();
-  const [devices, setDevices] = useState([]);
+  // const [devices, setDevices] = useState([]);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("invalidUsernameorPassword");
-  const { organizationID, setOrganizationID, setProperty, setStore } =
-    useContext(AppContext);
-
+  const {
+    organizationID,
+    setOrganizationID,
+    setProperty,
+    setStore,
+    setemployeeID,
+  } = useContext(AppContext);
   const navigate = useNavigate();
 
   // Redirect to location search page if organizationID is present
@@ -37,7 +41,7 @@ function LoginPage() {
     }
   }, [organizationID, navigate]);
   useEffect(() => {
-    getDeviceInfo();
+    // getDeviceInfo();
   }, []);
 
   const handleSubmit = async () => {
@@ -52,18 +56,25 @@ function LoginPage() {
       const hashedPass = Md5.hashStr(password).toString();
       const hashedToken = base64_encode(`${username}:${hashedPass}`);
       const payload = { username: username, authToken: `Basic ${hashedToken}` };
-
       getApi(Endpoints.login, payload, "POST")
         .then((loginResponse) => {
           const orgID = loginResponse?.data?.response?.organization?.id ?? "";
+          const property =
+            loginResponse?.data?.response?.session_profile?.store;
           setOrganizationID(orgID);
           localStorage.setItem("organizationID", orgID);
+          localStorage.setItem("login_name", username);
 
           // populate property and store from previous session
           const session = loginResponse?.data?.response?.session_profile;
+          const empId = session.user_name;
           if (session) {
             setProperty({ label: session.location, value: session.location });
             setStore({ label: session.store, value: session.store });
+            setemployeeID(empId);
+          }
+          if (property) {
+            navigate("/" + routes[4].path, { replace: true });
           }
         })
         .catch((err) => {
@@ -87,16 +98,14 @@ function LoginPage() {
       document.documentElement.classList.remove("login-page");
     };
   }, []);
-  console.log("Devices",devices)
-  const getDeviceInfo = async () => {
-    try {
-      const devices = await navigator.mediaDevices.enumerateDevices();
-      setDevices(devices);
-      console.log("DEVICES", devices);
-    } catch (err) {
-      console.error("Error fetching devices:", err);
-    }
-  };
+  // const getDeviceInfo = async () => {
+  //   try {
+  //     const devices = await navigator.mediaDevices.enumerateDevices();
+  //     setDevices(devices);
+  //   } catch (err) {
+  //     console.error("Error fetching devices:", err);
+  //   }
+  // };
 
   // for generating test ID's
   const currentPage = rsp("location-search");

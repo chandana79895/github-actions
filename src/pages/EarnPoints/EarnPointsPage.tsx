@@ -7,21 +7,34 @@ import FormLabel from "../../api/utils/FormLabel";
 import { Modal } from "../../components/Modal";
 import unlock from "../../assets/icons/unlock.svg";
 import { AppContext } from "@/store/AppContext";
+import { useNavigate } from "react-router";
+import moment from "moment";
+import { getApi, headers } from "@/api/utils/http";
+import { Endpoints } from "@/api/const/endpoints";
+import { transaction_amount } from "@/api/const/env";
 
 interface applicationFieldsProps {
   fields: {}[];
 }
 function EarnPointsPage() {
   const { t } = useTranslation();
-  const { property } = useContext(AppContext);
+  const navigate = useNavigate();
 
+  const { property } = useContext(AppContext);
+  const [memberData, setMemberData] = useState(null);
+  const [message, setMessage] = useState("");
   const [getApplicationFields, setApplicationFields] = useState<
     applicationFieldsProps | undefined
   >();
   const [expanded, setExpanded] = useState(false);
   const [open, setOpen] = useState(false);
-
-  //Response from the API
+  const [error, setError] = useState(false);
+  useEffect(() => {
+    const storedMemberData = JSON.parse(localStorage.getItem("memberData"));
+    if (storedMemberData) {
+      setMemberData(storedMemberData);
+    }
+  }, []);
 
   const currentDateTime = new Date();
   const currentDate =
@@ -37,7 +50,7 @@ function EarnPointsPage() {
     ":" +
     currentDateTime.getSeconds();
 
-    //earn points default value 
+  //earn points default value
   const earnPoints = {
     location: property.label,
     date: currentDate,
@@ -48,47 +61,47 @@ function EarnPointsPage() {
     amountEligibleForEarningPoints: 0,
     notes: "",
   };
-  const dummyData = {
-    //dummy data, to be replaced with api call
-    name: "Hikari Tanaka",
-    points: "16,000",
-    tier: "Silver",
-    membershipID: "123456789",
-    expiringPoints: "5,000",
-    expiryDate: "2024/01/01",
+  const data = {
+    firstName:memberData?.firstName,
+    lastName: memberData?.lastName,
+    points: memberData?.loyaltyPoints,
+    tier: memberData?.currentSlab,
+    membershipID: memberData?.cardId,
+    expiringPoints: memberData?.loyaltyPoints,
+    pointsExpiryDate: moment(memberData?.pointsExpiryDate).format("YYYY/MM/DD"),
   };
 
-  const messagesPopUp = [
-    {
-      id: 0,
-      message: t("successfullySubmitted")
-        .replace("_name", dummyData.name)
-        .replace("_points", "2000"),
-      openMsg: true,
-    },
-    {
-      id: 1,
-      message: t("transactionApproval").replace("_name", dummyData.name),
-      openMsg: false,
-    },
-    {
-      id: 2,
-      message: t("successfullySpending")
-        .replace("_name", dummyData.name)
-        .replace("_points", "16000")
-        .replace("_remaingPoints", "200"),
-      openMsg: false,
-    },
-    {
-      id: 3,
-      message: t("exceedsAmound")
-        .replace("_name", dummyData.name)
-        .replace("¥_points", "2000"),
-      openMsg: false,
-    },
-  ];
+  // const messagesPopUp = [
+  //   {
+  //     id: 0,
+  //     message: t("successfullySubmitted")
+  //       .replace("_name", data.name)
+  //       .replace("_points", "2000"),
+  //     openMsg: true,
+  //   },
+  //   {
+  //     id: 1,
+  //     message: t("transactionApproval").replace("_name", data.name),
+  //     openMsg: false,
+  //   },
+  //   {
+  //     id: 2,
+  //     message: t("successfullySpending")
+  //       .replace("_name", data.name)
+  //       .replace("_points", "16000")
+  //       .replace("_remainingPoints", "200"),
+  //     openMsg: false,
+  //   },
+  //   {
+  //     id: 3,
+  //     message: t("exceedsAmount")
+  //       .replace("_name", data.name)
+  //       .replace("¥_points", "2000"),
+  //     openMsg: false,
+  //   },
+  // ];
 
-  const [messages, setMessages] = useState([]);
+  // const [messages, setMessages] = useState([]);
 
   //Page load to get the application fields
   useEffect(() => {
@@ -99,7 +112,8 @@ function EarnPointsPage() {
   const getEarnPoints = async () => {
     const getFields = await applicationFormTemplate();
     setApplicationFields(getFields);
-    setMessages([...messagesPopUp]);
+    // setMessages([...messagesPopUp]);
+    // setMessage(message);
   };
 
   //creating Json For
@@ -190,13 +204,53 @@ function EarnPointsPage() {
   };
 
   //Click on the final submit
-  const onSubmit = () => {
-    setOpen(true);
+  const onSubmit = async (formValues) => {
+    const exceedValue =
+      Number(formValues.transactionAmount) > transaction_amount;
+    const payload = {
+      identifierType: "card_number",
+      identifierValue: memberData.card_number,
+      location: formValues.location,
+      billing_time: currentDate,
+      gross_amount: String(formValues.transactionAmount),
+      points: formValues.goToPassPointsUsed,
+      notes: formValues.notes,
+      exceedValue: exceedValue,
+    };
+
+    try {
+      const response = await getApi(
+        Endpoints.earnPoints,
+        payload,
+        "POST_HEADER",
+        headers
+      );
+      console.log("API Response:", response);
+
+      if (response) {
+        // if (response) {
+        setOpen(true);
+        // setMessage("Redemption Successful");
+        // setMessage(response.data.error);
+      } else {
+        console.error("Failed to earn points:", response);
+        setOpen(true);
+        setError(true);
+        setMessage(response.data.error);
+      }
+    } catch (error) {
+      console.log("ERROR", error);
+      setError(true);
+      // setMessage(response.data.error);
+      setOpen(true);
+
+      console.error("Error earning points:", error);
+    }
   };
 
   //To click the cancel button in the form
   const handleCancel = () => {
-    //click on the cancel action
+    navigate("/member-details");
   };
 
   //To click the  modal  to close
@@ -205,23 +259,23 @@ function EarnPointsPage() {
   };
 
   //to change the popup message in the modal popup
-  const handleSubmitPopUp = (itemId: number) => {
-    const UpdatedId = itemId + 1;
-    const updateMessage = messages.map((item) => {
-      if (item.id == UpdatedId) {
-        item.openMsg = true;
-      } else {
-        item.openMsg = false;
-      }
-      return item;
-    });
-    setMessages([...updateMessage]);
-    if (messages.length == UpdatedId) {
-      messages[0].openMsg = true;
-      setMessages([...messages]);
-      setOpen(false);
-    }
-  };
+  // const handleSubmitPopUp = (itemId: number) => {
+  //   const UpdatedId = itemId + 1;
+  //   const updateMessage = messages.map((item) => {
+  //     if (item.id == UpdatedId) {
+  //       item.openMsg = true;
+  //     } else {
+  //       item.openMsg = false;
+  //     }
+  //     return item;
+  //   });
+  //   setMessages([...updateMessage]);
+  //   if (messages.length == UpdatedId) {
+  //     messages[0].openMsg = true;
+  //     setMessages([...messages]);
+  //     setOpen(false);
+  //   }
+  // };
 
   //Based on the textfield in form  values will be change
   const handleTaxAndEligbleAmount = (
@@ -236,8 +290,8 @@ function EarnPointsPage() {
       getTextValues;
     switch (formKeyValues) {
       case "transactionAmount":
-        const taxAssumedAmountTotal = Number(value) / 1.1;
-
+        // const taxAssumedAmountTotal = Number(value) / 1.1;
+        const taxAssumedAmountTotal = Number(value) - Number(value) / 1.1;
         const amountEligible =
           Number(value) - taxAssumedAmountTotal - Number(goToPassPointsUsed);
 
@@ -265,7 +319,9 @@ function EarnPointsPage() {
     <>
       <div className="cards-container">
         <MemberCard
-          {...dummyData}
+          firstName={data.firstName}
+          lastName={data.lastName}
+          {...data}
           expandable
           expanded={expanded}
           setExpanded={setExpanded}
@@ -275,7 +331,7 @@ function EarnPointsPage() {
           <Grid item xs={12} className="input-container pb-0">
             <Grid item xs={12} md={12}>
               <Typography variant={"h6"} className="txt-end">
-                {`*${t("requiredFields")}`}
+                {`*${t("RequiredFields")}`}
               </Typography>
             </Grid>
             {undefined !== getApplicationFields && (
@@ -290,19 +346,18 @@ function EarnPointsPage() {
           </Grid>
         </Card>
 
-        {open &&
-          messages.map((item) => (
-            <Modal
-              open={item.openMsg}
-              onClose={handleModalClose}
-              error={false}
-              onClick={() => handleSubmitPopUp(item.id)}
-              buttonText={t("continue")}
-              errorText={""}
-              successText={t("sucess")}
-              successMessage={item.message}
-            />
-          ))}
+        {open && (
+          <Modal
+            open={open}
+            onClose={handleModalClose}
+            error={error}
+            onClick={handleModalClose}
+            buttonText={t("continue")}
+            errorText={message}
+            successText={t("success")}
+            successMessage={message}
+          />
+        )}
       </div>
     </>
   );

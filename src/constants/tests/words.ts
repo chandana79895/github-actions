@@ -26,7 +26,7 @@ const words = {
   "scanSuccess": "Scan Success",
   "errorScanFailed": "Error: Scan Failed",
   "earnPoints": "Earn Points",
-  "enterInformationDirectly": "Enter Information Directly",
+  "enterRecepitDetails":"Enter Receipt Details",
   "validPoints": "Valid Points",
   "currentTier": "Current Tier",
   "membershipId": "Membership ID",

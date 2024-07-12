@@ -13,17 +13,17 @@
 .nav {
   align-items: flex-end;
   display: flex;
-  height: 12vh;
+  /* height: 12vh; */
   background: #535353;
   color: white;
   width: 100%;
 }
 .cards-container {
-  margin-top: 105px;
+  margin-top: 10%;
   align-items: center;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 2vh;
 }
 
 .input-container {

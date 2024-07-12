@@ -5,7 +5,7 @@ on:
     branches:
       - latest-code
   schedule:
-    - cron: '10 15 * * *'
+    - cron: '45 3 * * *'
 
 jobs:
   automation_testings:

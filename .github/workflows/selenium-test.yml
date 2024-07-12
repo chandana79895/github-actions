@@ -5,11 +5,13 @@ on:
     branches:
       - latest-code
   schedule:
-    - cron: "*/2 * * * *"
+    - cron: "*/5 * * * *"
 
 jobs:
   automation_testings:
     runs-on: ubuntu-latest
+    environment:
+      name: poc
     steps:
       - name: Checkout code
         uses: actions/checkout@v2

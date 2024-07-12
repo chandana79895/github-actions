@@ -7,7 +7,7 @@
 Build info: version: &#039;4.22.0&#039;, revision: &#039;c5f3146703*&#039;
 System info: os.name: &#039;Windows 10&#039;, os.arch: &#039;amd64&#039;, os.version: &#039;10.0&#039;, java.version: &#039;15.0.2&#039;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [1c94cee1a13ec39c22bbd0b0b2c773d5, get {url=https://d1msv2sqknn4w4.cloudfront.net}]
+Command: [1c94cee1a13ec39c22bbd0b0b2c773d5, get {url=https://d3che4praaad7h.cloudfront.net}]
 Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 126.0.6478.127, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\KAJALS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57485}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57485/devtoo..., se:cdpVersion: 126.0.6478.127, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
 Session ID: 1c94cee1a13ec39c22bbd0b0b2c773d5" type="org.openqa.selenium.WebDriverException">
       <![CDATA[org.openqa.selenium.WebDriverException: unknown error: net::ERR_INTERNET_DISCONNECTED
@@ -15,7 +15,7 @@ Session ID: 1c94cee1a13ec39c22bbd0b0b2c773d5" type="org.openqa.selenium.WebDrive
 Build info: version: '4.22.0', revision: 'c5f3146703*'
 System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [1c94cee1a13ec39c22bbd0b0b2c773d5, get {url=https://d1msv2sqknn4w4.cloudfront.net}]
+Command: [1c94cee1a13ec39c22bbd0b0b2c773d5, get {url=https://d3che4praaad7h.cloudfront.net}]
 Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 126.0.6478.127, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\KAJALS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57485}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57485/devtoo..., se:cdpVersion: 126.0.6478.127, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
 Session ID: 1c94cee1a13ec39c22bbd0b0b2c773d5
 at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)

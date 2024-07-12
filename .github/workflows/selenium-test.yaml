@@ -73,5 +73,5 @@ jobs:
         uses: actions/upload-artifact@v3
         with:       
             name: Report
-            path: ("user.dir")+"\\reports\\index.html    
+            path: ("user.dir")+"\\Reports\\index.html    
 

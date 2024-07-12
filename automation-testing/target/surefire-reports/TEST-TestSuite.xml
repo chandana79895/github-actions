@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="TestSuite" time="50.411" tests="10" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="17"/>
+    <property name="webdriver.chrome.driver" value="C:\Users\ManiChandana\.cache\selenium\chromedriver\win64\126.0.6478.126\chromedriver.exe"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\ManiChandana\Fortress-Repos\github-actions\automation-testing\target\test-classes;C:\Users\ManiChandana\Fortress-Repos\github-actions\automation-testing\target\classes;C:\Users\ManiChandana\.m2\repository\org\testng\testng\7.10.2\testng-7.10.2.jar;C:\Users\ManiChandana\.m2\repository\org\slf4j\slf4j-api\1.7.36\slf4j-api-1.7.36.jar;C:\Users\ManiChandana\.m2\repository\com\beust\jcommander\1.82\jcommander-1.82.jar;C:\Users\ManiChandana\.m2\repository\org\webjars\jquery\3.7.1\jquery-3.7.1.jar;C:\Users\ManiChandana\.m2\repository\com\google\zxing\javase\3.4.0\javase-3.4.0.jar;C:\Users\ManiChandana\.m2\repository\com\github\jai-imageio\jai-imageio-core\1.4.0\jai-imageio-core-1.4.0.jar;C:\Users\ManiChandana\.m2\repository\org\bytedeco\javacpp-presets\opencv\3.4.1-1.4.1\opencv-3.4.1-1.4.1.jar;C:\Users\ManiChandana\.m2\repository\org\bytedeco\javacpp\1.4.1\javacpp-1.4.1.jar;C:\Users\ManiChandana\.m2\repository\com\google\zxing\core\3.4.0\core-3.4.0.jar;C:\Users\ManiChandana\.m2\repository\io\github\bonigarcia\webdrivermanager\5.7.0\webdrivermanager-5.7.0.jar;C:\Users\ManiChandana\.m2\repository\com\google\code\gson\gson\2.10.1\gson-2.10.1.jar;C:\Users\ManiChandana\.m2\repository\com\github\docker-java\docker-java\3.3.5\docker-java-3.3.5.jar;C:\Users\ManiChandana\.m2\repository\com\github\docker-java\docker-java-core\3.3.5\docker-java-core-3.3.5.jar;C:\Users\ManiChandana\.m2\repository\com\github\docker-java\docker-java-api\3.3.5\docker-java-api-3.3.5.jar;C:\Users\ManiChandana\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.10.3\jackson-annotations-2.10.3.jar;C:\Users\ManiChandana\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.10.3\jackson-databind-2.10.3.jar;C:\Users\ManiChandana\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.10.3\jackson-core-2.10.3.jar;C:\Users\ManiChandana\.m2\repository\org\bouncycastle\bcpkix-jdk18on\1.76\bcpkix-jdk18on-1.76.jar;C:\Users\ManiChandana\.m2\repository\org\bouncycastle\bcprov-jdk18on\1.76\bcprov-jdk18on-1.76.jar;C:\Users\ManiChandana\.m2\repository\org\bouncycastle\bcutil-jdk18on\1.76\bcutil-jdk18on-1.76.jar;C:\Users\ManiChandana\.m2\repository\org\slf4j\jcl-over-slf4j\1.7.30\jcl-over-slf4j-1.7.30.jar;C:\Users\ManiChandana\.m2\repository\com\github\docker-java\docker-java-transport-httpclient5\3.3.5\docker-java-transport-httpclient5-3.3.5.jar;C:\Users\ManiChandana\.m2\repository\com\github\docker-java\docker-java-transport\3.3.5\docker-java-transport-3.3.5.jar;C:\Users\ManiChandana\.m2\repository\net\java\dev\jna\jna\5.13.0\jna-5.13.0.jar;C:\Users\ManiChandana\.m2\repository\org\brotli\dec\0.1.2\dec-0.1.2.jar;C:\Users\ManiChandana\.m2\repository\org\apache\commons\commons-lang3\3.14.0\commons-lang3-3.14.0.jar;C:\Users\ManiChandana\.m2\repository\org\apache\commons\commons-compress\1.26.0\commons-compress-1.26.0.jar;C:\Users\ManiChandana\.m2\repository\commons-io\commons-io\2.15.1\commons-io-2.15.1.jar;C:\Users\ManiChandana\.m2\repository\org\apache\httpcomponents\client5\httpclient5\5.2.1\httpclient5-5.2.1.jar;C:\Users\ManiChandana\.m2\repository\org\apache\httpcomponents\core5\httpcore5\5.2\httpcore5-5.2.jar;C:\Users\ManiChandana\.m2\repository\org\apache\httpcomponents\core5\httpcore5-h2\5.2\httpcore5-h2-5.2.jar;C:\Users\ManiChandana\.m2\repository\org\seleniumhq\selenium\selenium-java\4.22.0\selenium-java-4.22.0.jar;C:\Users\ManiChandana\.m2\repository\org\seleniumhq\selenium\selenium-api\4.22.0\selenium-api-4.22.0.jar;C:\Users\ManiChandana\.m2\repository\org\seleniumhq\selenium\selenium-chrome-driver\4.22.0\selenium-chrome-driver-4.22.0.jar;C:\Users\ManiChandana\.m2\repository\com\google\auto\service\auto-service-annotations\1.1.1\auto-service-annotations-1.1.1.jar;C:\Users\ManiChandana\.m2\repository\org\seleniumhq\selenium\selenium-chromium-driver\4.22.0\selenium-chromium-driver-4.22.0.jar;C:\Users\ManiChandana\.m2\repository\org\seleniumhq\selenium\selenium-json\4.22.0\selenium-json-4.22.0.jar;C:\Users\ManiChandana\.m2\repository\org\seleniumhq\selenium\selenium-manager\4.22.0\selenium-manager-4.22.0.jar;C:\Users\ManiChandana\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v124\4.22.0\selenium-devtools-v124-4.22.0.jar;C:\Users\ManiChandana\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v125\4.22.0\selenium-devtools-v125-4.22.0.jar;C:\Users\ManiChandana\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v126\4.22.0\selenium-devtools-v126-4.22.0.jar;C:\Users\ManiChandana\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v85\4.22.0\selenium-devtools-v85-4.22.0.jar;C:\Users\ManiChandana\.m2\repository\org\seleniumhq\selenium\selenium-edge-driver\4.22.0\selenium-edge-driver-4.22.0.jar;C:\Users\ManiChandana\.m2\repository\org\seleniumhq\selenium\selenium-firefox-driver\4.22.0\selenium-firefox-driver-4.22.0.jar;C:\Users\ManiChandana\.m2\repository\org\seleniumhq\selenium\selenium-http\4.22.0\selenium-http-4.22.0.jar;C:\Users\ManiChandana\.m2\repository\dev\failsafe\failsafe\3.3.2\failsafe-3.3.2.jar;C:\Users\ManiChandana\.m2\repository\org\seleniumhq\selenium\selenium-ie-driver\4.22.0\selenium-ie-driver-4.22.0.jar;C:\Users\ManiChandana\.m2\repository\org\seleniumhq\selenium\selenium-remote-driver\4.22.0\selenium-remote-driver-4.22.0.jar;C:\Users\ManiChandana\.m2\repository\com\google\guava\guava\33.2.1-jre\guava-33.2.1-jre.jar;C:\Users\ManiChandana\.m2\repository\com\google\guava\failureaccess\1.0.2\failureaccess-1.0.2.jar;C:\Users\ManiChandana\.m2\repository\com\google\guava\listenablefuture\9999.0-empty-to-avoid-conflict-with-guava\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;C:\Users\ManiChandana\.m2\repository\com\google\code\findbugs\jsr305\3.0.2\jsr305-3.0.2.jar;C:\Users\ManiChandana\.m2\repository\org\checkerframework\checker-qual\3.42.0\checker-qual-3.42.0.jar;C:\Users\ManiChandana\.m2\repository\com\google\errorprone\error_prone_annotations\2.26.1\error_prone_annotations-2.26.1.jar;C:\Users\ManiChandana\.m2\repository\com\google\j2objc\j2objc-annotations\3.0.0\j2objc-annotations-3.0.0.jar;C:\Users\ManiChandana\.m2\repository\io\opentelemetry\semconv\opentelemetry-semconv\1.25.0-alpha\opentelemetry-semconv-1.25.0-alpha.jar;C:\Users\ManiChandana\.m2\repository\io\opentelemetry\opentelemetry-api\1.39.0\opentelemetry-api-1.39.0.jar;C:\Users\ManiChandana\.m2\repository\io\opentelemetry\opentelemetry-context\1.39.0\opentelemetry-context-1.39.0.jar;C:\Users\ManiChandana\.m2\repository\io\opentelemetry\opentelemetry-exporter-logging\1.39.0\opentelemetry-exporter-logging-1.39.0.jar;C:\Users\ManiChandana\.m2\repository\io\opentelemetry\opentelemetry-sdk-common\1.39.0\opentelemetry-sdk-common-1.39.0.jar;C:\Users\ManiChandana\.m2\repository\io\opentelemetry\opentelemetry-sdk-extension-autoconfigure-spi\1.39.0\opentelemetry-sdk-extension-autoconfigure-spi-1.39.0.jar;C:\Users\ManiChandana\.m2\repository\io\opentelemetry\opentelemetry-sdk-extension-autoconfigure\1.39.0\opentelemetry-sdk-extension-autoconfigure-1.39.0.jar;C:\Users\ManiChandana\.m2\repository\io\opentelemetry\opentelemetry-api-incubator\1.39.0-alpha\opentelemetry-api-incubator-1.39.0-alpha.jar;C:\Users\ManiChandana\.m2\repository\io\opentelemetry\opentelemetry-sdk-trace\1.39.0\opentelemetry-sdk-trace-1.39.0.jar;C:\Users\ManiChandana\.m2\repository\io\opentelemetry\opentelemetry-sdk\1.39.0\opentelemetry-sdk-1.39.0.jar;C:\Users\ManiChandana\.m2\repository\io\opentelemetry\opentelemetry-sdk-metrics\1.39.0\opentelemetry-sdk-metrics-1.39.0.jar;C:\Users\ManiChandana\.m2\repository\io\opentelemetry\opentelemetry-sdk-logs\1.39.0\opentelemetry-sdk-logs-1.39.0.jar;C:\Users\ManiChandana\.m2\repository\net\bytebuddy\byte-buddy\1.14.17\byte-buddy-1.14.17.jar;C:\Users\ManiChandana\.m2\repository\org\seleniumhq\selenium\selenium-os\4.22.0\selenium-os-4.22.0.jar;C:\Users\ManiChandana\.m2\repository\org\apache\commons\commons-exec\1.4.0\commons-exec-1.4.0.jar;C:\Users\ManiChandana\.m2\repository\org\seleniumhq\selenium\selenium-safari-driver\4.22.0\selenium-safari-driver-4.22.0.jar;C:\Users\ManiChandana\.m2\repository\org\seleniumhq\selenium\selenium-support\4.22.0\selenium-support-4.22.0.jar;C:\Users\ManiChandana\.m2\repository\com\aventstack\extentreports\5.1.1\extentreports-5.1.1.jar;C:\Users\ManiChandana\.m2\repository\io\reactivex\rxjava3\rxjava\3.1.6\rxjava-3.1.6.jar;C:\Users\ManiChandana\.m2\repository\org\reactivestreams\reactive-streams\1.0.4\reactive-streams-1.0.4.jar;C:\Users\ManiChandana\.m2\repository\org\freemarker\freemarker\2.3.32\freemarker-2.3.32.jar;C:\Users\ManiChandana\.m2\repository\org\projectlombok\lombok\1.18.26\lombok-1.18.26.jar;C:\Users\ManiChandana\.m2\repository\org\apache\logging\log4j\log4j-core\2.14.1\log4j-core-2.14.1.jar;C:\Users\ManiChandana\.m2\repository\org\apache\logging\log4j\log4j-api\2.14.1\log4j-api-2.14.1.jar;C:\Users\ManiChandana\.m2\repository\org\apache\logging\log4j\log4j-slf4j-impl\2.14.1\log4j-slf4j-impl-2.14.1.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="user.timezone" value="Asia/Calcutta"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="17"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="IN"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-17\bin"/>
+    <property name="sun.java.command" value="C:\Users\ManiChandana\AppData\Local\Temp\surefire6466482837221338598\surefirebooter12391495293282050742.jar C:\Users\ManiChandana\AppData\Local\Temp\surefire6466482837221338598 2024-07-12T12-43-16_824-jvmRun1 surefire13651722904300502188tmp surefire_06125158993037568422tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\Users\ManiChandana\Fortress-Repos\github-actions\automation-testing\target\test-classes;C:\Users\ManiChandana\Fortress-Repos\github-actions\automation-testing\target\classes;C:\Users\ManiChandana\.m2\repository\org\testng\testng\7.10.2\testng-7.10.2.jar;C:\Users\ManiChandana\.m2\repository\org\slf4j\slf4j-api\1.7.36\slf4j-api-1.7.36.jar;C:\Users\ManiChandana\.m2\repository\com\beust\jcommander\1.82\jcommander-1.82.jar;C:\Users\ManiChandana\.m2\repository\org\webjars\jquery\3.7.1\jquery-3.7.1.jar;C:\Users\ManiChandana\.m2\repository\com\google\zxing\javase\3.4.0\javase-3.4.0.jar;C:\Users\ManiChandana\.m2\repository\com\github\jai-imageio\jai-imageio-core\1.4.0\jai-imageio-core-1.4.0.jar;C:\Users\ManiChandana\.m2\repository\org\bytedeco\javacpp-presets\opencv\3.4.1-1.4.1\opencv-3.4.1-1.4.1.jar;C:\Users\ManiChandana\.m2\repository\org\bytedeco\javacpp\1.4.1\javacpp-1.4.1.jar;C:\Users\ManiChandana\.m2\repository\com\google\zxing\core\3.4.0\core-3.4.0.jar;C:\Users\ManiChandana\.m2\repository\io\github\bonigarcia\webdrivermanager\5.7.0\webdrivermanager-5.7.0.jar;C:\Users\ManiChandana\.m2\repository\com\google\code\gson\gson\2.10.1\gson-2.10.1.jar;C:\Users\ManiChandana\.m2\repository\com\github\docker-java\docker-java\3.3.5\docker-java-3.3.5.jar;C:\Users\ManiChandana\.m2\repository\com\github\docker-java\docker-java-core\3.3.5\docker-java-core-3.3.5.jar;C:\Users\ManiChandana\.m2\repository\com\github\docker-java\docker-java-api\3.3.5\docker-java-api-3.3.5.jar;C:\Users\ManiChandana\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.10.3\jackson-annotations-2.10.3.jar;C:\Users\ManiChandana\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.10.3\jackson-databind-2.10.3.jar;C:\Users\ManiChandana\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.10.3\jackson-core-2.10.3.jar;C:\Users\ManiChandana\.m2\repository\org\bouncycastle\bcpkix-jdk18on\1.76\bcpkix-jdk18on-1.76.jar;C:\Users\ManiChandana\.m2\repository\org\bouncycastle\bcprov-jdk18on\1.76\bcprov-jdk18on-1.76.jar;C:\Users\ManiChandana\.m2\repository\org\bouncycastle\bcutil-jdk18on\1.76\bcutil-jdk18on-1.76.jar;C:\Users\ManiChandana\.m2\repository\org\slf4j\jcl-over-slf4j\1.7.30\jcl-over-slf4j-1.7.30.jar;C:\Users\ManiChandana\.m2\repository\com\github\docker-java\docker-java-transport-httpclient5\3.3.5\docker-java-transport-httpclient5-3.3.5.jar;C:\Users\ManiChandana\.m2\repository\com\github\docker-java\docker-java-transport\3.3.5\docker-java-transport-3.3.5.jar;C:\Users\ManiChandana\.m2\repository\net\java\dev\jna\jna\5.13.0\jna-5.13.0.jar;C:\Users\ManiChandana\.m2\repository\org\brotli\dec\0.1.2\dec-0.1.2.jar;C:\Users\ManiChandana\.m2\repository\org\apache\commons\commons-lang3\3.14.0\commons-lang3-3.14.0.jar;C:\Users\ManiChandana\.m2\repository\org\apache\commons\commons-compress\1.26.0\commons-compress-1.26.0.jar;C:\Users\ManiChandana\.m2\repository\commons-io\commons-io\2.15.1\commons-io-2.15.1.jar;C:\Users\ManiChandana\.m2\repository\org\apache\httpcomponents\client5\httpclient5\5.2.1\httpclient5-5.2.1.jar;C:\Users\ManiChandana\.m2\repository\org\apache\httpcomponents\core5\httpcore5\5.2\httpcore5-5.2.jar;C:\Users\ManiChandana\.m2\repository\org\apache\httpcomponents\core5\httpcore5-h2\5.2\httpcore5-h2-5.2.jar;C:\Users\ManiChandana\.m2\repository\org\seleniumhq\selenium\selenium-java\4.22.0\selenium-java-4.22.0.jar;C:\Users\ManiChandana\.m2\repository\org\seleniumhq\selenium\selenium-api\4.22.0\selenium-api-4.22.0.jar;C:\Users\ManiChandana\.m2\repository\org\seleniumhq\selenium\selenium-chrome-driver\4.22.0\selenium-chrome-driver-4.22.0.jar;C:\Users\ManiChandana\.m2\repository\com\google\auto\service\auto-service-annotations\1.1.1\auto-service-annotations-1.1.1.jar;C:\Users\ManiChandana\.m2\repository\org\seleniumhq\selenium\selenium-chromium-driver\4.22.0\selenium-chromium-driver-4.22.0.jar;C:\Users\ManiChandana\.m2\repository\org\seleniumhq\selenium\selenium-json\4.22.0\selenium-json-4.22.0.jar;C:\Users\ManiChandana\.m2\repository\org\seleniumhq\selenium\selenium-manager\4.22.0\selenium-manager-4.22.0.jar;C:\Users\ManiChandana\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v124\4.22.0\selenium-devtools-v124-4.22.0.jar;C:\Users\ManiChandana\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v125\4.22.0\selenium-devtools-v125-4.22.0.jar;C:\Users\ManiChandana\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v126\4.22.0\selenium-devtools-v126-4.22.0.jar;C:\Users\ManiChandana\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v85\4.22.0\selenium-devtools-v85-4.22.0.jar;C:\Users\ManiChandana\.m2\repository\org\seleniumhq\selenium\selenium-edge-driver\4.22.0\selenium-edge-driver-4.22.0.jar;C:\Users\ManiChandana\.m2\repository\org\seleniumhq\selenium\selenium-firefox-driver\4.22.0\selenium-firefox-driver-4.22.0.jar;C:\Users\ManiChandana\.m2\repository\org\seleniumhq\selenium\selenium-http\4.22.0\selenium-http-4.22.0.jar;C:\Users\ManiChandana\.m2\repository\dev\failsafe\failsafe\3.3.2\failsafe-3.3.2.jar;C:\Users\ManiChandana\.m2\repository\org\seleniumhq\selenium\selenium-ie-driver\4.22.0\selenium-ie-driver-4.22.0.jar;C:\Users\ManiChandana\.m2\repository\org\seleniumhq\selenium\selenium-remote-driver\4.22.0\selenium-remote-driver-4.22.0.jar;C:\Users\ManiChandana\.m2\repository\com\google\guava\guava\33.2.1-jre\guava-33.2.1-jre.jar;C:\Users\ManiChandana\.m2\repository\com\google\guava\failureaccess\1.0.2\failureaccess-1.0.2.jar;C:\Users\ManiChandana\.m2\repository\com\google\guava\listenablefuture\9999.0-empty-to-avoid-conflict-with-guava\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;C:\Users\ManiChandana\.m2\repository\com\google\code\findbugs\jsr305\3.0.2\jsr305-3.0.2.jar;C:\Users\ManiChandana\.m2\repository\org\checkerframework\checker-qual\3.42.0\checker-qual-3.42.0.jar;C:\Users\ManiChandana\.m2\repository\com\google\errorprone\error_prone_annotations\2.26.1\error_prone_annotations-2.26.1.jar;C:\Users\ManiChandana\.m2\repository\com\google\j2objc\j2objc-annotations\3.0.0\j2objc-annotations-3.0.0.jar;C:\Users\ManiChandana\.m2\repository\io\opentelemetry\semconv\opentelemetry-semconv\1.25.0-alpha\opentelemetry-semconv-1.25.0-alpha.jar;C:\Users\ManiChandana\.m2\repository\io\opentelemetry\opentelemetry-api\1.39.0\opentelemetry-api-1.39.0.jar;C:\Users\ManiChandana\.m2\repository\io\opentelemetry\opentelemetry-context\1.39.0\opentelemetry-context-1.39.0.jar;C:\Users\ManiChandana\.m2\repository\io\opentelemetry\opentelemetry-exporter-logging\1.39.0\opentelemetry-exporter-logging-1.39.0.jar;C:\Users\ManiChandana\.m2\repository\io\opentelemetry\opentelemetry-sdk-common\1.39.0\opentelemetry-sdk-common-1.39.0.jar;C:\Users\ManiChandana\.m2\repository\io\opentelemetry\opentelemetry-sdk-extension-autoconfigure-spi\1.39.0\opentelemetry-sdk-extension-autoconfigure-spi-1.39.0.jar;C:\Users\ManiChandana\.m2\repository\io\opentelemetry\opentelemetry-sdk-extension-autoconfigure\1.39.0\opentelemetry-sdk-extension-autoconfigure-1.39.0.jar;C:\Users\ManiChandana\.m2\repository\io\opentelemetry\opentelemetry-api-incubator\1.39.0-alpha\opentelemetry-api-incubator-1.39.0-alpha.jar;C:\Users\ManiChandana\.m2\repository\io\opentelemetry\opentelemetry-sdk-trace\1.39.0\opentelemetry-sdk-trace-1.39.0.jar;C:\Users\ManiChandana\.m2\repository\io\opentelemetry\opentelemetry-sdk\1.39.0\opentelemetry-sdk-1.39.0.jar;C:\Users\ManiChandana\.m2\repository\io\opentelemetry\opentelemetry-sdk-metrics\1.39.0\opentelemetry-sdk-metrics-1.39.0.jar;C:\Users\ManiChandana\.m2\repository\io\opentelemetry\opentelemetry-sdk-logs\1.39.0\opentelemetry-sdk-logs-1.39.0.jar;C:\Users\ManiChandana\.m2\repository\net\bytebuddy\byte-buddy\1.14.17\byte-buddy-1.14.17.jar;C:\Users\ManiChandana\.m2\repository\org\seleniumhq\selenium\selenium-os\4.22.0\selenium-os-4.22.0.jar;C:\Users\ManiChandana\.m2\repository\org\apache\commons\commons-exec\1.4.0\commons-exec-1.4.0.jar;C:\Users\ManiChandana\.m2\repository\org\seleniumhq\selenium\selenium-safari-driver\4.22.0\selenium-safari-driver-4.22.0.jar;C:\Users\ManiChandana\.m2\repository\org\seleniumhq\selenium\selenium-support\4.22.0\selenium-support-4.22.0.jar;C:\Users\ManiChandana\.m2\repository\com\aventstack\extentreports\5.1.1\extentreports-5.1.1.jar;C:\Users\ManiChandana\.m2\repository\io\reactivex\rxjava3\rxjava\3.1.6\rxjava-3.1.6.jar;C:\Users\ManiChandana\.m2\repository\org\reactivestreams\reactive-streams\1.0.4\reactive-streams-1.0.4.jar;C:\Users\ManiChandana\.m2\repository\org\freemarker\freemarker\2.3.32\freemarker-2.3.32.jar;C:\Users\ManiChandana\.m2\repository\org\projectlombok\lombok\1.18.26\lombok-1.18.26.jar;C:\Users\ManiChandana\.m2\repository\org\apache\logging\log4j\log4j-core\2.14.1\log4j-core-2.14.1.jar;C:\Users\ManiChandana\.m2\repository\org\apache\logging\log4j\log4j-api\2.14.1\log4j-api-2.14.1.jar;C:\Users\ManiChandana\.m2\repository\org\apache\logging\log4j\log4j-slf4j-impl\2.14.1\log4j-slf4j-impl-2.14.1.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\ManiChandana"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2024-01-16"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-17"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\ManiChandana\Fortress-Repos\github-actions\automation-testing"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\ManiChandana\AppData\Local\Temp\surefire6466482837221338598\surefirebooter12391495293282050742.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="17.0.10+11-LTS-240"/>
+    <property name="user.name" value="ManiChandana"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="Cp1252"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="localRepository" value="C:\Users\ManiChandana\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\MANICH~1\AppData\Local\Temp\"/>
+    <property name="java.version" value="17.0.10"/>
+    <property name="user.dir" value="C:\Users\ManiChandana\Fortress-Repos\github-actions\automation-testing"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-17\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\OpenLogic\jdk-11.0.22.7-hotspot\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\Amazon\AWSCLIV2\;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Program Files\Java\jdk-17\bin;C:\Program Files\Docker\Docker\resources\bin;C:\Users\ManiChandana\Downloads\apache-maven-3.9.8\bin;C:\apache-maven-3.9.8\bin;C:\Users\ManiChandana\scoop\apps\openssl\current\bin;C:\Users\ManiChandana\AppData\Local\Programs\Python\Python312\Scripts\;C:\Users\ManiChandana\AppData\Local\Programs\Python\Python312\;C:\Users\ManiChandana\scoop\apps\gsudo\current;C:\Users\ManiChandana\scoop\shims;C:\Users\ManiChandana\AppData\Local\Microsoft\WindowsApps;C:\Users\ManiChandana\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\ManiChandana\AppData\Roaming\npm;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="17.0.10+11-LTS-240"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="61.0"/>
+  </properties>
+  <testcase name="Valid_Login" classname="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases" time="1.504">
+    <system-out><![CDATA[Before navigating to URL
+After navigating to URL
+Browser got opened
+Current URL: https://d3che4praaad7h.cloudfront.net/login
+HTML Source of the element:
+<div id="root"><div class="App"><div class="MuiGrid-root MuiGrid-container login-nav css-8rnkcc" id="LGMENU" data-testid="LGMENU"><div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 main-grid css-15j76c0"><div class="button" id="LGMENUI0" data-testid="LGMENUI0"><div class="MuiBox-root css-g9yypl"><img src="data:image/svg+xml,%3csvg%20width='15'%20height='15'%20viewBox='0%200%2015%2015'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M7.5%200C3.3612%200%200%203.3651%200%207.49749C0%2011.6299%203.36622%2015%207.5%2015C11.6338%2015%2015%2011.6349%2015%207.50251C15%203.37011%2011.6388%200%207.5%200ZM13.0836%204.59378H10.6856C10.3746%203.47041%209.87793%202.41224%209.22074%201.44433C10.9013%201.92076%2012.291%203.07924%2013.0836%204.59378ZM13.796%207.50251C13.796%208.09428%2013.7157%208.666%2013.5602%209.20762H10.9465C11.0368%208.64594%2011.0819%208.07422%2011.0819%207.49749C11.0819%206.92578%2011.0368%206.35406%2010.9515%205.79739H13.5652C13.7157%206.33902%2013.796%206.91073%2013.796%207.50251ZM5.6087%2010.4112H9.42642C9.02508%2011.67%208.36789%2012.8134%207.52007%2013.7864C6.66722%2012.8134%206.01003%2011.665%205.6087%2010.4112ZM5.30769%209.20762C5.20736%208.65095%205.15217%208.07924%205.15217%207.49749C5.15217%206.91575%205.20234%206.34905%205.30268%205.79739H9.72742C9.82776%206.34905%209.87793%206.91575%209.87793%207.49749C9.87793%208.07924%209.82274%208.65095%209.72241%209.20762H5.30769ZM1.20401%207.50251C1.20401%206.91073%201.28428%206.34403%201.4398%205.80241H4.08361C3.99833%206.35908%203.95318%206.92578%203.95318%207.50251C3.95318%208.07924%203.99833%208.65095%204.08863%209.21264H1.44482C1.28428%208.666%201.20401%208.08927%201.20401%207.50251ZM7.51505%201.20863C8.36789%202.18154%209.02508%203.33501%209.42642%204.59378H5.59866C6.00502%203.33501%206.66221%202.18154%207.51505%201.20863ZM5.81438%201.4343C5.15217%202.40221%204.65552%203.47041%204.34448%204.59378H1.91639C2.71405%203.06921%204.12375%201.90572%205.81438%201.4343ZM1.91639%2010.4112H4.34448C4.66054%2011.5346%205.15719%2012.6028%205.8194%2013.5707C4.12876%2013.0993%202.71906%2011.9408%201.91639%2010.4112ZM9.21572%2013.5607C9.87793%2012.5928%2010.3696%2011.5346%2010.6856%2010.4112H13.0836C12.291%2011.9258%2010.8963%2013.0843%209.21572%2013.5607Z'%20fill='white'/%3e%3c/svg%3e" alt="">日本語</div></div></div></div><div class="login-page-container" id="LSCONT" data-testid="LSCONT"><div class="MuiGrid-root MuiGrid-container login-container css-1d3bbye"><div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-qghdwx"><div class="login-avatar-container MuiBox-root css-0" id="LSACONT" data-testid="LSACONT"><div class="MuiAvatar-root MuiAvatar-circular login-avatar css-1pzo9w0" data-testid="LSAVT"><img alt="Logo" src="/assets/goToPass-B6-2E-T1.svg" class="MuiAvatar-img css-1hy9t21"></div><h1 class="MuiTypography-root MuiTypography-h1 css-1xzpl5u" id="LS008" data-testid="LS008">スタッフログイン</h1></div><div class="mb-15px"><h6 class="MuiTypography-root MuiTypography-subtitle1 css-7wu77b" id="LS002LB" data-testid="LS002LB">ユーザー名</h6><div class="MuiFormControl-root MuiTextField-root css-nc0ual" data-testid="LS002"><div class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-5shuqd"><input aria-invalid="false" id="LS002IN" placeholder="従業員IDを入力してください" type="text" data-testid="LS002IN" class="MuiInputBase-input MuiOutlinedInput-input css-zkday4" value=""><fieldset aria-hidden="true" class="MuiOutlinedInput-notchedOutline css-dvxk3a"><legend class="css-ihdtdm"><span class="notranslate">​</span></legend></fieldset></div></div></div><div class="mb-15px"><h6 class="MuiTypography-root MuiTypography-subtitle1 css-7wu77b" id="LS003LB" data-testid="LS003LB">パスワード</h6><div class="MuiFormControl-root MuiTextField-root css-nc0ual" data-testid="LS003"><div class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-5shuqd"><input aria-invalid="false" id="LS003IN" placeholder="パスワードを入力する" type="password" data-testid="LS003IN" class="MuiInputBase-input MuiOutlinedInput-input css-zkday4" value=""><fieldset aria-hidden="true" class="MuiOutlinedInput-notchedOutline css-dvxk3a"><legend class="css-ihdtdm"><span class="notranslate">​</span></legend></fieldset></div></div></div><button class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary Mui-disabled MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-y7km40" tabindex="-1" type="button" disabled="" data-testid="LS004B" id="LS004B"><div style="display: flex; align-items: center;"><span>ログイン</span></div></button></div></div></div></div></div>
+Now we will try to change the default language to English language
+Clicked on default language change element.
+Able to change the default language to English language
+ Test case started: Valid_Login
+Successfully navigated to the Location screen
+]]></system-out>
+  </testcase>
+  <testcase name="test_Invalid_Username" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.911">
+    <system-out><![CDATA[The name of the testcase passed is : Valid_Login
+Test execution completed on ChromeDriver with device: Tablet Portrait
+Before navigating to URL
+After navigating to URL
+Now we will try to change the default language to English language
+Clicked on default language change element.
+Able to change the default language to English language
+ Test case started: test_Invalid_Username
+Error message is displayed.
+Actual error message for Invalid Username:Your account is locked. Ask your manager to unlock the account.
+]]></system-out>
+  </testcase>
+  <testcase name="test_Invalid_Password" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="1.738">
+    <system-out><![CDATA[The name of the testcase passed is : test_Invalid_Username
+Test execution completed on ChromeDriver with device: Tablet Portrait
+Before navigating to URL
+After navigating to URL
+Now we will try to change the default language to English language
+Clicked on default language change element.
+Able to change the default language to English language
+ Test case started: test_Invalid_Password
+Error message is displayed.
+Actual error message for Invalid Password:Invalid Username or Password. Try again.
+]]></system-out>
+  </testcase>
+  <testcase name="test_TooLong_Username" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.444">
+    <system-out><![CDATA[The name of the testcase passed is : test_Invalid_Password
+Test execution completed on ChromeDriver with device: Tablet Portrait
+Before navigating to URL
+After navigating to URL
+Now we will try to change the default language to English language
+Clicked on default language change element.
+Able to change the default language to English language
+ Test case started: test_TooLong_Username
+Actual error message for max length username:Username must be less than 50 characters
+The error message is displayed.
+]]></system-out>
+  </testcase>
+  <testcase name="test_MinLength_Password" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.33">
+    <system-out><![CDATA[The name of the testcase passed is : test_TooLong_Username
+Test execution completed on ChromeDriver with device: Tablet Portrait
+Before navigating to URL
+After navigating to URL
+Now we will try to change the default language to English language
+Clicked on default language change element.
+Able to change the default language to English language
+ Test case started: test_MinLength_Password
+Actual error message for min password length:Password must be at least 8 characters
+The error message is displayed.
+]]></system-out>
+  </testcase>
+  <testcase name="test_Username_WithSpaces" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.359">
+    <system-out><![CDATA[The name of the testcase passed is : test_MinLength_Password
+Test execution completed on ChromeDriver with device: Tablet Portrait
+Before navigating to URL
+After navigating to URL
+Now we will try to change the default language to English language
+Clicked on default language change element.
+Able to change the default language to English language
+ Test case started: test_Username_WithSpaces
+Actual error message for space not allowed in username:Username must not contain any spaces
+The error message is displayed.
+]]></system-out>
+  </testcase>
+  <testcase name="verify_Enabled_LoginButton" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.905">
+    <system-out><![CDATA[The name of the testcase passed is : test_Username_WithSpaces
+Test execution completed on ChromeDriver with device: Tablet Portrait
+Before navigating to URL
+After navigating to URL
+Now we will try to change the default language to English language
+Clicked on default language change element.
+Able to change the default language to English language
+ Test case started: verify_Enabled_LoginButton
+The login button is enabled.
+]]></system-out>
+  </testcase>
+  <testcase name="verify_Disabled_LoginButton_EmptyUsername" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.171">
+    <system-out><![CDATA[The name of the testcase passed is : verify_Enabled_LoginButton
+Test execution completed on ChromeDriver with device: Tablet Portrait
+Before navigating to URL
+After navigating to URL
+Now we will try to change the default language to English language
+Clicked on default language change element.
+Able to change the default language to English language
+ Test case started: verify_Disabled_LoginButton_EmptyUsername
+Button is disabled
+]]></system-out>
+  </testcase>
+  <testcase name="verify_Disabled_LoginButton_EmptyPassword" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.227">
+    <system-out><![CDATA[The name of the testcase passed is : verify_Disabled_LoginButton_EmptyUsername
+Test execution completed on ChromeDriver with device: Tablet Portrait
+Before navigating to URL
+After navigating to URL
+Now we will try to change the default language to English language
+Clicked on default language change element.
+Able to change the default language to English language
+ Test case started: verify_Disabled_LoginButton_EmptyPassword
+Login button is disabled when username is empty: true
+]]></system-out>
+  </testcase>
+  <testcase name="verify_Disabled_LoginButton_EmptyUsernamePassword_TestCase10" classname="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases" time="0.15">
+    <system-out><![CDATA[The name of the testcase passed is : verify_Disabled_LoginButton_EmptyPassword
+Test execution completed on ChromeDriver with device: Tablet Portrait
+Before navigating to URL
+After navigating to URL
+Now we will try to change the default language to English language
+Clicked on default language change element.
+Able to change the default language to English language
+ Test case started: verify_Disabled_LoginButton_EmptyUsernamePassword_TestCase10
+Login button is disabled when username is empty: true
+]]></system-out>
+  </testcase>
+</testsuite>

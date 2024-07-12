@@ -12,7 +12,7 @@ public class ExtentReporterNG {
 
 	//need to create object for two classes ExtentReports, ExtentSparkReporter
 
-	String path=System.getProperty"//home//runner//work//github-actions//github-actions//automation-testing//Reports//index.html"; 
+	String path=System.getProperty("//home//runner//work//github-actions//github-actions//automation-testing//Reports//index.html"); 
 	// String path=System.getProperty("user.dir")+"\\reports\\index.html"; //reports is made under any folder under
 	ExtentSparkReporter reporter=new ExtentSparkReporter(path);
 

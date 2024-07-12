@@ -26,9 +26,6 @@ jobs:
       - name: Update apt-get
         run: sudo apt-get update
 
-      - name: Fix broken dependencies
-        run: sudo apt --fix-broken install -y
-
       - name: Set up Maven and dependencies
         run: |
           sudo apt-get update
@@ -62,5 +59,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:       
             name: Report
-            path: ("user.dir")+"\\Reports\\index.html    
-
+            path: ("user.dir")+"//Reports//index.html  

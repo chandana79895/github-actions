@@ -1,11 +1,11 @@
 name: Build and Deploy
 
 on:
-  push:
-    branches:
-      - latest-code
+  # push:
+  #   branches:
+  #     - latest-code
   schedule:
-    - cron: '* * * * *'
+    - cron: '10 15 * * *'
 
 jobs:
   automation_testings:

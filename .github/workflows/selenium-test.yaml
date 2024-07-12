@@ -39,15 +39,26 @@ jobs:
 
       - name: Googledriver setup
         run: |
-          sudo apt install wget -y
-          sudo apt install unzip -y
-          wget https://dl.google.com/linux/deb/pool/main/g/google-chrome-stable/google-chrome-stable_126.0.6478.126-1_amd64.deb
-          sudo dpkg -i google-chrome-stable_126.0.6478.126-1_amd64.deb
-          wget https://storage.googleapis.com/chrome-for-testing-public/126.0.6478.126/linux64/chromedriver-linux64.zip
-          unzip chromedriver-linux64.zip  
-          sudo mv chromedriver-linux64/chromedriver /usr/bin/chromedriver
-          sudo chown runner:runner /usr/bin/chromedriver
-          sudo chmod +x /usr/bin/chromedriver
+          wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+          sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+          sudo apt-get update
+          sudo apt-get install google-chrome-stable -y
+          LATEST_VERSION=$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE)
+          wget -q "https://chromedriver.storage.googleapis.com/${LATEST_VERSION}/chromedriver_linux64.zip"
+          unzip chromedriver_linux64.zip
+          sudo mv chromedriver /usr/local/bin/chromedriver
+          sudo chown runner:runner /usr/local/bin/chromedriver
+          sudo chmod +x /usr/local/bin/chromedriver
+
+          # sudo apt install wget -y
+          # sudo apt install unzip -y
+          # wget https://dl.google.com/linux/deb/pool/main/g/google-chrome-stable/google-chrome-stable_126.0.6478.126-1_amd64.deb
+          # sudo dpkg -i google-chrome-stable_126.0.6478.126-1_amd64.deb
+          # wget https://storage.googleapis.com/chrome-for-testing-public/126.0.6478.126/linux64/chromedriver-linux64.zip
+          # unzip chromedriver-linux64.zip  
+          # sudo mv chromedriver-linux64/chromedriver /usr/bin/chromedriver
+          # sudo chown runner:runner /usr/bin/chromedriver
+          # sudo chmod +x /usr/bin/chromedriver
 
       - name: Install xvfb
         run: sudo apt-get install -y xvfb

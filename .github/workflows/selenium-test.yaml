@@ -54,7 +54,6 @@ jobs:
           xvfb-run -a mvn clean install 
 
       - name: Upload test report artifact
-        run: |
         uses: actions/upload-artifact@v3
         with:       
           name: Report

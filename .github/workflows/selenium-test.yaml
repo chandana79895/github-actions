@@ -55,6 +55,7 @@ jobs:
           export DISPLAY=:99
           cd automation-testing/
           ls -al
+          pwd
           xvfb-run -a mvn clean install 
 
       - name: artifact

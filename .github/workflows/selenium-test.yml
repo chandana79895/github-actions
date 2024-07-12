@@ -5,11 +5,13 @@ on:
     branches:
       - latest-code
   schedule:
-    - cron: "*/5 * * * *"  # This will run the job every 5 minutes
+    - cron: "*/2 * * * *"  # This will run the job every 5 minutes
 
 jobs:
   automation_testings:
     runs-on: ubuntu-latest
+    environment:
+      name: poc
     steps:
       - name: Checkout code
         uses: actions/checkout@v2

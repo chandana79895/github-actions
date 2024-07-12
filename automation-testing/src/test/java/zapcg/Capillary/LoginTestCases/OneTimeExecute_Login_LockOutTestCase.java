@@ -35,7 +35,7 @@ public class OneTimeExecute_Login_LockOutTestCase extends BaseTest{
    }
 		
 
-   @Test(priority=1,groups = "OneTimeExecution")
+   @Test(priority=1,groups = {"OneTimeExecution"})
 	public void verify_ValidationMessage_For5Invalid_LoginAttempt() throws InterruptedException
 		//after 5 invalid attempts user won't be able to login for 30min
 	{	
@@ -69,7 +69,7 @@ public class OneTimeExecute_Login_LockOutTestCase extends BaseTest{
        // Attempt to log in again and verify user should be able to login using valid credentials
        lp.login("zapcom_test2", "storeportal");
        //write down the steps to verify the login to the portal successfully
-       lp.verifySuccessfullLogin(driver,"https://d3che4praaad7h.cloudfront.net/location-search");
+       lp.verifySuccessfullLogin(driver,"https://d1msv2sqknn4w4.cloudfront.net/location-search");
 
        
    }

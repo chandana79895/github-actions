@@ -58,3 +58,9 @@ jobs:
           cd automation-testing/
           xvfb-run -a mvn clean install 
 
+      - name: artifact
+        uses: actions/upload-artifact@v3
+        with:       
+            name: Report
+            path: ("user.dir")+"\\reports\\index.html    
+

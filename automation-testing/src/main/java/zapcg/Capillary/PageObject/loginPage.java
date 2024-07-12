@@ -7,7 +7,7 @@ import java.time.Duration;
 import java.util.NoSuchElementException;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.StaleElementReferenceException;
+
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,7 +16,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Wait;
+
 import org.testng.Assert;
 
 
@@ -198,12 +198,12 @@ public class loginPage{
 		        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
 		        // Wait for the URL to change to the expected URL
-		        boolean isUrlChanged = wait.until(ExpectedConditions.urlToBe("https://d3che4praaad7h.cloudfront.net/member-search"));
+		        boolean isUrlChanged = wait.until(ExpectedConditions.urlToBe("https://d1msv2sqknn4w4.cloudfront.net/member-search"));
 
 		        if (isUrlChanged) {
 		            String currentUrl = driver.getCurrentUrl();
 		            System.out.println("After successful login, navigated to the Location screen: " + currentUrl);
-		            String expectedUrl1 = "https://d3che4praaad7h.cloudfront.net/member-search";
+		            String expectedUrl1 = "https://d1msv2sqknn4w4.cloudfront.net/member-search";
 		            Assert.assertEquals(currentUrl, expectedUrl1, "The URL after login is incorrect. Login not successful.");
 		        } else {
 		            System.out.println("The URL did not change to the expected URL within the timeout period.i.e, no success login,");

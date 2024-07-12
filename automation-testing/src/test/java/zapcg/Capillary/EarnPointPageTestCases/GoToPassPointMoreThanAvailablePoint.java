@@ -54,7 +54,7 @@ public class GoToPassPointMoreThanAvailablePoint extends BaseTest{
 	       
 	   }
 	 
-	 @Test(priority=1, groups = "EarnPoint")
+	 @Test(priority=1, groups = {"EarnPoint"})
 	 public void verify_ValidationMessage_If_GoToPass_Is_Greater_Than_AvailablePoints() {
 		 
 		 System.out.println("Tested Validation Message If GoToPassPoint Is Greater Than Available Points");

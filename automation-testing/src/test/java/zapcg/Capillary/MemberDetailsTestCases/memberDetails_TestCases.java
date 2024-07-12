@@ -43,7 +43,7 @@ public class memberDetails_TestCases extends BaseTest{
 	 
 
 	 
-	 @Test(priority=1, groups = "MemberDetails")
+	 @Test(priority=1, groups = {"MemberDetails"})
 		public void verify_MemberDetails_Navigation_From_MeberLookupScreen_To_MemberDetailsPage() {
 		
 		 mdp.verifySuccessfullNavigationFromMemberLookupToMemberDetailsPage(driver);
@@ -52,7 +52,7 @@ public class memberDetails_TestCases extends BaseTest{
 	}
 	 
 	 
-	 @Test(priority=2, groups = "MemberDetails")
+	 @Test(priority=2, groups = {"MemberDetails"})
 		public void verify_MemberDetails_Displaying() {
 		
 		 mdp.verifyMemberDetailsDisplaying(driver);
@@ -62,21 +62,21 @@ public class memberDetails_TestCases extends BaseTest{
 	 
 	 
 	 //Verify all the member details and print if the details are available on the screen
-	 @Test(priority=3, groups = "MemberDetails")
+	 @Test(priority=3, groups = {"MemberDetails"})
 		public void verify_MemberDetails_ContentDisplaying() {
 		 mdp.verifyTheMemberDetailsContentDisplaying(driver);
 				
 		
 	}
 	 
-	 @Test(priority=4, groups = "MemberDetails")
+	 @Test(priority=4, groups = {"MemberDetails"})
 		public void verify_Enabled_EnterReceiptDetails_Button() {
 		mdp.verifyEnterReceiptButtonEnabled(); 
 				
 		
 	}
 	 
-	 @Test(priority=5, groups = "MemberDetails")
+	 @Test(priority=5, groups = {"MemberDetails"})
 		public void verify_Header_MemberDetailsScreen() {
 		 mdp.clickOnHyperlink();
 		mdp.headerHyperlinkVerificationOnMemberDetailsScreen(driver); 
@@ -91,7 +91,7 @@ public class memberDetails_TestCases extends BaseTest{
 		
 	}*/
 	 
-	 @Test(priority=7, groups = "MemberDetails")
+	 @Test(priority=7, groups = {"MemberDetails"})
 		public void verify_Hamburger_MemberLookup_Option_on_MemberDetails() throws InterruptedException {
 	
 		 mdp.clickOnHamburgerIcon();
@@ -102,7 +102,7 @@ public class memberDetails_TestCases extends BaseTest{
 		
 	}
 	 
-	 @Test(priority=8, groups = "MemberDetails")
+	 @Test(priority=8, groups = {"MemberDetails"})
 		public void verify_Hamburger_LocationOption_On_MemberDetails() throws InterruptedException {
 		
 		 mdp.clickOnHamburgerIcon();
@@ -112,7 +112,7 @@ public class memberDetails_TestCases extends BaseTest{
 		
 	}
 	 
-	 @Test(priority=9, groups = "MemberDetails")
+	 @Test(priority=9, groups = {"MemberDetails"})
 		public void verify_Hamburger_LogoutOption_On_MemberDetails() throws InterruptedException {
 		 
 		 mdp.clickOnHamburgerIcon();
@@ -122,7 +122,7 @@ public class memberDetails_TestCases extends BaseTest{
 	}
 	 
 	 
-	 @Test(priority=10, groups = "MemberDetails")
+	 @Test(priority=10, groups = {"MemberDetails"})
 		public void verify_BackButton_On_MemberDetails_Screen() throws InterruptedException {
 		 
 		 mdp.clickOnBackButton();

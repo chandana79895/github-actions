@@ -70,7 +70,7 @@ public class OneTimeExecute_TransactionExceedsThreshold extends BaseTest {
 	       
 	   }
 	 
-	 @Test(priority=1, groups="OneTimeExecution")
+	 @Test(priority=1, groups={"OneTimeExecution"})
 	 public void testing() {
 		
 	 }

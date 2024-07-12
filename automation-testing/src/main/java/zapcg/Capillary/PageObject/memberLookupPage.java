@@ -130,12 +130,12 @@ public class memberLookupPage extends BaseTest {
 		        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
 		        // Wait for the URL to change to the expected URL
-		        boolean isUrlChanged = wait.until(ExpectedConditions.urlToBe("https://d3che4praaad7h.cloudfront.net/member-details"));
+		        boolean isUrlChanged = wait.until(ExpectedConditions.urlToBe("https://d1msv2sqknn4w4.cloudfront.net/member-details"));
 
 		        if (isUrlChanged) {
 		            String currentUrl = driver.getCurrentUrl();
 		            System.out.println("For valid memberId or cardnumber, navigated to the Member details screen: " + currentUrl);
-		            String expectedUrl1 = "https://d3che4praaad7h.cloudfront.net/member-details";
+		            String expectedUrl1 = "https://d1msv2sqknn4w4.cloudfront.net/member-details";
 		            Assert.assertEquals(currentUrl, expectedUrl1, "The URL incorrect for member details screen");
 		        } else {
 		            System.out.println("The URL did not change to the expected URL within the timeout period.i.e, no success login,");

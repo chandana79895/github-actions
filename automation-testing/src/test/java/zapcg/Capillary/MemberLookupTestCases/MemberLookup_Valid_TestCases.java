@@ -49,14 +49,14 @@ public class MemberLookup_Valid_TestCases extends BaseTest {
 		 
 	
 		
-		@Test(priority=1,groups = "MemberLookup")
+		@Test(priority=1,groups = {"MemberLookup"})
 		public void verifyScanButtonAvailability() {
 				memberLookupPage mlp = new memberLookupPage(driver);
 				mlp.verifyScanButtonEnabled();
 				
 			}
 	
-		@Test(priority=2, groups = "MemberLookup")
+		@Test(priority=2, groups = {"MemberLookup"})
 		public void enter_Valid_MemberId() {
 				memberLookupPage mlp = new memberLookupPage(driver);
 				mlp.enterMemberId("GT000003673");
@@ -65,7 +65,7 @@ public class MemberLookup_Valid_TestCases extends BaseTest {
 		
 			}
 	
-		@Test(priority=3, groups = "MemberLookup")
+		@Test(priority=3, groups = {"MemberLookup"})
 		public void verify_Header_Hyperlink() {
 			memberLookupPage mlp = new memberLookupPage(driver);
 			mlp.clickOnHyperlink();
@@ -73,7 +73,7 @@ public class MemberLookup_Valid_TestCases extends BaseTest {
 			}
 		
 	
-		@Test(priority = 4, groups = "MemberLookup" )
+		@Test(priority = 4, groups = {"MemberLookup"} )
         public void hamburgerIcon_MemberLookup_Navigation_From_MemberLookup() throws InterruptedException {
         	
 			memberLookupPage mlp = new memberLookupPage(driver);
@@ -86,7 +86,7 @@ public class MemberLookup_Valid_TestCases extends BaseTest {
 		}
 		
 
-		@Test(priority = 5, groups = "MemberLookup")
+		@Test(priority = 5, groups = {"MemberLookup"})
         public void hamburgerIcon_Location_Navigation_From_MemberLookup() throws InterruptedException {
         	
 			memberLookupPage mlp = new memberLookupPage(driver);
@@ -98,7 +98,7 @@ public class MemberLookup_Valid_TestCases extends BaseTest {
         	
 		}
 		
-		@Test(priority = 6, groups = "MemberLookup")
+		@Test(priority = 6, groups = {"MemberLookup"})
         public void hamburgerIcon_Logout_From_MemberLookup() throws InterruptedException {
         	
 			memberLookupPage mlp = new memberLookupPage(driver);

@@ -74,7 +74,7 @@ public class OneTimeExecute_pointVerificationAfterRedeemingPoints extends BaseTe
 	        assertEquals(updatedPointsAfterSubmit, expectedPointsAfterDeduction);
 	   }
 	 
-	 @Test(priority=1, groups = "OneTimeExecution")
+	 @Test(priority=1, groups = {"OneTimeExecution"})
 	 public void verify_TotalPoints_Before_and_After() {
 		 System.out.println("Able to verify the point before txn amlount submission and after txn amount submission");
 		

@@ -1,16 +1,23 @@
 package zapcg.Capillary.Base;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Dimension;
-
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+
 import org.testng.annotations.AfterMethod;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
+//import io.github.bonigarcia.wdm.WebDriverManager;
 import zapcg.Cappilary.utils.ConfigReader;
 import zapcg.Cappilary.utils.DeviceData;
 
@@ -30,52 +37,55 @@ public class BaseTest {
         this.deviceName = deviceName;
     }
     
+	/*
+    public void initialization(String browser) {
     
-    // public void initialization(String browser) {
-    // 	System.out.println("Entered to initialization method and Trying to initialized the browser");
-    // 	//WebDriver driver = null;
-    //     try {
-    //         if (browser.equalsIgnoreCase("chrome")) {
-    //             System.out.println("Opening Chrome browser...");
+    	//WebDriver driver = null;
+        try {
+            if (browser.equalsIgnoreCase("chrome")) {
+                System.out.println("Opening Chrome browser...");
 
-    //             // Hardcoding Chrome driver path
-    //             System.setProperty("webdriver.chrome.driver", "C:\\BrowserDriver\\ChromeDriver\\chromedriver-win64\\chromedriver.exe");
-    //             ChromeOptions options = new ChromeOptions();
-    //             options.addArguments("--remote-allow-origins=*");
-    //             //options.addArguments("--headless"); // Enable headless mode
+                // Hardcoding Chrome driver path
+                System.setProperty("webdriver.chrome.driver", "C:\\BrowserDriver\\ChromeDriver\\chromedriver-win64\\chromedriver.exe");
+                ChromeOptions options = new ChromeOptions();
+                options.addArguments("--remote-allow-origins=*");
+                //options.addArguments("--headless"); // Enable headless mode
 
-    //             // Adding detach option
-    //             options.setExperimentalOption("detach", true);
-    //             // Handling SSL certificates
-    //             options.setAcceptInsecureCerts(true);
-    //             driver = new ChromeDriver(options);
-    //         } else if (browser.equalsIgnoreCase("firefox")) {
-    //             System.out.println("Opening Firefox browser...");
+                // Adding detach option
+                options.setExperimentalOption("detach", true);
+                // Handling SSL certificates
+                options.setAcceptInsecureCerts(true);
+                driver = new ChromeDriver(options);
+                
+          
 
-    //             // Hardcoding Firefox driver path
-    //             System.setProperty("webdriver.gecko.driver", "C:\\BrowserDriver\\FirefoxDriver\\geckodriver.exe");
-    //             FirefoxOptions options = new FirefoxOptions();
-    //            // options.addArguments("--headless"); // Enable headless mode
+            } else if (browser.equalsIgnoreCase("firefox")) {
+                System.out.println("Opening Firefox browser...");
 
-    //             // Handling SSL certificates
-    //             options.setAcceptInsecureCerts(true);
-    //             driver = new FirefoxDriver(options);            }
+                // Hardcoding Firefox driver path
+                System.setProperty("webdriver.gecko.driver", "C:\\BrowserDriver\\FirefoxDriver\\geckodriver.exe");
+                FirefoxOptions options = new FirefoxOptions();
+               // options.addArguments("--headless"); // Enable headless mode
 
-    //         if (dimension != null) {
-    //             driver.manage().window().setSize(dimension);
-    //         }
+                // Handling SSL certificates
+                options.setAcceptInsecureCerts(true);
+                driver = new FirefoxDriver(options);            }
 
-    //         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
-    //         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-    //     } catch (Exception e) {
-    //         System.err.println("Error initializing WebDriver: " + e.getMessage());
-    //         if (driver != null) {
-    //             driver.quit();
-    //         }
-    //     }
-    // }
+            if (dimension != null) {
+                driver.manage().window().setSize(dimension);
+            }
 
-    
+            driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+        } catch (Exception e) {
+            System.err.println("Error initializing WebDriver: " + e.getMessage());
+            if (driver != null) {
+                driver.quit();
+            }
+        }
+    }
+
+    */
     
     
     
@@ -109,7 +119,7 @@ public class BaseTest {
     }
     
 }
-
+    
     
     @AfterMethod
     public void tearDown() {
@@ -133,5 +143,16 @@ public class BaseTest {
     }
     
 
-
+    
+    public String getScreenShotPath(String TestCaseName, WebDriver driver) throws IOException
+    {
+    	
+    	TakesScreenshot ts=(TakesScreenshot)driver;
+    	File source=ts.getScreenshotAs(OutputType.FILE);
+    	String destPath=System.getProperty("user.dir")+"\\reports\\"+TestCaseName+".png";
+    	File file=new File(destPath);
+    	FileUtils.copyFile(source, file);
+    	return destPath;
+    	
+    }
 }

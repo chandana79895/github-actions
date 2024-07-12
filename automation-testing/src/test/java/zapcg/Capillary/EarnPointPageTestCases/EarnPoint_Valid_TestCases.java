@@ -48,7 +48,7 @@ public class EarnPoint_Valid_TestCases extends BaseTest{
 	   }
 	 
 	 
-	 @Test(priority=1, groups = "EarnPoint")
+	 @Test(priority=1, groups = {"EarnPoint"})
 		public void verify_NonEditable_LocationField() throws InterruptedException {
 		
 		 epp.locationFieldNonEditable(driver);
@@ -56,21 +56,21 @@ public class EarnPoint_Valid_TestCases extends BaseTest{
 		 
 		 }
 	 
-	 @Test(priority=2, groups = "EarnPoint")
+	 @Test(priority=2, groups = {"EarnPoint"})
 		public void verify_NonEditable_DateField() throws InterruptedException {
 		
 		 epp.dateFieldNonEditable(driver);
 		 
 		 
 		 }
-	 @Test(priority=3, groups = "EarnPoint")
+	 @Test(priority=3, groups = {"EarnPoint"})
 	 public void verify_NonEditable_TimeField() throws InterruptedException {
 		 
 		 epp.timeFieldNonEditable(driver);
 	 }
 	
 	 
-	 @Test(priority=4, groups = "EarnPoint")
+	 @Test(priority=4, groups = {"EarnPoint"})
 		public void verify_EarnPoints_Navigation_From_MeberDetailsScreen() {
 		
 		 epp.verifySuccessfullNavigationFromMemberDetailsToEarnPointsPage(driver);
@@ -78,7 +78,7 @@ public class EarnPoint_Valid_TestCases extends BaseTest{
 		
 	}
 	 
-	 @Test(priority=5, groups = "EarnPoint")
+	 @Test(priority=5, groups ={"EarnPoint"})
 		public void verify_MemberDetails_Content_Displaying_On_EarnPointScreen() {
 		
 		 epp.expandMemberDetails(driver);
@@ -88,7 +88,7 @@ public class EarnPoint_Valid_TestCases extends BaseTest{
 	 
 	 
 	 
-	 @Test(priority=6, groups = "EarnPoint")
+	 @Test(priority=6, groups = {"EarnPoint"})
 		public void verify_HeaderHyperlink_On_EarnPoint_Page() {
 		
 		 epp.clickOnHyperlink();
@@ -96,7 +96,7 @@ public class EarnPoint_Valid_TestCases extends BaseTest{
 	}
 	 
 
-	 @Test(priority=7, groups = "EarnPoint")
+	 @Test(priority=7, groups = {"EarnPoint"})
 		public void verify_BackButton_Navigation_On_EarnPoint_Page() {
 		
 		 epp.clickOnBackButton();
@@ -104,7 +104,7 @@ public class EarnPoint_Valid_TestCases extends BaseTest{
 	}
 	
 	 
-	 @Test(priority=8, groups = "EarnPoint")
+	 @Test(priority=8, groups = {"EarnPoint"})
 		public void verify_Hamburger_MemberLookupOption_From_EarnPoint_Page() throws InterruptedException {
 	
 		 epp.clickOnHamburgerIcon();
@@ -115,7 +115,7 @@ public class EarnPoint_Valid_TestCases extends BaseTest{
 		
 	}
 	 
-	 @Test(priority=9, groups = "EarnPoint")
+	 @Test(priority=9, groups = {"EarnPoint"})
 		public void verify_Hamburger_LocationOption_From_EarnPoint_Page() throws InterruptedException {
 	
 		 epp.clickOnHamburgerIcon();
@@ -128,7 +128,7 @@ public class EarnPoint_Valid_TestCases extends BaseTest{
 	 
 	 
 	 
-	 @Test(priority=10, groups = "EarnPoint")
+	 @Test(priority=10, groups = {"EarnPoint"})
 		public void verify_HamBurger_LogoutOption_From_EarnPoint_Page() throws InterruptedException {
 	
 		 epp.clickOnHamburgerIcon();
@@ -140,7 +140,7 @@ public class EarnPoint_Valid_TestCases extends BaseTest{
 	}
 	
 	 
-	 @Test(priority=11, groups = "EarnPoint")
+	 @Test(priority=11, groups = {"EarnPoint"})
 		public void verify_Date_Equal_To_System_CurrentDate() throws InterruptedException {
 		 epp.dateVerification(driver);
 		
@@ -148,14 +148,14 @@ public class EarnPoint_Valid_TestCases extends BaseTest{
 		
 	}
 	
-	 @Test(priority=12, groups = "EarnPoint")
+	 @Test(priority=12, groups = {"EarnPoint"})
 		public void verify_Time_Equal_To_System_CurrentTime() throws InterruptedException {
 	
 		epp.timeVerification(driver);
 		 		
 		
 	}
-	 @Test(priority=13, groups = "EarnPoint")
+	 @Test(priority=13, groups = {"EarnPoint"})
 		public void verify_With_Empty_TransactionAmount() throws InterruptedException {
 		 epp.clickOnSubmitButton();
 		epp.txnFieldShouldNotBeEmpty(driver);

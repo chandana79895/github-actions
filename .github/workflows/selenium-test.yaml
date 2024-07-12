@@ -51,6 +51,9 @@ jobs:
         run: |
           export DISPLAY=:99
           cd automation-testing/
+          pwd
+          cd Reports/
+          ls -al
           xvfb-run -a mvn clean install 
 
       - name: Upload test report artifact

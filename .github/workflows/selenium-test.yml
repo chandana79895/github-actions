@@ -47,16 +47,22 @@ jobs:
       - name: Install xvfb
         run: sudo apt-get install -y xvfb
 
+      - name: Clean previous reports
+        run: rm -rf /home/runner/work/github-actions/github-actions/automation-testing/Reports/*
+      
+      - name: Install dependencies
+        run: mvn install -DskipTests
+        working-directory: /home/runner/work/github-actions/github-actions/automation-testing
+
       - name: Start xvfb and run tests
         run: |
           export DISPLAY=:99
-          cd automation-testing/
-          ls -al
-          xvfb-run -a mvn clean install
+          xvfb-run -a mvn clean test
+        working-directory: /home/runner/work/github-actions/github-actions/automation-testing
 
       - name: Upload test report artifact
         uses: actions/upload-artifact@v3
         with:
           name: TestReport
-          path: /home/runner/work/github-actions/github-actions/automation-testing/Reports/index.html
+          path: /home/runner/work/github-actions/github-actions/automation-testing/Reports/
           if-no-files-found: warn

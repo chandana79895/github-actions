@@ -205,12 +205,12 @@ public class locationSelectionPage {
 		        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
 		        // Wait for the URL to change to the expected URL
-		        boolean isUrlChanged = wait.until(ExpectedConditions.urlToBe("https://d1msv2sqknn4w4.cloudfront.net/member-search"));
+		        boolean isUrlChanged = wait.until(ExpectedConditions.urlToBe("https://d3che4praaad7h.cloudfront.net/member-search"));
 
 		        if (isUrlChanged) {
 		            String currentUrl = driver.getCurrentUrl();
 		            System.out.println("After successful adding location details, navigated to the Member Lookup screen: " + currentUrl);
-		            String expectedUrl1 = "https://d1msv2sqknn4w4.cloudfront.net/member-search";
+		            String expectedUrl1 = "https://d3che4praaad7h.cloudfront.net/member-search";
 		            Assert.assertEquals(currentUrl, expectedUrl1, "The URL of location lookup screen is incorrect. Navigation not successful.");
 		        } else {
 		            System.out.println("The URL did not change to the expected URL within the timeout period.i.e, no success navigation from location to member lookup screen,");

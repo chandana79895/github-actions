@@ -54,11 +54,12 @@ jobs:
         run: |
           export DISPLAY=:99
           cd automation-testing/
+          ls -al
           xvfb-run -a mvn clean install
 
       - name: Upload test report artifact
         uses: actions/upload-artifact@v3
         with:
           name: TestReport
-          path: /home/runner/actions-runner/_work/automation-testing/automation-testing/Reports/index.html
+          path: /home/runner/actions-runner/_work/github-actions/github-actions/automation-testing/Reports/index.html
           if-no-files-found: warn

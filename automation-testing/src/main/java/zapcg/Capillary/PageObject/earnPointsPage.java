@@ -5,7 +5,9 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TimeoutException;
@@ -87,12 +89,12 @@ public class earnPointsPage {
 		@FindBy(xpath="//p[@id='EPMDLMSG' and contains(text(), 'transaction has been successfully submitted. They have earned')]")
 		WebElement successMessage;
 		
-		@FindBy(xpath="//div/p[@id='EPMDLMSG']")       //p[@id='EPMDLMSG' and contains(text(), 'transaction has been successfully submitted. They have earned 35 points and have spent 1 points.')]")
+		@FindBy(xpath="//p[@id='EPMDLMSG']")       //p[@id='EPMDLMSG' and contains(text(), 'transaction has been successfully submitted. They have earned 35 points and have spent 1 points.')]")
 		WebElement successRedeemMessage;////div[@id='EPMDL']/div/p[@id='EPMDLMSG' and contains(text(), 'transaction has been successfully submitted. They have earned 35 points and have spent 1 points.')]
 		
-		//Success! Customer/Member transaction exceeds threshold. The transaction has been submitted for approval
-		@FindBy(xpath="//p[@id='EPMDLMSG' and contains(text(), 'Success! Customer/Member transaction exceeds threshold. The transaction has been submitted for approval')]")
-		WebElement thresoldSuccessMessage;
+		@FindBy(xpath="//p[@id='EPMDLMSG']")
+		public  
+		WebElement thresholdSuccessMessage;
 		
 		@FindBy(xpath="//p[@id='EP041-helper-text' and contains(text(),'Entered Go To Pass points used is more than the Transaction Amount')]")
 		WebElement goToPassValueMoreThanTxnAmount;
@@ -235,50 +237,7 @@ public class earnPointsPage {
 			            Assert.fail("An unexpected error occurred during Member details verification: " + e.getMessage());
 			        }
 					
-					/*
-					 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-				      	WebElement memberNameArea=null;
-				        WebElement availablePoints = null;
-				        WebElement membershipId = null;
-				        WebElement pointsExpiryDate = null;
-				        
-				        try {
-				            // Wait for the elements to be visible and catch any exceptions
-				            memberNameArea = wait.until(ExpectedConditions.visibilityOfElementLocated(memberNameSection));
-				            availablePoints = wait.until(ExpectedConditions.visibilityOfElementLocated(availablePointsLocator));
-				            membershipId = wait.until(ExpectedConditions.visibilityOfElementLocated(membershipIdLocator));
-				            pointsExpiryDate = wait.until(ExpectedConditions.visibilityOfElementLocated(pointsExpiryDateLocator));
-				            
-				            // Verify that all the elements are displayed and print their details
-				            if (memberNameArea.isDisplayed() && availablePoints.isDisplayed() && membershipId.isDisplayed() && pointsExpiryDate.isDisplayed()) {
-				                System.out.println("Member details are displaying.");
-				                System.out.println("Member Name: " + memberName.getText());
-				                System.out.println("Available Points: " + availablePoints.getText());
-				                System.out.println("Membership ID: " + membershipId.getText());
-				                System.out.println("Points Expiry Date: " + pointsExpiryDate.getText());
-				            } else {
-				                System.out.println("Some expected elements did not become visible within the timeout period.");
-				                Assert.fail("Member details are not fully displaying.");
-				            }
-				        } catch (Exception e) {
-				            if (memberNameSection == null || !((WebElement) memberNameSection).isDisplayed()) {
-				                System.out.println("Member details section is not visible.");
-				            }
-				            if (memberName == null || !memberName.isDisplayed()) {
-				                System.out.println("Member name is not visible.");
-				            }
-				            if (availablePoints == null || !availablePoints.isDisplayed()) {
-				                System.out.println("Available points are not visible.");
-				            }
-				            if (membershipId == null || !membershipId.isDisplayed()) {
-				                System.out.println("Membership ID is not visible.");
-				            }
-				            if (pointsExpiryDate == null || !pointsExpiryDate.isDisplayed()) {
-				                System.out.println("Points expiry date is not visible.");
-				            }
-				            System.out.println("An error occurred on Member details screen: " + e.getMessage());
-				            Assert.fail("An error occurred during Member details verification: " + e.getMessage());
-				        }*/
+					
 				}
 				
 				
@@ -837,28 +796,43 @@ public class earnPointsPage {
 				 }
 				 
 				 
-				 public void verifySuccessMessageIfRedeemingPoints(String expectedMessage)
-				 {
-					 FluentWait<WebDriver> wait = new FluentWait<>(driver)
+				 public void verifySuccessMessageIfRedeemingPoints(String expectedMessage) {
+					    FluentWait<WebDriver> wait = new FluentWait<>(driver)
 					            .withTimeout(Duration.ofSeconds(60))
 					            .pollingEvery(Duration.ofMillis(1000))
 					            .ignoring(NoSuchElementException.class)
 					            .ignoring(StaleElementReferenceException.class);
 
 					    try {
-					        // Wait for the success message element to be visible
-					        WebElement successMsg = wait.until(ExpectedConditions.visibilityOf(successRedeemMessage));
+					        // Check if an alert is present
+					        if (isAlertPresent()) {
+					            Alert alert = driver.switchTo().alert();
+					            String alertText = alert.getText().trim();
+					            System.out.println("Alert text: " + alertText);
 
-					        // Get the text of the success message and trim it
-					        String actualValidationMessage = successMsg.getText().trim();
-					        System.out.println("Actual success message: " + actualValidationMessage);
-
-					        // Verify the success message content
-					        if (actualValidationMessage.contains(expectedMessage)) {
-					            System.out.println("Success message is displayed correctly.");
+					            // Verify the success message in the alert
+					            if (alertText.contains(expectedMessage)) {
+					                System.out.println("Success message is displayed correctly in the alert.");
+					                alert.accept(); // Accept the alert
+					            } else {
+					                System.out.println("Success message in the alert did not contain the expected text.");
+					                Assert.fail("Success message in the alert did not contain the expected text.");
+					            }
 					        } else {
-					            System.out.println("Success message did not contain the expected text.");
-					            Assert.fail("Success message did not contain the expected text.");
+					            // Wait for the success message element to be visible
+					            WebElement successMsg = wait.until(ExpectedConditions.visibilityOf(successRedeemMessage));
+
+					            // Get the text of the success message and trim it
+					            String actualValidationMessage = successMsg.getText();
+					            System.out.println("Actual success message: " + actualValidationMessage);
+
+					            // Verify the success message content
+					            if (actualValidationMessage.contains(expectedMessage)) {
+					                System.out.println("Success message is displayed correctly.");
+					            } else {
+					                System.out.println("Success message did not contain the expected text.");
+					                Assert.fail("Success message did not contain the expected text.");
+					            }
 					        }
 					    } catch (TimeoutException e) {
 					        System.out.println("Timeout waiting for success message element: " + e.getMessage());
@@ -866,15 +840,22 @@ public class earnPointsPage {
 					    } catch (NoSuchElementException e) {
 					        System.out.println("Element not found: " + e.getMessage());
 					        Assert.fail("Element not found.");
-					        }catch (Exception e) {
+					    } catch (Exception e) {
 					        System.out.println("An error occurred while verifying the success message: " + e.getMessage());
 					        Assert.fail("An error occurred while verifying the success message: " + e.getMessage());
 					    }
-				    
-					        
-					     
-				 }
+					}
 				 
+				 
+				// Method to check if an alert is present
+				 private boolean isAlertPresent() {
+				     try {
+				         driver.switchTo().alert();
+				         return true;
+				     } catch (NoAlertPresentException e) {
+				         return false;
+				     }
+				 }
 				 
 				 
 				 public int eligibleForEarningPointsValue() {
@@ -917,7 +898,7 @@ public class earnPointsPage {
 				 }
 				 
 				 public boolean isThresholdMessageDisplayed(String expectedMessage) {
-				        return thresoldSuccessMessage.isDisplayed() && thresoldSuccessMessage.getText().equals(expectedMessage);
+				        return thresholdSuccessMessage.isDisplayed() && thresholdSuccessMessage.getText().equals(expectedMessage);
 				    }
 				 
 				 
@@ -993,10 +974,10 @@ public class earnPointsPage {
 
 					    try {
 					        // Wait for the success message element to be visible
-					        WebElement successMsg = wait.until(ExpectedConditions.visibilityOf(thresoldSuccessMessage));
+					        WebElement successMsg = wait.until(ExpectedConditions.visibilityOf(thresholdSuccessMessage));
 
 					        // Get the text of the success message and trim it
-					        String actualValidationMessage = successMsg.getText().trim();
+					        String actualValidationMessage = successMsg.getText();
 					        System.out.println("Actual validation message if Threshold value exceeded: " + actualValidationMessage);
 
 					        // Verify the success message content

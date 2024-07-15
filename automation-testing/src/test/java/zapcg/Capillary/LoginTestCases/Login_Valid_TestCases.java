@@ -1,11 +1,5 @@
 package zapcg.Capillary.LoginTestCases;
 
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Parameters;
@@ -31,21 +25,12 @@ public class Login_Valid_TestCases extends BaseTest {
 		 setUp(browser, deviceName); // Use the setup method to initialize the browser
 	       initialization(browser);
 	       driver.get(baseUrl);
-	       
-	       System.out.println("Browser got opened");
+	       /*
 	    // Print the current URL
            String currentUrl = driver.getCurrentUrl();
            System.out.println("Current URL: " + currentUrl);
-           
-        // Locate the element
-           WebElement element = driver.findElement(By.xpath("//div[@id='root']")); // Replace with your target element's XPath
-
-           // Retrieve and print the HTML source of the element
-           String elementHtml = element.getAttribute("outerHTML");
-           System.out.println("HTML Source of the element:");
-           System.out.println(elementHtml);
         
-
+*/
       
 	       Thread.sleep(10000); 
 	       lp = new loginPage(driver);
@@ -59,25 +44,6 @@ public class Login_Valid_TestCases extends BaseTest {
 	
 	
 
-	private boolean isElementInIframe(WebDriver driver, By xpath) {
-		 try {
-	            driver.findElement(By.xpath("//h1[@id='LS008']"));
-	            return false; // Element found, not in iframe
-	        } catch (NoSuchElementException e) {
-	            // Check in all iframes
-	            for (WebElement iframe : driver.findElements(By.tagName("iframe"))) {
-	                driver.switchTo().frame(iframe);
-	                try {
-	                    if (!driver.findElements(By.xpath("//h1[@id='LS008']")).isEmpty()) {
-	                        return true; // Element found in this iframe
-	                    }
-	                } finally {
-	                    driver.switchTo().defaultContent(); // Switch back to the main content
-	                }
-	            }
-		return false;
-	        }
-	}
 
 
 

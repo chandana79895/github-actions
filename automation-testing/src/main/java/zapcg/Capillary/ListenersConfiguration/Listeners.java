@@ -1,15 +1,8 @@
 package zapcg.Capillary.ListenersConfiguration;
 
-
-import java.io.IOException;
-
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestContext;
-
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
@@ -41,17 +34,13 @@ public class Listeners extends BaseTest implements ITestListener {
 
 	@Override
 	public void onTestFailure(ITestResult result) {
-		 extentTest.get().fail(result.getThrowable());
+		String testName=result.getName();
+		System.out.println("The name of the testcase failed is : "+testName);
+
+		extentTest.get().fail(result.getThrowable());
 		 
-		// Capture screenshot
-	        try {
-	            WebDriver driver = (WebDriver) result.getTestClass().getRealClass().getDeclaredField("driver").get(result.getInstance());
-	            String screenshotPath = getScreenShotPath(result.getMethod().getMethodName(), driver);
-	            extentTest.get().addScreenCaptureFromPath(screenshotPath, result.getMethod().getMethodName());
-	        } catch (Exception e) {
-	            e.printStackTrace();
-	        }
-		/*WebDriver driver=null;
+		/*
+		WebDriver driver=null;
 		
 		 Object testObject=result.getInstance();
 		Class clazz= result.getTestClass().getRealClass();
@@ -60,11 +49,10 @@ public class Listeners extends BaseTest implements ITestListener {
 		} catch (IllegalArgumentException | IllegalAccessException | NoSuchFieldException | SecurityException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
-		}*/
+		}
 		 
+		 */
 		 
-		 
-		// System.out.println("The name of the testcase failed is : "+result.getName());
 
 
 	}

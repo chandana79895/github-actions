@@ -12,7 +12,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
+
 
 import org.testng.annotations.AfterMethod;
 
@@ -30,65 +30,11 @@ public class BaseTest {
 
     public void setUp(String browser, String deviceName) {
         ConfigReader configReader = new ConfigReader();
-        System.out.println("Before navigating to URL");
         baseUrl = configReader.getProperty("url");
-        System.out.println("After navigating to URL");
         dimension = DeviceData.getDimension(deviceName);
         this.deviceName = deviceName;
     }
-    
-	/*
-    public void initialization(String browser) {
-    
-    	//WebDriver driver = null;
-        try {
-            if (browser.equalsIgnoreCase("chrome")) {
-                System.out.println("Opening Chrome browser...");
-
-                // Hardcoding Chrome driver path
-                System.setProperty("webdriver.chrome.driver", "C:\\BrowserDriver\\ChromeDriver\\chromedriver-win64\\chromedriver.exe");
-                ChromeOptions options = new ChromeOptions();
-                options.addArguments("--remote-allow-origins=*");
-                //options.addArguments("--headless"); // Enable headless mode
-
-                // Adding detach option
-                options.setExperimentalOption("detach", true);
-                // Handling SSL certificates
-                options.setAcceptInsecureCerts(true);
-                driver = new ChromeDriver(options);
-                
-          
-
-            } else if (browser.equalsIgnoreCase("firefox")) {
-                System.out.println("Opening Firefox browser...");
-
-                // Hardcoding Firefox driver path
-                System.setProperty("webdriver.gecko.driver", "C:\\BrowserDriver\\FirefoxDriver\\geckodriver.exe");
-                FirefoxOptions options = new FirefoxOptions();
-               // options.addArguments("--headless"); // Enable headless mode
-
-                // Handling SSL certificates
-                options.setAcceptInsecureCerts(true);
-                driver = new FirefoxDriver(options);            }
-
-            if (dimension != null) {
-                driver.manage().window().setSize(dimension);
-            }
-
-            driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-        } catch (Exception e) {
-            System.err.println("Error initializing WebDriver: " + e.getMessage());
-            if (driver != null) {
-                driver.quit();
-            }
-        }
-    }
-
-    */
-    
-    
-    
+     
 
     public void initialization(String browser) {
     	try {
@@ -149,7 +95,7 @@ public class BaseTest {
     	
     	TakesScreenshot ts=(TakesScreenshot)driver;
     	File source=ts.getScreenshotAs(OutputType.FILE);
-    	String destPath=System.getProperty("user.dir")+"\\reports\\"+TestCaseName+".png";
+    	String destPath=System.getProperty("user.dir")+"\\reports\\FailedTest"+TestCaseName+".png";
     	File file=new File(destPath);
     	FileUtils.copyFile(source, file);
     	return destPath;

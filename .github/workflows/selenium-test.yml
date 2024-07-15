@@ -47,6 +47,16 @@ jobs:
           sudo chown runner:runner /usr/local/bin/chromedriver
           sudo chmod +x /usr/local/bin/chromedriver
 
+      - name: Install Firefox and GeckoDriver
+        run: |
+          sudo apt-get install -y firefox
+          GECKO_DRIVER_VERSION=$(curl -s https://api.github.com/repos/mozilla/geckodriver/releases/latest | jq -r '.tag_name')
+          wget -q "https://github.com/mozilla/geckodriver/releases/download/${GECKO_DRIVER_VERSION}/geckodriver-${GECKO_DRIVER_VERSION}-linux64.tar.gz"
+          tar -xzf geckodriver-${GECKO_DRIVER_VERSION}-linux64.tar.gz
+          sudo mv geckodriver /usr/local/bin/geckodriver
+          sudo chown runner:runner /usr/local/bin/geckodriver
+          sudo chmod +x /usr/local/bin/geckodriver    
+
       - name: Install xvfb
         run: sudo apt-get install -y xvfb
 

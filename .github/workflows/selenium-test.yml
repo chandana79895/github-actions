@@ -12,7 +12,7 @@ on:
 
 jobs:
   automation_testings:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     environment:
       name: poc
     steps:

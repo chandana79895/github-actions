@@ -50,7 +50,6 @@ public class BaseTest {
                 System.setProperty("webdriver.gecko.driver", "/usr/local/bin/geckodriver"); // Adjust path as necessary
                 FirefoxOptions options = new FirefoxOptions();
                 options.addArguments("--no-sandbox");
-                options.setExperimentalOption("detach", true);
                 options.setAcceptInsecureCerts(true);
                 // options.addArguments("--headless"); // Enable headless mode
 

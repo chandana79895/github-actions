@@ -47,8 +47,11 @@ public class BaseTest {
                 driver = new ChromeDriver(options);
             } else if (browser.equalsIgnoreCase("firefox")) {
                 // WebDriverManager.firefoxdriver().setup(); // Use WebDriverManager for managing GeckoDriver versions dynamically
-                System.setProperty("webdriver.gecko.driver", "C:\\BrowserDriver\\FirefoxDriver\\geckodriver.exe"); // Adjust path as necessary
+                System.setProperty("webdriver.gecko.driver", "/usr/local/bin/geckodriver"); // Adjust path as necessary
                 FirefoxOptions options = new FirefoxOptions();
+                options.addArguments("--no-sandbox");
+                options.setExperimentalOption("detach", true);
+                options.setAcceptInsecureCerts(true);
                 // options.addArguments("--headless"); // Enable headless mode
 
                 // Handling SSL certificates

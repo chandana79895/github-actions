@@ -39,8 +39,8 @@ public class ReportUploader {
     private static final String KEY_NAME = Paths.get(FILE_PATH).getFileName().toString();
 
     // SES details
-    private static final String SENDER = "mani.chandana@zapcg.com";
-    private static final String RECIPIENT = "kajal.sharma@zapcg.com";
+    private static final String SENDER = "kajal.sharma@zapcg.com";
+    private static final String RECIPIENT = "mani.chandana@zapcg.com";
     private static final String SUBJECT = "Fortress Test Execution Report " + LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS);
     private static final String BODY_TEXT = "Please click on this latest Test Execution Report link:";
 

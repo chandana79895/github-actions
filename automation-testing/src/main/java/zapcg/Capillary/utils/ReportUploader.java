@@ -1,4 +1,3 @@
- 
 package zapcg.Capillary.utils;
 
 import com.amazonaws.AmazonServiceException;
@@ -21,7 +20,6 @@ import javax.mail.internet.MimeMessage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
-import java.io.PrintStream;
 import java.net.URL;
 import java.nio.ByteBuffer;
 import java.nio.file.Paths;
@@ -32,7 +30,6 @@ import java.util.Properties;
 
 public class ReportUploader {
 
-   
     // S3 bucket details
     private static final String BUCKET_NAME = "chandana-poc";
     private static final String FILE_PATH = "Reports/index.html";
@@ -56,50 +53,46 @@ public class ReportUploader {
         try {
             s3.putObject(new PutObjectRequest(BUCKET_NAME, KEY_NAME, new File(FILE_PATH)));
         } catch (AmazonServiceException e) {
-            System.err.println(e.getErrorMessage());
-            System.exit(1);
+            System.err.println("Failed to upload report to S3: " + e.getErrorMessage());
+            return;
         }
 
         // Generate the S3 Pre-signed URL of the Test Execution Report
-        GeneratePresignedUrlRequest request = new GeneratePresignedUrlRequest(BUCKET_NAME, KEY_NAME, HttpMethod.GET);
-        request.setExpiration(new Date(new Date().getTime() + 86400000));
+        GeneratePresignedUrlRequest request = new GeneratePresignedUrlRequest(BUCKET_NAME, KEY_NAME)
+                .withMethod(HttpMethod.GET)
+                .withExpiration(new Date(System.currentTimeMillis() + 86400000)); // 24 hours expiry
         URL url = s3.generatePresignedUrl(request);
 
-        // Send out the Report URL using Simple Email Service (SES)
+        // Create email content
         Session session = Session.getDefaultInstance(new Properties());
         MimeMessage message = new MimeMessage(session);
-
         try {
-            // Configure the email details
             message.setSubject(SUBJECT, "UTF-8");
             message.setFrom(new InternetAddress(SENDER));
             message.setRecipients(javax.mail.Message.RecipientType.TO, InternetAddress.parse(RECIPIENT));
-            message.setText("\n" + BODY_TEXT + "\n" + url.toString());
-            javax.mail.Transport.send(message);
+            message.setText(BODY_TEXT + "\n" + url.toString());
         } catch (MessagingException e) {
-            e.printStackTrace();
+            System.err.println("Failed to create email content: " + e.getMessage());
+            return;
         }
-      //Instantiate an Amazon SES client, which will make the service call with the supplied AWS credentials.
-      //Replace AP_SOUTH_1 with the AWS Region you're using for Amazon SES.
+
+        // Instantiate an Amazon SES client
         try {
-            AmazonSimpleEmailService client = AmazonSimpleEmailServiceClientBuilder.standard()
+            AmazonSimpleEmailService sesClient = AmazonSimpleEmailServiceClientBuilder.standard()
                     .withRegion(Regions.US_EAST_1)
                     .build();
 
-            // Print the raw email content on the console
-            PrintStream out = System.out;
-            message.writeTo(out);
-
-            // Send the email
+            // Convert MimeMessage to RawMessage
             ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
             message.writeTo(outputStream);
             RawMessage rawMessage = new RawMessage(ByteBuffer.wrap(outputStream.toByteArray()));
             SendRawEmailRequest rawEmailRequest = new SendRawEmailRequest(rawMessage);
-            client.sendRawEmail(rawEmailRequest);
-            System.out.println("Email sent!");
+            
+            // Send the email
+            sesClient.sendRawEmail(rawEmailRequest);
+            System.out.println("Email sent successfully!");
         } catch (Exception ex) {
-            System.out.println("Email Failed");
-            System.err.println("Error message: " + ex.getMessage());
+            System.err.println("Failed to send email: " + ex.getMessage());
             ex.printStackTrace();
         }
     }

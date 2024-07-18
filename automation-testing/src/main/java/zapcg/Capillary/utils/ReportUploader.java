@@ -83,7 +83,7 @@ public class ReportUploader {
       //Replace AP_SOUTH_1 with the AWS Region you're using for Amazon SES.
         try {
             AmazonSimpleEmailService client = AmazonSimpleEmailServiceClientBuilder.standard()
-                    .withRegion(Regions.AP_SOUTH_1)
+                    .withRegion(Regions.US_EAST_1)
                     .build();
 
             // Print the raw email content on the console

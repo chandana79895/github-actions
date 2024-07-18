@@ -1,30 +1,223 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite thread-count="3" parallel="tests" name="Failed suite [Fortress_TestSuite]" guice-stage="DEVELOPMENT">
+<suite name="Failed suite [Fortress_TestSuite]" guice-stage="DEVELOPMENT">
   <listeners>
     <listener class-name="zapcg.Capillary.ListenersConfiguration.Listeners"/>
   </listeners>
-  <test thread-count="3" parallel="tests" name="LoginTestsChromeBrowserTabletPortrait(failed)">
+  <test thread-count="5" name="LoginTestsChromeBrowserTabletPortrait(failed)">
     <parameter name="browser" value="chrome"/>
     <parameter name="deviceName" value="Tablet Portrait"/>
     <classes>
       <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases">
         <methods>
-          <include name="verify_SuccessMessage_For_RedeemPoint"/>
           <include name="initialize"/>
           <include name="tearDown"/>
-          <include name="verify_MemberDetails_Content_Displaying_On_EarnPointScreen"/>
-          <include name="verify_Time_Equal_To_System_CurrentTime"/>
           <include name="verify_ExceedThresold_SuccessMessage"/>
         </methods>
       </class> <!-- zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases -->
+    </classes>
+  </test> <!-- LoginTestsChromeBrowserTabletPortrait(failed) -->
+  <test thread-count="5" name="LoginTestsChromeBrowseriPhone11ProPortrait(failed)">
+    <parameter name="browser" value="chrome"/>
+    <parameter name="deviceName" value="iPhone 11 Pro Portrait"/>
+    <classes>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint">
+        <methods>
+          <include name="initialize"/>
+          <include name="tearDown"/>
+          <include name="verify_ValidationMessage_If_GoToPass_Is_Greater_Than_AvailablePoints"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint -->
+      <class name="zapcg.Capillary.MemberLookupTestCases.MemberLookup_Valid_TestCases">
+        <methods>
+          <include name="initialize"/>
+          <include name="hamburgerIcon_Location_Navigation_From_MemberLookup"/>
+          <include name="verifyScanButtonAvailability"/>
+          <include name="enter_Valid_MemberId"/>
+          <include name="tearDown"/>
+          <include name="verify_Header_Hyperlink"/>
+          <include name="hamburgerIcon_Logout_From_MemberLookup"/>
+          <include name="hamburgerIcon_MemberLookup_Navigation_From_MemberLookup"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.MemberLookupTestCases.MemberLookup_Valid_TestCases -->
+      <class name="zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases">
+        <methods>
+          <include name="initialize"/>
+          <include name="verify_BackButton_On_MemberDetails_Screen"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases -->
+      <class name="zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases">
+        <methods>
+          <include name="verify_Invalid_MemberID"/>
+          <include name="verify_CardNumber_Field_MaxLength"/>
+          <include name="verify_Invalid_CardNumber_MinLength"/>
+          <include name="tearDown"/>
+          <include name="verify_Empty_CardNumber_ButtonIsDisabled"/>
+          <include name="verify_MemberId_Field_MaxLength"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases -->
       <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases">
         <methods>
+          <include name="empty_TxnAmount_But_GoToPassPointValue"/>
+          <include name="goTOPassPoint_More_Than_TransactionAmount"/>
+          <include name="tearDown"/>
+          <include name="verify_With_Empty_TransactionAmount"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases -->
+      <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases">
+        <methods>
+          <include name="initialize"/>
+          <include name="verify_NonEditable_TimeField"/>
+          <include name="verifySuccessMessageForOnlyTransactionAmount"/>
+          <include name="verify_Eligible_EarningPoints"/>
+          <include name="verify_MemberDetails_Content_Displaying_On_EarnPointScreen"/>
+          <include name="verify_TaxAssumedAmount"/>
+          <include name="verify_Hamburger_MemberLookupOption_From_EarnPoint_Page"/>
+          <include name="verify_HamBurger_LogoutOption_From_EarnPoint_Page"/>
+          <include name="verify_ExceedThresold_SuccessMessage"/>
+          <include name="verify_HeaderHyperlink_On_EarnPoint_Page"/>
+          <include name="empty_TxnAmount_But_GoToPassPoint_Value"/>
+          <include name="verify_EarnPoints_Navigation_From_MeberDetailsScreen"/>
+          <include name="verify_Date_Equal_To_System_CurrentDate"/>
+          <include name="tearDown"/>
+          <include name="verify_With_Empty_TransactionAmount"/>
+          <include name="verify_Hamburger_LocationOption_From_EarnPoint_Page"/>
+          <include name="verify_NonEditable_LocationField"/>
+          <include name="verify_NonEditable_DateField"/>
+          <include name="verify_BackButton_Navigation_On_EarnPoint_Page"/>
+          <include name="verify_Time_Equal_To_System_CurrentTime"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases -->
+    </classes>
+  </test> <!-- LoginTestsChromeBrowseriPhone11ProPortrait(failed) -->
+  <test thread-count="5" name="LoginTestsFirefoxBrowserTabletPortrait(failed)">
+    <parameter name="browser" value="firefox"/>
+    <parameter name="deviceName" value="Tablet Portrait"/>
+    <classes>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint">
+        <methods>
+          <include name="initialize"/>
+          <include name="verify_ValidationMessage_If_GoToPass_Is_Greater_Than_AvailablePoints"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint -->
+      <class name="zapcg.Capillary.MemberLookupTestCases.MemberLookup_Valid_TestCases">
+        <methods>
+          <include name="initialize"/>
+          <include name="hamburgerIcon_Location_Navigation_From_MemberLookup"/>
+          <include name="verifyScanButtonAvailability"/>
+          <include name="enter_Valid_MemberId"/>
+          <include name="tearDown"/>
+          <include name="verify_Header_Hyperlink"/>
+          <include name="hamburgerIcon_Logout_From_MemberLookup"/>
+          <include name="hamburgerIcon_MemberLookup_Navigation_From_MemberLookup"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.MemberLookupTestCases.MemberLookup_Valid_TestCases -->
+      <class name="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases">
+        <methods>
+          <include name="verify_Header_Of_MemberLookup_Screen"/>
+          <include name="verify_DropDown_Availability"/>
+          <include name="initialize"/>
+          <include name="hamburger_Icon_Logout_From_LocationScreen"/>
+          <include name="navigated_From_Location_To_LookupScreen_With_Valid_Inputs"/>
+          <include name="tearDown"/>
+          <include name="hamburgerIcon_MemberLookup_Navigation_From_LocationScreen"/>
+          <include name="choose_ValidLocation_For_NewUser"/>
+          <include name="verify_Able_To_SelectOption_From_DropDown"/>
+          <include name="verify_Choose_Location_Button_Availability"/>
+          <include name="hamburgerIcon_MemberLocation_Navigation_From_LocationScreen"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases -->
+      <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases">
+        <methods>
+          <include name="Valid_Login"/>
+          <include name="tearDown"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.LoginTestCases.Login_Valid_TestCases -->
+      <class name="zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases">
+        <methods>
+          <include name="verify_Hamburger_MemberLookup_Option_on_MemberDetails"/>
+          <include name="verify_BackButton_On_MemberDetails_Screen"/>
+          <include name="verifyExpiryDateEqualToSystemDateThenNoRedeem"/>
+          <include name="initialize"/>
+          <include name="tearDown"/>
+          <include name="verify_MemberDetails_Displaying"/>
+          <include name="verify_MemberDetails_Navigation_From_MeberLookupScreen_To_MemberDetailsPage"/>
+          <include name="verify_Header_MemberDetailsScreen"/>
+          <include name="verify_Hamburger_LocationOption_On_MemberDetails"/>
+          <include name="verify_MemberDetails_ContentDisplaying"/>
+          <include name="verify_Enabled_EnterReceiptDetails_Button"/>
+          <include name="verify_Hamburger_LogoutOption_On_MemberDetails"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases -->
+      <class name="zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases">
+        <methods>
+          <include name="verify_Invalid_MemberID"/>
+          <include name="verify_CardNumber_Field_MaxLength"/>
+          <include name="verify_Invalid_CardNumber_MinLength"/>
+          <include name="tearDown"/>
+          <include name="verify_Empty_CardNumber_ButtonIsDisabled"/>
+          <include name="verify_MemberId_Field_MaxLength"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases -->
+      <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases">
+        <methods>
+          <include name="empty_TxnAmount_But_GoToPassPointValue"/>
+          <include name="verify_With_Empty_TransactionAmount"/>
           <include name="tearDown"/>
           <include name="goTOPassPoint_More_Than_TransactionAmount"/>
           <include name="initialize"/>
         </methods>
       </class> <!-- zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases -->
+      <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases">
+        <methods>
+          <include name="initialize"/>
+          <include name="verify_NonEditable_TimeField"/>
+          <include name="verifySuccessMessageForOnlyTransactionAmount"/>
+          <include name="verify_Eligible_EarningPoints"/>
+          <include name="verify_MemberDetails_Content_Displaying_On_EarnPointScreen"/>
+          <include name="verify_TaxAssumedAmount"/>
+          <include name="verify_HamBurger_LogoutOption_From_EarnPoint_Page"/>
+          <include name="verify_Hamburger_MemberLookupOption_From_EarnPoint_Page"/>
+          <include name="verify_ExceedThresold_SuccessMessage"/>
+          <include name="verify_HeaderHyperlink_On_EarnPoint_Page"/>
+          <include name="empty_TxnAmount_But_GoToPassPoint_Value"/>
+          <include name="verify_EarnPoints_Navigation_From_MeberDetailsScreen"/>
+          <include name="verify_Date_Equal_To_System_CurrentDate"/>
+          <include name="verify_With_Empty_TransactionAmount"/>
+          <include name="tearDown"/>
+          <include name="verify_Hamburger_LocationOption_From_EarnPoint_Page"/>
+          <include name="verify_NonEditable_DateField"/>
+          <include name="verify_NonEditable_LocationField"/>
+          <include name="verify_BackButton_Navigation_On_EarnPoint_Page"/>
+          <include name="verify_Time_Equal_To_System_CurrentTime"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases -->
     </classes>
-  </test> <!-- LoginTestsChromeBrowserTabletPortrait(failed) -->
+  </test> <!-- LoginTestsFirefoxBrowserTabletPortrait(failed) -->
+  <test thread-count="5" name="LoginTestsChromeBrowseriPhone11ProPortrait_OneTimeExecution(failed)">
+    <parameter name="browser" value="chrome"/>
+    <parameter name="deviceName" value="iPhone 11 Pro Portrait"/>
+    <classes>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.OneTimeExecute_TransactionExceedsThreshold">
+        <methods>
+          <include name="initialize"/>
+          <include name="tearDown"/>
+          <include name="TransactionExceedsThreshold"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.EarnPointPageTestCases.OneTimeExecute_TransactionExceedsThreshold -->
+      <class name="zapcg.Capillary.EarnPointPageTestCases.OneTimeExecute_pointVerificationAfterRedeemingPoints">
+        <methods>
+          <include name="verify_TotalPoints_Before_and_After"/>
+          <include name="tearDown"/>
+          <include name="initialize"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.EarnPointPageTestCases.OneTimeExecute_pointVerificationAfterRedeemingPoints -->
+    </classes>
+  </test> <!-- LoginTestsChromeBrowseriPhone11ProPortrait_OneTimeExecution(failed) -->
 </suite> <!-- Failed suite [Fortress_TestSuite] -->

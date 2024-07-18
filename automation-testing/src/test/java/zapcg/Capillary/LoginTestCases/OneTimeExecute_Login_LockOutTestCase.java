@@ -1,6 +1,7 @@
 package zapcg.Capillary.LoginTestCases;
 
-import org.openqa.selenium.Dimension;
+
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Parameters;
@@ -15,18 +16,20 @@ import zapcg.Capillary.PageObject.loginPage;
 public class OneTimeExecute_Login_LockOutTestCase extends BaseTest{
 	
 	public loginPage lp;
-	 public String currentBrowser;
-	 public Dimension currentDimension;
-	 Dimension dimension=  new Dimension(768, 1024);
-	
-	@BeforeMethod
-	@Parameters({"browser","deviceIndex"})
-   public void initialize(String browser, String deviceIndex) throws InterruptedException {
-		setUp(browser,deviceIndex); // Use the setup method to initialize the browser
-       initialization(browser);
-       driver.get(baseUrl);
-       Thread.sleep(1000); // For demonstration purposes, avoid using Thread.sleep in real tests
+	 String errorMessageText = "Invalid username or password. Try again.";
+	 String lockoutMessageText = "Your account is locked. Ask your manager for unlock the account.";
 
+	
+	
+	 @BeforeMethod
+		@Parameters({"browser", "deviceName"})
+	   public void initialize(String browser, String deviceName) throws InterruptedException {
+		
+		 setUp(browser, deviceName); // Use the setup method to initialize the browser
+	       initialization(browser);
+	       driver.get(baseUrl);
+	       Thread.sleep(3000); // For demonstration purposes, avoid using Thread.sleep in real tests
+	     
        lp = new loginPage(driver);
        lp.changeDefaultLanguage();
        lp.chooseEnglishLanguage();
@@ -37,25 +40,49 @@ public class OneTimeExecute_Login_LockOutTestCase extends BaseTest{
 
    @Test(priority=1,groups = {"OneTimeExecution"})
 	public void verify_ValidationMessage_For5Invalid_LoginAttempt() throws InterruptedException
+	{
 		//after 5 invalid attempts user won't be able to login for 30min
-	{	
+	// Attempt 5 invalid login attempts
+	 lp = new loginPage(driver); 
+    for (int i = 0; i < 5; i++) {
+    	  lp.loginLockOutCase("zapcom_test", "storeporta");
+        //Assert.assertTrue(lp.isErrorMessageDisplayed(), "Error message not displayed for attempt " + (i + 1));
+    	  Assert.assertFalse(lp.isLockoutMessageDisplayed(), "Lockout message displayed prematurely" + (i + 1));
+    	  
+        Assert.assertEquals(lp.getInvalidErrorMessage(), errorMessageText, "Incorrect error message displayed");
+    }
+
+    // After 5 attempts, verify no lockout message should be displayed
+    Assert.assertFalse(lp.isLockoutMessageDisplayed(), "Lockout message displayed prematurely");
+
+    // Attempt 6th invalid login  
+    lp.loginLockOutCase("zapcom_test", "storeporta");
+    // Verify lockout message after 6th attempt
+    Assert.assertTrue(lp.isLockoutMessageDisplayed(), "Lockout message not displayed after 6 attempts");
+    Assert.assertEquals(lp.getLockoutErrorMessage(), lockoutMessageText, "Incorrect lockout message displayed");
+
+	   
+	   
+	   
+	   
+	   /*
        // Try logging in with invalid credentials 5 times
        for (int i = 0; i <= 5; i++) {
     	   lp = new loginPage(driver);   
-    	   lp.loginLockOutCase("zapcom_tes", "12345678A@");
+    	   lp.loginLockOutCase("zapcom_test", "storeporta");
        
        	
        	if (i == 5) {
             // Verify lockout message
             lp.verifyLockOutMessage("Your account is locked. Ask your manager for unlock the account.");
-            break; // Exit the loop after displaying the lockout message
+             // Exit the loop after displaying the lockout message
        
              }
        
        
        // Verify lockout message
        lp.verifyLockOutMessage("Your account is locked. Ask your manager for unlock the account.");//enter the validation message here
-       
+       /*
        
        // Wait for 15 minutes (1800 seconds):: to cover one boundary value test cases
        Thread.sleep(900 * 1000);
@@ -68,17 +95,15 @@ public class OneTimeExecute_Login_LockOutTestCase extends BaseTest{
        Thread.sleep(900 * 1000);
        // Attempt to log in again and verify user should be able to login using valid credentials
        lp.login("zapcom_test2", "storeportal");
-       //write down the steps to verify the login to the portal successfully
-       lp.verifySuccessfullLogin(driver,"https://d3che4praaad7h.cloudfront.net/location-search");
-
+       System.out.println("Logged In successfully after lock out duration");
+       
+ 
+*/
        
    }
    
-   //(30 * 60 * 1000)= this is 30min
-   //add one more test case
-   //test case > login>> select the location > now logout> again login to same user> same location should be auto populated in location screen, user is not going to select the locatoion again
+  
+}
 
-}
-}
 
 

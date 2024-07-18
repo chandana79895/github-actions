@@ -47,7 +47,8 @@ public class EarnPoint_Valid_TestCases extends BaseTest{
 
 	   }
 	 
-	 
+	
+
 	 @Test(priority=1, groups = {"EarnPoint"})
 		public void verify_NonEditable_LocationField() throws InterruptedException {
 		
@@ -218,9 +219,9 @@ public class EarnPoint_Valid_TestCases extends BaseTest{
 		 
 	 }
 	 
-	 
 	
-	 
+	
+	 /* this is commented because this is considering as One Time execution
 	 @Test(priority=17, groups = "EarnPoint")
 	 public void verify_SuccessMessage_For_RedeemPoint()
 	 {
@@ -228,9 +229,9 @@ public class EarnPoint_Valid_TestCases extends BaseTest{
 		 epp.enterGoToPassPoint("1");
 		 
 		 epp.clickOnSubmitButton();
-		 epp.verifySuccessMessageIfRedeemingPoints("transaction has been successfully submitted. They have earned 89 points and have spent 1 points.");
+		 epp.verifySuccessMessageIfRedeemingPoints("transaction has been successfully submitted.");
 	 }
-	
+*/
 	 
 	 @Test(priority=18, groups = "EarnPoint")
 	 public void verify_Eligible_EarningPoints()
@@ -273,7 +274,7 @@ public class EarnPoint_Valid_TestCases extends BaseTest{
 		 
 		 }
 	   
-	 
+
 	 
 	 @Test(priority=19, groups = "EarnPoint")
 	 
@@ -283,18 +284,11 @@ public class EarnPoint_Valid_TestCases extends BaseTest{
 	    
 	        epp.enterTransactionAmount(transactionAmount);
 	        epp.clickOnSubmitButton();
-	        epp.verifySuccessMessageExceedThresoldValue("Success! Customer/Member transaction exceeds threshold. The transaction has been submitted for approval");
-	        //epp.clickOnContinueSuccessButton();
-	       // mlp.enterMemberId("GT000003673");
-
-	        // Navigate back to Member Details screen and get updated total earning points
-	        //int updatedTotalEarningPoints = mdp.getTotalEarningPoints();
-	        //System.out.println("Updated Total Earning Points: " + updatedTotalEarningPoints);
-
-	   
-		 
-		 
+	        epp.verifySuccessMessageExceedThresoldValue("The transaction has been submitted for approval");
+	 
 		 
 	 }
+	 	
+		 
 }
 

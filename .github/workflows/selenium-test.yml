@@ -3,7 +3,7 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - 'latest-code'
+      - 'develop'
   schedule:
     - cron: '0 18 * * 1-5'
 
@@ -15,16 +15,13 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        with:
-          ref: latest-code
 
       - name: Set up JDK 11
         uses: actions/setup-java@v2
         with:
           java-version: '11'
           distribution: 'temurin'
-          cache: maven
-          ref: latest-code  
+          cache: maven  
 
       - name: Update apt-get
         run: sudo apt-get update

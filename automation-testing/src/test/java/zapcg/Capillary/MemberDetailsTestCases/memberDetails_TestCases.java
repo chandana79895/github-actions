@@ -68,7 +68,7 @@ public class memberDetails_TestCases extends BaseTest{
 				
 		
 	}
-	 
+	
 	 @Test(priority=4, groups = {"MemberDetails"})
 		public void verify_Enabled_EnterReceiptDetails_Button() {
 		mdp.verifyEnterReceiptButtonEnabled(); 
@@ -83,13 +83,13 @@ public class memberDetails_TestCases extends BaseTest{
 				
 		
 	}
-	 /*
+	
 	 //Expected behavior not yet decided.
 	 @Test(priority=6, groups = "MemberDetails")
 		public void verifyExpiryDateEqualToSystemDateThenNoRedeem() {
 		 		
 		
-	}*/
+	}
 	 
 	 @Test(priority=7, groups = {"MemberDetails"})
 		public void verify_Hamburger_MemberLookup_Option_on_MemberDetails() throws InterruptedException {
@@ -129,10 +129,6 @@ public class memberDetails_TestCases extends BaseTest{
 		 Thread.sleep(1000);
 		mdp.verifySuccessfullNavigationForBackButton(driver);
 	}
-	 
-
-	 
-	 
 	 
 
 }

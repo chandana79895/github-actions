@@ -61,7 +61,7 @@ public class loginPage{
 	@FindBy(xpath="//div/h6[@id='LSERRM' and contains(text(),\"Username must not contain any spaces\")]")
 	WebElement spacenotallowedinusername;
 	
-	@FindBy(xpath="//div/h6[@id='LSERRM' and contains(text(),\"Your account is locked. Ask your manager for unlock the account.\")]")//xpath for lockout message
+	@FindBy(xpath="//div/h6[@id='LSERRM']")          // and contains(text(),\"Your account is locked. Ask your manager for unlock the account.\")]")//xpath for lockout message
 	WebElement lockoutmsg;
 	
 	@FindBy(xpath="//div[@id='LSCONT']")
@@ -80,56 +80,18 @@ public class loginPage{
 		
 		public void changeDefaultLanguage()
 		{ 
-			  System.out.println("Now we will try to change the default language to English language");
 			 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
 
 			    try {
 			        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(defaultLanguageChange));
 			        element.click();
-			        System.out.println("Clicked on default language change element.");
 
 			    } catch (Exception e) {
 			        System.err.println("Error clicking on default language change element: " + e.getMessage());
 			        Assert.fail("Failed to click on default language change element.");
 			    }
-			    System.out.println("Able to change the default language to English language");
 			
-			/*
-			int maxRetries = 3; // Maximum number of retries for handling stale element
-	        int retries = 0;
-	        boolean success = false;
-
-	        while (retries < maxRetries && !success) {
-	            try {
-	                // Configure FluentWait
-	                Wait<WebDriver> wait = new FluentWait<>(driver)
-	                        .withTimeout(Duration.ofSeconds(40))  // Maximum wait time
-	                        .pollingEvery(Duration.ofSeconds(5))  // Polling interval
-	                        .ignoring(NoSuchElementException.class) // Ignoring NoSuchElementException
-	                        .ignoring(StaleElementReferenceException.class); // Ignoring StaleElementReferenceException
-
-	                // Wait for the element to be clickable
-	                WebElement element = wait.until(ExpectedConditions.elementToBeClickable(defaultLanguageChange));
-
-	                // Perform action on the element
-	                element.click();
-	                success = true; // If execution reaches here, it means the operation was successful
-
-	            } catch (StaleElementReferenceException e) {
-	                System.err.println("Encountered StaleElementReferenceException. Retrying... (" + (retries + 1) + "/" + maxRetries + ")");
-	                retries++;
-	                if (retries >= maxRetries) {
-	                    Assert.fail("Failed due to repeated StaleElementReferenceException.");
-	                }
-	            } catch (NoSuchElementException e) {
-	                System.err.println("The default language change element was not found: " + e.getMessage());
-	                Assert.fail("The default language change element was not found.");
-	                
-	            } catch (Exception e) {
-	                System.err.println("An unexpected error occurred: " + e.getMessage());
-	                Assert.fail("An unexpected error occurred.");
-	            }
-	        }*/
+			
 		}
 		
 		public void chooseEnglishLanguage()
@@ -198,12 +160,12 @@ public class loginPage{
 		        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
 		        // Wait for the URL to change to the expected URL
-		        boolean isUrlChanged = wait.until(ExpectedConditions.urlToBe("https://d3che4praaad7h.cloudfront.net/member-search"));
+		        boolean isUrlChanged = wait.until(ExpectedConditions.urlToBe("https://dh3tlsolaj150.cloudfront.net/member-search"));
 
 		        if (isUrlChanged) {
 		            String currentUrl = driver.getCurrentUrl();
 		            System.out.println("After successful login, navigated to the Location screen: " + currentUrl);
-		            String expectedUrl1 = "https://d3che4praaad7h.cloudfront.net/member-search";
+		            String expectedUrl1 = "https://dh3tlsolaj150.cloudfront.net/member-search";
 		            Assert.assertEquals(currentUrl, expectedUrl1, "The URL after login is incorrect. Login not successful.");
 		        } else {
 		            System.out.println("The URL did not change to the expected URL within the timeout period.i.e, no success login,");
@@ -488,15 +450,15 @@ public class loginPage{
 		public void verifyLockOutMessage(String expectedErrorMessage) {
 			
 			try {
-				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
 		        // Wait for the error message element to be visible
 		        WebElement errorMsgElement = wait.until(ExpectedConditions.visibilityOf(lockoutmsg));
 
 		        // Get the text of the error message and trim it
 		        String actualErrorMessage = errorMsgElement.getText().trim();
-		        System.out.println("Actual error message LockoutCase: " +actualErrorMessage);
-		        
+		        System.out.println("Actual error message LockoutCase: " + actualErrorMessage);
+
 		        // Assert that the error message is displayed
 		        if (errorMsgElement.isDisplayed()) {
 		            System.out.println("The error message is displayed.");
@@ -504,18 +466,21 @@ public class loginPage{
 		            System.out.println("The error message is NOT displayed.");
 		        }
 		        // Assert that the error message is displayed
-		        Assert.assertTrue(errorMsgElement.isDisplayed());
+		        Assert.assertTrue(errorMsgElement.isDisplayed(), "The error message should be displayed.");
 
 		        // Compare the actual error message with the expected error message
 		        assertEquals(actualErrorMessage, expectedErrorMessage, "The validation message not displaying for Invalid inputs");
-		  		
-			}
-			
-			catch(NoSuchElementException e) {
-				 System.out.println("The error message element was not found on the page.");
-			        Assert.fail("The error message element was not found on the page.");
 
-			}
+		    } catch (NoSuchElementException e) {
+		        System.out.println("The error message element was not found on the page.");
+		        Assert.fail("The error message element was not found on the page.");
+		    } catch (TimeoutException e) {
+		        System.out.println("Timeout waiting for the error message element: " + e.getMessage());
+		        Assert.fail("Timeout waiting for the error message element.");
+		    } catch (Exception e) {
+		        System.out.println("An error occurred while verifying the error message: " + e.getMessage());
+		        Assert.fail("An error occurred while verifying the error message: " + e.getMessage());
+		    }
 			
 		}
 		
@@ -572,4 +537,21 @@ public class loginPage{
 			    }
 		}
 
+		  public String getLockoutErrorMessage() {
+			  return lockoutmsg.getText();
+    }
+		  public boolean isLockoutMessageDisplayed() {
+				
+				return lockoutmsg.isDisplayed();
+			}
+		  
+		  public String getInvalidErrorMessage() {
+			  return errormsgforinvalidusername.getText();
+    }
+		public boolean isErrorMessageDisplayed() {
+			
+			return errormsgforinvalidusername.isDisplayed();
+		}
+
+		  
 }

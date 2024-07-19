@@ -120,9 +120,9 @@ jobs:
         run: ls -la /home/runner/work/github-actions/github-actions/automation-testing/reports/
 
 
-      # - name: Upload test report to Slack
-      #   uses: adrey/slack-file-upload-action@master
-      #   with:
-      #     token: ${{ secrets.SLACK_WEBHOOK_URL }}
-      #     path: /home/runner/work/github-actions/github-actions/automation-testing/reports/index.html
-      #     channel: notifications
+      - name: Upload test report to Slack
+        uses: adrey/slack-file-upload-action@master
+        with:
+          token: ${{ secrets.SLACK_WEBHOOK_URL }}
+          path: /home/runner/work/github-actions/github-actions/automation-testing/reports/index.html
+          channel: notifications

@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
@@ -86,7 +86,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: poc
-    needs: automation_testings
+    needs: deploy
     if: success()  # Ensures this job runs only if the previous job succeeds
     steps:
       - name: Checkout code

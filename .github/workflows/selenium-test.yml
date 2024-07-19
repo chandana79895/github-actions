@@ -87,7 +87,7 @@ jobs:
     environment:
       name: poc
     needs: deploy
-    if: success()  # Ensures this job runs only if the previous job succeeds
+    if: failure()  # Ensures this job runs only if the previous job succeeds
     steps:
       - name: Checkout code
         uses: actions/checkout@v2

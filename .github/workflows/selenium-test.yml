@@ -84,41 +84,41 @@ jobs:
         path: /home/runner/work/github-actions/github-actions/automation-testing/reports/index.html
         if-no-files-found: warn
 
-    - name: Construct artifact URL
-      id: construct-url
-      run: |
-        echo "ARTIFACT_URL=https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/Artifacts" >> $GITHUB_ENV
+    # - name: Construct artifact URL
+    #   id: construct-url
+    #   run: |
+    #     echo "ARTIFACT_URL=https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/Artifacts" >> $GITHUB_ENV
 
-    - name: Send test report to Slack
-      uses: slackapi/slack-github-action@v1.24.0
-      with:
-        payload: |
-          {
-            "channel": "notifications",
-            "text": "The test report is ready: ${{ env.ARTIFACT_URL }}"
-          }
-      env:
-        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+    # - name: Send test report to Slack
+    #   uses: slackapi/slack-github-action@v1.24.0
+    #   with:
+    #     payload: |
+    #       {
+    #         "channel": "notifications",
+    #         "text": "The test report is ready: ${{ env.ARTIFACT_URL }}"
+    #       }
+    #   env:
+    #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
-  # slack_upload_job:
-  #   runs-on: ubuntu-latest
-  #   environment:
-  #     name: poc
-  #   needs: deploy
-  #   if: success()  # Ensures this job runs only if the previous job succeeds
-  #   steps:
-  #     - name: Checkout code
-  #       uses: actions/checkout@v2
+  slack_upload_job:
+    runs-on: ubuntu-latest
+    environment:
+      name: poc
+    needs: deploy
+    if: success()  # Ensures this job runs only if the previous job succeeds
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-  #     - name: Download test report artifact
-  #       uses: actions/download-artifact@v3
-  #       with:
-  #         name: TestReport
-  #         path: /home/runner/work/github-actions/github-actions/automation-testing/Reports/index.html
+      - name: Download test report artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: TestReport
+          path: /home/runner/work/github-actions/github-actions/automation-testing/Reports/index.html
 
-  #     - name: Upload test report to Slack
-  #       uses: adrey/slack-file-upload-action@master
-  #       with:
-  #         token: ${{ secrets.SLACK_WEBHOOK_URL }}
-  #         path: /home/runner/work/github-actions/github-actions/automation-testing/Reports/index.html
-  #         channel: notifications
+      - name: Upload test report to Slack
+        uses: adrey/slack-file-upload-action@master
+        with:
+          token: ${{ secrets.SLACK_WEBHOOK_URL }}
+          path: /home/runner/work/github-actions/github-actions/automation-testing/Reports/index.html
+          channel: notifications

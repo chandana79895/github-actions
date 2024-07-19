@@ -17,6 +17,7 @@ Conditions:
   IsStage: !Equals [!Ref Env, stage]
   IsProd: !Equals [!Ref Env, prod]
   IsPoc: !Equals [!Ref Env, poc]
+  IsMain: !Equals [!Ref Env, main]
   
 Resources:
   OriginAccessIdentity:
@@ -72,7 +73,7 @@ Resources:
       Tags:
         - Key: Account_Project
           Value: poc_test
-    Condition: IsPoc      
+    Condition: IsMain     
          
 
   pocIP4Set:
@@ -92,7 +93,7 @@ Resources:
       Tags:
         - Key: Account_Project
           Value: poc_test
-    Condition: IsDev       
+    Condition: IsPoc       
            
 
   testWebACL:

@@ -99,7 +99,7 @@ Resources:
   testWebACL:
     Type: AWS::WAFv2::WebACL
     Properties:
-      Name: test-WebACL-${Env}
+      Name: !Sub "test-WebACL-${Env}"
       Scope: CLOUDFRONT
       DefaultAction:
         Allow: {}

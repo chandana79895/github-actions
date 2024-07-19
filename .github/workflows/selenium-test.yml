@@ -87,7 +87,7 @@ jobs:
     environment:
       name: poc
     needs: deploy
-    if: failure()  # Ensures this job runs only if the previous job succeeds
+    if: success()  # Ensures this job runs only if the previous job succeeds
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -102,4 +102,4 @@ jobs:
         with:
           token: ${{ secrets.SLACK_WEBHOOK_URL }}
           path: /home/runner/work/github-actions/github-actions/automation-testing/Reports/index.html
-          channel: random
+          channel: notifications

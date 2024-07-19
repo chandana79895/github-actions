@@ -118,10 +118,10 @@ Resources:
             MetricName: allow_ip4
           Statement:
             IPSetReferenceStatement:
-              Arn: !If 
-                - IsPoc
-                - !GetAtt testIP4Set.Arn
-                - !GetAtt pocIP4Set.Arn
+              Arn: !If [IsPoc, !GetAtt testIP4Set.Arn, !GetAtt pocIP4Set.Arn]
+                # - IsPoc
+                # - !GetAtt testIP4Set.Arn
+                # - !GetAtt pocIP4Set.Arn
         # - Name: AllowIPRule6
         #   Priority: 1
         #   Action:

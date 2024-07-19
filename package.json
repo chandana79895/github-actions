@@ -8,6 +8,7 @@
     "dev": "vite --mode dev",
     "build:dev": "tsc && vite build --mode dev",
     "build:poc": "tsc && vite build --mode poc",
+    "build:main": "tsc && vite build --mode main",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",

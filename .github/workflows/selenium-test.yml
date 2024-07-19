@@ -87,7 +87,7 @@ jobs:
     - name: Construct artifact URL
       id: construct-url
       run: |
-        echo "ARTIFACT_URL=https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts" >> $GITHUB_ENV
+        echo "ARTIFACT_URL=https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/Artifacts" >> $GITHUB_ENV
 
     - name: Send test report to Slack
       uses: slackapi/slack-github-action@v1.24.0

@@ -119,7 +119,7 @@ Resources:
           Statement:
             IPSetReferenceStatement:
               Arn: !If 
-                - IsDev
+                - IsPoc
                 - !GetAtt testIP4Set.Arn
                 - !GetAtt pocIP4Set.Arn
         # - Name: AllowIPRule6

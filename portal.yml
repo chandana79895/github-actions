@@ -72,19 +72,27 @@ Resources:
       Tags:
         - Key: Account_Project
           Value: poc_test
+    Condition: IsPoc      
          
 
-  testIP6Set:
+  pocIP4Set:
     Type: 'AWS::WAFv2::IPSet'
     Properties:
-      Name: test-IPSet6
+      Name: poc-IPSet4
       Scope: CLOUDFRONT
-      IPAddressVersion: IPV6
-      Addresses:      
-        - "2600:1700:eec4:7e00:a93a:01ca:410e:38cb/128"
+      IPAddressVersion: IPV4
+      Addresses:
+        - "14.99.84.194/32"
+        - "49.204.91.61/32"
+        - "14.97.205.158/32"
+        - "192.168.1.242/32"
+        - "49.206.132.69/32"
+        - "2.207.1.196/32"
+        - "192.168.178.71/32"
       Tags:
         - Key: Account_Project
           Value: poc_test
+    Condition: IsDev       
            
 
   testWebACL:
@@ -109,7 +117,10 @@ Resources:
             MetricName: allow_ip4
           Statement:
             IPSetReferenceStatement:
-              Arn: !GetAtt testIP4Set.Arn
+              Arn: !If 
+                - IsDev
+                - !GetAtt devIP4Set.Arn
+                - !GetAtt pocIP4Set.Arn
         - Name: AllowIPRule6
           Priority: 1
           Action:

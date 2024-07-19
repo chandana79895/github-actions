@@ -119,7 +119,7 @@ Resources:
             IPSetReferenceStatement:
               Arn: !If 
                 - IsDev
-                - !GetAtt devIP4Set.Arn
+                - !GetAtt testIP4Set.Arn
                 - !GetAtt pocIP4Set.Arn
         - Name: AllowIPRule6
           Priority: 1

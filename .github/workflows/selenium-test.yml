@@ -129,6 +129,8 @@ jobs:
           icon_emoji: ':rocket:'
           username: 'github-actions'
           fields: repo,commit,author
+          env:
+            SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           custom: |
             {
               "attachments": [

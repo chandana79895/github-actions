@@ -3,7 +3,7 @@ name: Java CI with Maven
 on:
   push:
     branches:
-      - "latest-code"
+      - "report-on-slack-check"
 
 jobs:
   deploy:
@@ -73,11 +73,33 @@ jobs:
       run: |
         export DISPLAY=:99
         cd automation-testing/
-        xvfb-run -a mvn clean install 
+        xvfb-run -a mvn clean install
 
-    - name: Upload test report artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: TestReport
-        path: /home/runner/actions-runner/_work/github-actions/github-actions/automation-testing/reports/index.html
-        if-no-files-found: warn
+      - name: Upload test report artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: TestReport
+          path: /home/runner/work/github-actions/github-actions/automation-testing/Reports/index.html
+          if-no-files-found: warn
+
+  slack_upload_job:
+    runs-on: ubuntu-latest
+    environment:
+      name: poc
+    needs: automation_testings
+    if: success()  # Ensures this job runs only if the previous job succeeds
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Download test report artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: TestReport
+
+      - name: Upload test report to Slack
+        uses: adrey/slack-file-upload-action@master
+        with:
+          token: ${{ secrets.SLACK_WEBHOOK_URL }}
+          path: /home/runner/work/github-actions/github-actions/automation-testing/Reports/index.html
+          channel: random

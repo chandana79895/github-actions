@@ -75,12 +75,12 @@ jobs:
         cd automation-testing/
         xvfb-run -a mvn clean install
 
-      - name: Upload test report artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: TestReport
-          path: /home/runner/work/github-actions/github-actions/automation-testing/Reports/index.html
-          if-no-files-found: warn
+    # - name: Upload test report artifact
+    #   uses: actions/upload-artifact@v3
+    #     with:
+    #       name: TestReport
+    #       path: /home/runner/work/github-actions/github-actions/automation-testing/Reports/index.html
+    #       if-no-files-found: warn
 
   slack_upload_job:
     runs-on: ubuntu-latest

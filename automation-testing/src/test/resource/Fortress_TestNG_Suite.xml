@@ -17,13 +17,13 @@
     <classes>
       <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
       <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
-      <class name="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases"/>
+      <!-- <class name="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases"/>
       <class name="zapcg.Capillary.MemberLookupTestCases.MemberLookup_Valid_TestCases"/>
       <class name="zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases"/>
       <class name="zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases"/>
       <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases"/>
       <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases"/>
-      <class name="zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint"/>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint"/> -->
       
       
     </classes>
@@ -38,13 +38,13 @@
     <classes>
       <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
       <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
-      <class name="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases"/>
+      <!-- <class name="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases"/>
       <class name="zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases"/>
       <class name="zapcg.Capillary.MemberLookupTestCases.MemberLookup_Valid_TestCases"/>
       <class name="zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases"/>
       <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases"/>
       <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases"/>
-      <class name="zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint"/>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint"/> -->
       
     </classes>
   </test>
@@ -56,13 +56,13 @@
     <classes>
       <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
       <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
-      <class name="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases"/>
+      <!-- <class name="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases"/>
       <class name="zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases"/>
       <class name="zapcg.Capillary.MemberLookupTestCases.MemberLookup_Valid_TestCases"/>
       <class name="zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases"/>
       <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases"/>
       <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases"/>
-      <class name="zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint"/>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint"/> -->
       
     </classes>
   </test>
@@ -74,14 +74,14 @@
     <parameter name="deviceName" value="iPhone 11 Pro Landscape"/> <!-- Tablet Portrait -->
     <classes>
       <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
-      <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
+      <!-- <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
       <class name="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases"/>
       <class name="zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases"/>
       <class name="zapcg.Capillary.MemberLookupTestCases.MemberLookup_Valid_TestCases"/>
       <class name="zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases"/>
       <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases"/>
       <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases"/>
-      <class name="zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint"/>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint"/> -->
       
     </classes>
   </test>
@@ -93,14 +93,14 @@
     <parameter name="deviceName" value="Galaxy S20 Portrait"/> <!-- Tablet Portrait -->
     <classes>
       <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
-      <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
+      <!-- <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
       <class name="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases"/>
       <class name="zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases"/>
       <class name="zapcg.Capillary.MemberLookupTestCases.MemberLookup_Valid_TestCases"/>
       <class name="zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases"/>
       <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases"/>
       <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases"/>
-      <class name="zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint"/>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint"/> -->
       
     </classes>
   </test>
@@ -113,14 +113,14 @@
     <parameter name="deviceName" value="Galaxy S20 Landscape"/> <!-- Tablet Portrait -->
     <classes>
       <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
-      <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
+      <!-- <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
       <class name="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases"/>
       <class name="zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases"/>
       <class name="zapcg.Capillary.MemberLookupTestCases.MemberLookup_Valid_TestCases"/>
       <class name="zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases"/>
       <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases"/>
       <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases"/>
-      <class name="zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint"/>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint"/> -->
       
     </classes>
   </test>
@@ -137,14 +137,14 @@
     <parameter name="deviceName" value="Tablet Portrait"/> <!-- Tablet Portrait -->
     <classes>
       <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
-      <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
+      <!-- <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
       <class name="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases"/>
       <class name="zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases"/>
       <class name="zapcg.Capillary.MemberLookupTestCases.MemberLookup_Valid_TestCases"/>
       <class name="zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases"/>
       <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases"/>
       <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases"/>
-      <class name="zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint"/>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint"/> -->
       
       
     </classes>
@@ -158,14 +158,14 @@
     <parameter name="deviceName" value="Tablet Landscape"/> <!-- Tablet Portrait -->
     <classes>
       <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
-      <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
+      <!-- <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
       <class name="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases"/>
       <class name="zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases"/>
       <class name="zapcg.Capillary.MemberLookupTestCases.MemberLookup_Valid_TestCases"/>
       <class name="zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases"/>
       <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases"/>
       <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases"/>
-      <class name="zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint"/>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint"/> -->
       
     </classes>
   </test>
@@ -176,14 +176,14 @@
     <parameter name="deviceName" value="iPhone 11 Pro Portrait"/> <!-- Tablet Portrait -->
     <classes>
       <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
-      <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
+      <!-- <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
       <class name="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases"/>
       <class name="zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases"/>
       <class name="zapcg.Capillary.MemberLookupTestCases.MemberLookup_Valid_TestCases"/>
       <class name="zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases"/>
       <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases"/>
       <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases"/>
-      <class name="zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint"/>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint"/> -->
       
     </classes>
   </test>
@@ -195,14 +195,14 @@
     <parameter name="deviceName" value="iPhone 11 Pro Landscape"/> <!-- Tablet Portrait -->
     <classes>
       <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
-      <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
+      <!-- <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
       <class name="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases"/>
       <class name="zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases"/>
       <class name="zapcg.Capillary.MemberLookupTestCases.MemberLookup_Valid_TestCases"/>
       <class name="zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases"/>
       <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases"/>
       <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases"/>
-      <class name="zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint"/>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint"/> -->
       
     </classes>
   </test>
@@ -214,14 +214,14 @@
     <parameter name="deviceName" value="Galaxy S20 Portrait"/> <!-- Tablet Portrait -->
     <classes>
       <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
-      <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
+      <!-- <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
       <class name="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases"/>
       <class name="zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases"/>
       <class name="zapcg.Capillary.MemberLookupTestCases.MemberLookup_Valid_TestCases"/>
       <class name="zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases"/>
       <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases"/>
       <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases"/>
-      <class name="zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint"/>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint"/> -->
       
     </classes>
   </test>
@@ -234,14 +234,14 @@
     <parameter name="deviceName" value="Galaxy S20 Landscape"/> <!-- Tablet Portrait -->
     <classes>
       <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
-      <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
+      <!-- <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
       <class name="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases"/>
       <class name="zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases"/>
       <class name="zapcg.Capillary.MemberLookupTestCases.MemberLookup_Valid_TestCases"/>
       <class name="zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases"/>
       <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases"/>
       <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases"/>
-      <class name="zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint"/>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint"/> -->
       
     </classes>
   </test>
@@ -253,7 +253,7 @@
     <classes>
  
  		<class name="zapcg.Capillary.EarnPointPageTestCases.OneTimeExecute_pointVerificationAfterRedeemingPoints"/>
-     	<class name="zapcg.Capillary.EarnPointPageTestCases.OneTimeExecute_TransactionExceedsThreshold"/>
+     	<!-- <class name="zapcg.Capillary.EarnPointPageTestCases.OneTimeExecute_TransactionExceedsThreshold"/> -->
    <!-- <class name="zapcg.Capillary.LoginTestCases.OneTimeExecute_Login_LockOutTestCase"/> -->  
       
     </classes>

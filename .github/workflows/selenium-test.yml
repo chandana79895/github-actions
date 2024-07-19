@@ -123,6 +123,7 @@ jobs:
       - name: Upload test report to Slack
         uses: 8398a7/action-slack@v3
         with:
+          status: ${{ job.status }}
           channel: 'test'
           token: ${{ secrets.SLACK_TOKEN }}
           icon_emoji: ':rocket:'
@@ -135,7 +136,7 @@ jobs:
                   "color": "#36a64f",
                   "pretext": "Test Report",
                   "title": "View Report",
-                  "title_link": "https://github.com/${{ github.repository }}/reports/index.html",
+                  "title_link": "https://github.com/${{ github.repository }}/automation-testing/reports/index.html",
                   "text": "The test report is ready.",
                   "mrkdwn_in": ["text", "pretext"]
                 }

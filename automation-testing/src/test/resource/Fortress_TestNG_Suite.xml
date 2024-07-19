@@ -1,122 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Fortress_TestSuite" parallel="false">
+<suite name="TestSuite" thread-count="1" parallel="tests">
   
   <listeners>
-    <listener class-name="zapcg.Capillary.ListenersConfiguration.Listeners"/>
-  </listeners>
+<listener class-name="zapcg.Capillary.ListenersConfiguration.Listeners"/>
+
+ </listeners>
+  
+<test name="LoginTestsChromeBrowserTabletPortrait">
+    <parameter name="browser" value="chrome"/>
+    <parameter name="deviceName" value="Tablet Portrait"/> <!-- Tablet Portrait -->
+ 
     
-  <test name="LoginTestsChromeBrowserTabletPortrait">
-    <parameter name="browser" value="chrome"/>
-    <parameter name="deviceName" value="Tablet Portrait"/> <!-- Tablet Portrait -->
     <classes>
+     
+	   
+  
       <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
       <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
-      <!-- Other classes can be added here if needed -->
+  <!--    <class name="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases"/>
+      <class name="zapcg.Capillary.MemberLookupTestCases.MemberLookup_Valid_TestCases"/>
+      <class name="zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases"/>
+      <class name="zapcg.Capillary.MemberDetailsTestCases.memberDetails_TestCases"/>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases"/>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases"/>
+      <class name="zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint"/>  -->
+
+      
+      
+      
     </classes>
   </test>
 
-  <test name="LoginTestsChromeBrowserTabletLandscape">
-    <parameter name="browser" value="chrome"/>
-    <parameter name="deviceName" value="Tablet Landscape"/> <!-- Tablet Landscape -->
-    <classes>
-      <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
-      <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
-      <!-- Other classes can be added here if needed -->
-    </classes>
-  </test>
 
-  <test name="LoginTestsChromeBrowseriPhone11ProPortrait">
-    <parameter name="browser" value="chrome"/>
-    <parameter name="deviceName" value="iPhone 11 Pro Portrait"/> <!-- iPhone 11 Pro Portrait -->
-    <classes>
-      <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
-      <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
-      <!-- Other classes can be added here if needed -->
-    </classes>
-  </test>
 
-  <test name="LoginTestsChromeBrowseriPhone11ProLandscape">
-    <parameter name="browser" value="chrome"/>
-    <parameter name="deviceName" value="iPhone 11 Pro Landscape"/> <!-- iPhone 11 Pro Landscape -->
-    <classes>
-      <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
-      <!-- Other classes can be added here if needed -->
-    </classes>
-  </test>
-
-  <test name="LoginTestsChromeBrowserGalaxyS20Portrait">
-    <parameter name="browser" value="chrome"/>
-    <parameter name="deviceName" value="Galaxy S20 Portrait"/> <!-- Galaxy S20 Portrait -->
-    <classes>
-      <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
-      <!-- Other classes can be added here if needed -->
-    </classes>
-  </test>
-
-  <test name="LoginTestsChromeBrowserGalaxyS20Landscape">
-    <parameter name="browser" value="chrome"/>
-    <parameter name="deviceName" value="Galaxy S20 Landscape"/> <!-- Galaxy S20 Landscape -->
-    <classes>
-      <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
-      <!-- Other classes can be added here if needed -->
-    </classes>
-  </test>
-
-  <!-- Uncomment and modify the following tests as needed -->
-  <!--
-  <test name="LoginTestsFirefoxBrowserTabletPortrait">
-    <parameter name="browser" value="firefox"/>
-    <parameter name="deviceName" value="Tablet Portrait"/> <!-- Tablet Portrait -->
-    <classes>
-      <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
-      <!-- Other classes can be added here if needed -->
-    </classes>
-  </test>
-
-  <test name="LoginTestsFirefoxBrowserTabletLandscape">
-    <parameter name="browser" value="firefox"/>
-    <parameter name="deviceName" value="Tablet Landscape"/> <!-- Tablet Landscape -->
-    <classes>
-      <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
-      <!-- Other classes can be added here if needed -->
-    </classes>
-  </test>
-
-  <test name="LoginTestsFirefoxBrowseriPhone11ProPortrait">
-    <parameter name="browser" value="firefox"/>
-    <parameter name="deviceName" value="iPhone 11 Pro Portrait"/> <!-- iPhone 11 Pro Portrait -->
-    <classes>
-      <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
-      <!-- Other classes can be added here if needed -->
-    </classes>
-  </test>
-
-  <test name="LoginTestsFirefoxBrowseriPhone11ProLandscape">
-    <parameter name="browser" value="firefox"/>
-    <parameter name="deviceName" value="iPhone 11 Pro Landscape"/> <!-- iPhone 11 Pro Landscape -->
-    <classes>
-      <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
-      <!-- Other classes can be added here if needed -->
-    </classes>
-  </test>
-
-  <test name="LoginTestsFirefoxBrowserGalaxyS20Portrait">
-    <parameter name="browser" value="firefox"/>
-    <parameter name="deviceName" value="Galaxy S20 Portrait"/> <!-- Galaxy S20 Portrait -->
-    <classes>
-      <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
-      <!-- Other classes can be added here if needed -->
-    </classes>
-  </test>
-
-  <test name="LoginTestsFirefoxBrowserGalaxyS20Landscape">
-    <parameter name="browser" value="firefox"/>
-    <parameter name="deviceName" value="Galaxy S20 Landscape"/> <!-- Galaxy S20 Landscape -->
-    <classes>
-      <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
-      <!-- Other classes can be added here if needed -->
-    </classes>
-  </test>
-  -->
+  
 </suite> <!-- Suite -->

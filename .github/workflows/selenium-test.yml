@@ -121,7 +121,7 @@ jobs:
 
 
       - name: Publish Report
-        uses: MeilCli/slack-upload-files@v1
+        uses: chandana79895/github-actions@v1
         with:
           slack_token: ${{ secrets.SLACK_TOKEN }}
           file_path: '/home/runner/work/github-actions/github-actions/automation-testing/reports/index.html'

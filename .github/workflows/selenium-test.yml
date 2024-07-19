@@ -120,11 +120,24 @@ jobs:
         run: ls -la /home/runner/work/github-actions/github-actions/automation-testing/reports/
 
 
-      - name: Publish Report
-        uses: chandana79895/github-actions@v1
+      - name: Upload test report to Slack
+        uses: 8398a7/action-slack@v3
         with:
-          slack_token: ${{ secrets.SLACK_TOKEN }}
-          file_path: '/home/runner/work/github-actions/github-actions/automation-testing/reports/index.html'
-          file_name: 'index.html'
-          file_type: 'html'
           channel: 'test'
+          token: ${{ secrets.SLACK_TOKEN }}
+          icon_emoji: ':rocket:'
+          username: 'github-actions'
+          fields: repo,commit,author
+          custom: |
+            {
+              "attachments": [
+                {
+                  "color": "#36a64f",
+                  "pretext": "Test Report",
+                  "title": "View Report",
+                  "title_link": "https://github.com/${{ github.repository }}/reports/index.html",
+                  "text": "The test report is ready.",
+                  "mrkdwn_in": ["text", "pretext"]
+                }
+              ]
+            }

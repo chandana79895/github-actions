@@ -121,17 +121,17 @@ Resources:
                 - IsDev
                 - !GetAtt testIP4Set.Arn
                 - !GetAtt pocIP4Set.Arn
-        - Name: AllowIPRule6
-          Priority: 1
-          Action:
-            Allow: {}
-          VisibilityConfig:
-            SampledRequestsEnabled: true
-            CloudWatchMetricsEnabled: true
-            MetricName: allow_ip6
-          Statement:
-            IPSetReferenceStatement:
-              Arn: !GetAtt testIP6Set.Arn 
+        # - Name: AllowIPRule6
+        #   Priority: 1
+        #   Action:
+        #     Allow: {}
+        #   VisibilityConfig:
+        #     SampledRequestsEnabled: true
+        #     CloudWatchMetricsEnabled: true
+        #     MetricName: allow_ip6
+        #   Statement:
+        #     IPSetReferenceStatement:
+        #       Arn: !GetAtt testIP6Set.Arn 
         - Name: Country-Block
           Priority: 2
           Statement:

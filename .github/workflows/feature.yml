@@ -70,6 +70,19 @@ jobs:
           aws cloudformation validate-template --template-body file://portal.yml
           aws cloudformation deploy --stack-name test-stack-ui-${{ secrets.ENV }} --template-file portal.yml --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM --parameter-overrides Env=${{ secrets.ENV }}
       
+      - name: Deploying to S3 bucket
+        env:
+          CFD_ID: ${{ secrets.CFD_ID }}
+          VITE_APP_SESSION: ${{ secrets.VITE_APP_SESSION }}
+          VITE_APP_BASE_URL: ${{ secrets.VITE_APP_BASE_URL }}
+        run: |
+          npm install
+          export CI=false
+          npm run build:${{ secrets.ENV }}
+          aws s3 rm s3://test-stack-ui-${{ secrets.ENV }}/ --recursive
+          aws s3 sync ./dist s3://test-stack-ui-${{ secrets.ENV}}/
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.CFD_ID }} --paths "/*"
+
   build-and-run-jar:
     if: github.event_name == 'schedule'
     runs-on: ubuntu-latest

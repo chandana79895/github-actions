@@ -31,6 +31,7 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y maven libasound2 libasound2-data libnspr4 libnss3 default-jre-headless libjansi-java libmaven3-core-java libwagon-file-java libwagon-http-shaded-java
+
     - name: Googledriver setup
       run: |
         sudo apt install wget -y
@@ -84,47 +85,23 @@ jobs:
         path: /home/runner/work/github-actions/github-actions/automation-testing/reports/index.html
         if-no-files-found: warn
 
-    # - name: Construct artifact URL
-    #   id: construct-url
-    #   run: |
-    #     echo "ARTIFACT_URL=https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/Artifacts" >> $GITHUB_ENV
-
-    # - name: Send test report to Slack
-    #   uses: slackapi/slack-github-action@v1.24.0
-    #   with:
-    #     payload: |
-    #       {
-    #         "channel": "notifications",
-    #         "text": "The test report is ready: ${{ env.ARTIFACT_URL }}"
-    #       }
-    #   env:
-    #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-
-  slack_upload_job:
-    runs-on: ubuntu-latest
-    environment:
-      name: poc
-    needs: deploy
-    if: success()  # Ensures this job runs only if the previous job succeeds
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Download test report artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: TestReport
-          path: /home/runner/work/github-actions/github-actions/automation-testing/reports/
-
-      - name: List downloaded files
-        run: ls -la /home/runner/work/github-actions/github-actions/automation-testing/reports/
-
-
-      - name: Publish Report
-        uses: chandana79895/github-actions@v2
-        with:
-          slack_token: ${{ secrets.SLACK_TOKEN }}
-          file_path: '/home/runner/work/github-actions/github-actions/automation-testing/reports/index.html'
-          file_name: 'index.html'
-          file_type: 'html'
-          channel: 'test'
+    - name: Send Test Report to Slack
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      run: |
+        REPORT_PATH="/home/runner/work/github-actions/github-actions/automation-testing/reports/index.html"
+        REPORT_CONTENT=$(cat $REPORT_PATH | base64)
+        curl -X POST -H 'Content-type: application/json' --data '{
+          "text": "Test Report",
+          "attachments": [
+            {
+              "text": "The test report is attached.",
+              "fields": [
+                {
+                  "title": "Test Report",
+                  "value": "<base64-encoded-report-content>"
+                }
+              ]
+            }
+          ]
+        }' $SLACK_WEBHOOK_URL

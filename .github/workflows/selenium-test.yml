@@ -110,3 +110,4 @@ jobs:
         SLACK_USERNAME: chandana Govada
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
         SLACK_FILE_UPLOAD: /home/runner/work/github-actions/github-actions/automation-testing/reports/index.html
+        SLACK_TOKEN	: ${{ secrets.SLACK_TOKEN	}}

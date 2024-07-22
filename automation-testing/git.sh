@@ -4,12 +4,12 @@
 OWNER="chandana79895"
 REPO="github-actions"
 RUN_ID="${{ github.run_id }}"
-GITHUB_TOKEN="${{ secrets.GIT_TOKEN }}"
+GIT_TOKEN="${{ secrets.GIT_TOKEN }}"
 SLACK_CHANNEL="test"
 SLACK_TOKEN="${{ secrets.SLACK_TOKEN }}" 
 
 # List artifacts
-response=$(curl -s -H "Authorization: token $GITHUB_TOKEN" \
+response=$(curl -s -H "Authorization: token $GIT_TOKEN" \
   "https://api.github.com/repos/$OWNER/$REPO/actions/runs/$RUN_ID/artifacts")
 
 # Print response for debugging

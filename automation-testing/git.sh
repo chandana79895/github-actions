@@ -3,10 +3,28 @@
 # Variables
 OWNER="chandana79895"
 REPO="github-actions"
-RUN_ID="10041589428"
 GIT_TOKEN="${{ secrets.GIT_TOKEN }}"
 SLACK_CHANNEL="test"
 SLACK_TOKEN="${{ secrets.SLACK_TOKEN }}" 
+
+# Get the latest run ID
+latest_run_response=$(curl -s -H "Authorization: token $GIT_TOKEN" \
+  "https://api.github.com/repos/$OWNER/$REPO/actions/runs?per_page=1")
+
+# Print response for debugging
+echo "Latest Run API Response:"
+echo "$latest_run_response" | jq .
+
+# Extract the latest run ID
+RUN_ID=$(echo "$latest_run_response" | jq -r '.workflow_runs[0].id')
+
+# Check if RUN_ID is empty
+if [ -z "$RUN_ID" ]; then
+  echo "Failed to retrieve the latest run ID."
+  exit 1
+fi
+
+echo "Latest Run ID: $RUN_ID"
 
 # List artifacts
 response=$(curl -s -H "Authorization: token $GIT_TOKEN" \

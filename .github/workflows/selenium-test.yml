@@ -102,7 +102,7 @@ jobs:
 
     - name: Upload Test Report to Slack
       env:
-        SLACK_CHANNEL: 'test'
+        SLACK_CHANNEL: 'test-emt9158'
         SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
       run: |
         # Upload the file to Slack

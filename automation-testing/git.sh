@@ -3,7 +3,7 @@
 # Variables
 OWNER="chandana79895"
 REPO="github-actions"
-RUN_ID="${{ github.run_id }}"
+RUN_ID="10041589428"
 GIT_TOKEN="${{ secrets.GIT_TOKEN }}"
 SLACK_CHANNEL="test"
 SLACK_TOKEN="${{ secrets.SLACK_TOKEN }}" 

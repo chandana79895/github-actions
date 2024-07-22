@@ -66,43 +66,84 @@ jobs:
         ARTIFACT_ID=$(gh api -H "Accept: application/vnd.github+json" /repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts | jq -r '.artifacts[0].id')
         echo "ARTIFACT_ID=$ARTIFACT_ID" >> $GITHUB_ENV
 
-    - name: Construct artifact URL
-      id: construct-url
-      run: |
-        ARTIFACT_URL="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/${ARTIFACT_ID}"
-        echo "ARTIFACT_URL=$ARTIFACT_URL" >> $GITHUB_ENV
 
-    - name: Send test report to Slack
-      env:
-        SLACK_CHANNEL: 'test'
-        SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
-        ARTIFACT_URL: ${{ env.ARTIFACT_URL }}
-      run: |
-        echo "Sending artifact URL to Slack..."
+  upload-report-to-slack:
+    runs-on: ubuntu-latest
 
-        # Post a message with the artifact URL
-        message_response=$(curl -s -X POST -H "Authorization: Bearer ${SLACK_TOKEN}" \
-                                  -H "Content-type: application/json" \
-                                  --data "{
-                                    \"channel\": \"${SLACK_CHANNEL}\",
-                                    \"text\": \"Test Report :rocket:\",
-                                    \"attachments\": [
-                                      {
-                                        \"title\": \"Test Report for Job\",
-                                        \"title_link\": \"${ARTIFACT_URL}\",
-                                        \"text\": \"The test report can be viewed from the link above.\"
-                                      }
-                                    ]
-                                  }" \
-                                  https://slack.com/api/chat.postMessage)
-        
-        echo "Message response: $message_response"
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-        # Check if the message was sent successfully
-        message_ok=$(echo $message_response | jq -r '.ok')
-        if [ "$message_ok" != "true" ]; then
-          echo "Message post failed: $message_response"
-          exit 1
-        fi
+      - name: Download Test Report Artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: test-report
+          path: reports/index.html
 
-        echo "Message posted successfully."
+      - name: Upload Test Report to Slack
+        env:
+          SLACK_CHANNEL: 'test'
+          SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
+        run: |
+          set -e
+
+          # File to upload
+          FILE_PATH="reports/index.html"
+
+          if [ ! -f "$FILE_PATH" ]; then
+            echo "File not found: $FILE_PATH"
+            exit 1
+          fi
+
+          echo "Uploading file to Slack..."
+
+          # Upload the file to Slack
+          response=$(curl -s -F file=@$FILE_PATH \
+                          -F channels=${SLACK_CHANNEL} \
+                          -H "Authorization: Bearer ${SLACK_TOKEN}" \
+                          https://slack.com/api/files.upload)
+          
+          echo "Upload response: $response"
+
+          # Check if the upload was successful
+          ok=$(echo $response | jq -r '.ok')
+          if [ "$ok" != "true" ]; then
+            echo "File upload failed: $response"
+            exit 1
+          fi
+
+          # Extract the file ID from the response
+          file_id=$(echo $response | jq -r '.file.id')
+          if [ "$file_id" == "null" ]; then
+            echo "Failed to get file ID from response: $response"
+            exit 1
+          fi
+
+          echo "File uploaded successfully with ID: $file_id"
+
+          # Post a message with the file link
+          message_response=$(curl -s -X POST -H "Authorization: Bearer ${SLACK_TOKEN}" \
+                                    -H "Content-type: application/json" \
+                                    --data "{
+                                      \"channel\": \"${SLACK_CHANNEL}\",
+                                      \"text\": \"Test Report :rocket:\",
+                                      \"attachments\": [
+                                        {
+                                          \"title\": \"Test Report for Job\",
+                                          \"title_link\": \"https://slack.com/files/${file_id}\",
+                                          \"text\": \"The test report is attached.\"
+                                        }
+                                      ]
+                                    }" \
+                                    https://slack.com/api/chat.postMessage)
+          
+          echo "Message response: $message_response"
+
+          # Check if the message was sent successfully
+          message_ok=$(echo $message_response | jq -r '.ok')
+          if [ "$message_ok" != "true" ]; then
+            echo "Message post failed: $message_response"
+            exit 1
+          fi
+
+          echo "Message posted successfully."  

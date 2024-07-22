@@ -24,6 +24,10 @@ jobs:
       #     github_token: ${{ secrets.ACCESS_TOKEN }}
       - name: Unit-tests
         run: |
+          echo "Printing Env Variables"
           env
+          echo "Printing Env Variables To A File"
           printenv > .env.${{ secrets.ENV }}
+          echo "Reading The File"
           cat .env.${{ secrets.ENV }}
+          echo "============================"

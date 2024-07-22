@@ -6,11 +6,11 @@ on:
   #   branches:
   #     - latest-code
   
-  schedule:
-    - cron: '*/5 * * * *'
-      branches:
-        - develop
-        - latest-code
+  # schedule:
+  #   - cron: '*/5 * * * *'
+  #     branches:
+  #       - develop
+  #       - latest-code
 
 jobs:
   unit_tests:

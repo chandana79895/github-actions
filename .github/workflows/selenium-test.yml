@@ -30,7 +30,7 @@ jobs:
     - name: Set up Maven and dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y maven libasound2 libasound2-data libnspr4 libnss3 default-jre-headless libjansi-java libmaven3-core-java libwagon-file-java libwagon-http-shaded-java
+        sudo apt-get install -y maven libasound2 libasound2-data libnspr4 libnss3 default-jre-headless libjansi-java libmaven3-core-java libwagon-file-java libwagon-http-shaded-java jq
     - name: Googledriver setup
       run: |
         sudo apt install wget -y
@@ -100,14 +100,39 @@ jobs:
     #   env:
     #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
-    - name: Slack Notification
-      uses: rtCamp/action-slack-notify@v2
+    - name: Upload test report artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: TestReport
+        path: /home/runner/work/github-actions/github-actions/automation-testing/reports/index.html
+        if-no-files-found: warn
+
+    - name: Upload Test Report to Slack
       env:
-        SLACK_CHANNEL: notifications
-        SLACK_COLOR: ${{ job.status }} 
-        SLACK_MESSAGE: 'Post Content :rocket:'
-        SLACK_TITLE: Post Title
-        SLACK_USERNAME: chandana Govada
-        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
-        SLACK_FILE_UPLOAD: /home/runner/work/github-actions/github-actions/automation-testing/reports/index.html
-        SLACK_TOKEN	: ${{ secrets.SLACK_TOKEN	}}
+        SLACK_CHANNEL: 'notifications'
+        SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
+      run: |
+        # Upload the file to Slack
+        response=$(curl -F file=@/home/runner/work/github-actions/github-actions/automation-testing/reports/index.html \
+                     -F channels=${SLACK_CHANNEL} \
+                     -H "Authorization: Bearer ${SLACK_TOKEN}" \
+                     https://slack.com/api/files.upload)
+        
+        # Extract the file ID from the response
+        file_id=$(echo $response | jq -r '.file.id')
+        
+        # Post a message with the file link
+        curl -X POST -H "Authorization: Bearer ${SLACK_TOKEN}" \
+                     -H "Content-type: application/json" \
+                     --data "{
+                        \"channel\": \"${SLACK_CHANNEL}\",
+                        \"text\": \"Test Report :rocket:\",
+                        \"attachments\": [
+                          {
+                            \"title\": \"Test Report for Job\",
+                            \"title_link\": \"https://slack.com/files/${file_id}\",
+                            \"text\": \"The test report is attached.\"
+                          }
+                        ]
+                     }" \
+                     https://slack.com/api/chat.postMessage

@@ -23,6 +23,9 @@ jobs:
       #     pr_allow_empty: true
       #     github_token: ${{ secrets.ACCESS_TOKEN }}
       - name: Unit-tests
+        env:
+          VITE_APP_SESSION: ${{ secrets.VITE_APP_SESSION }}
+          VITE_APP_BASE_URL: ${{ secrets.VITE_APP_BASE_URL }}
         run: |
           echo "Printing Env Variables"
           env

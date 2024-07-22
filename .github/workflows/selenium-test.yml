@@ -60,51 +60,7 @@ jobs:
         path: /home/runner/work/github-actions/github-actions/automation-testing/reports/index.html
         if-no-files-found: warn
 
-    - name: Get Artifact ID
-      id: get-artifact-id
+    - name: Sending Reporting to Slack
       run: |
-        # Fetch artifact ID
-        ARTIFACT_ID=$(gh api -H "Accept: application/vnd.github+json" /repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts | jq -r '.artifacts[] | select(.name=="TestReport") | .id')
-        echo "ARTIFACT_ID=$ARTIFACT_ID" >> $GITHUB_ENV
-
-    - name: Construct artifact URL
-      id: construct-url
-      run: |
-        # Construct download URL for the artifact
-        ARTIFACT_URL="https://github.com/${{ github.repository }}/actions/artifacts/${{ env.ARTIFACT_ID }}/zip"
-        echo "ARTIFACT_URL=$ARTIFACT_URL" >> $GITHUB_ENV
-
-    - name: Send test report to Slack
-      env:
-        SLACK_CHANNEL: 'test'
-        SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
-        ARTIFACT_URL: ${{ env.ARTIFACT_URL }}
-      run: |
-        echo "Sending artifact URL to Slack..."
-
-        # Post a message with the artifact URL
-        message_response=$(curl -s -X POST -H "Authorization: Bearer ${SLACK_TOKEN}" \
-                                  -H "Content-type: application/json" \
-                                  --data "{
-                                    \"channel\": \"${SLACK_CHANNEL}\",
-                                    \"text\": \"Test Report :rocket:\",
-                                    \"attachments\": [
-                                      {
-                                        \"title\": \"Test Report for Job\",
-                                        \"title_link\": \"${ARTIFACT_URL}\",
-                                        \"text\": \"The test report can be viewed and downloaded from the link above.\"
-                                      }
-                                    ]
-                                  }" \
-                                  https://slack.com/api/chat.postMessage)
-        
-        echo "Message response: $message_response"
-
-        # Check if the message was sent successfully
-        message_ok=$(echo $message_response | jq -r '.ok')
-        if [ "$message_ok" != "true" ]; then
-          echo "Message post failed: $message_response"
-          exit 1
-        fi
-
-        echo "Message posted successfully."
+        cd automation-testing/
+        bash git.sh

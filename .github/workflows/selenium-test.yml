@@ -62,83 +62,12 @@ jobs:
         path: /home/runner/work/github-actions/github-actions/automation-testing/reports/index.html
         if-no-files-found: warn
 
-  upload-report-to-slack:
-    runs-on: ubuntu-latest
-    needs: deploy
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Download Test Report Artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: TestReport
-          path: /home/runner/work/github-actions/github-actions/automation-testing/reports/index.html
-
-      - name: Upload Test Report to Slack
-        env:
-          SLACK_CHANNEL: 'test'
-          SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
-        run: |
-          set -e
-
-          # File to upload
-          FILE_PATH="/home/runner/work/github-actions/github-actions/automation-testing/reports/index.html"
-
-          if [ ! -f "$FILE_PATH" ]; then
-            echo "File not found: $FILE_PATH"
-            exit 1
-          fi
-
-          echo "Uploading file to Slack..."
-
-          # Upload the file to Slack
-          response=$(curl -s -F file=@$FILE_PATH \
-                          -F channels=${SLACK_CHANNEL} \
-                          -H "Authorization: Bearer ${SLACK_TOKEN}" \
-                          https://slack.com/api/files.upload)
-          
-          echo "Upload response: $response"
-
-          # Check if the upload was successful
-          ok=$(echo $response | jq -r '.ok')
-          if [ "$ok" != "true" ]; then
-            echo "File upload failed: $response"
-            exit 1
-          fi
-
-          # Extract the file ID from the response
-          file_id=$(echo $response | jq -r '.file.id')
-          if [ "$file_id" == "null" ]; then
-            echo "Failed to get file ID from response: $response"
-            exit 1
-          fi
-
-          echo "File uploaded successfully with ID: $file_id"
-
-          # Post a message with the file link
-          message_response=$(curl -s -X POST -H "Authorization: Bearer ${SLACK_TOKEN}" \
-                                    -H "Content-type: application/json" \
-                                    --data "{
-                                      \"channel\": \"${SLACK_CHANNEL}\",
-                                      \"text\": \"Test Report :rocket:\",
-                                      \"attachments\": [
-                                        {
-                                          \"title\": \"Test Report for Job\",
-                                          \"title_link\": \"https://slack.com/files/${file_id}\",
-                                          \"text\": \"The test report is attached.\"
-                                        }
-                                      ]
-                                    }" \
-                                    https://slack.com/api/chat.postMessage)
-          
-          echo "Message response: $message_response"
-
-          # Check if the message was sent successfully
-          message_ok=$(echo $message_response | jq -r '.ok')
-          if [ "$message_ok" != "true" ]; then
-            echo "Message post failed: $message_response"
-            exit 1
-          fi
-
-          echo "Message posted successfully."  
+    - name: Slack Notification
+      uses: rtCamp/action-slack-notify@v2
+      env:
+        SLACK_CHANNEL: notifications
+        SLACK_COLOR: ${{ job.status }} 
+        SLACK_MESSAGE: 'Post Content :rocket:'
+        SLACK_TITLE: Post Title
+        SLACK_USERNAME: chandana Govada
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}

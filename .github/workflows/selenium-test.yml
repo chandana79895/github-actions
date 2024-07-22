@@ -81,7 +81,7 @@ jobs:
           set -e
 
           # File to upload
-          FILE_PATH="reports/index.html"
+          FILE_PATH="/home/runner/work/github-actions/github-actions/automation-testing/reports/index.html"
 
           if [ ! -f "$FILE_PATH" ]; then
             echo "File not found: $FILE_PATH"

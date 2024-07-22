@@ -60,23 +60,23 @@ jobs:
         path: /home/runner/work/github-actions/github-actions/automation-testing/reports/index.html
         if-no-files-found: warn
 
+    - name: Get Artifact ID
+      id: get-artifact-id
+      run: |
+        ARTIFACT_ID=$(gh api -H "Accept: application/vnd.github+json" /repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts | jq -r '.artifacts[0].id')
+        echo "ARTIFACT_ID=$ARTIFACT_ID" >> $GITHUB_ENV
+
     - name: Construct artifact URL
       id: construct-url
       run: |
-        # Get the run ID
-        run_id=${{ github.run_id }}
-        
-        # Construct the URL for the artifact
-        artifact_url="https://github.com/${{ github.repository }}/actions/runs/${run_id}/artifacts"
-        
-        # Set the URL as an output variable
-        echo "artifact_url=${artifact_url}" >> $GITHUB_ENV
+        ARTIFACT_URL="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/${ARTIFACT_ID}"
+        echo "ARTIFACT_URL=$ARTIFACT_URL" >> $GITHUB_ENV
 
     - name: Send test report to Slack
       env:
         SLACK_CHANNEL: 'test'
         SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
-        ARTIFACT_URL: ${{ env.artifact_url }}
+        ARTIFACT_URL: ${{ env.ARTIFACT_URL }}
       run: |
         echo "Sending artifact URL to Slack..."
 
@@ -90,7 +90,7 @@ jobs:
                                       {
                                         \"title\": \"Test Report for Job\",
                                         \"title_link\": \"${ARTIFACT_URL}\",
-                                        \"text\": \"The test report can be downloaded from the link above.\"
+                                        \"text\": \"The test report can be viewed from the link above.\"
                                       }
                                     ]
                                   }" \

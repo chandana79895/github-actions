@@ -63,13 +63,15 @@ jobs:
     - name: Get Artifact ID
       id: get-artifact-id
       run: |
-        ARTIFACT_ID=$(gh api -H "Accept: application/vnd.github+json" /repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts | jq -r '.artifacts[0].id')
+        # Fetch artifact ID
+        ARTIFACT_ID=$(gh api -H "Accept: application/vnd.github+json" /repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts | jq -r '.artifacts[] | select(.name=="TestReport") | .id')
         echo "ARTIFACT_ID=$ARTIFACT_ID" >> $GITHUB_ENV
 
     - name: Construct artifact URL
       id: construct-url
       run: |
-        ARTIFACT_URL="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/${ARTIFACT_ID}"
+        # Construct download URL for the artifact
+        ARTIFACT_URL="https://github.com/${{ github.repository }}/actions/artifacts/${{ env.ARTIFACT_ID }}/zip"
         echo "ARTIFACT_URL=$ARTIFACT_URL" >> $GITHUB_ENV
 
     - name: Send test report to Slack
@@ -90,7 +92,7 @@ jobs:
                                       {
                                         \"title\": \"Test Report for Job\",
                                         \"title_link\": \"${ARTIFACT_URL}\",
-                                        \"text\": \"The test report can be viewed from the link above.\"
+                                        \"text\": \"The test report can be viewed and downloaded from the link above.\"
                                       }
                                     ]
                                   }" \

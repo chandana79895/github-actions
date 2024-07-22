@@ -31,6 +31,7 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y maven libasound2 libasound2-data libnspr4 libnss3 default-jre-headless libjansi-java libmaven3-core-java libwagon-file-java libwagon-http-shaded-java jq
+
     - name: Googledriver setup
       run: |
         sudo apt install wget -y
@@ -43,31 +44,6 @@ jobs:
         sudo chown runner:runner /usr/bin/chromedriver
         sudo chmod +x /usr/bin/chromedriver
 
-    # - name: Install Firefox and GeckoDriver
-    #   run: |
-    #     sudo apt-get install -y firefox
-    #     GECKO_DRIVER_VERSION=$(curl -s https://api.github.com/repos/mozilla/geckodriver/releases/latest | jq -r '.tag_name')
-    #     wget -q "https://github.com/mozilla/geckodriver/releases/download/${GECKO_DRIVER_VERSION}/geckodriver-${GECKO_DRIVER_VERSION}-linux64.tar.gz"
-    #     tar -xzf geckodriver-${GECKO_DRIVER_VERSION}-linux64.tar.gz
-    #     sudo mv geckodriver /usr/local/bin/geckodriver
-    #     sudo chown runner:runner /usr/local/bin/geckodriver
-    #     sudo chmod +x /usr/local/bin/geckodriver
-    
-    # - name: Debug info
-    #   run: |
-    #     echo "Java version:"
-    #     java -version
-    #     echo "Chrome version:"
-    #     google-chrome --version
-    #     echo "ChromeDriver version:"
-    #     chromedriver --version
-    #     echo "Current directory:"
-    #     pwd
-    #     echo "Contents of /usr/bin:"
-    #     ls -la /usr/bin
-    #     echo "Contents of /usr/local/bin:"
-    #     ls -la /usr/local/bin
-
     - name: Install xvfb
       run: sudo apt-get install -y xvfb
 
@@ -77,22 +53,6 @@ jobs:
         cd automation-testing/
         xvfb-run -a mvn clean install
 
-    # - name: Construct artifact URL
-    #   id: construct-url
-    #   run: |
-    #     echo "ARTIFACT_URL=https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/Artifacts" >> $GITHUB_ENV
-
-    # - name: Send test report to Slack
-    #   uses: slackapi/slack-github-action@v1.24.0
-    #   with:
-    #     payload: |
-    #       {
-    #         "channel": "notifications",
-    #         "text": "The test report is ready: ${{ env.ARTIFACT_URL }}"
-    #       }
-    #   env:
-    #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-
     - name: Upload test report artifact
       uses: actions/upload-artifact@v3
       with:
@@ -100,48 +60,27 @@ jobs:
         path: /home/runner/work/github-actions/github-actions/automation-testing/reports/index.html
         if-no-files-found: warn
 
-    - name: Upload Test Report to Slack
+    - name: Construct artifact URL
+      id: construct-url
+      run: |
+        # Get the run ID
+        run_id=${{ github.run_id }}
+        
+        # Construct the URL for the artifact
+        artifact_url="https://github.com/${{ github.repository }}/actions/runs/${run_id}/artifacts"
+        
+        # Set the URL as an output variable
+        echo "artifact_url=${artifact_url}" >> $GITHUB_ENV
+
+    - name: Send test report to Slack
       env:
         SLACK_CHANNEL: 'test'
         SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
+        ARTIFACT_URL: ${{ env.artifact_url }}
       run: |
-        set -e
+        echo "Sending artifact URL to Slack..."
 
-        # File to upload
-        FILE_PATH="/home/runner/work/github-actions/github-actions/automation-testing/reports/index.html"
-
-        if [ ! -f "$FILE_PATH" ]; then
-          echo "File not found: $FILE_PATH"
-          exit 1
-        fi
-
-        echo "Uploading file to Slack..."
-
-        # Upload the file to Slack
-        response=$(curl -s -F file=@$FILE_PATH \
-                        -F channels=${SLACK_CHANNEL} \
-                        -H "Authorization: Bearer ${SLACK_TOKEN}" \
-                        https://slack.com/api/files.upload)
-        
-        echo "Upload response: $response"
-
-        # Check if the upload was successful
-        ok=$(echo $response | jq -r '.ok')
-        if [ "$ok" != "true" ]; then
-          echo "File upload failed: $response"
-          exit 1
-        fi
-
-        # Extract the file ID from the response
-        file_id=$(echo $response | jq -r '.file.id')
-        if [ "$file_id" == "null" ]; then
-          echo "Failed to get file ID from response: $response"
-          exit 1
-        fi
-
-        echo "File uploaded successfully with ID: $file_id"
-
-        # Post a message with the file link
+        # Post a message with the artifact URL
         message_response=$(curl -s -X POST -H "Authorization: Bearer ${SLACK_TOKEN}" \
                                   -H "Content-type: application/json" \
                                   --data "{
@@ -150,8 +89,8 @@ jobs:
                                     \"attachments\": [
                                       {
                                         \"title\": \"Test Report for Job\",
-                                        \"title_link\": \"https://slack.com/files/${file_id}\",
-                                        \"text\": \"The test report is attached.\"
+                                        \"title_link\": \"${ARTIFACT_URL}\",
+                                        \"text\": \"The test report can be downloaded from the link above.\"
                                       }
                                     ]
                                   }" \

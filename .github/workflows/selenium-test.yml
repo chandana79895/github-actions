@@ -30,7 +30,8 @@ jobs:
     - name: Set up Maven and dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y maven libasound2 libasound2-data libnspr4 libnss3 default-jre-headless libjansi-java libmaven3-core-java libwagon-file-java libwagon-http-shaded-java jq
+        sudo apt-get install -y maven libasound2 libasound2-data libnspr4 libnss3 default-jre-headless libjansi-java libmaven3-core-java libwagon-file-java libwagon-http-shaded-java
+
     - name: Googledriver setup
       run: |
         sudo apt install wget -y
@@ -43,33 +44,11 @@ jobs:
         sudo chown runner:runner /usr/bin/chromedriver
         sudo chmod +x /usr/bin/chromedriver
 
-    # - name: Install Firefox and GeckoDriver
-    #   run: |
-    #     sudo apt-get install -y firefox
-    #     GECKO_DRIVER_VERSION=$(curl -s https://api.github.com/repos/mozilla/geckodriver/releases/latest | jq -r '.tag_name')
-    #     wget -q "https://github.com/mozilla/geckodriver/releases/download/${GECKO_DRIVER_VERSION}/geckodriver-${GECKO_DRIVER_VERSION}-linux64.tar.gz"
-    #     tar -xzf geckodriver-${GECKO_DRIVER_VERSION}-linux64.tar.gz
-    #     sudo mv geckodriver /usr/local/bin/geckodriver
-    #     sudo chown runner:runner /usr/local/bin/geckodriver
-    #     sudo chmod +x /usr/local/bin/geckodriver
-    
-    # - name: Debug info
-    #   run: |
-    #     echo "Java version:"
-    #     java -version
-    #     echo "Chrome version:"
-    #     google-chrome --version
-    #     echo "ChromeDriver version:"
-    #     chromedriver --version
-    #     echo "Current directory:"
-    #     pwd
-    #     echo "Contents of /usr/bin:"
-    #     ls -la /usr/bin
-    #     echo "Contents of /usr/local/bin:"
-    #     ls -la /usr/local/bin
-
     - name: Install xvfb
       run: sudo apt-get install -y xvfb
+
+    - name: Install jq
+      run: sudo apt-get install -y jq
 
     - name: Start xvfb
       run: |
@@ -84,48 +63,39 @@ jobs:
         path: /home/runner/work/github-actions/github-actions/automation-testing/reports/index.html
         if-no-files-found: warn
 
-    # - name: Construct artifact URL
-    #   id: construct-url
-    #   run: |
-    #     echo "ARTIFACT_URL=https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/Artifacts" >> $GITHUB_ENV
-
-    # - name: Send test report to Slack
-    #   uses: slackapi/slack-github-action@v1.24.0
-    #   with:
-    #     payload: |
-    #       {
-    #         "channel": "notifications",
-    #         "text": "The test report is ready: ${{ env.ARTIFACT_URL }}"
-    #       }
-    #   env:
-    #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-
-    - name: Upload test report artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: TestReport
-        path: /home/runner/work/github-actions/github-actions/automation-testing/reports/index.html
-        if-no-files-found: warn
-
-    - name: Upload Test Report to Slack
+    - name: Get Slack Channel ID
+      id: get_channel_id
       env:
         SLACK_CHANNEL: 'test'
         SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
       run: |
-        # Upload the file to Slack
+        response=$(curl -s -H "Authorization: Bearer ${SLACK_TOKEN}" \
+                        "https://slack.com/api/conversations.list?types=public_channel,private_channel")
+        echo "Response from Slack API: $response"
+        channel_id=$(echo $response | jq -r --arg CHANNEL_NAME "$SLACK_CHANNEL" '.channels[] | select(.name == $CHANNEL_NAME) | .id')
+        echo "Channel ID: $channel_id"
+        echo "channel_id=$channel_id" >> $GITHUB_ENV
+
+    - name: Upload Test Report to Slack
+      env:
+        SLACK_CHANNEL_ID: ${{ env.channel_id }}
+        SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
+      run: |
+        echo "Uploading file to Slack channel ID: ${SLACK_CHANNEL_ID}"
         response=$(curl -F file=@/home/runner/work/github-actions/github-actions/automation-testing/reports/index.html \
-                     -F channels=${SLACK_CHANNEL} \
+                     -F channels=${SLACK_CHANNEL_ID} \
                      -H "Authorization: Bearer ${SLACK_TOKEN}" \
                      https://slack.com/api/files.upload)
+        echo "Response from file upload: $response"
         
-        # Extract the file ID from the response
         file_id=$(echo $response | jq -r '.file.id')
+        echo "File ID: $file_id"
         
-        # Post a message with the file link
+        echo "Posting message to Slack with file link"
         curl -X POST -H "Authorization: Bearer ${SLACK_TOKEN}" \
                      -H "Content-type: application/json" \
                      --data "{
-                        \"channel\": \"${SLACK_CHANNEL}\",
+                        \"channel\": \"${SLACK_CHANNEL_ID}\",
                         \"text\": \"Test Report :rocket:\",
                         \"attachments\": [
                           {

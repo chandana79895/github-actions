@@ -39,7 +39,7 @@ jobs:
         wget https://dl.google.com/linux/deb/pool/main/g/google-chrome-stable/google-chrome-stable_126.0.6478.126-1_amd64.deb
         sudo dpkg -i google-chrome-stable_126.0.6478.126-1_amd64.deb
         wget https://storage.googleapis.com/chrome-for-testing-public/126.0.6478.126/linux64/chromedriver-linux64.zip
-        unzip chromedriver-linux64.zip  
+        unzip chromedriver-linux64.zip
         sudo mv chromedriver-linux64/chromedriver /usr/bin/chromedriver
         sudo chown runner:runner /usr/bin/chromedriver
         sudo chmod +x /usr/bin/chromedriver
@@ -54,7 +54,7 @@ jobs:
         xvfb-run -a mvn clean install
 
     - name: List files in reports directory
-      run: ls -la /home/runner/work/github-actions/github-actions/automation-testing/reports
+      run: ls -la automation-testing/reports
 
     - name: Upload test report artifact
       uses: actions/upload-artifact@v4
@@ -65,13 +65,9 @@ jobs:
 
     - name: Set RUN_ID output
       id: set-run-id
-      run: echo "::set-output name=run_id::${{ github.run_id }}"
-
-    outputs:
-      run_id: ${{ steps.set-run-id.outputs.run_id }}
-      artifact_name: TestReport
+      run: echo "run_id=${{ github.run_id }}" >> $GITHUB_ENV
 
     - name: Send report to email
-      run:
+      run: |
         cd automation-testing/
-        bash email.sh  
+        bash email.sh

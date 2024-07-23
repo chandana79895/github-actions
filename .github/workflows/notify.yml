@@ -5,7 +5,8 @@ on:
     workflows: ["Java_CI_with_Maven"]
     types:
       - completed
-
+    branches:
+      - "report-on-slack-check"
 jobs:
   notify:
     runs-on: ubuntu-latest

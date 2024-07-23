@@ -106,9 +106,9 @@ public class Listeners extends BaseTest implements ITestListener, IExecutionList
 
 	        // Email details
 	        String smtpHost = "smtp.gmail.com";
-	        String smtpPort = "465";    //SMTP Port: 587 (TLS)-outlook; Custom SMTP Server: 25, 587, and 465.
-	        String fromEmail = "mani.chandana@capillarytech.com";
-	        String emailPassword = "Chandu@12";
+	        String smtpPort = "587";    //SMTP Port: 587 (TLS)-outlook; Custom SMTP Server: 25, 587, and 465.
+	        String fromEmail = "manichandana7989@gmail.com";
+	        String emailPassword = "Chandu@123";
 	        	
 
 	        // List of recipients

@@ -28,6 +28,9 @@ public class EmailClientUtil {
 	        properties.put("mail.smtp.port", smtpPort);
 	        properties.put("mail.smtp.auth", "true");
 	        properties.put("mail.smtp.starttls.enable", "true");
+			properties.put("mail.smtp.socketFactory.port", "587");
+			properties.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+			properties.put("mail.smtp.ssl.protocols", "TLSv1.2");
 
 	        Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
 	            protected PasswordAuthentication getPasswordAuthentication() {

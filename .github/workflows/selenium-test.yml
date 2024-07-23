@@ -3,7 +3,7 @@ name: Java_CI_with_Maven
 on:
   push:
     branches:
-      - "report-on-slack-check"
+      - "slack/check"
 
 jobs:
   deploy:
@@ -70,3 +70,12 @@ jobs:
     outputs:
       run_id: ${{ steps.set-run-id.outputs.run_id }}
       artifact_name: TestReport
+
+    - name: Sending Reporting to Slack
+      env:
+        SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
+        GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
+        RUN_ID: ${{ run.id }}
+      run: |
+        cd automation-testing/
+        bash git.sh   

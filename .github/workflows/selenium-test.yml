@@ -61,6 +61,7 @@ jobs:
         if-no-files-found: warn
 
     - name: Sending Reporting to Slack
+      if: always()
       env:
         SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
         GIT_TOKEN: ${{ secrets.GIT_TOKEN }}

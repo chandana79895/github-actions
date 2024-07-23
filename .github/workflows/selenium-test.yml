@@ -64,6 +64,7 @@ jobs:
       env:
         SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
         GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
+        RUN_ID: ${{ github.run_id }}
       run: |
         cd automation-testing/
         bash git.sh

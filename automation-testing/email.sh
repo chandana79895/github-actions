@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set the recipient email address
-TO="mani.chandana@zapcg.com"
+TO="manichandana7989@gmail.com"
 
 # Set the subject of the email
 SUBJECT="Automated Test Report"
@@ -16,8 +16,8 @@ ATTACHMENT="test-output/emailable-report.html"
 cat <<EOT > ~/.muttrc
 set from = "mani.chandana7989@zapcg.com"
 set realname = "Your Name"
-set smtp_url = "smtp://manichandana7989@gmail.com@smtp.gmail.com:587/"
-set smtp_pass = "Chandu@12"
+set smtp_url = "smtp://manichandana7989@gmail.com@smtp.gmail.com:465/"
+set smtp_pass = "Chandu@123"
 set ssl_starttls = yes
 set ssl_force_tls = yes
 EOT

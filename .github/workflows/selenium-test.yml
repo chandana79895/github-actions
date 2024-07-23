@@ -63,44 +63,10 @@ jobs:
         path: automation-testing/reports/index.html
         if-no-files-found: warn
 
-    - name: List uploaded artifacts for debugging
-      run: ls -la automation-testing/reports/
-
     - name: Set RUN_ID output
       id: set-run-id
       run: echo "::set-output name=run_id::${{ github.run_id }}"
 
     outputs:
       run_id: ${{ steps.set-run-id.outputs.run_id }}
-
-  notify:
-    runs-on: ubuntu-22.04
-    needs: deploy
-    environment:
-      name: poc
-
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-
-    - name: Install jq
-      run: sudo apt-get install -y jq
-
-    - name: Debug - List artifacts
-      env:
-        GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
-        RUN_ID: ${{ needs.deploy.outputs.run_id }}
-      run: |
-        response=$(curl -s -H "Authorization: token $GIT_TOKEN" \
-          "https://api.github.com/repos/chandana79895/github-actions/actions/runs/$RUN_ID/artifacts")
-        echo "Artifacts response:"
-        echo "$response" | jq .
-
-    - name: Sending Reporting to Slack
-      env:
-        SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
-        GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
-        RUN_ID: ${{ needs.deploy.outputs.run_id }}
-      run: |
-        cd automation-testing/
-        bash git.sh
+      artifact_name: TestReport

@@ -13,6 +13,6 @@ BODY="Please find the attached emailable report for the recent test run."
 ATTACHMENT="test-output/emailable-report.html"
 
 # Send the email with the attachment
-mail -s "$SUBJECT" -a "$ATTACHMENT" "$TO" <<< "$BODY"
+mutt -s "$SUBJECT" -a "$ATTACHMENT" "$TO" <<< "$BODY"
 
 echo "Email sent successfully."

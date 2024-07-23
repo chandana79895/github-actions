@@ -74,7 +74,7 @@ jobs:
       run_id: ${{ steps.set-run-id.outputs.run_id }}
 
   notify:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     needs: deploy
     environment:
       name: poc

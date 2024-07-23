@@ -1,10 +1,10 @@
 name: Java CI with Maven
 
 on:
-  pull_request:
-    types: [opened, synchronize, reopened, closed]
+  push:
+    # types: [opened, synchronize, reopened, closed]
     branches:
-      - poc
+      - report-email-check
 
 jobs:
   deploy:

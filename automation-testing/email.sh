@@ -12,6 +12,16 @@ BODY="Please find the attached emailable report for the recent test run."
 # Path to the report file
 ATTACHMENT="test-output/emailable-report.html"
 
+# Create mutt configuration file
+cat <<EOT > ~/.muttrc
+set from = "manichandana7989@gmail.com"
+set realname = "Your Name"
+set smtp_url = "smtp://manichandana7989@gmail.com@smtp.gmail.com:587/"
+set smtp_pass = "Chandu@123"
+set ssl_starttls = yes
+set ssl_force_tls = yes
+EOT
+
 # Send the email with the attachment using mutt
 echo "$BODY" | mutt -s "$SUBJECT" -a "$ATTACHMENT" -- "$TO"
 

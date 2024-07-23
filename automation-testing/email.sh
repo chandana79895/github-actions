@@ -14,8 +14,8 @@ ATTACHMENT="test-output/emailable-report.html"
 
 # Create mutt configuration file
 cat <<EOT > ~/.muttrc
-set from = "mani.chandana7989@zapcg.com"
-set realname = "Your Name"
+set from = "manichandana7989@gmail.com"
+set realname = "Chandana"
 set smtp_url = "smtp://manichandana7989@gmail.com@smtp.gmail.com:465/"
 set smtp_pass = "Chandu@123"
 set ssl_starttls = yes

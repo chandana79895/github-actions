@@ -102,7 +102,7 @@ public class Listeners extends BaseTest implements ITestListener, IExecutionList
 	 @Override
 	    public void onExecutionFinish() {
 	        // Path to the TestNG report
-	        String reportPath = "test-output\\emailable-report.html";
+	        String reportPath = "test-output//emailable-report.html";
 
 	        // Email details
 	        String smtpHost = "smtp.gmail.com";

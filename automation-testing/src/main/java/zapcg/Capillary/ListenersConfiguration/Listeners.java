@@ -18,7 +18,7 @@ import zapcg.Capillary.Base.BaseTest;
 
 public class Listeners extends BaseTest implements ITestListener, IExecutionListener {
 	
-	ExtentReports extent=ExtentReporterNG.extentReportGeneratore();
+	ExtentReports extent=ExtentReporterNG.extentReportGenerator();
 	ExtentTest test;
 	private static ThreadLocal<ExtentTest> extentTest=new ThreadLocal<ExtentTest>(); 
 	@Override

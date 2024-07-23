@@ -1,8 +1,8 @@
-name: Notify on Artifact Publish
+name: Notify_on_Artifact_Publish
 
 on:
   workflow_run:
-    workflows: ["Java CI with Maven"]
+    workflows: ["Java_CI_with_Maven"]
     types:
       - completed
 

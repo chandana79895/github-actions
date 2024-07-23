@@ -4,9 +4,9 @@
 OWNER="chandana79895"
 REPO="github-actions"
 RUN_ID="${RUN_ID}"
-GIT_TOKEN="${GIT_TOKEN}"
+GIT_TOKEN="${{ secrets.GIT_TOKEN }}"
 SLACK_CHANNEL="test"
-SLACK_TOKEN="${SLACK_TOKEN}"
+SLACK_TOKEN="${{ secrets.SLACK_TOKEN }}"
 
 # List artifacts
 response=$(curl -s -H "Authorization: token $GIT_TOKEN" \

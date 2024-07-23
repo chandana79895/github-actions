@@ -46,3 +46,12 @@ export function useLocalStorageStore(
     localStorage.setItem("store", JSON.stringify(store));
   }, [store]);
 }
+
+export function useLocalStorageEmployeeId(
+  employeeID: string
+): void {
+  useEffect(() => {
+    localStorage.setItem("employeeID", employeeID);
+  }, [employeeID]);
+}
+

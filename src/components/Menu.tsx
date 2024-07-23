@@ -16,15 +16,15 @@ export default function MenuComponent({ setLanguage, language }) {
   const [open, setOpen] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
   const { property, store } = useContext(AppContext);
-  const [testID, setTestID] = useState('')
-
+  const [testID, setTestID] = useState("");
+  const employeeName = localStorage.getItem("login_name") || "";
   useEffect(() => {
     if (pathname === "/login" || pathname === "/") {
       setIsLogin(true);
     } else {
       setIsLogin(false);
     }
-    setTestID(`${rsp(pathname.split("/")[1])}MENU`)
+    setTestID(`${rsp(pathname.split("/")[1])}MENU`);
   }, [isLogin, pathname]);
 
   const handleClickOpen = () => {
@@ -55,6 +55,8 @@ export default function MenuComponent({ setLanguage, language }) {
           : secondPart;
       return (
         <>
+          {employeeName}
+          <br />
           {firstPart}
           <br />
           {truncatedSecondPart}
@@ -82,7 +84,7 @@ export default function MenuComponent({ setLanguage, language }) {
               data-testid={`${testID}I0`}
             >
               <Box display={"flex"} flexDirection={"row"} columnGap={1}>
-                <img src={globe} alt='' />
+                <img src={globe} alt="" />
                 {language}
               </Box>
             </div>
@@ -90,7 +92,7 @@ export default function MenuComponent({ setLanguage, language }) {
         ) : (
           <>
             <Grid item>
-            {!pathname.includes("/location-search") ? (
+              {!pathname.includes("/location-search") ? (
                 <button
                   className="img-btn"
                   onClick={handleBackIconClick}
@@ -105,9 +107,7 @@ export default function MenuComponent({ setLanguage, language }) {
                   />
                 </button>
               ) : (
-                <div 
-                className="logo1"
-                 />
+                <div className="logo1" />
               )}
             </Grid>
             <Grid item>
@@ -119,20 +119,33 @@ export default function MenuComponent({ setLanguage, language }) {
                   data-testid={`${testID}I2`}
                 >
                   <Typography variant="h5" color={"white"} className="ellipsis">
-                    {storeNameDisplay(store.value, 15)}
+                    {storeNameDisplay(store.value, 16)}
                   </Typography>
                 </button>
               ) : (
-                <img className="logo" src={logo} alt="Fortress"
-                  id={`${testID}I2`}
-                  data-testid={`${testID}I2`}
-                />
+                <div className="centered-content">
+                  <div className="username">
+                    <Typography variant="h5" color={"white"}>
+                      {employeeName}
+                    </Typography>
+                  </div>
+                  <img
+                    className="logo"
+                    src={logo}
+                    alt="Fortress"
+                    id={`${testID}I2`}
+                    data-testid={`${testID}I2`}
+                  />
+                </div>
               )}
             </Grid>
             <Grid item>
-              <button className="img-btn" onClick={handleClickOpen}
+              <button
+                className="img-btn"
+                onClick={handleClickOpen}
                 id={`${testID}I3`}
-                data-testid={`${testID}I3`}>
+                data-testid={`${testID}I3`}
+              >
                 <img
                   slot="end"
                   className="hamburger-icon"

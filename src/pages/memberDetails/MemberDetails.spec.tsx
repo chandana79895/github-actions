@@ -25,7 +25,7 @@ describe('MemberDetails page', () => {
     expect(getByText('earnPoints')).toBeInTheDocument();
   });
 
-  it('renders Button component with title "enterInformationDirectly" and calls handleSubmit on click', () => {
+  it('renders Button component with title "enterRecepitDetails" and calls handleSubmit on click', () => {
     const { getByText } = render(
       <MemoryRouter>
         <AppContext.Provider value={MockContext}>
@@ -33,7 +33,7 @@ describe('MemberDetails page', () => {
         </AppContext.Provider>
       </MemoryRouter>
     );
-    const button = getByText('enterInformationDirectly');
+    const button = getByText('enterRecepitDetails');
     fireEvent.click(button);
   });
 

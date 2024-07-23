@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
 import { Grid } from "@mui/material";
 import "./QrScan.css";
 import Button from "../../components/Button";
@@ -14,8 +14,11 @@ import {
   handleCloseModal,
   handleTryAgain,
   stopVideo,
+  searchMember,
 } from "./QrScanUtils";
 import { rsp } from "@/constants/tests/shortPath";
+import Loader from "@/components/Loader";
+import { AppContext } from "@/store/AppContext";
 
 const QrScan = () => {
   const navigate = useNavigate();
@@ -25,16 +28,24 @@ const QrScan = () => {
   const videoRef = useRef(null);
   const codeReader = useRef(new BrowserMultiFormatReader());
   const [stream, setStream] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [showManualLookupModal, setShowManualLookupModal] = useState(false);
+
+  const { setMemberData } = useContext(AppContext);
 
   useEffect(() => {
     if (scannedData) {
-      setShowPopup(true);
-      setTimeout(() => {
-        setShowPopup(false);
-        navigate("/member-details");
-      }, 3000);
+      searchMember(
+        scannedData,
+        setLoading,
+        setMemberData,
+        setError,
+        setShowPopup,
+        setShowManualLookupModal,
+        navigate
+      );
     }
-  }, [scannedData, navigate]);
+  }, [scannedData]);
 
   useEffect(() => {
     handleScan(codeReader, videoRef, setScannedData, setError);
@@ -70,24 +81,36 @@ const QrScan = () => {
         ref={videoRef}
         className="scan-box"
         data-testid={`${currentPage}VID`}
-        id={`${currentPage}VID`} />
+        id={`${currentPage}VID`}
+      />
       <Button
         className="scan-button"
-        title="Manual Lookup"
+        title={t("manualLookup")}
         onClick={() => handleManualLookUp(navigate)}
         loadingText="Scanning"
         testID={`${currentPage}MANU`}
       />
-      <Modal
-        error={error}
-        open={showPopup}
-        buttonText={t("tryAgain")}
-        successText={t("scanSuccess")}
-        errorText={t("errorScanFailed")}
-        onClose={() => handleCloseModal(setShowPopup, setError)}
-        onClick={() => handleTryAgain(setShowPopup, setError)}
-        successMessage={`${scannedData}`}
-      />
+      {error && (
+        <Modal
+          error={error}
+          open={showPopup}
+          buttonText={t("tryAgain")}
+          errorText={t("scanFailed")}
+          onClose={() => handleCloseModal(setShowPopup, setError)}
+          onClick={() => handleTryAgain(setShowPopup, setError)}
+        />
+      )}
+      {showManualLookupModal && (
+        <Modal
+          error={true}
+          open={showManualLookupModal}
+          buttonText={t("manualLookup")}
+          errorText={t("scanQRFailed")}
+          onClose={() => handleManualLookUp(navigate)}
+          onClick={() => handleManualLookUp(navigate)}
+        />
+      )}
+      {loading && <Loader />}
     </Grid>
   );
 };

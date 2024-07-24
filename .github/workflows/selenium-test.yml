@@ -3,7 +3,7 @@ name: Java_CI_with_Maven
 on:
   push:
     branches:
-      - "slack/check"
+      - "gh-pages"
 
 jobs:
   deploy:

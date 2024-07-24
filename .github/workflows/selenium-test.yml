@@ -3,7 +3,7 @@ name: Java_CI_with_Maven
 on:
   push:
     branches:
-      - "gh-pages"
+      - "slack/check"
 
 jobs:
   deploy:
@@ -63,19 +63,23 @@ jobs:
         path: automation-testing/reports/index.html
         if-no-files-found: warn
 
-    - name: Set RUN_ID and REPORT_URL output
+    - name: Set RUN_ID output
       id: set-outputs
-      run: |
-        echo "run_id=${{ github.run_id }}" >> $GITHUB_ENV
-        echo "repository_owner=${{ github.repository_owner }}" >> $GITHUB_ENV
-        echo "repository_name=${{ github.repository }}" >> $GITHUB_ENV
-        echo "report_url=https://${{ github.repository_owner }}.github.io/${{ github.repository }}/index.html" >> $GITHUB_ENV
+      run: echo "run_id=${{ github.run_id }}" >> $GITHUB_ENV
 
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: automation-testing/reports
+    - name: Configure AWS CLI
+      run: |
+        sudo apt-get install -y awscli
+        aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws configure set default.region ${{ secrets.AWS_DEFAULT_REGION }}
+
+    - name: Upload Report to S3
+      run: |
+        aws s3 cp automation-testing/reports/index.html s3://chandana-poc/${{ github.run_id }}/index.html --acl public-read
+
+    - name: Set REPORT_URL output
+      run: echo "report_url=https://chandana-poc.s3.amazonaws.com/${{ github.run_id }}/index.html" >> $GITHUB_ENV
 
     - name: Sending Reporting to Slack
       env:

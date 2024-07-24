@@ -56,22 +56,40 @@ jobs:
     - name: List files in reports directory
       run: ls -la automation-testing/reports
 
-    - name: Upload test report artifact
+    - name: Upload artifact
+      id: artifact-upload-step
+      if: always()
       uses: actions/upload-artifact@v4
       with:
-        name: TestReport
+        name: report
         path: automation-testing/reports/index.html
-        if-no-files-found: warn
-
-    - name: Set RUN_ID output
-      id: set-run-id
-      run: echo "run_id=${{ github.run_id }}" >> $GITHUB_ENV
-
-    - name: Sending Reporting to Slack
+        retention-days: 1
+ 
+    - name: Output artifact ID
+      run:  echo "ARTIFACT_URL=${{ steps.artifact-upload-step.outputs.artifact-url }}" >> $GITHUB_ENV
+ 
+    - name: Send Slack notification
       env:
-        SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
-        GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
-        RUN_ID: ${{ env.run_id }}
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
       run: |
-        cd automation-testing/
-        bash git.sh
+        curl -X POST -H 'Content-type: application/json' --data "{\"text\":\"Reports URL: $ARTIFACT_URL\"}" $SLACK_WEBHOOK_URL  
+
+    # - name: Upload test report artifact
+    #   uses: actions/upload-artifact@v4
+    #   with:
+    #     name: TestReport
+    #     path: automation-testing/reports/index.html
+    #     if-no-files-found: warn
+
+    # - name: Set RUN_ID output
+    #   id: set-run-id
+    #   run: echo "run_id=${{ github.run_id }}" >> $GITHUB_ENV
+
+    # - name: Sending Reporting to Slack
+    #   env:
+    #     SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
+    #     GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
+    #     RUN_ID: ${{ env.run_id }}
+    #   run: |
+    #     cd automation-testing/
+    #     bash git.sh

@@ -86,7 +86,7 @@ Resources:
         Statement:
           - Effect: Allow
             Principal:
-              AWS: !Sub arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity ${OriginAccessIdentity}
+              AWS: !Sub arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity ${AutomationReportOriginAccessIdentity}
             Action: s3:GetObject
             Resource: !Sub arn:aws:s3:::${AutomationReportBucket}/*          
 

@@ -20,14 +20,9 @@ set smtp_url = "smtp://manichandana7989@gmail.com@smtp.gmail.com:465/"
 set smtp_pass = "Chandu@123"
 set ssl_starttls = yes
 set ssl_force_tls = yes
-set debug_level = 4
-set debug_file = ~/muttdebug.log
 EOT
 
 # Send the email with the attachment using mutt
 echo "$BODY" | mutt -s "$SUBJECT" -a "$ATTACHMENT" -- "$TO"
-
-# Check the debug log for any errors
-cat ~/muttdebug.log
 
 echo "Email sent successfully."

@@ -139,7 +139,7 @@ jobs:
 
       - name: Upload Report to S3
         run: |
-          aws s3 cp automation-testing/reports/index.html s3://chandana-poc/${{ github.run_id }}/index.html
+          aws s3 cp automation-testing/reports/index.html s3://test-stack-ui-poc-poc/${{ github.run_id }}/index.html
 
       - name: Set REPORT_URL output
         env:

@@ -63,15 +63,27 @@ jobs:
         path: automation-testing/reports/index.html
         if-no-files-found: warn
 
-    - name: Set RUN_ID output
-      id: set-run-id
-      run: echo "run_id=${{ github.run_id }}" >> $GITHUB_ENV
+    - name: Set RUN_ID and REPORT_URL output
+      id: set-outputs
+      run: |
+        echo "run_id=${{ github.run_id }}" >> $GITHUB_ENV
+        echo "repository_owner=${{ github.repository_owner }}" >> $GITHUB_ENV
+        echo "repository_name=${{ github.repository }}" >> $GITHUB_ENV
+        echo "report_url=https://${{ github.repository_owner }}.github.io/${{ github.repository }}/index.html" >> $GITHUB_ENV
+
+    - name: Deploy to GitHub Pages
+      if: always()
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: automation-testing/reports
 
     - name: Sending Reporting to Slack
       env:
         SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
         GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
         RUN_ID: ${{ env.run_id }}
+        REPORT_URL: ${{ env.report_url }}
       run: |
         cd automation-testing/
         bash git.sh

@@ -79,7 +79,7 @@ jobs:
         aws s3 cp automation-testing/reports/index.html s3://chandana-poc/${{ github.run_id }}/index.html
 
     - name: Set REPORT_URL output
-      run: echo "report_url=https://d3l46yaep7d7h5.cloudfront.net/${{ github.run_id }}/index.html" >> $GITHUB_ENV
+      run: echo "report_url=https://d2eqsrx98igri2.cloudfront.net/${{ github.run_id }}/index.html" >> $GITHUB_ENV
 
     - name: Sending Reporting to Slack
       env:

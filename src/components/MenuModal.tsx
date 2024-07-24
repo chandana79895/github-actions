@@ -5,32 +5,33 @@ import { MenuModalStyle } from "./styles/MenuModalStyles";
 import { useContext, useState } from "react";
 import { AppContext } from "@/store/AppContext";
 import { LANGUAGES } from "@/constants/Languages";
-import logout from "@/api/utils/logout";
-
-const hamburgArr = [
-  {
-    label: "Member Lookup",
-    routePath: "member-search",
-  },
-  {
-    label: "Select Location",
-    routePath: "location-search",
-  },
-  {
-    label: "Language Preference",
-    routePath: "",
-  },
-  { label: "Logout", routePath: "login" },
-];
+import logout from "@/utils/logout";
+import { useTranslation } from "react-i18next";
 
 function MenuModal({ open, handleClose, showOnlyLanguages }) {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const contextValue = useContext(AppContext);
   const [showLanguages, setShowLanguages] = useState(showOnlyLanguages);
 
+  const hamburgArr = [
+    {
+      label: t("MemberLookup"),
+      routePath: "member-search",
+    },
+    {
+      label: t("SelectLocation"),
+      routePath: "location-search",
+    },
+    {
+      label: t("LanguagePreference"),
+      routePath: "",
+    },
+    { label: t("Logout"), routePath: "login" },
+  ];
 
   const handleMenuItemClick = (item) => {
-    if (item.label === "Language Preference") {
+    if (item.label === t("LanguagePreference")) {
       setShowLanguages(true);
     } else {
       if (item.routePath.length) {
@@ -77,27 +78,31 @@ function MenuModal({ open, handleClose, showOnlyLanguages }) {
         <List className="menu-list">
           {showLanguages
             ? LANGUAGES.map((language, idx) => (
-              <ListItem key={language.code}
-                divider={idx < LANGUAGES.length - 1}
-              >
-                <ListItemText
-                  onClick={() => handleLanguageClick(language)}
-                  secondary={language.label}
-                  data-testid={`${baseTestID}LI${idx}`}
-                  id={`${baseTestID}LI${idx}`}
-                />
-              </ListItem>
-            ))
+                <ListItem
+                  key={language.code}
+                  divider={idx < LANGUAGES.length - 1}
+                >
+                  <ListItemText
+                    onClick={() => handleLanguageClick(language)}
+                    secondary={language.label}
+                    data-testid={`${baseTestID}LI${idx}`}
+                    id={`${baseTestID}LI${idx}`}
+                  />
+                </ListItem>
+              ))
             : hamburgArr.map((item, idx) => (
-              <ListItem key={item.label} divider={idx < hamburgArr.length - 1}>
-                <ListItemText
-                  onClick={() => handleMenuItemClick(item)}
-                  secondary={item.label}
-                  data-testid={`${baseTestID}HI${idx}`}
-                  id={`${baseTestID}HI${idx}`}
-                />
-              </ListItem>
-            ))}
+                <ListItem
+                  key={item.label}
+                  divider={idx < hamburgArr.length - 1}
+                >
+                  <ListItemText
+                    onClick={() => handleMenuItemClick(item)}
+                    secondary={item.label}
+                    data-testid={`${baseTestID}HI${idx}`}
+                    id={`${baseTestID}HI${idx}`}
+                  />
+                </ListItem>
+              ))}
         </List>
       </Card>
     </Modal>

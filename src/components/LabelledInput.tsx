@@ -1,41 +1,42 @@
 import {
-  InputAdornment,
   TextField,
   TextFieldProps,
   Typography,
   TypographyProps,
-  useTheme
+  useTheme,
 } from "@mui/material";
 import Autocomplete from "@mui/material/Autocomplete";
-import check from "../assets/icons/check.svg";
-import dropdown_down from "../assets/icons/dropdown_down.svg";
-import dropdown_down_disabled from "../assets/icons/dropdown_down_disabled.svg";
-import dropdown_up from "../assets/icons/dropdown_up.svg";
-import { FC, useState } from "react";
+import { FC, useContext, useEffect, useRef, useState } from "react";
+import { dropdownAdornment, startCheckAdornment } from "./styles/adornments";
+import { AppContext } from "@/store/AppContext";
+
+type OptionType = {
+  label: string;
+  label_jp: string;
+  value: string;
+};
 
 type LabelledInputProps = {
   label: string;
-  value: string | { label: string; value: string };
+  value: string | OptionType;
   setValue: (value) => void;
   placeholder?: string;
   type?: string;
   error?: boolean;
   inputProps?: TextFieldProps["InputProps"];
   className?: string;
-  inputType?: "text" | "autocomplete" ; // Change inputType options
-  options?: { label: string; value: string }[];
+  inputType?: "text" | "autocomplete" | "none";
+  options?: OptionType[];
+  noOptionsText?: string;
   disabled?: boolean;
   headerVariant?: TypographyProps["variant"];
   required?: boolean;
-  keyValue?: string;
-  formError?: boolean;
-  defaultValue?: string | number;
+  errorLabel?: boolean;
   multiline?: boolean;
   textClassName?: string;
-  updateFieldValue?: (formkeyValues: string, value: any) => void;
   helperText?: string;
   testID?: string;
-  formUpdateField?: boolean;
+  textAlign?: "left" | "center" | "right";
 };
 
 const LabelledInput: FC<LabelledInputProps> = ({
@@ -52,18 +53,52 @@ const LabelledInput: FC<LabelledInputProps> = ({
   disabled,
   headerVariant = "h6",
   required,
-  keyValue,
-  formError,
-  defaultValue,
+  errorLabel,
   multiline,
   textClassName,
-  updateFieldValue,
   helperText,
   testID = "",
-  formUpdateField,
+  textAlign,
+  noOptionsText,
 }) => {
+  const { language } = useContext(AppContext);
   const [isFocused, setIsFocused] = useState(false);
   const palette = useTheme().palette;
+  const defaultFontSize = useTheme().typography.fontSize;
+  const inputRef = useRef<HTMLInputElement>();
+  const [fontSize, setFontSize] = useState(defaultFontSize);
+
+  // Set the font size based on the length of the placeholder
+  useEffect(() => {
+    const setNewFontSize = () => {
+      if (
+        (!value || value === "" || value === null) &&
+        language !== "English"
+      ) {
+        if (inputRef.current && inputRef.current.offsetWidth < 145) {
+          setFontSize(12);
+          return;
+        }
+
+        const length = placeholder.length;
+        if (length > 20) {
+          setFontSize(10);
+        } else if (length > 14) {
+          setFontSize(12);
+        } else {
+          setFontSize(defaultFontSize);
+        }
+      } else {
+        setFontSize(defaultFontSize);
+      }
+    };
+
+    setNewFontSize();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [value, language, placeholder]);
+
+  const translatedOptionLabel = (option: OptionType) =>
+    language === "English" ? option.label : option.label_jp;
 
   return (
     <div className={className}>
@@ -71,103 +106,114 @@ const LabelledInput: FC<LabelledInputProps> = ({
         variant={headerVariant}
         id={`${testID}LB`}
         data-testid={`${testID}LB`}
-        color={formError && palette.error.main}
+        color={errorLabel && palette.error.main}
+        textAlign={textAlign}
+        fontWeight={700}
+        mb={headerVariant === "h5" && 1}
       >
         {label}
         {required && "*"}
       </Typography>
-      {inputType === "text" ? (
-        <TextField
-          placeholder={placeholder}
-          defaultValue={defaultValue}
-          value={value}
-          type={type}
-          multiline={multiline}
-          helperText={helperText}
-          className={textClassName}
-          onChange={(e) => {
-            setValue(e.target.value);
-            {
-              formUpdateField && updateFieldValue(keyValue, e.target.value);
-            }
-          }}
-          error={error}
-          InputProps={inputProps}
-          disabled={disabled}
-          data-testid={`${testID}`}
-          id={`${testID}`}
-          inputProps={{ id: `${testID}IN`, "data-testid": `${testID}IN` }}
-        />
-      ) : (
-        <Autocomplete
-          value={value || ""}
-          onChange={(_, newValue) => setValue(newValue ?? "")}
-          options={options}
-          getOptionLabel={(option) =>
-            typeof option === "string" ? option : option.label
-          }
-          onOpen={() => setIsFocused(true)}
-          onClose={() => setIsFocused(false)}
-          renderOption={(
-            props,
-            option //required to add data-testid and id to the options
-          ) => (
-            <li
-              key={testID + props["data-option-index"] + "00"}
-              {...props}
-              data-testid={`${testID}OP${props["data-option-index"]}`}
-              id={`${testID}OP${props["data-option-index"]}`}
-            >
-              {typeof option === "string" ? option : option.label}
-            </li>
-          )}
-          renderInput={(params) => (
-            <TextField
-              {...params}
-              placeholder={placeholder}
-              error={error}
-              id={`${testID}`}
-              key={testID}
-              inputProps={{
-                ...params.inputProps,
-                id: `${testID}IN`,
-                "data-testid": `${testID}IN`,
-              }}
-              InputProps={{
-                ...params.InputProps,
-                startAdornment: typeof value !== "string" && value.value && (
-                  <InputAdornment position="start">
-                    <img
-                      src={check}
-                      data-testid={`${testID}DDSA`}
-                      id={`${testID}DDSA`}
-                    />
-                  </InputAdornment>
-                ),
-                endAdornment: (
-                  <InputAdornment position="start">
-                    <img
-                      src={
-                        !disabled
-                          ? isFocused
-                            ? dropdown_up
-                            : dropdown_down
-                          : dropdown_down_disabled
-                      }
-                      data-testid={`${testID}DDEA`}
-                      id={`${testID}DDEA`}
-                    />
-                  </InputAdornment>
-                ),
-                ...inputProps,
-              }}
-            />
-          )}
-          disabled={disabled}
-          data-testid={`${testID}DD`}
-          id={`${testID}DD`}
-        />
-      )}
+      {(() => {
+        switch (inputType) {
+          case "autocomplete":
+            return (
+              <Autocomplete
+                value={value || ""}
+                onChange={(_, newValue) => setValue(newValue ?? "")}
+                options={options}
+                getOptionLabel={(option) =>
+                  translatedOptionLabel(option as OptionType)
+                }
+                onOpen={() => setIsFocused(true)}
+                onClose={() => setIsFocused(false)}
+                renderOption={(
+                  props,
+                  option //required to add data-testid and id to the options
+                ) => (
+                  <li
+                    key={testID + props["data-option-index"] + "00"}
+                    {...props}
+                    data-testid={`${testID}OP${props["data-option-index"]}`}
+                    id={`${testID}OP${props["data-option-index"]}`}
+                  >
+                    {translatedOptionLabel(option as OptionType)}
+                  </li>
+                )}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    ref={inputRef}
+                    placeholder={placeholder}
+                    error={error}
+                    id={`${testID}`}
+                    key={testID}
+                    inputProps={{
+                      ...params.inputProps,
+                      id: `${testID}IN`,
+                      sx: { fontSize: fontSize },
+                      "data-testid": `${testID}IN`,
+                    }}
+                    InputProps={{
+                      ...params.InputProps,
+                      ...(typeof value !== "string" &&
+                        value.value &&
+                        startCheckAdornment(testID)),
+                      ...dropdownAdornment(disabled, isFocused, testID),
+                      ...inputProps,
+                    }}
+                  />
+                )}
+                disabled={disabled}
+                data-testid={`${testID}DD`}
+                id={`${testID}DD`}
+                noOptionsText={noOptionsText}
+              />
+            );
+
+          case "none":
+            return (
+              <Typography
+                textAlign={textAlign}
+                id={`${testID}DV`}
+                data-testid={`${testID}DV`}
+                borderTop={1}
+                borderColor={palette.divider}
+                px={2}
+                sx={{ textWrap: "wrap" }}
+              >
+                ¥{typeof value === "string" && value}
+              </Typography>
+            );
+
+          default:
+            return (
+              <TextField
+                ref={inputRef}
+                placeholder={placeholder}
+                value={value}
+                type={type}
+                multiline={multiline}
+                helperText={helperText}
+                className={textClassName}
+                onChange={({ target }) => setValue(target.value)}
+                error={error}
+                InputProps={{
+                  ...inputProps,
+                  sx: { fontSize: fontSize },
+                }}
+                disabled={disabled}
+                data-testid={`${testID}`}
+                id={`${testID}`}
+                inputProps={{
+                  id: `${testID}IN`,
+                  "data-testid": `${testID}IN`,
+                }}
+                autoComplete="off"
+              />
+            );
+        }
+      })()}
     </div>
   );
 };

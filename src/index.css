@@ -2,15 +2,7 @@
   font-family: "Greycliff CF";
   src: url('./assets/fonts/Greycliff CF v2.0/GreycliffCF-Regular.woff') format('woff'),
        url('./assets/fonts/Greycliff CF v2.0/GreycliffCF-Regular.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Greycliff CF";
-  src: url('./assets/fonts/Greycliff CF v2.0/GreycliffCF-Bold.woff') format('woff'),
-       url('./assets/fonts/Greycliff CF v2.0/GreycliffCF-Bold.woff2') format('woff2');
-  font-weight: bold;
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -21,6 +13,21 @@
   font-weight: 500;
   font-style: normal;
 }
+@font-face {
+  font-family: "Greycliff CF";
+  src: url('./assets/fonts/Greycliff CF v2.0/GreycliffCF-DemiBold.woff') format('woff'),
+       url('./assets/fonts/Greycliff CF v2.0/GreycliffCF-DemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Greycliff CF";
+  src: url('./assets/fonts/Greycliff CF v2.0/GreycliffCF-Bold.woff') format('woff'),
+       url('./assets/fonts/Greycliff CF v2.0/GreycliffCF-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
 
 :root {  
   font-family: "Greycliff CF";
@@ -38,9 +45,6 @@ body {
   margin: 0;
 }
 
-.font-bold {
-  font-weight: 'bold' !important;
-}
 
 .font-white {
   color: white !important;
@@ -58,25 +62,8 @@ body {
   padding-bottom: 0;
 }
 
-.height-50 {
-  height: 50px;
-}
-
-.txt-req{
-  text-align: end;
-}
-.txt-cntr{
-  text-align: center;
-}
-.mar-top{
-  margin-top: unset;
-}
 .txt-end{
   display: flex;
   justify-content: end;
   margin-bottom: -39px !important;
-}
-
-.pad-0 input{
-  padding: 0 !important;
 }

@@ -8,12 +8,13 @@ import { ReactNode } from "react";
 interface ModalProps {
   open: boolean;
   onClose: () => void;
-  error: boolean;
+  error?: boolean;
   onClick: () => void;
   buttonText?: string;
   errorText?: ReactNode;
   successText?: ReactNode;
-  successMessage?: ReactNode;
+  message?: ReactNode;
+  testID?: string;
 }
 
 export const Modal = ({
@@ -24,39 +25,54 @@ export const Modal = ({
   buttonText = "",
   errorText = "",
   successText = "",
-  successMessage = "",
+  message = "",
+  testID,
 }: ModalProps) => {
+  const IconComponent = error ? CancelOutlinedIcon : CheckCircle;
+  const iconColor = error ? "error-icon" : "success-icon";
+  const title = error ? errorText : successText;
+
   return (
-    <div>
-      <Dialog open={open} onClose={onClose} className="box">
-        <DialogContent className="modal-content">
-          {error ? (
-            <div className="modal-icon">
-              <CancelOutlinedIcon className="error-icon" />
-            </div>
-          ) : (
-            <div>
-              <CheckCircle className="success-icon" />
-            </div>
-          )}
-          {error ? (
-            <div className={"modal-title"}>
-              <Typography>{errorText}</Typography>
-            </div>
-          ) : (
-            <div>
-              <Typography>{successText}</Typography>
-            </div>
-          )}
-          <br />
-          {successMessage && (
-            <div className={error && "modal-title"}>
-              <Typography>{successMessage}</Typography>
-            </div>
-          )}
-          <Button title={buttonText} onClick={onClick} loadingText="Scanning" />
-        </DialogContent>
-      </Dialog>
-    </div>
+    <Dialog open={open} onClose={onClose} className="box">
+      <DialogContent
+        className="modal-content"
+        data-testid={testID && `${testID}`}
+        id={testID && `${testID}`}
+      >
+        <div
+          className="modal-icon"
+          data-testid={testID && `${testID} ICN`}
+          id={testID && `${testID}ICN`}
+        >
+          <IconComponent className={iconColor} />
+        </div>
+
+        {title && (
+          <div className={"modal-title"}>
+            <Typography
+              data-testid={testID && `${testID}LB`}
+              id={testID && `${testID}LB`}
+            >
+              {title}
+            </Typography>
+          </div>
+        )}
+
+        {message && (
+          <div className={"modal-title"}>
+            <Typography
+              data-testid={testID && `${testID}MSG`}
+              id={testID && `${testID}MSG`}
+            >
+              {message}
+            </Typography>
+          </div>
+        )}
+
+        {buttonText && (
+          <Button title={buttonText} onClick={onClick} testID={testID} />
+        )}
+      </DialogContent>
+    </Dialog>
   );
 };

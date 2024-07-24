@@ -5,7 +5,7 @@ jest.mock('axios');
 
 describe('getApi', () => {
   it('throws an error when an unsupported method is passed', () => {
-    expect(() => getApi('/test', {}, 'UNSUPPORTED' as any)).toThrow(`Unsupported method "UNSUPPORTED"`);
+    expect(() => getApi('/test', {}, 'UNSUPPORTED' as never)).toThrow(`Unsupported method "UNSUPPORTED"`);
   });
 
   it('calls axios.get with correct parameters when method is GET', async () => {
@@ -38,5 +38,12 @@ describe('getApi', () => {
     const data = { param: 'test' };
     await getApi('/test', data, 'DELETE');
     expect(axios.delete).toHaveBeenCalledWith(expect.stringContaining('/test'), { data: data });
+  });
+
+  it('calls axios.get with correct parameters when method is GET_PARAMS', async () => {
+    const data = { param: 'test' };
+    const customHeaders = { 'Content-Type': 'application/json' };
+    await getApi('/test', data, 'GET_PARAMS', customHeaders);
+    expect(axios.get).toHaveBeenCalledWith(expect.stringContaining('/test'), { params: data, headers: customHeaders });
   });
 });

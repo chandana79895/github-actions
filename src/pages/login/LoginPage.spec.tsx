@@ -3,7 +3,7 @@ import { MemoryRouter } from 'react-router-dom';
 import LoginPage from './LoginPage';
 import { AppContext } from '../../store/AppContext';
 import { MockContext } from '@/constants/tests/MockContext';
-import * as http from '../../api/utils/http';
+import * as http from '../../utils/api/http';
 import { AxiosResponse } from 'axios';
 
 jest.mock('react-i18next', () => ({

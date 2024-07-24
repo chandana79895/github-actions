@@ -4,16 +4,18 @@
   align-items: flex-end;
   display: flex;
   height: 8vh;
-  /* height: 80px; */
   background: #535353;
   color: white;
   width: 100%;
 }
-
+@media (orientation: landscape) and (max-width: 1024px) {
+  .login-nav {
+    min-height: 15vh;
+  }
+}
 .nav {
   align-items: flex-end;
   display: flex;
-  /* height: 12vh; */
   background: #535353;
   color: white;
   width: 100%;
@@ -40,25 +42,12 @@
   width: 100%;
 }
 
-.back-icon {
-  padding: 10px ;
-  margin-left: 10px;
-}
-
-.hamburger-icon {
-  float: right;
-}
 .logo {
   height: 60px;
   width: 60px;
   display: flex;
   align-self: center;
   align-items: center;
-  margin-left: 39px;
-  margin-bottom: 10%;
-}
-.logo1 {
-  margin-left: 39px;
 }
 
 .close-icon {
@@ -72,6 +61,17 @@
 
 .img-btn {
   background: none;
+  flex: 1;
+}
+.hamburger-btn {
+  background: none;
+  background-color: none;
+  border: none;
+  flex: 1.5;
+}
+.back-btn {
+  background: none;
+  flex: 1;
   border: none;
 }
 

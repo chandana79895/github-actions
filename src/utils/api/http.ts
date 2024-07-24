@@ -1,9 +1,7 @@
 import axios from "axios";
-import { baseUrl_const } from "../const/env";
+import { baseUrl_const } from "../../constants/env";
+
 const baseUrl = baseUrl_const;
-// const baseUrl = "https://3663-2401-4900-1cb9-9e61-59a-aa50-4bad-89c3.ngrok-free.app/";
-// const baseUrl = "https://f3fc-14-99-84-194.ngrok-free.app/";
-// const baseUrl = process.env.VITE_APP_BASE_URL;
 
 type methodType =
   | "GET"

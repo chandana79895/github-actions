@@ -1,4 +1,4 @@
-import { CircularProgress, Button as MuiButton } from "@mui/material";
+import { CircularProgress, Button as MuiButton, ButtonProps as MuiButtonProps} from "@mui/material";
 import { FC, ReactNode } from "react";
 
 type ButtonProps = {
@@ -10,7 +10,7 @@ type ButtonProps = {
   className?: string;
   icon?: ReactNode;
   testID?: string;
-  variant?:any
+  variant?:MuiButtonProps['variant']
 };
 
 // Button component with loading state

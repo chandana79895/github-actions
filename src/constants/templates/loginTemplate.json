@@ -1,0 +1,12 @@
+[
+  {
+    "key": "username",
+    "placeholder": "enterEmployeeID",
+    "type": "text"
+  },
+  {
+    "key": "password",
+    "placeholder": "enterPassword",
+    "type": "password"
+  }
+]

@@ -3,8 +3,8 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { AppContext } from "./store/AppContext";
 import App from "./App";
 import { useTranslation } from "react-i18next";
-import * as useLocalStorage from "./api/utils/useLocalStorage";
-import * as IdleFunctions from "./api/utils/IdleFunctions";
+import * as useLocalStorage from "./utils/useLocalStorage";
+import * as IdleFunctions from "./utils/IdleFunctions";
 
 jest.mock("./components/Menu", () => () => <div>MenuComponent</div>);
 jest.mock("./components/Modal", () => ({ Modal: (_props: any) => <div>Modal</div> }));

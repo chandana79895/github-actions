@@ -4,7 +4,8 @@ const ShortPath = {
   "member-details": "MD",
   "member-search": "MS", 
   "qr-scan": "QS",
-  receipt: "RC"
+  receipt: "RC",
+  "earn-points": "EP",
 }
 
 // returns the short path of the key

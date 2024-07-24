@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { fireEvent, render } from "@testing-library/react";
 import MemberCard from "./MemberCard";
 
 jest.mock("react-i18next", () => ({
@@ -13,7 +13,7 @@ describe("MemberCard component", () => {
       <MemberCard firstName="Test" lastName="name" />
     );
     expect(getByText("Test name")).toBeInTheDocument();
-    const images = queryAllByRole("img");
+    const images = queryAllByRole("img", {name: "avatar"});
     expect(images).toHaveLength(1);
   });
 
@@ -27,19 +27,33 @@ describe("MemberCard component", () => {
         membershipID="12345"
         expiringPoints={50}
         pointsExpiryDate="2024-12-31"
+        cardNumbers={["1234", "5678"]}
       />
     );
     expect(getByText("100 validPoints")).toBeInTheDocument();
-    expect(
-      getByText("currentTier: Gold | membershipId: 12345")
-    ).toBeInTheDocument();
-    expect(getByText("50 pointsExpireon 2024-12-31")).toBeInTheDocument();
+    expect(getByText("currentTier:")).toBeInTheDocument();
+    expect(getByText("Gold")).toBeInTheDocument();
+    expect(getByText("membershipId:")).toBeInTheDocument();
+    expect(getByText("12345")).toBeInTheDocument();
+    expect(getByText("50 pointsExpireOn 2024-12-31")).toBeInTheDocument();
+    expect(getByText("cardNumbers:")).toBeInTheDocument();
+    expect(getByText("1234,")).toBeInTheDocument();
+    expect(getByText("5678")).toBeInTheDocument();
   });
-
-  it("handles expandable prop correctly", () => {
-    const { getAllByRole } = render(
-      <MemberCard firstName="Test" lastName="name" expandable />
+ 
+  it("calls setExpanded with correct argument on card click", () => {
+    const setExpandedMock = jest.fn();
+    const { getByTestId } = render(
+      <MemberCard
+        firstName="Test"
+        lastName="name"
+        expanded={false}
+        setExpanded={setExpandedMock}
+        testID="test"
+      />
     );
-    expect(getAllByRole("img")[1]).toBeInTheDocument();
+    const card = getByTestId("testMBRC");
+    fireEvent.click(card);
+    expect(setExpandedMock).toHaveBeenCalledWith(true);
   });
 });

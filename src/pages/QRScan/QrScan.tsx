@@ -12,11 +12,9 @@ import {
   handleManualLookUp,
   startVideo,
   handleCloseModal,
-  handleTryAgain,
-  stopVideo,
   searchMember,
 } from "./QrScanUtils";
-import { rsp } from "@/constants/tests/shortPath";
+import { rsp } from "@/utils/shortPath";
 import Loader from "@/components/Loader";
 import { AppContext } from "@/store/AppContext";
 
@@ -48,16 +46,13 @@ const QrScan = () => {
   }, [scannedData]);
 
   useEffect(() => {
-    handleScan(codeReader, videoRef, setScannedData, setError);
-    return () => {
-      stopVideo(videoRef, setStream, setError);
-    };
-  }, [stream]);
-
-  useEffect(() => {
     startVideo(videoRef, setStream, setError);
   }, []);
 
+  useEffect(() => {
+    handleScan(codeReader, videoRef, setScannedData, setError);
+  }, [stream]);
+  
   //for generating test IDs
   const currentPage = rsp("qr-scan");
 
@@ -95,9 +90,9 @@ const QrScan = () => {
           error={error}
           open={showPopup}
           buttonText={t("tryAgain")}
-          errorText={t("scanFailed")}
+          errorText={t("errorScanFailed")}
           onClose={() => handleCloseModal(setShowPopup, setError)}
-          onClick={() => handleTryAgain(setShowPopup, setError)}
+          onClick={() => handleCloseModal(setShowPopup, setError)}
         />
       )}
       {showManualLookupModal && (

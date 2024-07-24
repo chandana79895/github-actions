@@ -1,9 +1,16 @@
 import { Card, Grid, Typography } from "@mui/material";
-import PropTypes from "prop-types";
+import { ReactNode } from "react";
 
-function CustomCard({ title, children, testID }) {
+type CustomCardProps = {
+  title?: string;
+  children: ReactNode;
+  testID?: string;
+  onClick?: () => void;
+};
+
+function CustomCard({ title, children, testID, onClick }: CustomCardProps) {
   return (
-    <Card className="card" id={testID} data-testid={testID}>
+    <Card className="card" id={testID} data-testid={testID} onClick={onClick}>
       <Grid container>
         <Grid item xs={12}>
           <Typography variant="h3" id={`${testID}LB`} data-testid={`${testID}LB`}>{title}</Typography>
@@ -14,10 +21,5 @@ function CustomCard({ title, children, testID }) {
   );
 }
 
-CustomCard.propTypes = {
-  title: PropTypes.string,
-  testID: PropTypes.string,
-  children: PropTypes.node.isRequired,
-};
 
 export default CustomCard;

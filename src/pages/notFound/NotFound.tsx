@@ -1,6 +1,6 @@
 import { Box, Typography, useTheme } from "@mui/material"
 import { useTranslation } from "react-i18next";
-import { getWords } from "@/constants/tests/words";
+import { getWords } from "@/utils/words";
 
 const NotFound = () => {
   const palette = useTheme().palette;

@@ -8,7 +8,7 @@ import MenuModal from "./MenuModal";
 import { AppContext } from "@/store/AppContext";
 import "./styles/Menu.css";
 import globe from "../assets/icons/globe.svg";
-import { rsp } from "@/constants/tests/shortPath";
+import { rsp } from "@/utils/shortPath";
 
 export default function MenuComponent({ setLanguage, language }) {
   const navigate = useNavigate();
@@ -44,28 +44,6 @@ export default function MenuComponent({ setLanguage, language }) {
     navigate("/location-search");
   };
 
-  function storeNameDisplay(text: string, maxLength: number) {
-    const parts = text.split("-");
-    if (parts.length > 1) {
-      const firstPart = parts[0].trim();
-      const secondPart = parts.slice(1).join("-").trim();
-      const truncatedSecondPart =
-        secondPart.length > maxLength
-          ? secondPart.substring(0, maxLength) + "..."
-          : secondPart;
-      return (
-        <>
-          {employeeName}
-          <br />
-          {firstPart}
-          <br />
-          {truncatedSecondPart}
-        </>
-      );
-    }
-    return text;
-  }
-
   return (
     <>
       <Grid
@@ -76,85 +54,96 @@ export default function MenuComponent({ setLanguage, language }) {
         data-testid={testID}
       >
         {isLogin ? (
-          <Grid item xs={12}>
+          <Grid item xs={12} className="main-grid">
             <div
               onClick={handleClickOpen}
               className="button"
               id={`${testID}I0`}
               data-testid={`${testID}I0`}
             >
-              <Box display={"flex"} flexDirection={"row"} columnGap={1}>
+              <Box
+                display={"flex"}
+                flexDirection={"row"}
+                columnGap={1}
+                fontSize={14}
+                fontWeight={700}
+              >
                 <img src={globe} alt="" />
-                {language}
+                {language.toUpperCase()}
               </Box>
             </div>
           </Grid>
         ) : (
-          <>
-            <Grid item>
-              {!pathname.includes("/location-search") ? (
-                <button
-                  className="img-btn"
-                  onClick={handleBackIconClick}
-                  id={`${testID}I1`}
-                  data-testid={`${testID}I1`}
-                >
-                  <img
-                    slot="start"
-                    className="back-icon"
-                    src={backIcon}
-                    alt="Search"
-                  />
-                </button>
-              ) : (
-                <div className="logo1" />
-              )}
-            </Grid>
-            <Grid item>
+          <Grid className="location-text" alignItems={"center"}>
+            {!pathname.includes("/location-search") ? (
+              <button
+                className="back-btn"
+                onClick={handleBackIconClick}
+                id={`${testID}I1`}
+                data-testid={`${testID}I1`}
+              >
+                <img
+                  slot="start"
+                  className="back-icon"
+                  src={backIcon}
+                  alt="Search"
+                />
+              </button>
+            ) : (
+              <div className="logo1" />
+            )}
+            <Grid item className="location-search-text">
               {property.label && pathname !== "/location-search" ? (
-                <button
-                  className="location-search-btn"
-                  onClick={handleLocationSearchClick}
-                  id={`${testID}I2`}
-                  data-testid={`${testID}I2`}
-                >
-                  <Typography variant="h5" color={"white"} className="ellipsis">
-                    {storeNameDisplay(store.value, 16)}
+                <>
+                  <Typography variant={"menu"} color={"white"} flex={1}>
+                    {employeeName}
+                    <br />
                   </Typography>
-                </button>
+                  <button
+                    className="location-search-btn"
+                    onClick={handleLocationSearchClick}
+                    id={`${testID}I2`}
+                    data-testid={`${testID}I2`}
+                  >
+                    <Typography variant={"menu"} color={"white"} flex={1}>
+                      {language === "English"
+                        ? property.value
+                        : property.label_jp}
+                      <br />
+                      {language === "English" ? store.value : store.label_jp}
+                    </Typography>
+                  </button>
+                </>
               ) : (
-                <div className="centered-content">
-                  <div className="username">
+                <div className="employeeName">
+                  {(!store.value && pathname.includes("/member-search")) ||
+                    (pathname.includes("/location-search") && (
+                      <div style={{ flex: 2 }} />
+                    ))}
+                  <div className="centered-content">
+                    <img
+                      className="logo"
+                      src={logo}
+                      alt="Fortress"
+                      id={`${testID}I2`}
+                      data-testid={`${testID}I2`}
+                    />
                     <Typography variant="h5" color={"white"}>
                       {employeeName}
                     </Typography>
                   </div>
-                  <img
-                    className="logo"
-                    src={logo}
-                    alt="Fortress"
-                    id={`${testID}I2`}
-                    data-testid={`${testID}I2`}
-                  />
                 </div>
               )}
             </Grid>
-            <Grid item>
-              <button
-                className="img-btn"
-                onClick={handleClickOpen}
-                id={`${testID}I3`}
-                data-testid={`${testID}I3`}
-              >
-                <img
-                  slot="end"
-                  className="hamburger-icon"
-                  src={hamburgerIcon}
-                  alt="Menu"
-                />{" "}
-              </button>
-            </Grid>
-          </>
+            <button
+              onClick={handleClickOpen}
+              id={`${testID}I3`}
+              data-testid={`${testID}I3`}
+              className="hamburger-btn"
+            >
+              <img slot="end" src={hamburgerIcon} alt="Menu" />
+            </button>
+          </Grid>
         )}
       </Grid>
       {open && (

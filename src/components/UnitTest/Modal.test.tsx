@@ -13,7 +13,7 @@ describe("Modal Component", () => {
         buttonText="Button Text"
         errorText="Error Text"
         onClick={() => {}}
-        successMessage="Member Id"
+        message="Member Id"
       />
     );
 
@@ -33,7 +33,7 @@ describe("Modal Component", () => {
         buttonText="Button Text"
         onClick={onClickSpy}
         successText="Success Text"
-        successMessage="Member Id"
+        message="Member Id"
       />
     );
 
@@ -54,7 +54,7 @@ describe("Modal Component", () => {
         buttonText="Button Text"
         onClick={onClickSpy}
         successText="Success Text"
-        successMessage="Member Id"
+        message="Member Id"
       />
     );
 

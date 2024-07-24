@@ -10,7 +10,7 @@ jest.mock('react-i18next', () => ({
   }),
 }));
 
-jest.mock('../../api/utils/http', () => ({
+jest.mock('@/utils/api/http', () => ({
   getApi: jest.fn(() => Promise.resolve({ data: 'success' })),
 }));
 

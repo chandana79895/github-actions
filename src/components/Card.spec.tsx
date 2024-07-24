@@ -37,13 +37,6 @@ describe('Card Component', () => {
     expect(cardContentElement2).toBeInTheDocument();
   });
 
-  test('throws an error when only title is specified', () => {
-    const consoleError = jest.spyOn(console, 'error').mockImplementation(() => { });
-    render(<CustomCard title="Card Title" />);
-    expect(consoleError).toHaveBeenCalled();
-    consoleError.mockRestore();
-  });
-
   test('renders card with nested card', () => {
     render(
       <CustomCard title="Main title">
@@ -61,17 +54,6 @@ describe('Card Component', () => {
     expect(cardContentElement).toBeInTheDocument();
     expect(subcardElement).toBeInTheDocument();
     expect(subcardContentElement).toBeInTheDocument();
-  });
-
-  test('throws an error when children is null', () => {
-    const consoleError = jest.spyOn(console, 'error').mockImplementation(() => { });
-    render(
-      <CustomCard title="Card Title">
-        {null}
-      </CustomCard>
-    );
-    expect(consoleError).toHaveBeenCalled();
-    consoleError.mockRestore();
   });
 
   test('renders when children is a fragment', () => {

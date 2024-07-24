@@ -1,32 +1,40 @@
 import { useEffect, useState, useContext } from "react";
-import Card from "../../components/Card"; // Import the CustomCard component
+import Card from "../../components/Card";
 import { Grid, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import MemberCard from "@/components/MemberCard";
-import FormLabel from "../../api/utils/FormLabel";
 import { Modal } from "../../components/Modal";
-import unlock from "../../assets/icons/unlock.svg";
 import { AppContext } from "@/store/AppContext";
 import { useNavigate } from "react-router";
-import moment from "moment";
-import { getApi, headers } from "@/api/utils/http";
-import { Endpoints } from "@/api/const/endpoints";
-import { transaction_amount } from "@/api/const/env";
+import { getApi, headers } from "@/utils/api/http";
+import { Endpoints } from "@/constants/endpoints";
+import earnPointsFields from "@/constants/templates/earnPointsTemplate.json";
+import { getWords } from "@/utils/words";
+import { rsp } from "@/utils/shortPath";
+import { Controller, useForm } from "react-hook-form";
+import LabelledInput from "@/components/LabelledInput";
+import Button from "@/components/Button";
+import formatDate from "@/utils/helpers/dateFormatter";
+import { yupResolver } from "@hookform/resolvers/yup";
+import earnPointsSchema from "@/schemas/earnPoints";
+import {
+  numberFormatter,
+  stringToNumber,
+} from "@/utils/helpers/numberFormatter";
+import {
+  endLockAdornment,
+  startYenAdornment,
+} from "@/components/styles/adornments";
+import { EarnPointsTemplateType } from "@/types/Types";
 
-interface applicationFieldsProps {
-  fields: {}[];
-}
 function EarnPointsPage() {
   const { t } = useTranslation();
   const navigate = useNavigate();
-
-  const { property } = useContext(AppContext);
+  const [loading, setLoading] = useState(false);
+  const { property, store, language } = useContext(AppContext);
   const [memberData, setMemberData] = useState(null);
   const [message, setMessage] = useState("");
-  const [getApplicationFields, setApplicationFields] = useState<
-    applicationFieldsProps | undefined
-  >();
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState(true);
   const [open, setOpen] = useState(false);
   const [error, setError] = useState(false);
   useEffect(() => {
@@ -37,212 +45,84 @@ function EarnPointsPage() {
   }, []);
 
   const currentDateTime = new Date();
-  const currentDate =
-    currentDateTime.getDate() +
-    "/" +
-    (currentDateTime.getMonth() + 1) +
-    "/" +
-    currentDateTime.getFullYear();
-  const currentTime =
-    currentDateTime.getHours() +
-    ":" +
-    currentDateTime.getMinutes() +
-    ":" +
-    currentDateTime.getSeconds();
-
-  //earn points default value
-  const earnPoints = {
-    location: property.label,
-    date: currentDate,
-    time: currentTime,
-    transactionAmount: 0,
-    taxAssumedAmount: 0,
-    goToPassPointsUsed: 0,
-    amountEligibleForEarningPoints: 0,
-    notes: "",
-  };
-  const data = {
-    firstName:memberData?.firstName,
+  const currentDate = formatDate(currentDateTime.toDateString(), "YYYY/MM/DD");
+  const currentTime = currentDateTime.toLocaleTimeString("en-US", {
+    hour12: false,
+  });
+  const memberCardData = {
+    firstName: memberData?.firstName,
     lastName: memberData?.lastName,
     points: memberData?.loyaltyPoints,
     tier: memberData?.currentSlab,
-    membershipID: memberData?.cardId,
-    expiringPoints: memberData?.loyaltyPoints,
-    pointsExpiryDate: moment(memberData?.pointsExpiryDate).format("YYYY/MM/DD"),
+    membershipID: memberData?.memberId,
+    expiringPoints: memberData?.expiryPoints,
+    pointsExpiryDate: formatDate(memberData?.pointsExpiryDate, "YYYY/MM/DD"),
+    email: store.storeEmail,
+    storeID: store.storeID,
+    cardNumbers: memberData?.card_number ?? [],
   };
 
-  // const messagesPopUp = [
-  //   {
-  //     id: 0,
-  //     message: t("successfullySubmitted")
-  //       .replace("_name", data.name)
-  //       .replace("_points", "2000"),
-  //     openMsg: true,
-  //   },
-  //   {
-  //     id: 1,
-  //     message: t("transactionApproval").replace("_name", data.name),
-  //     openMsg: false,
-  //   },
-  //   {
-  //     id: 2,
-  //     message: t("successfullySpending")
-  //       .replace("_name", data.name)
-  //       .replace("_points", "16000")
-  //       .replace("_remainingPoints", "200"),
-  //     openMsg: false,
-  //   },
-  //   {
-  //     id: 3,
-  //     message: t("exceedsAmount")
-  //       .replace("_name", data.name)
-  //       .replace("¥_points", "2000"),
-  //     openMsg: false,
-  //   },
-  // ];
+  const { control, handleSubmit, watch, setValue, trigger } = useForm({
+    resolver: yupResolver(earnPointsSchema),
+    context: { points: memberCardData.points },
+    mode: "onChange",
+  });
 
-  // const [messages, setMessages] = useState([]);
+  const formValues = watch();
 
-  //Page load to get the application fields
+  // trigger goToPassPointsUsed validation if transactionAmount changes
   useEffect(() => {
-    getEarnPoints();
-  }, [t]);
+    trigger("goToPassPointsUsed");
+  }, [trigger, formValues.transactionAmount]);
 
-  //To get the application fields
-  const getEarnPoints = async () => {
-    const getFields = await applicationFormTemplate();
-    setApplicationFields(getFields);
-    // setMessages([...messagesPopUp]);
-    // setMessage(message);
-  };
-
-  //creating Json For
-  const applicationFormTemplate = () => {
-    const finalFields = {
-      fields: [
-        {
-          title: t("location"),
-          type: "text",
-          keyValue: "location",
-          icon: true,
-          formError: false,
-          img: unlock,
-          gridSizes: 12,
-          disabled: true,
-        },
-        {
-          title: t("date"),
-          type: "text",
-          keyValue: "date",
-          disabled: true,
-          required: false,
-          gridSizes: 6,
-          icon: true,
-          formError: false,
-          img: unlock,
-        },
-        {
-          title: t("time"),
-          type: "text",
-          keyValue: "time",
-          required: false,
-          disabled: true,
-          icon: true,
-          img: unlock,
-          formError: false,
-          gridSizes: 6,
-        },
-        {
-          title: t("transactionAmount"),
-          type: "text",
-          required: true,
-          keyValue: "transactionAmount",
-          formError: false,
-          gridSizes: 6,
-          currencyImgShow: true,
-        },
-        {
-          title: t("taxAssumedAmount"),
-          type: "notText",
-          align: true,
-          required: false,
-          keyValue: "taxAssumedAmount",
-          formError: false,
-          gridSizes: 6,
-        },
-        {
-          title: t("goToPassPointsUsed"),
-          type: "text",
-          keyValue: "goToPassPointsUsed",
-          required: false,
-          formError: false,
-          gridSizes: 12,
-          currencyImgShow: true,
-        },
-        {
-          title: t("amountEligibleForEarningPoints"),
-          type: "notText",
-          align: false,
-          required: false,
-          keyValue: "amountEligibleForEarningPoints",
-          gridSizes: 12,
-          formError: false,
-        },
-        {
-          title: t("notes"),
-          type: "text",
-          keyValue: "notes",
-          required: false,
-          gridSizes: 12,
-          row: 4,
-          formError: false,
-          multiline: true,
-        },
-      ],
-    };
-    return finalFields;
-  };
-
-  //Click on the final submit
-  const onSubmit = async (formValues) => {
-    const exceedValue =
-      Number(formValues.transactionAmount) > transaction_amount;
-    const payload = {
-      identifierType: "card_number",
-      identifierValue: memberData.card_number,
-      location: formValues.location,
-      billing_time: currentDate,
-      gross_amount: String(formValues.transactionAmount),
-      points: formValues.goToPassPointsUsed,
-      notes: formValues.notes,
-      exceedValue: exceedValue,
-    };
+  const onSubmit = async () => {
+    setLoading(true);
+    setError(false);
 
     try {
-      const response = await getApi(
-        Endpoints.earnPoints,
-        payload,
-        "POST_HEADER",
-        headers
-      );
-      console.log("API Response:", response);
+      const exceededValue =
+        Number(formValues?.transactionAmount) > Number(store.storeThreshold);
+      const payload = {
+        identifierType: "external_id",
+        identifierValue: memberData?.memberId,
+        location: property?.value,
+        billing_time: currentDate,
+        gross_amount: Number(formValues?.transactionAmount),
+        points: Number(formValues?.goToPassPointsUsed),
+        notes: formValues?.notes,
+        excedeedValue: exceededValue,
+        storeEmail: store.storeEmail,
+        slab: memberData?.currentSlab,
+      };
 
-      if (response) {
-        // if (response) {
-        setOpen(true);
-        // setMessage("Redemption Successful");
-        // setMessage(response.data.error);
-      } else {
-        console.error("Failed to earn points:", response);
-        setOpen(true);
-        setError(true);
-        setMessage(response.data.error);
-      }
+      await getApi(Endpoints.earnPoints, payload, "POST_HEADER", headers)
+        .then((response) => {
+          setOpen(true);
+          setMessage(
+            t(response.data.keyValue)
+              .replace(
+                "_name",
+                `${memberData?.firstName} ${memberData?.lastName}`
+              )
+              .replace("_points", response.data?.earnedPoints)
+              .replace(
+                "_remainingPoints",
+                String(formValues?.goToPassPointsUsed)
+              )
+              .replace("_limit", String(store.storeThreshold))
+          );
+        })
+        .catch((error) => {
+          setOpen(true);
+          setError(true);
+          const errorText = error?.response?.data?.keyValue;
+          setMessage(t(errorText));
+        });
+      setLoading(false);
     } catch (error) {
-      console.log("ERROR", error);
       setError(true);
-      // setMessage(response.data.error);
       setOpen(true);
+      setLoading(false);
 
       console.error("Error earning points:", error);
     }
@@ -250,116 +130,178 @@ function EarnPointsPage() {
 
   //To click the cancel button in the form
   const handleCancel = () => {
-    navigate("/member-details");
+    navigate("/member-search");
   };
 
   //To click the  modal  to close
   const handleModalClose = () => {
     setOpen(false);
+    navigate("/member-search");
   };
 
-  //to change the popup message in the modal popup
-  // const handleSubmitPopUp = (itemId: number) => {
-  //   const UpdatedId = itemId + 1;
-  //   const updateMessage = messages.map((item) => {
-  //     if (item.id == UpdatedId) {
-  //       item.openMsg = true;
-  //     } else {
-  //       item.openMsg = false;
-  //     }
-  //     return item;
-  //   });
-  //   setMessages([...updateMessage]);
-  //   if (messages.length == UpdatedId) {
-  //     messages[0].openMsg = true;
-  //     setMessages([...messages]);
-  //     setOpen(false);
-  //   }
-  // };
+  // update taxAssumedAmount when transactionAmount changes
+  useEffect(() => {
+    const taxAssumedAmount = numberFormatter(
+      Math.floor(
+        formValues.transactionAmount - formValues.transactionAmount / 1.1 || 0
+      )
+    );
+    setValue("taxAssumedAmount", taxAssumedAmount);
+  }, [formValues.transactionAmount, setValue]);
 
-  //Based on the textfield in form  values will be change
-  const handleTaxAndEligbleAmount = (
-    setValue: (updateText: string, value: string | number) => {},
-    formKeyValues: string,
-    value: any,
-    UpdateValueText: any,
-    getTextValues: any
-  ) => {
-    const { updateTextKey1, updateTextKey2 } = UpdateValueText;
-    const { goToPassPointsUsed, transactionAmount, taxAssumedAmount } =
-      getTextValues;
-    switch (formKeyValues) {
-      case "transactionAmount":
-        // const taxAssumedAmountTotal = Number(value) / 1.1;
-        const taxAssumedAmountTotal = Number(value) - Number(value) / 1.1;
-        const amountEligible =
-          Number(value) - taxAssumedAmountTotal - Number(goToPassPointsUsed);
+  // update amountEligibleForEarningPoints when dependencies change
+  useEffect(() => {
+    const taxAssumedAmountWithoutCommas = stringToNumber(
+      formValues?.taxAssumedAmount || ""
+    );
+    const calculatedAmountEligible = Math.floor(
+      formValues.transactionAmount -
+        taxAssumedAmountWithoutCommas -
+        +formValues.goToPassPointsUsed || 0
+    );
+    const amountEligible = numberFormatter(
+      calculatedAmountEligible < 0 ? 0 : calculatedAmountEligible
+    );
+    setValue("amountEligibleForEarningPoints", amountEligible);
+  }, [
+    formValues.transactionAmount,
+    formValues.taxAssumedAmount,
+    formValues.goToPassPointsUsed,
+    setValue,
+  ]);
 
-        const amountEligibleNaNCheck =
-          isNaN(amountEligible) || value == "" ? 0 : amountEligible;
+  // update location display value based on language
+  useEffect(() => {
+    setValue(
+      "location",
+      language === "English" ? property?.label : property?.label_jp
+    );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [language]);
 
-        const taxAssumedAmountTotalNANCheck =
-          isNaN(taxAssumedAmountTotal) || value == ""
-            ? 0
-            : taxAssumedAmountTotal;
-        setValue(updateTextKey1, taxAssumedAmountTotalNANCheck);
-        setValue(updateTextKey2, amountEligibleNaNCheck);
-        break;
-      case "goToPassPointsUsed":
-        const amountEligibleEarn =
-          Number(transactionAmount) - taxAssumedAmount - Number(value);
-        setValue(updateTextKey2, amountEligibleEarn);
-        break;
+  const currentPage = rsp("earn-points");
+
+  const setDefaultValue = (key: string) => {
+    switch (key) {
+      case "location":
+        return language === "English" ? property?.label : property?.label_jp;
+      case "date":
+        return currentDate;
+      case "time":
+        return currentTime;
       default:
-        break;
+        return key;
     }
   };
 
   return (
-    <>
-      <div className="cards-container">
-        <MemberCard
-          firstName={data.firstName}
-          lastName={data.lastName}
-          {...data}
-          expandable
-          expanded={expanded}
-          setExpanded={setExpanded}
-        />
+    <div
+      className="cards-container"
+      id={currentPage + "CONT"}
+      data-testid={currentPage + "CONT"}
+    >
+      <MemberCard
+        firstName={memberCardData.firstName}
+        lastName={memberCardData.lastName}
+        {...memberCardData}
+        expanded={expanded}
+        setExpanded={setExpanded}
+        testID={currentPage}
+      />
 
-        <Card title={t("earnPoints")}>
-          <Grid item xs={12} className="input-container pb-0">
-            <Grid item xs={12} md={12}>
-              <Typography variant={"h6"} className="txt-end">
-                {`*${t("RequiredFields")}`}
-              </Typography>
-            </Grid>
-            {undefined !== getApplicationFields && (
-              <FormLabel
-                template={getApplicationFields}
-                onSubmit={onSubmit}
-                handleCancel={handleCancel}
-                defaultValues={earnPoints}
-                handleUpdateFields={handleTaxAndEligbleAmount}
-              />
-            )}
+      <Card
+        title={t("earnPoints")}
+        testID={currentPage + getWords("earnPoints")}
+      >
+        <Grid item xs={12} className="input-container pb-0">
+          <Grid item xs={12} md={12}>
+            <Typography variant={"h6"} className="txt-end">
+              {`*${t("RequiredFields")}`}
+            </Typography>
           </Grid>
-        </Card>
+        </Grid>
 
-        {open && (
-          <Modal
-            open={open}
-            onClose={handleModalClose}
-            error={error}
-            onClick={handleModalClose}
-            buttonText={t("continue")}
-            errorText={message}
-            successText={t("success")}
-            successMessage={message}
-          />
-        )}
-      </div>
-    </>
+        <Grid container spacing={2}>
+          {earnPointsFields.map((item, idx) => {
+            return (
+              <Grid item xs={item["grid-size"]} key={idx + item.key}>
+                <Controller
+                  name={item.key as EarnPointsTemplateType}
+                  control={control}
+                  defaultValue={setDefaultValue(item.defaultValue)}
+                  render={({ field, fieldState }) => {
+                    // adds lock adornment to disabled fields and yen adornment to transactionAmount and goToPassPointsUsed when value is present
+                    const adornments =
+                      (item.disabled &&
+                        !item["display-only"] &&
+                        endLockAdornment) ||
+                      (item.inputType === "number" &&
+                        field?.value &&
+                        startYenAdornment);
+                    return (
+                      <LabelledInput
+                        value={field.value as string}
+                        setValue={field.onChange}
+                        label={t(field.name)}
+                        placeholder={t(item.placeholder)}
+                        error={!!fieldState?.error?.message}
+                        errorLabel={!!fieldState?.error?.message}
+                        headerVariant="subtitle2"
+                        testID={`${currentPage}${getWords(field.name)}`}
+                        multiline={item.multiline}
+                        inputType={item["display-only"] ? "none" : "text"}
+                        textAlign={
+                          item?.textAlign as "left" | "center" | "right"
+                        }
+                        disabled={item.disabled || loading}
+                        required={item.required}
+                        helperText={t(fieldState?.error?.message)?.replace(
+                          "_points",
+                          memberCardData?.points
+                        )}
+                        inputProps={adornments || {}}
+                      />
+                    );
+                  }}
+                />
+              </Grid>
+            );
+          })}
+
+          <Grid item xs={6}>
+            <Button
+              onClick={handleSubmit(onSubmit)}
+              title={t("submit")}
+              testID={currentPage + getWords("submit")}
+              disabled={loading}
+              loading={loading}
+            />
+          </Grid>
+          <Grid item xs={6}>
+            <Button
+              variant="outlined"
+              onClick={handleCancel}
+              title={t("cancel")}
+              testID={currentPage + getWords("cancel")}
+              disabled={loading}
+            />
+          </Grid>
+        </Grid>
+      </Card>
+
+      {open && (
+        <Modal
+          open={open}
+          onClose={handleModalClose}
+          error={error}
+          onClick={handleModalClose}
+          buttonText={t("continue")}
+          successText={t("success")}
+          message={message}
+          testID={currentPage + "MDL"}
+        />
+      )}
+    </div>
   );
 }
 

@@ -1,20 +1,15 @@
+import { defaultMemberData, defaultProperty, defaultStore } from "../defaultValues";
+
 export const MockContext = {
-  property: { label: "", value: "" },
+  property: defaultProperty,
   setProperty: jest.fn(),
-  store: { label: "", value: "" },
+  store: defaultStore,
   setStore: jest.fn(),
   reset: jest.fn(),
   language: 'en',
   setLanguage: jest.fn(),
   organizationID: "",
   setOrganizationID: jest.fn(),
-  memberData: {
-    firstName: "",
-    lastName: "",
-    loyaltyPoints: 0,
-    currentSlab: "",
-    pointsExpiryDate: "",
-    cardId: ""
-  },
+  memberData: defaultMemberData,
   setMemberData: jest.fn()
 };

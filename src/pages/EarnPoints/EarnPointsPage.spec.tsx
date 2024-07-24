@@ -1,95 +1,189 @@
-import { render, fireEvent } from "@testing-library/react";
+import { render, fireEvent, act } from "@testing-library/react";
 import { MemoryRouter } from "react-router";
-
+import { AppContext } from "@/store/AppContext";
 import EarnPointsPage from "./EarnPointsPage";
+import { MockContext } from "@/constants/tests/MockContext";
+import * as http from "@/utils/api/http";
+import { AxiosResponse } from "axios";
+
 jest.mock("react-i18next", () => ({
   useTranslation: () => ({
     t: (key) => key,
   }),
 }));
 
-describe("Form Component Renderer", () => {
-  test("finds the button and checks its text content", async () => {
-    const { findByTestId } = render(
-      <MemoryRouter>
-        <EarnPointsPage />
-      </MemoryRouter>
-    );
-    const submitButton = await findByTestId("btn-form-submitB");
-    expect(submitButton.textContent).toBe("submit");
+const mockNavigate = jest.fn();
+jest.mock("react-router", () => ({
+  ...jest.requireActual("react-router"),
+  useNavigate: () => mockNavigate,
+}));
 
-    const cancelButton = await findByTestId("btn-form-cancelB");
-    expect(cancelButton.textContent).toBe("cancel");
+jest.useFakeTimers();
+const apiSpy = jest.spyOn(http, "getApi");
+const consoleSpy = jest.spyOn(console, "error");
+
+describe("EarnPointsPage", () => {
+  beforeEach(() => {
+    Storage.prototype.getItem = jest.fn(() =>
+      JSON.stringify({
+        firstName: "John",
+        lastName: "Doe",
+        loyaltyPoints: 100,
+        currentSlab: "Gold",
+        memberId: "123456",
+        pointsExpiryDate: "2023/12/31",
+      })
+    );
+    consoleSpy.mockImplementation(() => {});
+  });
+  afterEach(() => {
+    consoleSpy.mockRestore();
   });
 
-  test("Renders Changing transaction amount in the form", async () => {
-    const { findByTestId } = render(
+  it("renders with 2 cards", () => {
+    const { getByTestId } = render(
       <MemoryRouter>
-        <EarnPointsPage />
+        <AppContext.Provider value={MockContext}>
+          <EarnPointsPage />
+        </AppContext.Provider>
       </MemoryRouter>
     );
-    //Transaction Amount label and Input box check
-    const submitButton = await findByTestId("transactionAmount_idLB");
-    expect(submitButton.textContent).toBe("transactionAmount*");
-
-    const taxAmountInitText = await findByTestId("taxAssumedAmountTyV");
-    expect(taxAmountInitText.textContent).toBe("¥0");
-
-    const amountEligible = await findByTestId(
-      "amountEligibleForEarningPointsTyV"
-    );
-    expect(amountEligible.textContent).toBe("¥0");
-
-    const transactionAmoundId = await findByTestId("transactionAmount_idIN");
-    expect(transactionAmoundId).toHaveValue("0");
-    expect(transactionAmoundId).not.toHaveFocus();
-    fireEvent.click(transactionAmoundId);
-    fireEvent.focus(transactionAmoundId);
-    fireEvent.change(transactionAmoundId, { target: { value: 50000 } });
-    expect(transactionAmoundId).toHaveValue("50000");
-    expect(taxAmountInitText.textContent).toBe("¥4545");
-    expect(amountEligible.textContent).toBe("¥45454");
+    expect(getByTestId("EPMBRC")).toBeInTheDocument();
+    expect(getByTestId("EP024")).toBeInTheDocument();
   });
 
-  test("Renders Changing gotoPassPoints amount in the form ", async () => {
-    const { findByTestId } = render(
+  it("it generates required fields", async () => {
+    const fields = [
+      "EP035IN",
+      "EP037IN",
+      "EP038IN",
+      "EP039IN",
+      "EP040DV",
+      "EP041IN",
+      "EP042DV",
+      "EP043IN",
+      "EP045B",
+      "EP046B",
+    ];
+    const { getByTestId } = render(
       <MemoryRouter>
-        <EarnPointsPage />
+        <AppContext.Provider value={MockContext}>
+          <EarnPointsPage />
+        </AppContext.Provider>
       </MemoryRouter>
     );
-    //Transaction Amount label and Input box check
-    const gotoPassHeaderText = await findByTestId("goToPassPointsUsed_idLB");
-    expect(gotoPassHeaderText.textContent).toBe("goToPassPointsUsed");
 
-    const amountEligible = await findByTestId(
-      "amountEligibleForEarningPointsTyV"
-    );
-    expect(amountEligible.textContent).toBe("¥0");
-
-    const goToPassId = await findByTestId("goToPassPointsUsed_idIN");
-    expect(goToPassId).toHaveValue("0");
-    expect(goToPassId).not.toHaveFocus();
-    fireEvent.click(goToPassId);
-    fireEvent.focus(goToPassId);
-    fireEvent.change(goToPassId, { target: { value: 200 } });
-    expect(goToPassId).toHaveValue("200");
-    expect(amountEligible.textContent).toBe("¥-200");
+    // Check if all fields and buttons are present
+    fields.forEach((field) => {
+      expect(getByTestId(field)).toBeInTheDocument();
+    });
   });
 
-  test("Renders Changing Notes in the form ", async () => {
-    const { findByTestId } = render(<MemoryRouter>
-      <EarnPointsPage />
-  </MemoryRouter>);
-    //Transaction Amount label and Input box check
-    const notesHeaderText = await findByTestId("notes_idLB");
-    expect(notesHeaderText.textContent).toBe("notes");
+  describe("Calculation", () => {
+    it("calculates Tax assumed amount correctly", async () => {
+      const { getByTestId } = render(
+        <MemoryRouter>
+          <AppContext.Provider value={MockContext}>
+            <EarnPointsPage />
+          </AppContext.Provider>
+        </MemoryRouter>
+      );
 
-    const goToPassId = await findByTestId("notes_idIN");
-    expect(goToPassId).toHaveValue("");
-    expect(goToPassId).not.toHaveFocus();
-    fireEvent.click(goToPassId);
-    fireEvent.focus(goToPassId);
-    fireEvent.change(goToPassId, { target: { value: "Added points command" } });
-    expect(goToPassId).toHaveValue("Added points command");
+      const amountInput = getByTestId("EP039IN");
+      const taxAssumed = getByTestId("EP040DV");
+      fireEvent.change(amountInput, { target: { value: "1000" } });
+      expect(taxAssumed).toHaveTextContent("¥90");
+    });
+
+    it("calculates earning amount without points used", async () => {
+      const { getByTestId } = render(
+        <MemoryRouter>
+          <AppContext.Provider value={MockContext}>
+            <EarnPointsPage />
+          </AppContext.Provider>
+        </MemoryRouter>
+      );
+
+      const amountInput = getByTestId("EP039IN");
+      const taxAssumed = getByTestId("EP040DV");
+      const earned = getByTestId("EP042DV");
+      fireEvent.change(amountInput, { target: { value: "1000" } });
+      expect(taxAssumed).toHaveTextContent("¥90");
+      expect(earned).toHaveTextContent("¥910");
+    });
+
+    it("calculates earning amount with points used", async () => {
+      const { getByTestId } = render(
+        <MemoryRouter>
+          <AppContext.Provider value={MockContext}>
+            <EarnPointsPage />
+          </AppContext.Provider>
+        </MemoryRouter>
+      );
+
+      const amountInput = getByTestId("EP039IN");
+      const taxAssumed = getByTestId("EP040DV");
+      const pointsUsed = getByTestId("EP041IN");
+      const earned = getByTestId("EP042DV");
+      fireEvent.change(amountInput, { target: { value: "1000" } });
+      fireEvent.change(pointsUsed, { target: { value: "10" } });
+      expect(taxAssumed).toHaveTextContent("¥90");
+      expect(earned).toHaveTextContent("¥900");
+    });
+  });
+
+  describe("onCancel", () => {
+    beforeEach(() => {
+      mockNavigate.mockReset();
+    });
+    it('navigates to "/member-search" on cancel', async () => {
+      const { getByTestId } = render(
+        <MemoryRouter>
+          <AppContext.Provider value={MockContext}>
+            <EarnPointsPage />
+          </AppContext.Provider>
+        </MemoryRouter>
+      );
+
+      const cancelButton = getByTestId("EP046B");
+      fireEvent.click(cancelButton);
+      expect(mockNavigate).toHaveBeenCalledWith("/member-search");
+    });
+  });
+
+  describe("onSubmit", () => {
+    it("calls getApi with correct arguments", async () => {
+      apiSpy.mockImplementation(() =>
+        Promise.resolve({
+          data: {
+            message: "Transaction added and points redeemed successfully!",
+            keyValue: "successTrxAndEarnedPoints",
+          },
+          status: 200,
+        } as AxiosResponse)
+      );
+
+      const { getByTestId, queryByTestId } = render(
+        <MemoryRouter>
+          <AppContext.Provider value={MockContext}>
+            <EarnPointsPage />
+          </AppContext.Provider>
+        </MemoryRouter>
+      );
+
+      const amountInput = getByTestId("EP039IN");
+      const points_used = getByTestId("EP041IN");
+      fireEvent.change(amountInput, { target: { value: "10" } });
+      fireEvent.change(points_used, { target: { value: "0" } });
+      const submitButton = getByTestId("EP045B");
+      const location = getByTestId("EP035IN");
+      fireEvent.change(location, { target: { value: "Test" } });
+      fireEvent.click(submitButton);
+      await act(async () => {
+        jest.runAllTimers();
+      });
+      const modal = queryByTestId("EPMDL");
+      expect(modal).toBeInTheDocument();
+    });
   });
 });

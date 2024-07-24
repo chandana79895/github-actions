@@ -11,9 +11,9 @@ const resources = {
 
 i18next.use(initReactI18next).init({
   resources,
-  lng: "en", //default fallback language
+  lng: "en",
   interpolation: {
-    escapeValue: false, // react already safes from xss
+    escapeValue: false,
   },
 });
 export default i18next;

@@ -12,17 +12,22 @@ import { Modal } from "./components/Modal";
 import {
   handleVisibilityChange,
   useIdleFunctions,
-} from "./api/utils/IdleFunctions";
+} from "./utils/IdleFunctions";
 import {
   useOrganizationRedirect,
   useLanguageChange,
   useLocalStorageLanguage,
   useLocalStorageProperty,
   useLocalStorageStore,
-  useLocalStorageEmployeeId
-} from "./api/utils/useLocalStorage";
-import { session_time } from "./api/const/sessionTimeOut";
+  useLocalStorageEmployeeId,
+} from "./utils/useLocalStorage";
 import NotFound from "./pages/notFound/NotFound";
+import { session_time } from "./constants/env";
+import {
+  defaultMemberData,
+  defaultProperty,
+  defaultStore,
+} from "./constants/defaultValues";
 
 interface RouteItem {
   path: string;
@@ -35,7 +40,7 @@ function App() {
   const [showIdleModal, setShowIdleModal] = useState(false);
   const [language, setLanguage] = useState(() => {
     const savedLanguage = localStorage.getItem("language");
-    return savedLanguage || "Japanese";
+    return savedLanguage || "日本語";
   });
   const [property, setProperty] = useState(() => {
     const savedProperty = localStorage.getItem("property");
@@ -58,7 +63,7 @@ function App() {
     loyaltyPoints: 0,
     currentSlab: "",
     pointsExpiryDate: "",
-    cardId: "",
+    memberId: "",
   });
 
   useOrganizationRedirect(organizationID, navigate);
@@ -67,7 +72,6 @@ function App() {
   useLocalStorageProperty(property);
   useLocalStorageStore(store);
   useLocalStorageEmployeeId(employeeID);
-
 
   const handleLanguageUpdate = (language) => {
     setLanguage(language);
@@ -88,28 +92,21 @@ function App() {
       memberData,
       setMemberData,
       reset: () => {
-        setProperty({ label: "", value: "" });
-        setStore({ label: "", value: "" });
+        setProperty(defaultProperty);
+        setStore(defaultStore);
         setOrganizationID("");
-        setemployeeID("")
-        setMemberData({
-          firstName: "",
-          lastName: "",
-          loyaltyPoints: 0,
-          currentSlab: "",
-          pointsExpiryDate: "",
-          cardId: "",
-        });
+        setemployeeID("");
+        setMemberData(defaultMemberData);
         localStorage.removeItem("property");
         localStorage.removeItem("store");
         localStorage.removeItem("organizationID");
         localStorage.removeItem("employeeID");
-        
         localStorage.removeItem("memberData");
         localStorage.removeItem("login_name");
+        localStorage.removeItem("fetchedLocations");
       },
     }),
-    [language, property, store, organizationID,employeeID, memberData]
+    [language, property, store, organizationID, employeeID, memberData]
   );
 
   const { handleOnIdle, handleOnActive, handleOnAction, handleModalClose } =
@@ -157,7 +154,6 @@ function App() {
       {shouldUseIdleTimer ? (
         <IdleTimerProvider
           timeout={+session_time}
-          // timeout={120000}
           onIdle={handleOnIdle}
           onActive={handleOnActive}
           onAction={handleOnAction}

@@ -1,10 +1,12 @@
 import { createContext, Dispatch, SetStateAction } from "react";
+import { MemberType, PropertyType, StoreType } from "@/types/Types";
+import { defaultMemberData, defaultProperty, defaultStore } from "@/constants/defaultValues";
 
 interface ContextType {
-  property: { label: string; value: string };
-  setProperty: Dispatch<SetStateAction<{ label: string; value: string }>>;
-  store: { label: string; value: string };
-  setStore: Dispatch<SetStateAction<{ label: string; value: string }>>;
+  property: PropertyType;
+  setProperty: Dispatch<SetStateAction<PropertyType>>;
+  store: StoreType;
+  setStore: Dispatch<SetStateAction<StoreType>>;
   reset: () => void;
   language?: string;
   setLanguage: (language: string) => void;
@@ -12,29 +14,15 @@ interface ContextType {
   setOrganizationID: Dispatch<SetStateAction<string>>;
   setemployeeID?: Dispatch<SetStateAction<string>>;
   employeeID?: string;
-  memberData?: {
-    firstName: string;
-    lastName: string;
-    loyaltyPoints: number;
-    currentSlab: string;
-    pointsExpiryDate: string;
-    cardId: string;
-  };
-  setMemberData: Dispatch<SetStateAction<{
-    firstName: string;
-    lastName: string;
-    loyaltyPoints: number;
-    currentSlab: string;
-    pointsExpiryDate: string;
-    cardId: string;
-  }>>;
+  memberData?: MemberType;
+  setMemberData: Dispatch<SetStateAction<MemberType>>;
 }
 
 export const AppContext = createContext<ContextType>({
-  property: { label: "", value: "" },
+  property: defaultProperty,
   language: "",
   setProperty: () => {},
-  store: { label: "", value: "" },
+  store: defaultStore,
   setStore: () => {},
   setLanguage: () => {},
   reset: () => {},
@@ -42,13 +30,6 @@ export const AppContext = createContext<ContextType>({
   setOrganizationID: () => {},
   employeeID: "",
   setemployeeID: () => {},
-  memberData: {
-    firstName: "",
-    lastName: "",
-    loyaltyPoints: 0,
-    currentSlab: "",
-    pointsExpiryDate: "",
-    cardId: ""
-  },
-  setMemberData: () => {}
+  memberData: defaultMemberData,
+  setMemberData: () => {},
 });

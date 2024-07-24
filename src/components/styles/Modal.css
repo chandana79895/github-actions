@@ -10,13 +10,13 @@
   flex-direction: column;
   justify-content: center;
   flex-direction: column;
-  text-align: center; 
+  text-align: center;
 }
 .modal-icon {
-  margin: 20%;
+  margin: 10%;
 }
 .modal-title {
-  margin-bottom: 20%;
+  margin-bottom: 7%;
 }
 .error-icon {
   color: red;

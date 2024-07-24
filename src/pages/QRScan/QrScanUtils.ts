@@ -1,25 +1,31 @@
 import { RefObject } from "react";
 import { BrowserMultiFormatReader } from "@zxing/browser";
 import { useNavigate } from "react-router";
-import { getApi, headers } from "@/api/utils/http";
-import { Endpoints } from "@/api/const/endpoints";
-import { scan_limit } from "@/api/const/env";
+import { getApi, headers } from "@/utils/api/http";
+import { Endpoints } from "@/constants/endpoints";
+import { scan_limit } from "@/constants/env";
+import { MemberType } from "@/types/Types";
 
 export const handleScan = async (
   codeReader: RefObject<BrowserMultiFormatReader>,
   videoRef: RefObject<HTMLVideoElement>,
   setScannedData: (data: string) => void,
-  setError: (error: boolean) => void
+  setError: (error: boolean) => void,
 ) => {
   try {
-    const result = await codeReader.current.decodeOnceFromVideoDevice(
+    const controls = await codeReader.current.decodeFromVideoDevice(
       undefined,
-      videoRef.current
+      videoRef.current,
+      (result) => {
+        if (result) {
+          setScannedData(result?.getText());
+          setError(false);
+        }
+      }
     );
-    let scannedString = result.getText();
-    setScannedData(scannedString);
-
-    setError(false);
+ 
+    // stops scanning after 10 seconds
+    setTimeout(() => controls.stop(), 10000);
   } catch (err) {
     console.error("Error decoding QR code:", err);
     setError(true);
@@ -29,7 +35,7 @@ export const handleScan = async (
 export const searchMember = async (
   scannedData: string,
   setLoading: (loading: boolean) => void,
-  setMemberData: (data: any) => void,
+  setMemberData: (data: MemberType) => void,
   setError: (error: boolean) => void,
   setShowPopup: (show: boolean) => void,
   setShowManualLookupModal: (show: boolean) => void,
@@ -56,7 +62,7 @@ export const searchMember = async (
       currentSlab: response.data.currentSlab,
       expiryPoints: response.data.expirySchedules.points,
       pointsExpiryDate: response.data.expirySchedules.expiryDate,
-      cardId: response.data.cardId,
+      memberId: response.data.memberId,
       card_number: response.data.cardNumber,
     };
     localStorage.setItem("memberData", JSON.stringify(memberData));
@@ -64,7 +70,7 @@ export const searchMember = async (
     setError(false);
     failureCount = 0;
     localStorage.setItem("failureCount", failureCount.toString());
-    if (memberData) navigate("/member-details");
+    if (memberData) navigate("/earn-points");
   } catch (error) {
     console.error("Error fetching Member:", error);
     setMemberData(null);
@@ -72,7 +78,7 @@ export const searchMember = async (
     setError(true);
     failureCount += 1;
     localStorage.setItem("failureCount", failureCount.toString());
-    if (failureCount > scan_limit) {
+    if (failureCount > Number(scan_limit)) {
       setShowManualLookupModal(true);
       failureCount = 0;
       localStorage.setItem("failureCount", failureCount.toString());
@@ -110,36 +116,7 @@ export const startVideo = async (
   }
 };
 
-export const stopVideo = (
-  videoRef: RefObject<HTMLVideoElement>,
-  setStream: (stream: MediaStream | null) => void,
-  setError: (error: boolean) => void
-) => {
-  try {
-    const stream = videoRef.current?.srcObject as MediaStream;
-    if (stream) {
-      const tracks = stream.getTracks();
-      tracks.forEach((track) => track.stop());
-      videoRef.current.srcObject = null;
-      setStream(null);
-    }
-    setError(false);
-  } catch (err) {
-    console.error("Error stopping video stream:", err);
-    setError(true);
-  }
-};
-
 export const handleCloseModal = (
-  setShowPopup: (show: boolean) => void,
-  setError: (error: boolean) => void
-) => {
-  setShowPopup(false);
-  setError(false);
-  window.location.reload();
-};
-
-export const handleTryAgain = (
   setShowPopup: (show: boolean) => void,
   setError: (error: boolean) => void
 ) => {

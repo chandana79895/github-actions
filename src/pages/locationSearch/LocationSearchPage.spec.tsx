@@ -8,7 +8,7 @@ jest.mock('react-i18next', () => ({
     t: (key) => key,
   }),
 }));
-jest.mock('../../api/utils/http', () => ({
+jest.mock('@/utils/api/http', () => ({
   getApi: jest.fn(() => Promise.resolve({ data: 'success' })),
 }));
 describe('Location Select Page', () => {

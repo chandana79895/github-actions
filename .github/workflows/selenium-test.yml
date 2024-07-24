@@ -3,7 +3,7 @@ name: Java_CI_with_Maven
 on:
   push:
     branches:
-      - "gh-pages"
+      - "slack/check"
 
 jobs:
   deploy:
@@ -72,11 +72,11 @@ jobs:
         sudo apt-get install -y awscli
         aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws configure set default.region ${{ secrets.AWS_DEFAULT_REGION }}
+        aws configure set default.region us-east-1
 
     - name: Upload Report to S3
       run: |
-        aws s3 cp automation-testing/reports/index.html s3://chandana-poc/${{ github.run_id }}/index.html --acl public-read
+        aws s3 cp automation-testing/reports/index.html s3://chandana-poc/${{ github.run_id }}/index.html
 
     - name: Set REPORT_URL output
       run: echo "report_url=https://chandana-poc.s3.amazonaws.com/${{ github.run_id }}/index.html" >> $GITHUB_ENV

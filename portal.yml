@@ -19,7 +19,7 @@ Conditions:
   IsPoc: !Equals [!Ref Env, poc]
   
 Resources:
-  OriginAccessIdentity:
+  AutomationReportOriginAccessIdentity:
     Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
     Properties:
       CloudFrontOriginAccessIdentityConfig:
@@ -228,7 +228,7 @@ Resources:
           - DomainName: !Sub ${AutomationReportBucket}.s3.${AWS::Region}.amazonaws.com
             Id: S3Origin
             S3OriginConfig:
-              OriginAccessIdentity: !Sub origin-access-identity/cloudfront/${OriginAccessIdentity}
+              OriginAccessIdentity: !Sub origin-access-identity/cloudfront/${AutomationReportOriginAccessIdentity}
         Enabled: true
         DefaultRootObject: index.html
         DefaultCacheBehavior:

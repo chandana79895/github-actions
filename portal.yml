@@ -23,7 +23,7 @@ Resources:
     Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
     Properties:
       CloudFrontOriginAccessIdentityConfig:
-        Comment: !Sub ${AutomationReportBucket}-s3-origin-oai # take stack name from env , change env based on deployment
+        Comment: !Sub ${AWS::StackName}-${Env}-s3-origin-oai # take stack name from env , change env based on deployment
 
   OriginAccessIdentity:
     Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
@@ -81,7 +81,7 @@ Resources:
   AutomationReportBucketPolicy:
     Type: AWS::S3::BucketPolicy
     Properties:
-      Bucket: !Ref StaticResourcesBucket
+      Bucket: !Ref AutomationReportBucket
       PolicyDocument:
         Statement:
           - Effect: Allow

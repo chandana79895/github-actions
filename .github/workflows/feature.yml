@@ -151,11 +151,11 @@ jobs:
 
     - name: Set REPORT_URL output
       env:
-        REPORT_CFD_ID: ${{ secrets.REPORT_CFD_URL }}
-        CFD_ID: ${{ secrets.CFD_ID }}
+        REPORT_CFD_URL: ${{ secrets.REPORT_CFD_URL }}
+        REPORT_CFD_ID: ${{ secrets.REPORT_CFD_ID }}
       run: |
         echo "report_url=${{ secrets.REPORT_CFD_URL }}/${{ github.run_id }}/index.html" >> $GITHUB_ENV
-        aws cloudfront create-invalidation --distribution-id ${{ secrets.CFD_ID }} --paths "/*"
+        aws cloudfront create-invalidation --distribution-id ${{ secrets.REPORT_CFD_ID }} --paths "/*"
 
     - name: Sending Reporting to Slack
       env:

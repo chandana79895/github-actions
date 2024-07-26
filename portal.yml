@@ -19,11 +19,11 @@ Conditions:
   IsPoc: !Equals [!Ref Env, poc]
   
 Resources:
-  # AutomationReportOriginAccessIdentity:
-  #   Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
-  #   Properties:
-  #     CloudFrontOriginAccessIdentityConfig:
-  #       Comment: !Sub ${AWS::StackName}-${Env}-s3-origin-oai # take stack name from env , change env based on deployment
+  AutomationReportOriginAccessIdentity:
+    Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
+    Properties:
+      CloudFrontOriginAccessIdentityConfig:
+        Comment: !Sub ${AWS::StackName}-${Env}-s3-origin-oai 
 
   OriginAccessIdentity:
     Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
@@ -48,22 +48,22 @@ Resources:
         - Key: Account_Project
           Value: poc_test
 
-  # AutomationReportBucket:
-  #   Type: AWS::S3::Bucket
-  #   Properties:
-  #     BucketName: !Sub ${AWS::StackName}-${Env} # TODO fetch name form env suffix env on bucket
-  #     BucketEncryption:
-  #       ServerSideEncryptionConfiguration:
-  #         - ServerSideEncryptionByDefault:
-  #             SSEAlgorithm: AES256
-  #     PublicAccessBlockConfiguration:
-  #       BlockPublicAcls: true
-  #       BlockPublicPolicy: true
-  #       IgnorePublicAcls: true
-  #       RestrictPublicBuckets: true
-  #     Tags:
-  #       - Key: Account_Project
-  #         Value: poc_test        
+  AutomationReportBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub ${AWS::StackName}-${Env} # TODO fetch name form env suffix env on bucket
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      Tags:
+        - Key: Account_Project
+          Value: poc_test        
         
 
   StaticResourcesBucketPolicy:
@@ -78,17 +78,17 @@ Resources:
             Action: s3:GetObject
             Resource: !Sub arn:aws:s3:::${StaticResourcesBucket}/*
 
-  # AutomationReportBucketPolicy:
-  #   Type: AWS::S3::BucketPolicy
-  #   Properties:
-  #     Bucket: !Ref AutomationReportBucket
-  #     PolicyDocument:
-  #       Statement:
-  #         - Effect: Allow
-  #           Principal:
-  #             AWS: !Sub arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity ${AutomationReportOriginAccessIdentity}
-  #           Action: s3:GetObject
-  #           Resource: !Sub arn:aws:s3:::${AutomationReportBucket}/*          
+  AutomationReportBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref AutomationReportBucket
+      PolicyDocument:
+        Statement:
+          - Effect: Allow
+            Principal:
+              AWS: !Sub arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity ${AutomationReportOriginAccessIdentity}
+            Action: s3:GetObject
+            Resource: !Sub arn:aws:s3:::${AutomationReportBucket}/*          
 
   testIP4Set:
     Type: 'AWS::WAFv2::IPSet'
@@ -219,48 +219,48 @@ Resources:
         - Key: Account_Project
           Value: poc_test
 
-  # AutomationReportDistribution:
-  #   Type: AWS::CloudFront::Distribution
-  #   Properties:
-  #     DistributionConfig:
-  #       Comment: !Sub "AutomationReport-${Env}"
-  #       Origins:
-  #         - DomainName: !Sub ${AutomationReportBucket}.s3.${AWS::Region}.amazonaws.com
-  #           Id: S3Origin
-  #           S3OriginConfig:
-  #             OriginAccessIdentity: !Sub origin-access-identity/cloudfront/${AutomationReportOriginAccessIdentity}
-  #       Enabled: true
-  #       DefaultRootObject: index.html
-  #       DefaultCacheBehavior:
-  #         AllowedMethods:
-  #           - DELETE
-  #           - GET
-  #           - HEAD
-  #           - OPTIONS
-  #           - PATCH
-  #           - POST
-  #           - PUT
-  #         TargetOriginId: S3Origin
-  #         ForwardedValues:
-  #           QueryString: false
-  #           Cookies:
-  #             Forward: none
-  #         ViewerProtocolPolicy: redirect-to-https
-  #         CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6
-  #       CustomErrorResponses:
-  #         - ErrorCode: 404
-  #           ResponseCode: 200
-  #           ResponsePagePath: /index.html
-  #         - ErrorCode: 500
-  #           ResponseCode: 200
-  #           ResponsePagePath: /index.html
-  #         - ErrorCode: 403
-  #           ResponseCode: 200
-  #           ResponsePagePath: /index.html
-  #       PriceClass: PriceClass_All
-  #     Tags:
-  #       - Key: Account_Project
-  #         Value: poc_test        
+  AutomationReportDistribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Comment: !Sub "AutomationReport-${Env}"
+        Origins:
+          - DomainName: !Sub ${AutomationReportBucket}.s3.${AWS::Region}.amazonaws.com
+            Id: S3Origin
+            S3OriginConfig:
+              OriginAccessIdentity: !Sub origin-access-identity/cloudfront/${AutomationReportOriginAccessIdentity}
+        Enabled: true
+        DefaultRootObject: index.html
+        DefaultCacheBehavior:
+          AllowedMethods:
+            - DELETE
+            - GET
+            - HEAD
+            - OPTIONS
+            - PATCH
+            - POST
+            - PUT
+          TargetOriginId: S3Origin
+          ForwardedValues:
+            QueryString: false
+            Cookies:
+              Forward: none
+          ViewerProtocolPolicy: redirect-to-https
+          CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6
+        CustomErrorResponses:
+          - ErrorCode: 404
+            ResponseCode: 200
+            ResponsePagePath: /index.html
+          - ErrorCode: 500
+            ResponseCode: 200
+            ResponsePagePath: /index.html
+          - ErrorCode: 403
+            ResponseCode: 200
+            ResponsePagePath: /index.html
+        PriceClass: PriceClass_All
+      Tags:
+        - Key: Account_Project
+          Value: poc_test        
         
 
   # WAFLogsS3Bucket:

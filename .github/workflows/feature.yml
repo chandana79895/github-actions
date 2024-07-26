@@ -116,6 +116,9 @@ jobs:
         run: |
           echo "url=${{ secrets.REPORT_CFD_URL }}" > automation-testing/src/main/java/zapcg/Capillary/Base/config.properties
 
+      - name: Debug URL
+        run: cat automation-testing/src/main/java/zapcg/Capillary/Base/config.properties
+
       - name: Start xvfb and run tests
         run: |
           export DISPLAY=:99

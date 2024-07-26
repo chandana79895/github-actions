@@ -30,52 +30,52 @@ jobs:
     environment:
       name: poc
     steps:
-      # - name: Checkout code
-      #   uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-      # - name: Install Node.js
-      #   uses: actions/setup-node@v2
-      #   with:
-      #     node-version: '18.x'
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18.x'
 
-      # - name: Set up AWS CLI
-      #   uses: aws-actions/configure-aws-credentials@v2
-      #   with:
-      #     aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      #     aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      #     aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
-      #     role-duration-seconds: 1200
-      #     audience: sts.amazonaws.com
+      - name: Set up AWS CLI
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
+          role-duration-seconds: 1200
+          audience: sts.amazonaws.com
 
-      # - name: Set up .env file
-      #   env:
-      #     VITE_APP_SESSION: ${{ secrets.VITE_APP_SESSION }}
-      #     VITE_APP_BASE_URL: ${{ secrets.VITE_APP_BASE_URL }}
-      #   run: |
-      #     echo "VITE_APP_SESSION=${{ secrets.VITE_APP_SESSION }}" >> .env.${{ secrets.ENV }} 
-      #     echo "VITE_APP_BASE_URL=${{ secrets.VITE_APP_BASE_URL }}" >> .env.${{ secrets.ENV }} 
+      - name: Set up .env file
+        env:
+          VITE_APP_SESSION: ${{ secrets.VITE_APP_SESSION }}
+          VITE_APP_BASE_URL: ${{ secrets.VITE_APP_BASE_URL }}
+        run: |
+          echo "VITE_APP_SESSION=${{ secrets.VITE_APP_SESSION }}" >> .env.${{ secrets.ENV }} 
+          echo "VITE_APP_BASE_URL=${{ secrets.VITE_APP_BASE_URL }}" >> .env.${{ secrets.ENV }} 
 
-      # - name: Deploying distribution
-      #   env:
-      #     ENV: ${{ secrets.ENV }}
-      #     VITE_APP_SESSION: ${{ secrets.VITE_APP_SESSION }}
-      #     VITE_APP_BASE_URL: ${{ secrets.VITE_APP_BASE_URL }}
-      #   run: |
-      #     aws cloudformation validate-template --template-body file://portal.yml
-      #     aws cloudformation deploy --stack-name test-stack-ui-${{ secrets.ENV }} --template-file portal.yml --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM --parameter-overrides Env=${{ secrets.ENV }}      
+      - name: Deploying distribution
+        env:
+          ENV: ${{ secrets.ENV }}
+          VITE_APP_SESSION: ${{ secrets.VITE_APP_SESSION }}
+          VITE_APP_BASE_URL: ${{ secrets.VITE_APP_BASE_URL }}
+        run: |
+          aws cloudformation validate-template --template-body file://portal.yml
+          aws cloudformation deploy --stack-name test-stack-ui-${{ secrets.ENV }} --template-file portal.yml --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM --parameter-overrides Env=${{ secrets.ENV }}      
 
-      # - name: Build and Deploying FE Code
-      #   env:
-      #     CFD_ID: ${{ secrets.CFD_ID }}
-      #   run: |
-      #     # printenv >  .env.${{ secrets.ENV }}
-      #     npm install
-      #     export CI=false
-      #     npm run build:${{ secrets.ENV }}
-      #     cat .env.${{ secrets.ENV }}
-      #     aws s3 rm s3://test-stack-ui-${{ secrets.ENV }}/ --recursive
-      #     aws s3 sync ./dist s3://test-stack-ui-${{ secrets.ENV}}/
-      #     aws cloudfront create-invalidation --distribution-id ${{ secrets.CFD_ID }} --paths "/*"
+      - name: Build and Deploying FE Code
+        env:
+          CFD_ID: ${{ secrets.CFD_ID }}
+        run: |
+          # printenv >  .env.${{ secrets.ENV }}
+          npm install
+          export CI=false
+          npm run build:${{ secrets.ENV }}
+          cat .env.${{ secrets.ENV }}
+          aws s3 rm s3://test-stack-ui-${{ secrets.ENV }}/ --recursive
+          aws s3 sync ./dist s3://test-stack-ui-${{ secrets.ENV}}/
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.CFD_ID }} --paths "/*"
 
       - name: Set up JDK 11
         uses: actions/setup-java@v2

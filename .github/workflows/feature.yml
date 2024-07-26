@@ -110,14 +110,17 @@ jobs:
       - name: Install xvfb
         run: sudo apt-get install -y xvfb
 
+      - name: Set up .env file
+        env:
+          REPORT_CFD_URL: ${{ secrets.REPORT_CFD_URL }}
+        run: |
+          echo "url=${{ secrets.REPORT_CFD_URL }}" > automation-testing/src/main/java/zapcg/Capillary/Base/config.properties
+
       - name: Start xvfb and run tests
         run: |
           export DISPLAY=:99
           cd automation-testing/
           xvfb-run -a mvn clean install
-
-      - name: List files in reports directory
-        run: ls -la automation-testing/reports
 
       - name: Upload test report artifact
         uses: actions/upload-artifact@v4

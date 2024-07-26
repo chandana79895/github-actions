@@ -112,12 +112,9 @@ jobs:
 
       - name: Set up .env file
         env:
-          REPORT_CFD_URL: ${{ secrets.REPORT_CFD_URL }}
+          CFD_URL: ${{ secrets.CFD_URL }}
         run: |
-          echo "url=${{ secrets.REPORT_CFD_URL }}" > automation-testing/src/main/java/zapcg/Capillary/Base/config.properties
-
-      - name: Debug URL
-        run: cat automation-testing/src/main/java/zapcg/Capillary/Base/config.properties
+          echo "url=${{ secrets.CFD_URL }}" > automation-testing/src/main/java/zapcg/Capillary/Base/config.properties
 
       - name: Start xvfb and run tests
         run: |

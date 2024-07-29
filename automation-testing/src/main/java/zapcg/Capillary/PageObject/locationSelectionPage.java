@@ -24,11 +24,11 @@ public class locationSelectionPage {
 		@FindBy(id="LS011IN")
 		WebElement lookupProperty;
 		
-		@FindBy(xpath = "//input[@id='LS011IN' and @value='Akasaka']")
+		@FindBy(xpath = "//input[@id='LS011IN' and @value='HOTEL MYSTAYS Asakusa']")
 	    WebElement lookuppropertyvalue;
 		
 		//locate the 1st drop down option
-		 @FindBy(xpath = "//input[@id='LS011IN' and @value='Akasaka']")
+		 @FindBy(xpath = "//input[@id='LS011IN' and @value='HOTEL MYSTAYS Asakusa']")
 		    List<WebElement> lookupPropertyOptions;
 		
 		//select dd element: //input[@id=':r5:' and @value='MyStays Akasaka']
@@ -37,12 +37,12 @@ public class locationSelectionPage {
 		WebElement selectStore;
 		
 		//locate the 2nd drop down option
-		 @FindBy(xpath = "//input[@id='LS013IN' and @value='HMH01101 - MyStays Akasaka2']")
+		 @FindBy(xpath = "//input[@id='LS013IN' and @value='Front Desk']")
 		  WebElement selectStoreValue;
 		
 		
 		//locate the 2nd drop down option
-		 @FindBy(xpath = "//input[@id='LS013IN' and @value='HMH01101 - MyStays Akasaka2']")
+		 @FindBy(xpath = "//input[@id='LS013IN' and @value='Front Desk']")
 		    List<WebElement> selectStoreOptions;
 		
 		@FindBy(xpath="//button[@id='LS014B']")
@@ -88,14 +88,36 @@ public class locationSelectionPage {
 		
 		  // Method to select an option from the first dropdown
 	    public void lookupPropertyOptions(String optionText) {
+	    	
+	    	 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+	         // Wait for the dropdown to be clickable and then click
+	         wait.until(ExpectedConditions.elementToBeClickable(lookupProperty));
+	         lookupProperty.click();
+
+	         // Wait for the options to be visible
+	         //wait.until(ExpectedConditions.visibilityOfAllElements(lookupPropertyOptions));
+
+	         // Iterate through options and select the desired one
+	         for (WebElement option : lookupPropertyOptions) {
+	             if (option.getText().equals(optionText)) {
+	                 // Wait for the option to be clickable and then click
+	                 wait.until(ExpectedConditions.elementToBeClickable(option));
+	                 option.click();
+	                 break; // Exit loop once the option is found and clicked
+	             }
+	         }
+	     }
+	    	
+	    	/*
 	    	lookupProperty.click();
 	        for (WebElement option : lookupPropertyOptions) {
 	            if (option.getText().equals(optionText)) {
 	                option.click();
-	                
+	               
 	            }
-	        }
-	    }
+	        } 
+	    }*/
 
 	    // Method to select an option from the second dropdown
 	    public String selectStoreOptions(String optionText) {
@@ -198,31 +220,7 @@ public class locationSelectionPage {
 		}
 		
 		
-		/*
-		public void verifySuccessfullNavigationFromLocationToMemberSearchPage(WebDriver driver, String expectedUrl) {
-			try {
-				// Create an instance of WebDriverWait with a timeout of 10 seconds
-		        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-
-		        // Wait for the URL to change to the expected URL
-		        boolean isUrlChanged = wait.until(ExpectedConditions.urlToBe("https://d3che4praaad7h.cloudfront.net/member-search"));
-
-		        if (isUrlChanged) {
-		            String currentUrl = driver.getCurrentUrl();
-		            System.out.println("After successful adding location details, navigated to the Member Lookup screen: " + currentUrl);
-		            String expectedUrl1 = "https://d3che4praaad7h.cloudfront.net/member-search";
-		            Assert.assertEquals(currentUrl, expectedUrl1, "The URL of location lookup screen is incorrect. Navigation not successful.");
-		        } else {
-		            System.out.println("The URL did not change to the expected URL within the timeout period.i.e, no success navigation from location to member lookup screen,");
-		            Assert.fail("Navigation was not successful as the URL did not change to the expected URL.");
-		        }
-		    } catch (Exception e) {
-		        System.out.println("An error occurred during login verification: " + e.getMessage());
-		        Assert.fail("An error occurred during page verification: " + e.getMessage());
-		    
-			}
-			
-		}*/
+		
 		
 		
 		// Method to verify dropdown presence

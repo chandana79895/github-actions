@@ -39,8 +39,8 @@ public class EarnPoint_Invalid_TestCases extends BaseTest{
 	       memberLookupPage mlp = new memberLookupPage(driver);
 	       mlp.enterMemberId("GT000003673");
 			mlp.clickOnSearchButton();
-			mdp=new memberDetailsPage(driver);
-			mdp.clickOnEnterReceiptButton();
+			//mdp=new memberDetailsPage(driver);
+			//mdp.clickOnEnterReceiptButton();
 			epp=new earnPointsPage(driver);
 		
 	       

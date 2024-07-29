@@ -61,7 +61,7 @@ public class MemberLookup_Valid_TestCases extends BaseTest {
 				memberLookupPage mlp = new memberLookupPage(driver);
 				mlp.enterMemberId("GT000003673");
 				mlp.clickOnSearchButton();
-				mlp.verifySuccessfullNavigationFromMemberLookupToMemberDetails(driver);
+				mlp.verifySuccessfullNavigationFromMemberLookupToEarnPointPage(driver);
 		
 			}
 	

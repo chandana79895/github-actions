@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 86.11 s <<< FAILURE! - in TestSuite
+zapcg.Capillary.LoginTestCases.Login_Valid_TestCases.Valid_Login  Time elapsed: 60.412 s  <<< FAILURE!
+java.lang.AssertionError: Timeout waiting for either page to become visible: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //div[@id='MSCONT']' (tried for 30 second(s) with 500 milliseconds interval)
+	at zapcg.Capillary.LoginTestCases.Login_Valid_TestCases.Valid_Login(Login_Valid_TestCases.java:54)
+

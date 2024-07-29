@@ -37,7 +37,7 @@ public class memberLookupPage extends BaseTest {
 	@FindBy(xpath="//p[contains(text(),'The Member/Card Number was not found.')]")
 	WebElement errormsgforinvalidmemberId;
 	
-	@FindBy(xpath="//p[contains(text(),'The Member/Card Number was not found.')]")
+	@FindBy(xpath="//p[@id='MS016-helper-text']")
 	WebElement errormsgformaxlengthmemberid;
 	
 	
@@ -61,8 +61,8 @@ public class memberLookupPage extends BaseTest {
 	 WebElement navigatedFromMemberLookupToMemberDetails;
 	 
 	 //EPCONT
-	 @FindBy(xpath="//div[@id='MDCONT']")
-	 WebElement navigatedFromMemberDetailsToMemberLookup;
+	 @FindBy(xpath="//div[@id='EPCONT']")
+	 WebElement navigatedFromMemberLookupToEarnPoint;
 	 
 	 @FindBy(xpath="//div[@id='LSCONT']")
 	 WebElement navigatedFromMemberLookupToLocation;
@@ -72,6 +72,9 @@ public class memberLookupPage extends BaseTest {
 	 
 	 @FindBy(xpath="//div[@id='LSCONT']")
 	 WebElement naviagtedToLoginPage;
+	 
+	 @FindBy(xpath="//div[@id='EPCONT']")
+	 WebElement navigatedToEarnPoint;
 	
 	
 	
@@ -130,12 +133,12 @@ public class memberLookupPage extends BaseTest {
 		        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
 		        // Wait for the URL to change to the expected URL
-		        boolean isUrlChanged = wait.until(ExpectedConditions.urlToBe("https://d3che4praaad7h.cloudfront.net/member-details"));
+		        boolean isUrlChanged = wait.until(ExpectedConditions.urlToBe("https://d1msv2sqknn4w4.cloudfront.net/member-details"));
 
 		        if (isUrlChanged) {
 		            String currentUrl = driver.getCurrentUrl();
 		            System.out.println("For valid memberId or cardnumber, navigated to the Member details screen: " + currentUrl);
-		            String expectedUrl1 = "https://d3che4praaad7h.cloudfront.net/member-details";
+		            String expectedUrl1 = "https://d1msv2sqknn4w4.cloudfront.net/member-details";
 		            Assert.assertEquals(currentUrl, expectedUrl1, "The URL incorrect for member details screen");
 		        } else {
 		            System.out.println("The URL did not change to the expected URL within the timeout period.i.e, no success login,");
@@ -430,13 +433,37 @@ public class memberLookupPage extends BaseTest {
 					//logoutLocationScreen.click();
 				}
 			
-				public void verifySuccessfullNavigationFromMemberLookupToMemberDetails(WebDriver driver) {
+				public void verifySuccessfullNavigationFromMemberLookupToEarnPointPage(WebDriver driver) {
 					try {
 						// Create an instance of WebDriverWait with a timeout of 10 seconds
 				        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
 				        // Wait for the URL to change to the expected URL
-				        WebElement pageLoaded = wait.until(ExpectedConditions.visibilityOf(navigatedFromMemberDetailsToMemberLookup));
+				        WebElement pageLoaded = wait.until(ExpectedConditions.visibilityOf(navigatedFromMemberLookupToEarnPoint));
+
+				        if (pageLoaded != null && pageLoaded.isDisplayed()) {
+				        	// Page is successfully loaded if the WebElement is visible
+				            System.out.println("Successfully navigated to the Earn Point page ");
+				        } else {
+				            System.out.println("The expected element did not become visible within the timeout period");
+				            Assert.fail("Navigation from member dedtails screen to earn point screen was not successful as the expected element did not become visible.");
+				        }
+				    } catch (Exception e) {
+				        System.out.println("An error occurred during navigation: " + e.getMessage());
+				        Assert.fail("An error occurred during navigation verification: " + e.getMessage());
+				    }
+					
+				}
+				
+				
+				public void navigateToNextScreen()
+				{
+					try {
+						// Create an instance of WebDriverWait with a timeout of 10 seconds
+				        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+
+				        // Wait for the URL to change to the expected URL
+				        WebElement pageLoaded = wait.until(ExpectedConditions.visibilityOf(navigatedToEarnPoint));
 
 				        if (pageLoaded != null && pageLoaded.isDisplayed()) {
 				        	// Page is successfully loaded if the WebElement is visible

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-07-23T11:37:48 IST" name="Fortress_TestSuite" finished-at="2024-07-23T11:39:03 IST" duration-ms="74944">
+    <groups>
+      <group name="Login">
+        <method signature="Login_Valid_TestCases.Valid_Login()[pri:1, instance:zapcg.Capillary.LoginTestCases.Login_Valid_TestCases@3f6db3fb]" name="Valid_Login" class="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
+      </group> <!-- Login -->
+    </groups>
+    <test started-at="2024-07-23T11:37:48 IST" name="LoginTestsChromeBrowseriPhone11ProPortrait_OneTimeExecution" finished-at="2024-07-23T11:39:03 IST" duration-ms="74944">
+      <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases">
+        <test-method is-config="true" signature="initialize(java.lang.String,java.lang.String)[pri:0, instance:zapcg.Capillary.LoginTestCases.Login_Valid_TestCases@3f6db3fb]" started-at="2024-07-23T11:37:48 IST" name="initialize" finished-at="2024-07-23T11:38:02 IST" duration-ms="13817" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[iPhone 11 Pro Portrait]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initialize -->
+        <test-method signature="Valid_Login()[pri:1, instance:zapcg.Capillary.LoginTestCases.Login_Valid_TestCases@3f6db3fb]" started-at="2024-07-23T11:38:02 IST" name="Valid_Login" finished-at="2024-07-23T11:39:02 IST" duration-ms="60421" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Timeout waiting for either page to become visible: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //div[@id='MSCONT']' (tried for 30 second(s) with 500 milliseconds interval)]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Timeout waiting for either page to become visible: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //div[@id='MSCONT']' (tried for 30 second(s) with 500 milliseconds interval)
+at org.testng.Assert.fail(Assert.java:111)
+at zapcg.Capillary.PageObject.loginPage.verifySuccessfullNavigationFromLogin(loginPage.java:529)
+at zapcg.Capillary.LoginTestCases.Login_Valid_TestCases.Valid_Login(Login_Valid_TestCases.java:54)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:284)
+at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:75)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:119)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Valid_Login -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:zapcg.Capillary.LoginTestCases.Login_Valid_TestCases@3f6db3fb]" started-at="2024-07-23T11:39:02 IST" name="tearDown" finished-at="2024-07-23T11:39:03 IST" duration-ms="663" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="afterSuite()[pri:0, instance:zapcg.Capillary.LoginTestCases.Login_Valid_TestCases@3f6db3fb]" started-at="2024-07-23T11:39:03 IST" name="afterSuite" finished-at="2024-07-23T11:39:03 IST" duration-ms="4" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterSuite -->
+      </class> <!-- zapcg.Capillary.LoginTestCases.Login_Valid_TestCases -->
+    </test> <!-- LoginTestsChromeBrowseriPhone11ProPortrait_OneTimeExecution -->
+  </suite> <!-- Fortress_TestSuite -->
+</testng-results>

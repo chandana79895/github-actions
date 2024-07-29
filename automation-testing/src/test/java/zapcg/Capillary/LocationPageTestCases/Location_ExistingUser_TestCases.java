@@ -125,7 +125,7 @@ public class Location_ExistingUser_TestCases extends BaseTest{
                         locp.selectStoreOptions(option2);
                      
                      // Somewhere else in your code where you call the method
-                        String selectedOption = locp.selectStoreOptions("HMH01101 - MyStays Akasaka2");
+                        String selectedOption = locp.selectStoreOptions("Front Desk");
                         if (selectedOption != null) {
                             System.out.println("Selected option: " + selectedOption);
                         } else {

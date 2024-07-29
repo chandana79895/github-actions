@@ -39,8 +39,8 @@ public class EarnPoint_Valid_TestCases extends BaseTest{
 	       memberLookupPage mlp = new memberLookupPage(driver);
 	       mlp.enterMemberId("GT000003673");
 			mlp.clickOnSearchButton();
-			mdp=new memberDetailsPage(driver);
-			mdp.clickOnEnterReceiptButton();
+			//mdp=new memberDetailsPage(driver);
+			//mdp.clickOnEnterReceiptButton();
 			epp=new earnPointsPage(driver);
 		
 	       
@@ -82,7 +82,8 @@ public class EarnPoint_Valid_TestCases extends BaseTest{
 	 @Test(priority=5, groups ={"EarnPoint"})
 		public void verify_MemberDetails_Content_Displaying_On_EarnPointScreen() {
 		
-		 epp.expandMemberDetails(driver);
+		 //epp.expandMemberDetails(driver);
+		 
 		 epp.verifyTheMemberDetailsContentDisplaying(driver);	
 	}
 	 
@@ -148,6 +149,7 @@ public class EarnPoint_Valid_TestCases extends BaseTest{
 		 		
 		
 	}
+	 
 	
 	 @Test(priority=12, groups = {"EarnPoint"})
 		public void verify_Time_Equal_To_System_CurrentTime() throws InterruptedException {
@@ -156,6 +158,8 @@ public class EarnPoint_Valid_TestCases extends BaseTest{
 		 		
 		
 	}
+	 
+	 
 	 @Test(priority=13, groups = {"EarnPoint"})
 		public void verify_With_Empty_TransactionAmount() throws InterruptedException {
 		 epp.clickOnSubmitButton();
@@ -203,7 +207,7 @@ public class EarnPoint_Valid_TestCases extends BaseTest{
 	        System.out.println("Tax Assumed Amount: " + actualTaxAssumedAmount);
 
 	     // Calculate expected tax assumed amount (for verification)
-	        int expectedTaxAssumedAmount = epp.calculateExpectedTaxAssumedAmount((int) transactionAmount);
+	        int expectedTaxAssumedAmount = epp.calculateExpectedTaxAssumedAmount( transactionAmount);
 	        System.out.println("Expected Tax Assumed Amount: " + expectedTaxAssumedAmount);
 	     // Compare actual and expected Tax Assumed Amounts using if-else
 	        if (expectedTaxAssumedAmount == actualTaxAssumedAmount) {
@@ -221,17 +225,7 @@ public class EarnPoint_Valid_TestCases extends BaseTest{
 	 
 	
 	
-	 /* this is commented because this is considering as One Time execution
-	 @Test(priority=17, groups = "EarnPoint")
-	 public void verify_SuccessMessage_For_RedeemPoint()
-	 {
-		 epp.enterTransactionAmount(50);
-		 epp.enterGoToPassPoint("1");
-		 
-		 epp.clickOnSubmitButton();
-		 epp.verifySuccessMessageIfRedeemingPoints("transaction has been successfully submitted.");
-	 }
-*/
+	
 	 
 	 @Test(priority=18, groups = "EarnPoint")
 	 public void verify_Eligible_EarningPoints()
@@ -288,7 +282,7 @@ public class EarnPoint_Valid_TestCases extends BaseTest{
 	 
 		 
 	 }
+	 
 	 	
-		 
 }
 

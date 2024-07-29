@@ -14,7 +14,7 @@ public class OneTimeExecution_SuccessMessage_RedeemPoint extends BaseTest {
 
 	public loginPage lp;
 	 public String currentBrowser;
-	 memberDetailsPage	mdp=new memberDetailsPage(driver);
+	 //memberDetailsPage	mdp=new memberDetailsPage(driver);
 	 earnPointsPage epp=new earnPointsPage(driver);
 	 memberLookupPage mlp=new memberLookupPage(driver);
 	
@@ -28,7 +28,7 @@ public class OneTimeExecution_SuccessMessage_RedeemPoint extends BaseTest {
 	     
 	       lp = new loginPage(driver);
 	       mlp = new memberLookupPage(driver);
-	       mdp=new memberDetailsPage(driver);
+	      // mdp=new memberDetailsPage(driver);
 	       epp=new earnPointsPage(driver);
 	       
 	       lp.changeDefaultLanguage();
@@ -36,8 +36,8 @@ public class OneTimeExecution_SuccessMessage_RedeemPoint extends BaseTest {
 	       lp.login("zapcom_test2", "storeportal");
 	       mlp.enterMemberId("GT000003673");
 	       mlp.clickOnSearchButton();
-			mdp=new memberDetailsPage(driver);
-			mdp.clickOnEnterReceiptButton();
+			//mdp=new memberDetailsPage(driver);
+			//mdp.clickOnEnterReceiptButton();
 			epp=new earnPointsPage(driver);
 		
 	

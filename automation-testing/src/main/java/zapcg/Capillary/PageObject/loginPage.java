@@ -16,7 +16,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
-
+import org.openqa.selenium.support.ui.Wait;
 import org.testng.Assert;
 
 
@@ -61,10 +61,10 @@ public class loginPage{
 	@FindBy(xpath="//div/h6[@id='LSERRM' and contains(text(),\"Username must not contain any spaces\")]")
 	WebElement spacenotallowedinusername;
 	
-	@FindBy(xpath="//div/h6[@id='LSERRM']")          // and contains(text(),\"Your account is locked. Ask your manager for unlock the account.\")]")//xpath for lockout message
+	@FindBy(xpath="//div/h6[@id='LSERRM']")          // and contains(text(),\"Your account is locked. Ask your manager to unlock the account.\")]")//xpath for lockout message
 	WebElement lockoutmsg;
 	
-	@FindBy(xpath="//div[@id='LSCONT']")
+	@FindBy(xpath="//img[@id='LSMENUI2']")  //icon_xapth=//img[@id='LSMENUI2']  and div_xpath= //div[@id='LSCONT']
 	WebElement locationPageFromLoginPage;
 	
 	@FindBy(xpath="//div[@id='MSCONT']")
@@ -122,22 +122,18 @@ public class loginPage{
 		
 		public void loginLockOutCase(String user, String pass)
 		{
-			try {
+			
 		        username.sendKeys(user);
 		        password.sendKeys(pass);
 		       
-		        for(int j=0;j<6;j++) {
-		         Thread.sleep(3000);
-		        loginBtn.click();
-		        }
-		    } catch (NoSuchElementException e) {
-		        throw new RuntimeException("One of the elements (username, password, or login button) could not be found. Please check the xpaths.", e);
-		    } catch (Exception e) {
-		    
-		        throw new RuntimeException("Something wrong", e);
-		    }
+		        
 		}
 		
+		public void clearUsernamePassword() {
+			username.clear();
+			password.clear();
+			
+		}
 		
 		
 		public void loginDisabledVerification(String user, String pass)
@@ -160,12 +156,12 @@ public class loginPage{
 		        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
 		        // Wait for the URL to change to the expected URL
-		        boolean isUrlChanged = wait.until(ExpectedConditions.urlToBe("https://d3che4praaad7h.cloudfront.net/member-search"));
+		        boolean isUrlChanged = wait.until(ExpectedConditions.urlToBe("https://d1msv2sqknn4w4.cloudfront.net/member-search"));
 
 		        if (isUrlChanged) {
 		            String currentUrl = driver.getCurrentUrl();
 		            System.out.println("After successful login, navigated to the Location screen: " + currentUrl);
-		            String expectedUrl1 = "https://d3che4praaad7h.cloudfront.net/member-search";
+		            String expectedUrl1 = "https://d1msv2sqknn4w4.cloudfront.net/member-search";
 		            Assert.assertEquals(currentUrl, expectedUrl1, "The URL after login is incorrect. Login not successful.");
 		        } else {
 		            System.out.println("The URL did not change to the expected URL within the timeout period.i.e, no success login,");
@@ -511,7 +507,52 @@ public class loginPage{
 			}
 	
 		public void verifySuccessfullNavigationFromLogin(WebDriver driver) {
-			  try {
+			try {
+		        // Create an instance of FluentWait with a timeout of 30 seconds, polling every 2 seconds
+		        Wait<WebDriver> wait = new FluentWait<>(driver)
+		            .withTimeout(Duration.ofSeconds(30))
+		            .pollingEvery(Duration.ofSeconds(2))
+		            .ignoring(NoSuchElementException.class)
+		            .ignoring(TimeoutException.class);
+
+		        // Wait for either locationPageFromLoginPage or memberLookupPageFromLoginPage to be visible
+		        boolean locationPageVisible = false;
+		        boolean memberLookupPageVisible = false;
+
+		        try {
+		            locationPageVisible = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//img[@id='LSMENUI2']"))).isDisplayed();
+		        } catch (TimeoutException e) {
+		            System.out.println("Timeout waiting for locationPageFromLoginPage to be visible");
+		        } catch (NoSuchElementException e) {
+		            System.out.println("locationPageFromLoginPage not found in the DOM");
+		        }
+
+		        try {
+		            memberLookupPageVisible = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='MSCONT']"))).isDisplayed();
+		        } catch (TimeoutException e) {
+		            System.out.println("Timeout waiting for memberLookupPageFromLoginPage to be visible");
+		        } catch (NoSuchElementException e) {
+		            System.out.println("memberLookupPageFromLoginPage not found in the DOM");
+		        }
+
+		        // Determine which page is visible
+		        if (locationPageVisible) {
+		            System.out.println("Successfully navigated to the Location screen");
+		        } else if (memberLookupPageVisible) {
+		            System.out.println("Successfully navigated to the Member Lookup screen");
+		        } else {
+		            System.out.println("Neither locationPage nor memberLookupPage became visible within the timeout period");
+		            Assert.fail("Navigation from login screen was not successful as neither expected element became visible.");
+		        }
+		    } catch (Exception e) {
+		        System.out.println("An error occurred during login: " + e.getMessage());
+		        Assert.fail("An error occurred during login verification: " + e.getMessage());
+		    }
+			
+			
+			
+			 /*  try {
+				 
 			        // Create an instance of WebDriverWait with a timeout of 20 seconds
 			        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
@@ -534,7 +575,28 @@ public class loginPage{
 			    } catch (Exception e) {
 			        System.out.println("An error occurred during login: " + e.getMessage());
 			        Assert.fail("An error occurred during login verification: " + e.getMessage());
-			    }
+			   
+				  
+			  }*/
+			
+			
 		}
 
+		  public String getLockoutErrorMessage() {
+			  return lockoutmsg.getText();
+    }
+		  public boolean isLockoutMessageDisplayed() {
+				
+				return lockoutmsg.isDisplayed();
+			}
+		  
+		  public String getInvalidErrorMessage() {
+			  return errormsgforinvalidusername.getText();
+    }
+		public boolean isErrorMessageDisplayed() {
+			
+			return errormsgforinvalidusername.isDisplayed();
+		}
+
+		  
 }

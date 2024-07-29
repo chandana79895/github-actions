@@ -95,17 +95,28 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y maven libasound2 libasound2-data libnspr4 libnss3 default-jre-headless libjansi-java libmaven3-core-java libwagon-file-java libwagon-http-shaded-java jq
 
-      - name: Googledriver setup
+      - name: Install Google Chrome and ChromeDriver
         run: |
-          sudo apt install wget -y
-          sudo apt install unzip -y
-          wget https://dl.google.com/linux/deb/pool/main/g/google-chrome-stable/google-chrome-stable_126.0.6478.126-1_amd64.deb
-          sudo dpkg -i google-chrome-stable_126.0.6478.126-1_amd64.deb
-          wget https://storage.googleapis.com/chrome-for-testing-public/126.0.6478.126/linux64/chromedriver-linux64.zip
-          unzip chromedriver-linux64.zip  
-          sudo mv chromedriver-linux64/chromedriver /usr/bin/chromedriver
+          wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+          sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+          sudo apt-get update
+          sudo apt-get install google-chrome-stable -y
+          LATEST_VERSION=$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE)
+          wget -q "https://chromedriver.storage.googleapis.com/${LATEST_VERSION}/chromedriver_linux64.zip"
+          unzip chromedriver_linux64.zip
+          sudo mv chromedriver /usr/bin/chromedriver
           sudo chown runner:runner /usr/bin/chromedriver
           sudo chmod +x /usr/bin/chromedriver
+
+      - name: Install Firefox and GeckoDriver
+        run: |
+          sudo apt-get install -y firefox
+          GECKO_DRIVER_VERSION=$(curl -s https://api.github.com/repos/mozilla/geckodriver/releases/latest | jq -r '.tag_name')
+          wget -q "https://github.com/mozilla/geckodriver/releases/download/${GECKO_DRIVER_VERSION}/geckodriver-${GECKO_DRIVER_VERSION}-linux64.tar.gz"
+          tar -xzf geckodriver-${GECKO_DRIVER_VERSION}-linux64.tar.gz
+          sudo mv geckodriver /usr/local/bin/geckodriver
+          sudo chown runner:runner /usr/local/bin/geckodriver
+          sudo chmod +x /usr/local/bin/geckodriver    
 
       - name: Install xvfb
         run: sudo apt-get install -y xvfb

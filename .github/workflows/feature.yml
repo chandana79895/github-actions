@@ -4,7 +4,7 @@ on:
   push:
     # types: [opened, synchronize, reopened, closed]
     branches:
-      - gh-pages  
+      - final-code
 
 jobs:
   unit_tests:

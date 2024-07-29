@@ -30,7 +30,7 @@ jobs:
     - name: Set up Maven and dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y maven libasound2 libasound2-data libnspr4 libnss3 default-jre-headless libjansi-java libmaven3-core-java libwagon-file-java libwagon-http-shaded-java jq
+        sudo apt-get install -y maven libasound2 libasound2-data libnspr4 libnss3 default-jre-headless libjansi-java libmaven3-core-java libwagon-file-java libwagon-http-shaded-java jq xvfb
 
     - name: Googledriver setup
       run: |
@@ -44,24 +44,18 @@ jobs:
         sudo chown runner:runner /usr/bin/chromedriver
         sudo chmod +x /usr/bin/chromedriver
 
-    - name: Install xvfb
-      run: sudo apt-get install -y xvfb
-
     - name: Start xvfb and run tests
       run: |
         export DISPLAY=:99
         cd automation-testing/
         xvfb-run -a mvn clean install
 
-    - name: List files in reports directory
-      run: ls -la automation-testing/reports
-
-    - name: Upload test report artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: TestReport
-        path: automation-testing/reports/index.html
-        if-no-files-found: warn
+    # - name: Upload test report artifact
+    #   uses: actions/upload-artifact@v4
+    #   with:
+    #     name: TestReport
+    #     path: automation-testing/reports/index.html
+    #     if-no-files-found: warn
 
     - name: Set RUN_ID output
       id: set-outputs

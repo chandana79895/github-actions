@@ -224,7 +224,7 @@
 						<goal>java</goal>
 					</goals>
 					<configuration>
-					<classpathScope>main</classpathScope>
+					<classpathScope>runtime</classpathScope>
 					<mainClass>zapcg.Capillary.utils.SendMail</mainClass>
 					</configuration>
 				  </execution>

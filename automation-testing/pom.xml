@@ -213,23 +213,25 @@
 			
 			
 			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>exec-maven-plugin</artifactId>
-				<version>1.6.0</version>
-				<executions>
-				  <execution>
-					<id>first-execution</id>
-					<phase>install</phase>
-					<goals>
-						<goal>java</goal>
-					</goals>
-					<configuration>
-					<classpathScope>main</classpathScope>
-					<mainClass>zapcg.Capillary.utils.SendMail</mainClass>
-					</configuration>
-				  </execution>
-				</executions>
-			</plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>1.6.0</version>
+            <executions>
+            <execution>
+            <id>first-execution</id>
+            <goals>
+            <goal>java</goal>
+            </goals>
+            <configuration>
+            <mainClass>org.testng.TestNG</mainClass>
+            <arguments>
+            <argument>src/test/resource/Fortress_TestNG_Suite.xml</argument>
+            </arguments>
+            <classpathScope>test</classpathScope>
+            </configuration>
+            </execution>
+            </executions>
+            </plugin>
 			
 			
 			

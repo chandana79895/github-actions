@@ -8,6 +8,7 @@ import java.time.temporal.ChronoUnit;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.StaleElementReferenceException;
@@ -462,6 +463,11 @@ public class earnPointsPage {
 				            // Wait for the hamburger icon to be clickable
 				            WebElement hamburgerIcon = wait.until(ExpectedConditions.elementToBeClickable(logoutFromEarnPointsScreen));
 
+				            // Scroll the element into view
+				            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", hamburgerIcon);
+				            
+				            // Additional check to ensure the element is visible
+				            wait.until(ExpectedConditions.visibilityOf(hamburgerIcon));
 				            // Click on the hamburger icon
 				            hamburgerIcon.click();
 				            System.out.println("Logout option from Hamburger icon clicked successfully.");

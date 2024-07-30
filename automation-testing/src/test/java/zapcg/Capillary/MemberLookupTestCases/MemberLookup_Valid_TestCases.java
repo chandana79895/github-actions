@@ -97,7 +97,7 @@ public class MemberLookup_Valid_TestCases extends BaseTest {
         	System.out.println("Navigation from Hamburger icon on Location screen working fine for 'Location option'");
         	
 		}
-		
+	
 		@Test(priority = 6, groups = {"MemberLookup"})
         public void hamburgerIcon_Logout_From_MemberLookup() throws InterruptedException {
         	

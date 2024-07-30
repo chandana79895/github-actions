@@ -5,6 +5,7 @@ import static org.testng.Assert.assertEquals;
 import java.time.Duration;
 import java.util.NoSuchElementException;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -428,6 +429,11 @@ public class memberLookupPage extends BaseTest {
 			                .ignoring(NoSuchElementException.class);  // Exceptions to ignore
 
 			            WebElement element = wait.until(ExpectedConditions.elementToBeClickable(logoutLocationScreen));
+			            // Scroll the element into view
+			            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+			            
+			            // Additional check to ensure the element is visible
+			            wait.until(ExpectedConditions.visibilityOf(element));
 			            element.click();
 					
 					//logoutLocationScreen.click();

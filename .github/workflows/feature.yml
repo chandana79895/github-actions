@@ -77,7 +77,7 @@ jobs:
   #         aws s3 sync ./dist s3://test-stack-ui-${{ secrets.ENV}}/
   #         aws cloudfront create-invalidation --distribution-id ${{ secrets.CFD_ID }} --paths "/*"
 
-  automation_testing:
+  automation_testings:
     runs-on: ubuntu-latest
     # if: github.event_name == 'push' && (github.ref == 'refs/heads/poc') || (github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'develop')
     environment:

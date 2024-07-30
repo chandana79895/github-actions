@@ -1,45 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Fortress_TestSuite_DEV"  parallel= "false">
-  
-  <listeners>
+<listeners>
 <listener class-name="zapcg.Capillary.ListenersConfiguration.Listeners"/>
-
- </listeners>
-
+ 
+</listeners>
+ 
     
-  
 
-
+ 
+ 
 <test name="LoginTestsChromeBrowseriPhone11ProPortrait">
-    <parameter name="browser" value="chrome"/>
-    <parameter name="deviceName" value="Galaxy S20 Landscape"/> <!-- Android Landscape -->
-    <classes>
-    
-    
- 	 
- 	  <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
-      <!-- <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
-      <class name="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases"/>
-      <class name="zapcg.Capillary.MemberLookupTestCases.MemberLookup_Valid_TestCases"/>
-      <class name="zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases"/>
-      <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases"/>
-      <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases"/>
-      <class name="zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint"/>     
-      <class name="zapcg.Capillary.EarnPointPageTestCases.OneTimeExecute_pointVerificationAfterRedeemingPoints"/>
-     <class name="zapcg.Capillary.EarnPointPageTestCases.OneTimeExecute_TransactionExceedsThreshold"/>
-     <class name="zapcg.Capillary.EarnPointPageTestCases.OneTimeExecution_SuccessMessage_RedeemPoint"/> -->
-     
-   
- 	 
- 	
-    </classes>
-  </test>
+<parameter name="browser" value="chrome"/>
+<parameter name="deviceName" value="Galaxy S20 Landscape"/> <!-- Android Landscape -->
+<classes>
+
+<class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
+<class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
+<class name="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases"/>
+<class name="zapcg.Capillary.MemberLookupTestCases.MemberLookup_Valid_TestCases"/>
+<class name="zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases"/>
+<class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases"/>
+<class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases"/>
+<class name="zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint"/>     
+<class name="zapcg.Capillary.EarnPointPageTestCases.OneTimeExecute_pointVerificationAfterRedeemingPoints"/>
+<class name="zapcg.Capillary.EarnPointPageTestCases.OneTimeExecute_TransactionExceedsThreshold"/>
+<class name="zapcg.Capillary.EarnPointPageTestCases.OneTimeExecution_SuccessMessage_RedeemPoint"/>
 
 
+</classes>
+</test>
+ 
+ 
+ 
+<test name="LoginTestsFireFoxBrowserGalaxyS20Landscape">
+<parameter name="browser" value="firefox"/>
+<parameter name="deviceName" value="Galaxy S20 Landscape"/> <!-- Android Landscape -->
+<classes>
 
+<class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
+<class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
+<class name="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases"/>
+<class name="zapcg.Capillary.MemberLookupTestCases.MemberLookup_Valid_TestCases"/>
+<class name="zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases"/>
+<class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases"/>
+<class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases"/>
+<class name="zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint"/>     
+<class name="zapcg.Capillary.EarnPointPageTestCases.OneTimeExecute_pointVerificationAfterRedeemingPoints"/>
+<class name="zapcg.Capillary.EarnPointPageTestCases.OneTimeExecute_TransactionExceedsThreshold"/>
+<class name="zapcg.Capillary.EarnPointPageTestCases.OneTimeExecution_SuccessMessage_RedeemPoint"/>
 
+ 
+      
+</classes>
+</test>
+ 
+ 
+<test name="LoginTestsFireFoxBrowseriPhone11ProLandscape">
+<parameter name="browser" value="chrome"/>
+<parameter name="deviceName" value="iPhone 11 Pro Landscape"/> <!-- iPhone Landscape -->
+<classes>
 
+<class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
+<class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
+<class name="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases"/>
+<class name="zapcg.Capillary.MemberLookupTestCases.MemberLookup_Valid_TestCases"/>
+<class name="zapcg.Capillary.MemberLookupTestCases.memberLookup_Invalid_TestCases"/>
+<class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases"/>
+<class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Invalid_TestCases"/>
+<class name="zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint"/>     
+<class name="zapcg.Capillary.EarnPointPageTestCases.OneTimeExecute_pointVerificationAfterRedeemingPoints"/>
+<class name="zapcg.Capillary.EarnPointPageTestCases.OneTimeExecute_TransactionExceedsThreshold"/>
+<class name="zapcg.Capillary.EarnPointPageTestCases.OneTimeExecution_SuccessMessage_RedeemPoint"/>
 
+<!--<class name="zapcg.Capillary.LoginTestCases.OneTimeExecute_Login_LockOutTestCase"/>-->
+</classes>
+</test>
+ 
+ 
   
 </suite> <!-- Suite -->

@@ -78,7 +78,7 @@ jobs:
   #         aws cloudfront create-invalidation --distribution-id ${{ secrets.CFD_ID }} --paths "/*"
 
   automation_testings:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     # if: github.event_name == 'push' && (github.ref == 'refs/heads/poc') || (github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'develop')
     environment:
       name: poc

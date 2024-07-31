@@ -128,8 +128,10 @@ jobs:
           aws configure set default.region us-east-1
 
       - name: Upload Report to S3
+        env:
+          BUCKET_NAME: ${{ secrets.BUCKET_NAME }}
         run: |
-          aws s3 cp automation-testing/reports/index.html s3://test-stack-ui-poc-poc/${{ github.run_id }}/index.html
+          aws s3 cp automation-testing/reports/index.html s3://${{ secrets.BUCKET_NAME }}/${{ github.run_id }}/index.html
 
       - name: Set REPORT_URL output
         env:

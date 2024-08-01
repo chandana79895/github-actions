@@ -116,9 +116,9 @@ jobs:
           cd automation-testing/
           xvfb-run -a mvn clean install
 
-      - name: Set RUN_ID output
-        id: set-outputs
-        run: echo "run_id=${{ github.run_id }}" >> $GITHUB_ENV
+      # - name: Set RUN_ID output
+      #   id: set-outputs
+      #   run: echo "run_id=${{ github.run_id }}" >> $GITHUB_ENV
 
       - name: Configure AWS CLI
         run: |
@@ -131,14 +131,14 @@ jobs:
         env:
           BUCKET_NAME: ${{ secrets.BUCKET_NAME }}
         run: |
-          aws s3 cp automation-testing/reports/index.html s3://${{ secrets.BUCKET_NAME }}/${{ github.run_id }}/index.html
+          aws s3 cp automation-testing/reports/index.html s3://${{ secrets.BUCKET_NAME }}/index.html
 
       - name: Set REPORT_URL output
         env:
           REPORT_CFD_URL: ${{ secrets.REPORT_CFD_URL }}
           REPORT_CFD_ID: ${{ secrets.REPORT_CFD_ID }}
         run: |
-          echo "report_url=${{ secrets.REPORT_CFD_URL }}/${{ github.run_id }}/index.html" >> $GITHUB_ENV
+          echo "report_url=${{ secrets.REPORT_CFD_URL }}/index.html" >> $GITHUB_ENV
           aws cloudfront create-invalidation --distribution-id ${{ secrets.REPORT_CFD_ID }} --paths "/*"
 
       - name: Sending Reporting to Slack

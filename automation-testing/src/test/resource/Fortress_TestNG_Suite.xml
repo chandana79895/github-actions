@@ -33,12 +33,12 @@
  
  
  
-<test name="LoginTestsFireFoxBrowserGalaxyS20Landscape">
+<!-- <test name="LoginTestsFireFoxBrowserGalaxyS20Landscape">
 <parameter name="browser" value="firefox"/>
 <parameter name="deviceName" value="Galaxy S20 Landscape"/> <!-- Android Landscape -->
 <classes>
 
-<class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/>
+<class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases"/> -->
 <!-- <class name="zapcg.Capillary.LoginTestCases.Login_Invalid_TestCases"/>
 <class name="zapcg.Capillary.LocationPageTestCases.Location_ExistingUser_TestCases"/>
 <class name="zapcg.Capillary.MemberLookupTestCases.MemberLookup_Valid_TestCases"/>

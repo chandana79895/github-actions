@@ -132,6 +132,25 @@ jobs:
           BUCKET_NAME: ${{ secrets.BUCKET_NAME }}
         run: |
           aws s3 cp automation-testing/reports/index.html s3://${{ secrets.BUCKET_NAME }}/index.html
+          
+      - name: Generate Pre-Signed URL
+        id: generate_url
+        run: |
+          URL=$(aws s3 presign s3://$BUCKET_NAME/index.html)
+          echo "PRE_SIGNED_URL=$URL" >> $GITHUB_ENV
+
+      - name: Fetch Object from S3
+        run: |
+          curl -o index.html "${{ env.PRE_SIGNED_URL }}"  
+
+      - name: Object to API
+        run: |
+          curl --location 'https://eo18rx2944.execute-api.us-east-1.amazonaws.com/Dev/report_email' \
+          --header 'Content-Type: application/json' \
+          --data '{
+            "S3Url": "s3://test-stack-ui-poc-poc/index.html"
+          }'
+
 
       - name: Set REPORT_URL output
         env:

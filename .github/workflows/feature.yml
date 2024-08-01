@@ -148,7 +148,7 @@ jobs:
           curl --location 'https://eo18rx2944.execute-api.us-east-1.amazonaws.com/Dev/report_email' \
           --header 'Content-Type: application/json' \
           --data '{
-            "S3Url": "https://test-stack-ui-poc-poc.s3.amazonaws.com/index.html"
+            "S3Url": "https://d3w4tqulg4bmwm.cloudfront.net/index.html"
           }'
 
 

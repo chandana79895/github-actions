@@ -161,7 +161,7 @@ Resources:
     Properties:
       ResourceArn: !GetAtt testWebACL.Arn
       LogDestinationConfigs:
-        - !Sub 'arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/waf/CLOUDFRONT/CloudFrontWhitelistWebACL:*'
+        - !Sub 'arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/waf/CLOUDFRONT/CloudFrontWhitelistWebACL'
       LoggingFilter:
         DefaultBehavior: 'KEEP'
         Filters:

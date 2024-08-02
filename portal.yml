@@ -160,8 +160,7 @@ Resources:
     Type: 'AWS::WAFv2::LoggingConfiguration'
     Properties:
       ResourceArn: !GetAtt testWebACL.Arn
-      LogDestinationConfigs:
-        - !Ref: WAFLogGroup
+      LogDestinationConfigs: !Ref WAFLogGroup
       LoggingFilter:
         DefaultBehavior: 'KEEP'
         Filters:

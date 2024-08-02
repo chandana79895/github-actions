@@ -173,7 +173,6 @@ Resources:
       RedactedFields:
         - SingleHeader:
             Name: 'Authorization'
-      LoggingRoleArn: !GetAtt WAFLogRole.Arn
         
 
   Distribution:

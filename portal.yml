@@ -130,7 +130,7 @@ Resources:
   WAFLogGroup:
     Type: 'AWS::Logs::LogGroup'
     Properties:
-      LogGroupName: '/aws/waf/CLOUDFRONT/CloudFrontWhitelistWebACL'
+      LogGroupName: 'aws-waf-logs-poc'
       RetentionInDays: 7
 
   WAFLogRole:
@@ -154,25 +154,25 @@ Resources:
                   - 'logs:PutLogEvents'
                   - 'logs:CreateLogStream'
                   - 'logs:CreateLogGroup'
-                Resource: !Sub 'arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/waf/CLOUDFRONT/CloudFrontWhitelistWebACL:*'
+                Resource: !Sub 'arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:aws-waf-logs-poc:*'
 
-  WAFLoggingConfiguration:
-    Type: 'AWS::WAFv2::LoggingConfiguration'
-    Properties:
-      ResourceArn: !GetAtt testWebACL.Arn
-      LogDestinationConfigs:
-        - !Sub 'arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/waf/CLOUDFRONT/CloudFrontWhitelistWebACL'
-      LoggingFilter:
-        DefaultBehavior: 'KEEP'
-        Filters:
-          - Behavior: 'KEEP'
-            Requirement: 'MEETS_ANY'
-            Conditions:
-              - ActionCondition:
-                  Action: 'BLOCK'
-      RedactedFields:
-        - SingleHeader:
-            Name: 'Authorization'
+  # WAFLoggingConfiguration:
+  #   Type: 'AWS::WAFv2::LoggingConfiguration'
+  #   Properties:
+  #     ResourceArn: !GetAtt testWebACL.Arn
+  #     LogDestinationConfigs:
+  #       - !Sub 'arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:aws-waf-logs-poc'
+  #     LoggingFilter:
+  #       DefaultBehavior: 'KEEP'
+  #       Filters:
+  #         - Behavior: 'KEEP'
+  #           Requirement: 'MEETS_ANY'
+  #           Conditions:
+  #             - ActionCondition:
+  #                 Action: 'BLOCK'
+  #     RedactedFields:
+  #       - SingleHeader:
+  #           Name: 'Authorization'
         
 
   Distribution:

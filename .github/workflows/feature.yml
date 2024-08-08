@@ -64,18 +64,18 @@ jobs:
           aws cloudformation validate-template --template-body file://portal.yml
           aws cloudformation deploy --stack-name test-stack-ui-${{ secrets.ENV }} --template-file portal.yml --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM --parameter-overrides Env=${{ secrets.ENV }}      
 
-      - name: Build and Deploying FE Code
-        env:
-          CFD_ID: ${{ secrets.CFD_ID }}
-        run: |
-          # printenv >  .env.${{ secrets.ENV }}
-          npm install
-          export CI=false
-          npm run build:${{ secrets.ENV }}
-          cat .env.${{ secrets.ENV }}
-          aws s3 rm s3://test-stack-ui-${{ secrets.ENV }}/ --recursive
-          aws s3 sync ./dist s3://test-stack-ui-${{ secrets.ENV}}/
-          aws cloudfront create-invalidation --distribution-id ${{ secrets.CFD_ID }} --paths "/*"
+      # - name: Build and Deploying FE Code
+      #   env:
+      #     CFD_ID: ${{ secrets.CFD_ID }}
+      #   run: |
+      #     # printenv >  .env.${{ secrets.ENV }}
+      #     npm install
+      #     export CI=false
+      #     npm run build:${{ secrets.ENV }}
+      #     cat .env.${{ secrets.ENV }}
+      #     aws s3 rm s3://test-stack-ui-${{ secrets.ENV }}/ --recursive
+      #     aws s3 sync ./dist s3://test-stack-ui-${{ secrets.ENV}}/
+      #     aws cloudfront create-invalidation --distribution-id ${{ secrets.CFD_ID }} --paths "/*"
 
   automation_testing:
     runs-on: ubuntu-latest

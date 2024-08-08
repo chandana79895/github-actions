@@ -51,7 +51,7 @@ Resources:
   AutomationReportBucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: !Sub ${AWS::StackName}-${Env} # TODO fetch name form env suffix env on bucket
+      BucketName: !Sub ${AWS::StackName} # TODO fetch name form env suffix env on bucket
       BucketEncryption:
         ServerSideEncryptionConfiguration:
           - ServerSideEncryptionByDefault:

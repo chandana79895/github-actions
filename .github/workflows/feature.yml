@@ -145,10 +145,10 @@ jobs:
 
       - name: Object to API
         run: |
-          curl --location 'https://eo18rx2944.execute-api.us-east-1.amazonaws.com/Dev/report_email' \
+          curl --location '${{ secrets.REPORT_EMAIL_URL }}' \
           --header 'Content-Type: application/json' \
           --data '{
-            "S3Url": "https://d3w4tqulg4bmwm.cloudfront.net/index.html"
+            "S3Url": "${{ secrets.REPORT_CFD_URL }}/index.html"
           }'
 
 

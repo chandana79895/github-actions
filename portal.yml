@@ -88,7 +88,32 @@ Resources:
             Principal:
               AWS: !Sub arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity ${AutomationReportOriginAccessIdentity}
             Action: s3:GetObject
-            Resource: !Sub arn:aws:s3:::${AutomationReportBucket}/*          
+            Resource: !Sub arn:aws:s3:::${AutomationReportBucket}/*   
+
+
+  MyAccelerator:
+    Type: 'AWS::GlobalAccelerator::Accelerator'
+    Properties:
+      Name: my-accelerator
+      Enabled: true
+
+  MyListener:
+    Type: 'AWS::GlobalAccelerator::Listener'
+    Properties:
+      AcceleratorArn: !Ref MyAccelerator
+      PortRanges:
+        - FromPort: 80
+          ToPort: 80
+      Protocol: TCP
+
+  MyEndpointGroup:
+    Type: 'AWS::GlobalAccelerator::EndpointGroup'
+    Properties:
+      AcceleratorArn: !Ref MyAccelerator
+      EndpointGroupRegion: us-east-1  
+      EndpointConfigurations:
+        - EndpointId: accelerator-check-147239427.us-east-1.elb.amazonaws.com
+          Weight: 100                 
 
   # testIP4Set:
   #   Type: 'AWS::WAFv2::IPSet'

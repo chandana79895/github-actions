@@ -1,0 +1,166 @@
+AWSTemplateFormatVersion: "2010-09-09"
+
+#TODO:  add params for check same template
+Parameters:
+  Env:
+    Type: String
+    AllowedValues:
+      - local
+      - dev
+      - stage
+      - prod
+      - poc
+      - main
+
+Conditions:
+  IsDev: !Equals [!Ref Env, dev]
+  IsStage: !Equals [!Ref Env, stage]
+  IsProd: !Equals [!Ref Env, prod]
+  IsPoc: !Equals [!Ref Env, poc]
+  
+Resources:
+  AutomationReportOriginAccessIdentity:
+    Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
+    Properties:
+      CloudFrontOriginAccessIdentityConfig:
+        Comment: !Sub ${AWS::StackName}-${Env}-s3-origin-oai 
+
+  AutomationReportBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub ${AWS::StackName} 
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      Tags:
+        - Key: Account_Project
+          Value: poc_test  
+
+  AutomationReportBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref AutomationReportBucket
+      PolicyDocument:
+        Statement:
+          - Effect: Allow
+            Principal:
+              AWS: !Sub arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity ${AutomationReportOriginAccessIdentity}
+            Action: s3:GetObject
+            Resource: !Sub arn:aws:s3:::${AutomationReportBucket}/* 
+
+  AutomationReportDistribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Comment: !Sub "AutomationReport-${Env}"
+        Origins:
+          - DomainName: !Sub ${AutomationReportBucket}.s3.${AWS::Region}.amazonaws.com
+            Id: S3Origin
+            S3OriginConfig:
+              OriginAccessIdentity: !Sub origin-access-identity/cloudfront/${AutomationReportOriginAccessIdentity}
+        Enabled: true
+        DefaultRootObject: index.html
+        DefaultCacheBehavior:
+          AllowedMethods:
+            - DELETE
+            - GET
+            - HEAD
+            - OPTIONS
+            - PATCH
+            - POST
+            - PUT
+          TargetOriginId: S3Origin
+          ForwardedValues:
+            QueryString: false
+            Cookies:
+              Forward: none
+          ViewerProtocolPolicy: redirect-to-https
+          CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6
+        CustomErrorResponses:
+          - ErrorCode: 404
+            ResponseCode: 200
+            ResponsePagePath: /index.html
+          - ErrorCode: 500
+            ResponseCode: 200
+            ResponsePagePath: /index.html
+          - ErrorCode: 403
+            ResponseCode: 200
+            ResponsePagePath: /index.html
+        PriceClass: PriceClass_All
+        LambdaFunctionAssociations:
+            - EventType: 'viewer-request'
+              LambdaFunctionARN: !Sub 'arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:function:${AllowSpecificIPsFunction}'
+      Tags:
+        - Key: Account_Project
+          Value: poc_test   
+
+  TestApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: Dev
+      CacheClusterEnabled: true
+      CacheClusterSize: '0.5'
+      MethodSettings:
+        - ResourcePath: /*
+          HttpMethod: '*'
+          CacheTtlInSeconds: 0
+          CachingEnabled: false
+          CacheDataEncrypted: false
+          MetricsEnabled: true
+          ThrottlingBurstLimit: !If [IsProd, 5000, 2000]
+          ThrottlingRateLimit: !If [IsProd, 3000.0, 1000.0]
+      Cors:
+        AllowMethods: "'*'"
+        AllowHeaders: "'*'"
+        AllowOrigin: "'*'"
+      AccessLogSetting:
+        DestinationArn: !GetAtt FortressApiLogGroup.Arn
+        Format: '$context.requestId $context.identity.sourceIp $context.identity.caller $context.identity.user $context.httpMethod $context.resourcePath $context.status $context.integration.latency $context.requestTime $context.protocol $context.responseLength $context.integrationErrorMessage' 
+
+  LambdaExecutionRole:
+    Type: 'AWS::IAM::Role'
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: 'Allow'
+            Principal:
+              Service: 'lambda.amazonaws.com'
+            Action: 'sts:AssumeRole'
+      ManagedPolicyArns:
+        - 'arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole'
+      RoleName: 'LambdaExecutionRole'
+
+  AllowSpecificIPsFunction:
+    Type: 'AWS::Lambda::Function'
+    Properties:
+      CodeUri: hello-world/
+      Handler: app.lambdaHandler
+      Role: !GetAtt LambdaExecutionRole.Arn
+      Events:
+        PropertyApi:
+          Type: Api
+          Properties:
+            Path: /property
+            Method: get
+            RestApiId: !Ref TestApi  
+
+  LambdaEdgeVersion:
+    Type: 'AWS::Lambda::Version'
+    Properties:
+      FunctionName: !Ref AllowSpecificIPsFunction
+
+  # Lambda@Edge Function Association
+  LambdaEdgeAssociation:
+    Type: 'AWS::Lambda::Permission'
+    Properties:
+      Action: 'lambda:InvokeFunction'
+      FunctionName: !Ref AllowSpecificIPsFunction
+      Principal: 'edgelambda.amazonaws.com'
+      SourceArn: !Sub 'arn:aws:cloudfront::${AWS::AccountId}:distribution/${AutomationReportDistribution}'                         

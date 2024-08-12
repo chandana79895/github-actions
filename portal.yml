@@ -100,7 +100,7 @@ Resources:
   MyListener:
     Type: 'AWS::GlobalAccelerator::Listener'
     Properties:
-      AcceleratorArn: !GetAtt MyAccelerator
+      AcceleratorArn: !GetAtt MyAccelerator.Arn
       PortRanges:
         - FromPort: 80
           ToPort: 80

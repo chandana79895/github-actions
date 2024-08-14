@@ -11,6 +11,15 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    
+    - name: Clean up disk space
+      run: |
+        sudo apt-get clean
+        sudo rm -rf /var/lib/apt/lists/*
+        sudo apt-get autoremove -y
+        sudo rm -rf /var/log/*.log
+        sudo rm -rf /tmp/*
+        sudo rm -rf /dev/root 
 
     - name: Set up JDK 11
       uses: actions/setup-java@v2

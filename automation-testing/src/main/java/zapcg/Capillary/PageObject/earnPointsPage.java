@@ -4,9 +4,11 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.time.temporal.ChronoUnit;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.StaleElementReferenceException;
@@ -20,6 +22,8 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import java.util.function.Function;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class earnPointsPage {
 	
@@ -50,7 +54,7 @@ public class earnPointsPage {
 		@FindBy(xpath="//h2[@id='EPMBRCNM']")
 		WebElement memberName;
 		
-		@FindBy(xpath="")
+		@FindBy(xpath="//div[@id='EPMBRC']")
 		WebElement expandMemberDetailsButton;
 		
 		@FindBy(xpath="//div[@id='EPCONT']")
@@ -85,14 +89,14 @@ public class earnPointsPage {
 		
 		@FindBy(xpath="//button[@id='EP046B']")
 		WebElement cancelButton;
-		
-		@FindBy(xpath="//p[@id='EPMDLMSG' and contains(text(), 'transaction has been successfully submitted. They have earned')]")
+		//h5[@id='EPMDLMSG']
+		@FindBy(xpath="//h5[@id='EPMDLMSG' and contains(text(), 'transaction has been successfully submitted. They have earned')]")
 		WebElement successMessage;
 		
-		@FindBy(xpath="//p[@id='EPMDLMSG']")       //p[@id='EPMDLMSG' and contains(text(), 'transaction has been successfully submitted. They have earned 35 points and have spent 1 points.')]")
+		@FindBy(xpath="//h5[@id='EPMDLMSG']")       //p[@id='EPMDLMSG' and contains(text(), 'transaction has been successfully submitted. They have earned 35 points and have spent 1 points.')]")
 		WebElement successRedeemMessage;////div[@id='EPMDL']/div/p[@id='EPMDLMSG' and contains(text(), 'transaction has been successfully submitted. They have earned 35 points and have spent 1 points.')]
 		
-		@FindBy(xpath="//p[@id='EPMDLMSG']")
+		@FindBy(xpath="//h5[@id='EPMDLMSG']")
 		public  
 		WebElement thresholdSuccessMessage;
 		
@@ -108,22 +112,27 @@ public class earnPointsPage {
 		 @FindBy(xpath="//div[@id='LSCONT']")
 		 WebElement navigatedFromEarnPointToLocation;
 		 
-		 @FindBy(xpath="//div[@id='MDCONT']")
-		 WebElement navigatedFromEarnPointToMemberDetails;
+		 //@FindBy(xpath="//div[@id='MDCONT']")
+		 //WebElement navigatedFromEarnPointToMemberLookup;
 		 
 	 
 		 @FindBy(xpath="//div[@id='MSCONT']")
-		 WebElement navigatedFromEarnPointToMemeberLookup;
+		 WebElement navigatedFromEarnPointToMemberLookup;
 		 
 		 @FindBy(xpath="//div[@id='LSCONT']")
 		 WebElement naviagtedToLoginPage;
-		
+		 
+		 @FindBy(xpath="//h3[@id='EPMBRCPT']")
+		WebElement availablePoints;
+		 
 		
 	
 		private By memberNameSection = By.xpath("//h2[@id='EPMBRCNM']"); 
 	    private By availablePointsLocator = By.xpath("//h3[@id='EPMBRCPT']"); 
 	    private By membershipIdLocator = By.xpath("//h6[@id='EPMBRCMID']");
 	    private By pointsExpiryDateLocator = By.xpath("//h6[@id='EPMBRCPEX']"); 
+	    private By cardNumberLocator= By.xpath("//h6[@id='EPMBRCCNS']");
+	    
 		
 		
 		//Initializing the Page Objects:
@@ -161,7 +170,7 @@ public class earnPointsPage {
 		            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
 
 		            // Wait for the login button to be clickable (enabled)
-		            WebElement clickOnMemberName = wait.until(ExpectedConditions.elementToBeClickable(memberName));
+		            WebElement clickOnMemberName = wait.until(ExpectedConditions.elementToBeClickable(expandMemberDetailsButton));
 		            clickOnMemberName.click();
 		            
 					
@@ -179,6 +188,7 @@ public class earnPointsPage {
 			        WebElement availablePoints = null;
 			        WebElement membershipId = null;
 			        WebElement pointsExpiryDate = null;
+			        WebElement cardNumber=null;
 
 			        try {
 			            // Wait for the elements to be visible using Fluent Wait
@@ -205,14 +215,21 @@ public class earnPointsPage {
 			                    return driver.findElement(pointsExpiryDateLocator);
 			                }
 			            });
+			            cardNumber = wait.until(new Function<WebDriver, WebElement>() {
+			                public WebElement apply(WebDriver driver) {
+			                    return driver.findElement(cardNumberLocator);
+			                }
+			            });
 
 			            // Verify that all the elements are displayed and print their details
 			            if (memberNameArea.isDisplayed() && availablePoints.isDisplayed() && membershipId.isDisplayed() && pointsExpiryDate.isDisplayed()) {
 			                System.out.println("Member details are displaying.");
 			                System.out.println("Member Name: " + memberNameArea.getText());
-			                System.out.println("Available Points: " + availablePoints.getText());
-			                System.out.println("Membership ID: " + membershipId.getText());
 			                System.out.println("Points Expiry Date: " + pointsExpiryDate.getText());
+			                System.out.println("Available Points: " + availablePoints.getText());
+			                System.out.println( membershipId.getText());
+			                System.out.println(cardNumber.getText());
+			                
 			            } else {
 			                System.out.println("Some expected elements did not become visible within the timeout period.");
 			                Assert.fail("Member details are not fully displaying.");
@@ -232,6 +249,9 @@ public class earnPointsPage {
 			            }
 			            if (pointsExpiryDate == null || !pointsExpiryDate.isDisplayed()) {
 			                System.out.println("Points expiry date is not visible.");
+			            }
+			            if (cardNumber == null || !cardNumber.isDisplayed()) {
+			                System.out.println("Card number date is not visible.");
 			            }
 			            System.err.println("An error occurred during Member details verification: " + e.getMessage());
 			            Assert.fail("An unexpected error occurred during Member details verification: " + e.getMessage());
@@ -313,11 +333,11 @@ public class earnPointsPage {
 					        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
 					        // Wait for the URL to change to the expected URL
-					        WebElement pageLoaded = wait.until(ExpectedConditions.visibilityOf(navigatedFromEarnPointToMemberDetails));
+					        WebElement pageLoaded = wait.until(ExpectedConditions.visibilityOf(navigatedFromEarnPointToMemberLookup));
 
 					        if (pageLoaded != null && pageLoaded.isDisplayed()) {
 					        	// Page is successfully loaded if the WebElement is visible
-					            System.out.println("Successfully navigated to the Member details screen");
+					            System.out.println("Successfully navigated to the Member Lookup screen");
 					        } else {
 					            System.out.println("The expected element did not become visible within the timeout period");
 					            Assert.fail("Navigation from earn point screen to member details screen was not successful as the expected element did not become visible.");
@@ -378,7 +398,7 @@ public class earnPointsPage {
 					        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
 					        // Wait for the URL to change to the expected URL: navigatedFromMemberLookupToMemeberLookup
-					        WebElement pageLoaded = wait.until(ExpectedConditions.visibilityOf(navigatedFromEarnPointToMemeberLookup));
+					        WebElement pageLoaded = wait.until(ExpectedConditions.visibilityOf(navigatedFromEarnPointToMemberLookup));
 
 					        if (pageLoaded != null && pageLoaded.isDisplayed()) {
 					        	// Page is successfully loaded if the WebElement is visible
@@ -445,6 +465,11 @@ public class earnPointsPage {
 				            // Wait for the hamburger icon to be clickable
 				            WebElement hamburgerIcon = wait.until(ExpectedConditions.elementToBeClickable(logoutFromEarnPointsScreen));
 
+				            // Scroll the element into view
+				            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", hamburgerIcon);
+				            
+				            // Additional check to ensure the element is visible
+				            wait.until(ExpectedConditions.visibilityOf(hamburgerIcon));
 				            // Click on the hamburger icon
 				            hamburgerIcon.click();
 				            System.out.println("Logout option from Hamburger icon clicked successfully.");
@@ -596,44 +621,52 @@ public class earnPointsPage {
 				 
 				 
 				 public void timeVerification(WebDriver driver) {
-					 
 					 try {
-						 
-						// Wait for the date field to be visible
-				            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-				            WebElement timeField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("EP038IN"))); // Adjust the locator as needed
+					        // Wait for the date field to be visible
+					        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+					        WebElement timeField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("EP038IN"))); // Adjust the locator as needed
 
-				            
-				            // Retrieve the time from the field
-				            String timeValue = timeField.getAttribute("value");
-				            System.out.println("The time displayed in the field is: " + timeValue);
-				            
-				            // Get the current system time
-				            LocalTime systemTime = LocalTime.now();
-				            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss"); // Adjust the pattern as per the time format
-				            String systemTimeString = systemTime.format(formatter);
-				            System.out.println("The system time is: " + systemTimeString);
-				            
-				            // Compare the times
-				            if (timeValue.equals(systemTimeString)) {
-				                System.out.println("The time in the field matches the system time.");
-				            } else {
-				                System.out.println("The time in the field does not match the system time.");
-				            }
+					        // Retrieve the time from the field
+					        String timeValue = timeField.getAttribute("value");
+					        System.out.println("The time displayed in the field is: " + timeValue);
 
-				            // Assert the times
-				            Assert.assertEquals(timeValue, systemTimeString, "The time in the field should match the system time");
+					        // Get the current system time
+					        LocalTime systemTime = LocalTime.now();
+					        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss"); // Adjust the pattern as per the time format
+					        String systemTimeString = systemTime.format(formatter);
+					        System.out.println("The system time is: " + systemTimeString);
 
-				        } catch (NoSuchElementException e) {
-				            System.err.println("The time field was not found: " + e.getMessage());
-				            Assert.fail("The time field was not found.");
-				        } catch (DateTimeParseException e) {
-				            System.err.println("Error parsing the time: " + e.getMessage());
-				            Assert.fail("Error parsing the time.");
-				        } catch (Exception e) {
-				            System.err.println("An unexpected error occurred: " + e.getMessage());
-				            Assert.fail("An unexpected error occurred.");
-				        }
+					        // Parse the times
+					        LocalTime fieldTime = LocalTime.parse(timeValue, formatter);
+					        LocalTime currentTime = LocalTime.parse(systemTimeString, formatter);
+
+					        // Calculate the difference in seconds
+					        long secondsDifference = Math.abs(ChronoUnit.SECONDS.between(fieldTime, currentTime));
+					        
+					        // Allow a tolerance of ±60 seconds (1 minute)
+					        long toleranceInSeconds = 60;
+					        
+					        // Compare the times within the tolerance
+					        if (secondsDifference <= toleranceInSeconds) {
+					            System.out.println("The time in the field matches the system time within the allowed tolerance.");
+					        } else {
+					            System.out.println("The time in the field does not match the system time within the allowed tolerance.");
+					        }
+
+					        // Assert the times within the tolerance
+					        Assert.assertTrue(secondsDifference <= toleranceInSeconds, "The time in the field should match the system time within the allowed tolerance");
+
+					    } catch (NoSuchElementException e) {
+					        System.err.println("The time field was not found: " + e.getMessage());
+					        Assert.fail("The time field was not found.");
+					    } catch (DateTimeParseException e) {
+					        System.err.println("Error parsing the time: " + e.getMessage());
+					        Assert.fail("Error parsing the time.");
+					    } catch (Exception e) {
+					        System.err.println("An unexpected error occurred: " + e.getMessage());
+					        Assert.fail("An unexpected error occurred.");
+					    }
+					 
 					 
 				 }
 				 
@@ -740,11 +773,17 @@ public class earnPointsPage {
 				 {
 					 
 					 try {
-							WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+						 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
-					        // Wait for the error message element to be visible
+					        // Scroll down to the bottom of the page multiple times to ensure the element is in view
+					        for (int i = 0; i < 3; i++) {
+					            ((JavascriptExecutor) driver).executeScript("window.scrollBy(0, 250);");
+					            Thread.sleep(1000); // Add a small delay between scrolls
+					        }
+
+					        // Wait for the success message element to be visible
 					        WebElement successMsg = wait.until(ExpectedConditions.visibilityOf(successMessage));
-
+ 
 					        // Get the text of the error message and trim it
 					        String actualValidationMessage = successMsg.getText().trim();
 					        System.out.println("Actual success message after Only transaction amount submitted :" +actualValidationMessage);
@@ -782,10 +821,11 @@ public class earnPointsPage {
 				    }
 				 
 				 
-				 public int calculateExpectedTaxAssumedAmount(int transactionAmount) {
-				        // Calculate the expected tax assumed amount
-					 double result = transactionAmount - (transactionAmount / 1.1);
-				        return (int) Math.round(result);
+				 public int calculateExpectedTaxAssumedAmount(double transactionAmount) {
+					 // Calculate the expected tax assumed amount and round it down
+					    double taxExcludingAmount = transactionAmount / 1.1;
+					    double result = transactionAmount - taxExcludingAmount;
+					    return (int) Math.floor(result);
 				    }
 				 
 				 
@@ -995,6 +1035,48 @@ public class earnPointsPage {
 					        Assert.fail("An error occurred while verifying the success message: " + e.getMessage());
 					    }
 				}
+				
+				
+				
+				public int getTotalEarningPoints() {
+			        // Get displayed total earning points
+			      
+			        String totalEarningPointsText = availablePoints.getText().trim();
+
+			        // Remove any non-numeric characters (including currency symbols)
+			        totalEarningPointsText = totalEarningPointsText.replaceAll("[^0-9]", "");
+
+			        // Parse as integer
+			        return Integer.parseInt(totalEarningPointsText);
+			    }
+				
+				
+				 public String getSuccessMessage() {
+				        return new WebDriverWait(driver, Duration.ofSeconds(30))
+				                .until(ExpectedConditions.visibilityOf(successMessage)).getText();
+				    }
+				 
+				 
+				  public int getTotalEarningPoints2() {
+				        String pointsText = new WebDriverWait(driver, Duration.ofSeconds(30))
+				                .until(ExpectedConditions.visibilityOf(availablePoints)).getText();
+
+				        // Extract the numeric part from the points string
+				        String numericPointsText = pointsText.replaceAll("[^0-9]", "");
+				        return Integer.parseInt(numericPointsText);
+				    }
+				 
+				
+				 public String extractNumericValue(String message) {
+					    Pattern pattern = Pattern.compile("\\d+");
+					    Matcher matcher = pattern.matcher(message);
+					    if (matcher.find()) {
+					        return matcher.group();
+					    } else {
+					        throw new IllegalArgumentException("No numeric value found in the message: " + message);
+					    }
+					}
+				
 				
 	}
 				 

@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="zapcg.Capillary.LocationPageTestCases.Location_TestCases">
+      <class name="zapcg.Capillary.MemberLookupTestCases.MemberLookup_Valid_TestCases">
         <methods>
-          <include name="tearDown"/>
           <include name="initialize"/>
-          <include name="verifyHeaderOfMemberLookupScreen"/>
+          <include name="tearDown"/>
+          <include name="enter_Valid_CardNumber_For_AccordiaOption"/>
         </methods>
-      </class> <!-- zapcg.Capillary.LocationPageTestCases.Location_TestCases -->
+      </class> <!-- zapcg.Capillary.MemberLookupTestCases.MemberLookup_Valid_TestCases -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

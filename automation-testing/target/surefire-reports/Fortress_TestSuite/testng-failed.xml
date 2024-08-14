@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Fortress_TestSuite]" guice-stage="DEVELOPMENT" verbose="0">
+  <listeners>
+    <listener class-name="zapcg.Capillary.ListenersConfiguration.Listeners"/>
+  </listeners>
+  <test thread-count="5" name="LoginTestsChromeBrowseriPhone11ProPortrait_OneTimeExecution(failed)" verbose="0">
+    <parameter name="browser" value="chrome"/>
+    <parameter name="deviceName" value="iPhone 11 Pro Portrait"/>
+    <classes>
+      <class name="zapcg.Capillary.LoginTestCases.Login_Valid_TestCases">
+        <methods>
+          <include name="afterSuite"/>
+          <include name="Valid_Login"/>
+          <include name="initialize"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- zapcg.Capillary.LoginTestCases.Login_Valid_TestCases -->
+    </classes>
+  </test> <!-- LoginTestsChromeBrowseriPhone11ProPortrait_OneTimeExecution(failed) -->
+</suite> <!-- Failed suite [Fortress_TestSuite] -->

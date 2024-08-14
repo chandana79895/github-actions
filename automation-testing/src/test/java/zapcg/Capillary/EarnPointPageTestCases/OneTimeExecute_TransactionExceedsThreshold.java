@@ -19,7 +19,6 @@ import org.testng.annotations.Test;
 import zapcg.Capillary.Base.BaseTest;
 import zapcg.Capillary.PageObject.earnPointsPage;
 import zapcg.Capillary.PageObject.loginPage;
-import zapcg.Capillary.PageObject.memberDetailsPage;
 import zapcg.Capillary.PageObject.memberLookupPage;
 
 @Listeners(zapcg.Capillary.ListenersConfiguration.Listeners.class)			
@@ -28,7 +27,7 @@ public class OneTimeExecute_TransactionExceedsThreshold extends BaseTest {
 	
 	public loginPage lp;
 	 public String currentBrowser;
-	 memberDetailsPage	mdp=new memberDetailsPage(driver);
+	 //memberDetailsPage	mdp=new memberDetailsPage(driver);
 	 earnPointsPage epp=new earnPointsPage(driver);
 	 memberLookupPage mlp=new memberLookupPage(driver);
 	
@@ -42,7 +41,7 @@ public class OneTimeExecute_TransactionExceedsThreshold extends BaseTest {
 	     
 	       lp = new loginPage(driver);
 	       mlp = new memberLookupPage(driver);
-	       mdp=new memberDetailsPage(driver);
+	       //mdp=new memberDetailsPage(driver);
 	       epp=new earnPointsPage(driver);
 	       
 	       lp.changeDefaultLanguage();
@@ -51,7 +50,7 @@ public class OneTimeExecute_TransactionExceedsThreshold extends BaseTest {
 	       mlp.enterMemberId("GT000003673");
 	       mlp.clickOnSearchButton();
 	      
-	      mdp.clickOnEnterReceiptButton();
+	     // mdp.clickOnEnterReceiptButton();
 	    
 	        	
 	        	

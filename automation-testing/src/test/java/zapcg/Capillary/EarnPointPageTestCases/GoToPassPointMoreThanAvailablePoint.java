@@ -9,7 +9,6 @@ import org.testng.annotations.Test;
 import zapcg.Capillary.Base.BaseTest;
 import zapcg.Capillary.PageObject.earnPointsPage;
 import zapcg.Capillary.PageObject.loginPage;
-import zapcg.Capillary.PageObject.memberDetailsPage;
 import zapcg.Capillary.PageObject.memberLookupPage;
 
 
@@ -19,7 +18,7 @@ public class GoToPassPointMoreThanAvailablePoint extends BaseTest{
 	
 	public loginPage lp;
 	 public String currentBrowser;
-	 memberDetailsPage	mdp=new memberDetailsPage(driver);
+	// memberDetailsPage	mdp=new memberDetailsPage(driver);
 	 earnPointsPage epp=new earnPointsPage(driver);
 	 memberLookupPage mlp=new memberLookupPage(driver);
 	
@@ -33,7 +32,7 @@ public class GoToPassPointMoreThanAvailablePoint extends BaseTest{
 	     
 	       lp = new loginPage(driver);
 	       mlp = new memberLookupPage(driver);
-	       mdp=new memberDetailsPage(driver);
+	       //mdp=new memberDetailsPage(driver);
 	       epp=new earnPointsPage(driver);
 	       
 	       lp.changeDefaultLanguage();
@@ -41,9 +40,9 @@ public class GoToPassPointMoreThanAvailablePoint extends BaseTest{
 	       lp.login("zapcom_test2", "storeportal");
 	       mlp.enterMemberId("GT000003673");
 	       mlp.clickOnSearchButton();
-	      int currentPoint= mdp.getTotalEarningPoints();
+	      int currentPoint= epp.getTotalEarningPoints();
 	      System.out.println("The current available points on Member details screen is: "+currentPoint);
-	      mdp.clickOnEnterReceiptButton();
+	      //mdp.clickOnEnterReceiptButton();
 	      int transactionAmount = 20000; 
 	       int goToPassPointUsed = currentPoint+1; 
 	       epp.enterTransactionAmount(transactionAmount);

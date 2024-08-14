@@ -21,7 +21,7 @@ public class OneTimeExecute_pointVerificationAfterRedeemingPoints extends BaseTe
 	
 	public loginPage lp;
 	 public String currentBrowser;
-	 memberDetailsPage	mdp=new memberDetailsPage(driver);
+	// memberDetailsPage	mdp=new memberDetailsPage(driver);
 	 earnPointsPage epp=new earnPointsPage(driver);
 	 memberLookupPage mlp=new memberLookupPage(driver);
 	
@@ -35,7 +35,7 @@ public class OneTimeExecute_pointVerificationAfterRedeemingPoints extends BaseTe
 	     
 	       lp = new loginPage(driver);
 	       mlp = new memberLookupPage(driver);
-	       mdp=new memberDetailsPage(driver);
+	       //mdp=new memberDetailsPage(driver);
 	       epp=new earnPointsPage(driver);
 	       
 	       lp.changeDefaultLanguage();
@@ -43,9 +43,9 @@ public class OneTimeExecute_pointVerificationAfterRedeemingPoints extends BaseTe
 	       lp.login("zapcom_test2", "storeportal");
 	       mlp.enterMemberId("GT000003673");
 	       mlp.clickOnSearchButton();
-	      int currentPoint= mdp.getTotalEarningPoints();
+	      int currentPoint= epp.getTotalEarningPoints();
 	      System.out.println("The current available points on Member details screen is: "+currentPoint);
-	      mdp.clickOnEnterReceiptButton();
+	      //mdp.clickOnEnterReceiptButton();
 	      int transactionAmount = 50; 
 	       int goToPassPointUsed = 1; 
 	       epp.enterTransactionAmount(transactionAmount);
@@ -56,7 +56,7 @@ public class OneTimeExecute_pointVerificationAfterRedeemingPoints extends BaseTe
 	       mlp.enterMemberId("GT000003673");
 	       mlp.clickOnSearchButton();
 	       
-	       int updatedPointsAfterSubmit = mdp.getTotalEarningPoints();
+	       int updatedPointsAfterSubmit = epp.getTotalEarningPoints();
 	        System.out.println("The updated available points on Member details screen is: " + updatedPointsAfterSubmit);
 
 	        // Calculate expected points after deduction

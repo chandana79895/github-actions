@@ -52,7 +52,7 @@ public class memberLookup_Invalid_TestCases extends BaseTest {
 		@Test(priority=1, groups = {"MemberLookup"})
 		public void verify_Invalid_MemberID() {
 			memberLookupPage mlp = new memberLookupPage(driver);
-			mlp.enterMemberId("GT0000898089");
+			mlp.enterMemberId("GT000089808");
 			mlp.clickOnSearchButton();
 			mlp.verifyValidationMessageForInvalidMemberId("The Member/Card Number was not found.");
 			
@@ -63,8 +63,8 @@ public class memberLookup_Invalid_TestCases extends BaseTest {
 		public void verify_MemberId_Field_MaxLength() {
 			memberLookupPage mlp = new memberLookupPage(driver);
 			mlp.enterMemberId("GT00000367323323211");
-			mlp.clickOnSearchButton();
-			mlp.verifyMaxLengthForMemberId("The Member/Card Number was not found.");
+			//mlp.clickOnSearchButton();
+			mlp.verifyMaxLengthForMemberId("Input exceeds 11 characters");
 			
 			
 			}
@@ -85,8 +85,8 @@ public class memberLookup_Invalid_TestCases extends BaseTest {
 		public void verify_CardNumber_Field_MaxLength() {
 			memberLookupPage mlp = new memberLookupPage(driver);
 			mlp.enterMemberId("123456789098");
-			mlp.clickOnSearchButton();
-			mlp.verifyMaxLengthForMemberId("The Member/Card Number was not found.");
+			//mlp.clickOnSearchButton();
+			mlp.verifyMaxLengthForMemberId("Input exceeds 11 characters");
 			
 			
 			}

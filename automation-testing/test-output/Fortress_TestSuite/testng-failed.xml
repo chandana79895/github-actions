@@ -8,13 +8,14 @@
     <parameter name="browser" value="chrome"/>
     <parameter name="deviceName" value="iPhone 11 Pro Portrait"/>
     <classes>
-      <class name="zapcg.Capillary.EarnPointPageTestCases.OneTimeExecute_TransactionExceedsThreshold">
+      <class name="zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases">
         <methods>
           <include name="initialize"/>
           <include name="tearDown"/>
-          <include name="TransactionExceedsThreshold"/>
+          <include name="verify_MemberDetails_Content_Displaying_On_EarnPointScreen"/>
+          <include name="verify_TaxAssumedAmount"/>
         </methods>
-      </class> <!-- zapcg.Capillary.EarnPointPageTestCases.OneTimeExecute_TransactionExceedsThreshold -->
+      </class> <!-- zapcg.Capillary.EarnPointPageTestCases.EarnPoint_Valid_TestCases -->
     </classes>
   </test> <!-- LoginTestsChromeBrowseriPhone11ProPortrait_OneTimeExecution(failed) -->
 </suite> <!-- Failed suite [Fortress_TestSuite] -->

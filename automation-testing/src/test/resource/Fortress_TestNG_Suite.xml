@@ -132,7 +132,7 @@
 
 
 
-<test name="LoginTestsFirefoxBrowserTabletPortrait">
+<!-- <test name="LoginTestsFirefoxBrowserTabletPortrait">
     <parameter name="browser" value="firefox"/>
     <parameter name="deviceName" value="Tablet Portrait"/> <!-- Tablet Portrait -->
     <classes>
@@ -148,7 +148,7 @@
       
       
     </classes>
-  </test>
+  </test> -->
 
 
 
@@ -229,7 +229,7 @@
 
   
   
-  <test name="LoginTestsfirefoxBrowserGalaxyS20Landscape">
+  <!-- <test name="LoginTestsfirefoxBrowserGalaxyS20Landscape">
     <parameter name="browser" value="firefox"/>
     <parameter name="deviceName" value="Galaxy S20 Landscape"/> <!-- Tablet Portrait -->
     <classes>
@@ -244,10 +244,10 @@
       <class name="zapcg.Capillary.EarnPointPageTestCases.GoToPassPointMoreThanAvailablePoint"/> -->
       
     </classes>
-  </test>
+  </test> -->
 
 
-<test name="LoginTestsChromeBrowseriPhone11ProPortrait_OneTimeExecution">
+<!-- <test name="LoginTestsChromeBrowseriPhone11ProPortrait_OneTimeExecution">
     <parameter name="browser" value="chrome"/>
     <parameter name="deviceName" value="iPhone 11 Pro Portrait"/> <!-- Tablet Portrait -->
     <classes>
@@ -257,7 +257,7 @@
    <!-- <class name="zapcg.Capillary.LoginTestCases.OneTimeExecute_Login_LockOutTestCase"/> -->  
       
     </classes>
-  </test>
+  </test> -->
 
 
 

@@ -6,13 +6,13 @@ WEB_ACL_DESCRIPTION="Web ACL for IP whitelisting"
 WEB_ACL_SCOPE="CLOUDFRONT"
 WEB_ACL_RULE_NAME="IPWhitelistRule"
 WEB_ACL_RULE_PRIORITY=1
-WEB_ACL_RULE_ACTION="ALLOW"
-WEB_ACL_RULE_NAME="IPWhitelistRule"
-WEB_ACL_RULE_ID=""
+WEB_ACL_RULE_ACTION="Allow"
 CLOUDFRONT_DISTRIBUTION_ID="$CFD_ID"  # Replace with your CloudFront Distribution ID
 IP_SET_NAME="MyIPSet"
 IP_SET_DESCRIPTION="IP Set for whitelisting"
-IP_SET_IP_ADDRESSES=("101.0.62.244")  # Replace with IP addresses you want to whitelist
+IP_SET_IP_ADDRESSES=("101.0.62.244/32")  # Replace with IP addresses you want to whitelist
+REGION="us-east-1"  
+ACCOUNT_ID="973620134507"  
 
 # Create IP Set
 echo "Creating IP Set: $IP_SET_NAME"
@@ -58,12 +58,13 @@ fi
 # Get Web ACL ID
 WEB_ACL_ID=$(aws wafv2 list-web-acls --scope "$WEB_ACL_SCOPE" --query "WebACLs[?Name=='$WEB_ACL_NAME'].Id" --output text)
 
-# Associate Web ACL with CloudFront distribution
-echo "Associating Web ACL with CloudFront Distribution: $CLOUDFRONT_DISTRIBUTION_ID"
+# Get the current CloudFront distribution configuration
 DIST_CONFIG=$(aws cloudfront get-distribution-config --id "$CLOUDFRONT_DISTRIBUTION_ID")
 ETAG=$(echo "$DIST_CONFIG" | jq -r '.ETag')
-DIST_CONFIG_JSON=$(echo "$DIST_CONFIG" | jq --arg aclId "arn:aws:wafv2:$REGION:$ACCOUNT_ID:webacl/$WEB_ACL_ID" '.DistributionConfig.DefaultCacheBehavior.WebAclId = $aclId')
+DIST_CONFIG_JSON=$(echo "$DIST_CONFIG" | jq --arg aclId "arn:aws:wafv2:$REGION:$ACCOUNT_ID:webacl/$WEB_ACL_ID" '.DistributionConfig.WebACLId = $aclId')
 
+# Update CloudFront distribution
+echo "Associating Web ACL with CloudFront Distribution: $CLOUDFRONT_DISTRIBUTION_ID"
 aws cloudfront update-distribution \
     --id "$CLOUDFRONT_DISTRIBUTION_ID" \
     --distribution-config "$DIST_CONFIG_JSON" \

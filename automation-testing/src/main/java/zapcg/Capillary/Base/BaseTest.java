@@ -45,19 +45,24 @@ public class BaseTest {
      
 
     public void initialization(String browser) {
-    	try {
-        if (browser.equalsIgnoreCase("chrome")) {
-        	WebDriverManager.chromedriver().setup();
-        	 ChromeOptions options = new ChromeOptions();
-             options.addArguments("--remote-allow-origins=*");
-          // Adding detach option
-             options.setExperimentalOption("detach", true);
-          driver = new ChromeDriver(options);
+        try {
+            if (browser.equalsIgnoreCase("chrome")) {
+                // WebDriverManager.chromedriver().setup(); // Use WebDriverManager for managing ChromeDriver versions dynamically
+                System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
+                ChromeOptions options = new ChromeOptions();
+                options.addArguments("--remote-allow-origins=*");
+                options.addArguments("--headless"); // Enable headless mode
+                options.addArguments("--no-sandbox");
+                options.setExperimentalOption("detach", true);
+                options.setAcceptInsecureCerts(true);
         
             
         } else if (browser.equalsIgnoreCase("firefox")) {
-            WebDriverManager.firefoxdriver().setup();
-            driver = new FirefoxDriver();
+                // WebDriverManager.firefoxdriver().setup(); // Use WebDriverManager for managing GeckoDriver versions dynamically
+                System.setProperty("webdriver.gecko.driver", "/usr/local/bin/geckodriver"); // Adjust path as necessary
+                FirefoxOptions options = new FirefoxOptions();
+                options.addArguments("--no-sandbox");
+                options.setAcceptInsecureCerts(true);
         }
 
         if (dimension != null) {

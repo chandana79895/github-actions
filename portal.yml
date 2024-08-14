@@ -12,6 +12,9 @@ Parameters:
       - poc
       - main
 
+  WEBACLID:
+    Type: String
+
 Conditions:
   IsDev: !Equals [!Ref Env, dev]
   IsStage: !Equals [!Ref Env, stage]
@@ -223,6 +226,7 @@ Resources:
     Type: AWS::CloudFront::Distribution
     Properties:
       DistributionConfig:
+        WebACLId: !Ref WEBACLID
         Comment: !Sub "AutomationReport-${Env}"
         Origins:
           - DomainName: !Sub ${AutomationReportBucket}.s3.${AWS::Region}.amazonaws.com

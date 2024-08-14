@@ -50,7 +50,6 @@ jobs:
           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
           ACCOUNT_ID: ${{ secrets.ACCOUNT_ID }}
         run:
-          chmod +x waf.sh
           bash waf.sh    
 
       - name: Deploying distribution in aws

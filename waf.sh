@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Variables
-WEB_ACL_NAME="MyWebACL"
+WEB_ACL_NAME="CloudFront-Check"
 WEB_ACL_DESCRIPTION="Web ACL for IP whitelisting"
 WEB_ACL_SCOPE="CLOUDFRONT"
 WEB_ACL_RULE_NAME="IPWhitelistRule"
@@ -11,7 +11,7 @@ IP_SET_NAME="MyIPSet"
 IP_SET_DESCRIPTION="IP Set for whitelisting"
 IP_SET_IP_ADDRESSES=("101.0.62.244/32" "106.196.17.222/32") 
 ACCOUNT_ID="$ACCOUNT_ID"  
-REGION="$REGION"
+REGION="us-east-1"
 
 # Function to create IP Set
 create_ip_set() {

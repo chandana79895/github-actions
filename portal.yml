@@ -60,7 +60,7 @@ Resources:
     Type: AWS::CloudFront::Distribution
     Properties:
       DistributionConfig:
-        # WebACLId: !Ref WEBACLID
+        WebACLId: !Ref WEBACLID
         Comment: !Sub "AutomationReport-${Env}"
         Origins:
           - DomainName: !Sub ${AutomationReportBucket}.s3.${AWS::Region}.amazonaws.com

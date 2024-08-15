@@ -4,7 +4,7 @@ on:
   push:
     # types: [opened, synchronize, reopened, closed]
     branches:
-      - develop
+      - waf-through-shellscript
 
 jobs:
 
@@ -48,9 +48,9 @@ jobs:
         env:
           CFD_ID: ${{ secrets.CFD_ID }}
           ACCOUNT_ID: ${{ secrets.ACCOUNT_ID }}
-          REGION: ${{ secrets.REGION }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
         run:
-          bash waf.sh        
+          bash waf.sh       
 
       - name: Deploying distribution in aws
         env:

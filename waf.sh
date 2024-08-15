@@ -11,7 +11,7 @@ IP_SET_NAME="IPSet"
 IP_SET_DESCRIPTION="IP Set for whitelisting"
 IP_SET_IP_ADDRESSES=("101.0.62.244/32" "106.196.17.222/32") 
 ACCOUNT_ID="$ACCOUNT_ID"  
-REGION="us-east-1"
+AWS_REGION="us-east-1"
 
 # Function to create IP Set
 create_ip_set() {
@@ -25,7 +25,7 @@ create_ip_set() {
         --query 'Summary.Id' \
         --output text)
 
-    IP_SET_ARN="arn:aws:wafv2:$REGION:$ACCOUNT_ID:global/ipset/$IP_SET_NAME/$IP_SET_ID"
+    IP_SET_ARN="arn:aws:wafv2:$AWS_REGION:$ACCOUNT_ID:global/ipset/$IP_SET_NAME/$IP_SET_ID"
     echo "IP Set created with ARN: $IP_SET_ARN"
 }
 
@@ -51,7 +51,7 @@ update_ip_set() {
         --description "$IP_SET_DESCRIPTION" \
         --lock-token "$LOCK_TOKEN"
     
-    IP_SET_ARN="arn:aws:wafv2:$REGION:$ACCOUNT_ID:global/ipset/$IP_SET_NAME/$IP_SET_ID"
+    IP_SET_ARN="arn:aws:wafv2:$AWS_REGION:$ACCOUNT_ID:global/ipset/$IP_SET_NAME/$IP_SET_ID"
     echo "IP Set updated with ARN: $IP_SET_ARN"
 }
 

@@ -1,0 +1,40 @@
+name: waf-check
+
+on:
+  push:
+    # types: [opened, synchronize, reopened, closed]
+    branches:
+      - waf-through-shellscript
+
+jobs:
+
+  deploy:
+    runs-on: ubuntu-latest
+    # if: github.event_name == 'push' && (github.ref == 'refs/heads/poc') || (github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'develop')
+    environment:
+      name: poc
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18.x'
+
+      - name: Set up AWS CLI
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
+          role-duration-seconds: 1200
+          audience: sts.amazonaws.com
+
+      - name: Enabling WAF
+        env:
+          CFD_ID: ${{ secrets.CFD_ID }}
+          ACCOUNT_ID: ${{ secrets.ACCOUNT_ID }}
+          REGION: ${{ secrets.REGION }}
+        run:
+          bash waf.sh      

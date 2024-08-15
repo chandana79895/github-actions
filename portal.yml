@@ -30,7 +30,7 @@ Resources:
   AutomationReportBucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: !Sub ${AWS::StackName} 
+      BucketName: !Sub ${AWS::StackName}-${Env}
       BucketEncryption:
         ServerSideEncryptionConfiguration:
           - ServerSideEncryptionByDefault:

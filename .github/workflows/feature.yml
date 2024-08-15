@@ -8,7 +8,7 @@ on:
 
 jobs:
 
-  code-deploy:
+  deploy:
     runs-on: ubuntu-latest
     # if: github.event_name == 'push' && (github.ref == 'refs/heads/poc') || (github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'develop')
     environment:

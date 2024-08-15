@@ -11,6 +11,7 @@ IP_SET_NAME="MyIPSet"
 IP_SET_DESCRIPTION="IP Set for whitelisting"
 IP_SET_IP_ADDRESSES=("101.0.62.244/32" "106.196.17.222/32") 
 ACCOUNT_ID="$ACCOUNT_ID"  
+REGION="$REGION"
 
 # Function to create IP Set
 create_ip_set() {

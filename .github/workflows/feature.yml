@@ -44,14 +44,6 @@ jobs:
           echo "VITE_APP_SESSION=${{ secrets.VITE_APP_SESSION }}" >> .env.${{ secrets.ENV }} 
           echo "VITE_APP_BASE_URL=${{ secrets.VITE_APP_BASE_URL }}" >> .env.${{ secrets.ENV }} 
 
-      - name: Enabling WAF
-        env:
-          CFD_ID: ${{ secrets.CFD_ID }}
-          AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
-          ACCOUNT_ID: ${{ secrets.ACCOUNT_ID }}
-        run:
-          bash waf.sh    
-
       - name: Deploying distribution in aws
         env:
           ENV: ${{ secrets.ENV }}
@@ -61,7 +53,14 @@ jobs:
         run: |
           aws cloudformation validate-template --template-body file://portal.yml
           aws cloudformation deploy --stack-name test-stack-ui-${{ secrets.ENV }} --template-file portal.yml --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM --parameter-overrides Env=${{ secrets.ENV }} WEBACLID=${{ secrets.WEBACLID }}      
-
+      - name: Enabling WAF
+        env:
+          CFD_ID: ${{ secrets.CFD_ID }}
+          AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+          ACCOUNT_ID: ${{ secrets.ACCOUNT_ID }}
+        run:
+          bash waf.sh    
+             
       - name: Build and Deploying FE Code
         env:
           CFD_ID: ${{ secrets.CFD_ID }}

@@ -37,20 +37,6 @@ jobs:
         sudo apt-get autoremove -y
         sudo apt-get autoclean -y
 
-    - name: Restart services
-      run: |
-        sudo systemctl restart docker || true
-
-    - name: Kill background processes
-      run: |
-        sudo pkill -f java || true
-        sudo pkill -f firefox || true
-        sudo pkill -f chrome || true
-
-    - name: Reboot server
-      run: |
-        sudo reboot
-
     - name: Set up JDK 11
       uses: actions/setup-java@v2
       with:
@@ -88,4 +74,4 @@ jobs:
     - name: Start xvfb
       run: |
         cd automation-testing/
-        mvn clean install
+        mvn clean install 

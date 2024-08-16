@@ -1,10 +1,6 @@
 package zapcg.Capillary.ListenersConfiguration;
 
-import java.util.Arrays;
-import java.util.List;
-
 import org.testng.IExecutionListener;
-import zapcg.Capillary.utils.EmailClientUtil;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -85,7 +81,7 @@ public class Listeners extends BaseTest implements ITestListener, IExecutionList
 		
 		
 	}
-	
+	/*
 	 @Override
 	    public void onExecutionFinish() {
 	        // Path to the TestNG report
@@ -108,7 +104,7 @@ public class Listeners extends BaseTest implements ITestListener, IExecutionList
 	        emailClient.sendEmail(toEmails, subject, body, reportPath);
 	    }
 	
-	
+	*/
 	
   
 }

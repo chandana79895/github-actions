@@ -9,7 +9,6 @@ import org.testng.annotations.Test;
 import zapcg.Capillary.Base.BaseTest;
 import zapcg.Capillary.PageObject.earnPointsPage;
 import zapcg.Capillary.PageObject.loginPage;
-import zapcg.Capillary.PageObject.memberDetailsPage;
 import zapcg.Capillary.PageObject.memberLookupPage;
 
 
@@ -20,7 +19,7 @@ public class EarnPoint_Invalid_TestCases extends BaseTest{
 	
 	public loginPage lp;
 	 public String currentBrowser;
-	 memberDetailsPage	mdp=new memberDetailsPage(driver);
+	 //memberDetailsPage	mdp=new memberDetailsPage(driver);
 	 earnPointsPage epp=new earnPointsPage(driver);
 	 memberLookupPage mlp=new memberLookupPage(driver);
 	

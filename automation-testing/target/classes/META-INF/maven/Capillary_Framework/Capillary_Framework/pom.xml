@@ -212,25 +212,7 @@
 			</plugin>
 			
 			
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>exec-maven-plugin</artifactId>
-				<version>1.6.0</version>
-				<executions>
-				  <execution>
-					<id>first-execution</id>
-					<phase>install</phase>
-					<goals>
-						<goal>java</goal>
-					</goals>
-					<configuration>
-					<classpathScope>main</classpathScope>
-					<mainClass>zapcg.Capillary.utils.SendMail</mainClass>
-					</configuration>
-				  </execution>
-				</executions>
-			</plugin>
-			
+		
 			
 			
         </plugins>

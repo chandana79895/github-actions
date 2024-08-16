@@ -9,7 +9,6 @@ import org.testng.annotations.Test;
 import zapcg.Capillary.Base.BaseTest;
 import zapcg.Capillary.PageObject.earnPointsPage;
 import zapcg.Capillary.PageObject.loginPage;
-import zapcg.Capillary.PageObject.memberDetailsPage;
 import zapcg.Capillary.PageObject.memberLookupPage;
 
 

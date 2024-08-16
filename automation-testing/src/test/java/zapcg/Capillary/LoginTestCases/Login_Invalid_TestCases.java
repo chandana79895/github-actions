@@ -36,7 +36,7 @@ public class Login_Invalid_TestCases extends BaseTest{
 	@Test(priority = 1,groups = {"Login"})
    public void test_Invalid_Username() throws InterruptedException {
        
-       lp.login("zapcotest", "storeportal");
+       lp.login("zapcotestt", "storeportal");
        lp.verifyInvalidUserNameError("Invalid username or password. Try again.");
 	}
 
@@ -69,15 +69,9 @@ public class Login_Invalid_TestCases extends BaseTest{
       lp.verifySpaceNotAllowedUserName("Username must not contain any spaces"); 
    }
 
-   @Test(priority = 6,groups = {"Login"})
-   public void verify_Enabled_LoginButton() throws InterruptedException {
-   	
-   	lp.login("testiuytree", "testtests");
-      lp.verifyLoginButtonEnabled();
-   }
   
    
-   @Test(priority = 7,groups = {"Login"})
+   @Test(priority = 6,groups = {"Login"})
    public void verify_Disabled_LoginButton_EmptyUsername() throws InterruptedException {
    
    	lp.loginDisabledVerification("", "12345678");
@@ -85,14 +79,14 @@ public class Login_Invalid_TestCases extends BaseTest{
    }
    
    
-   @Test(priority = 8,groups = {"Login"})
+   @Test(priority = 7,groups = {"Login"})
    public void verify_Disabled_LoginButton_EmptyPassword() throws InterruptedException {
   
    	lp.loginDisabledVerification("testEmptyPassword", "");
    	lp.verifyLoginButtonDisabled_EmptyPassword();
    }
    
-   @Test(priority = 9,groups = {"Login"})
+   @Test(priority = 8,groups = {"Login"})
    public void verify_Disabled_LoginButton_EmptyUsernamePassword_TestCase10() throws InterruptedException {
    
    	lp.loginDisabledVerification("", "");

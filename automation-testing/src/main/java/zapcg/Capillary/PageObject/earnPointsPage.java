@@ -22,6 +22,8 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import java.util.function.Function;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class earnPointsPage {
 	
@@ -87,14 +89,14 @@ public class earnPointsPage {
 		
 		@FindBy(xpath="//button[@id='EP046B']")
 		WebElement cancelButton;
-		
-		@FindBy(xpath="//p[@id='EPMDLMSG' and contains(text(), 'transaction has been successfully submitted. They have earned')]")
+		//h5[@id='EPMDLMSG']
+		@FindBy(xpath="//h5[@id='EPMDLMSG' and contains(text(), 'transaction has been successfully submitted. They have earned')]")
 		WebElement successMessage;
 		
-		@FindBy(xpath="//p[@id='EPMDLMSG']")       //p[@id='EPMDLMSG' and contains(text(), 'transaction has been successfully submitted. They have earned 35 points and have spent 1 points.')]")
+		@FindBy(xpath="//h5[@id='EPMDLMSG']")       //p[@id='EPMDLMSG' and contains(text(), 'transaction has been successfully submitted. They have earned 35 points and have spent 1 points.')]")
 		WebElement successRedeemMessage;////div[@id='EPMDL']/div/p[@id='EPMDLMSG' and contains(text(), 'transaction has been successfully submitted. They have earned 35 points and have spent 1 points.')]
 		
-		@FindBy(xpath="//p[@id='EPMDLMSG']")
+		@FindBy(xpath="//h5[@id='EPMDLMSG']")
 		public  
 		WebElement thresholdSuccessMessage;
 		
@@ -122,7 +124,7 @@ public class earnPointsPage {
 		 
 		 @FindBy(xpath="//h3[@id='EPMBRCPT']")
 		WebElement availablePoints;
-		
+		 
 		
 	
 		private By memberNameSection = By.xpath("//h2[@id='EPMBRCNM']"); 
@@ -771,11 +773,17 @@ public class earnPointsPage {
 				 {
 					 
 					 try {
-							WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+						 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
-					        // Wait for the error message element to be visible
+					        // Scroll down to the bottom of the page multiple times to ensure the element is in view
+					        for (int i = 0; i < 3; i++) {
+					            ((JavascriptExecutor) driver).executeScript("window.scrollBy(0, 250);");
+					            Thread.sleep(1000); // Add a small delay between scrolls
+					        }
+
+					        // Wait for the success message element to be visible
 					        WebElement successMsg = wait.until(ExpectedConditions.visibilityOf(successMessage));
-
+ 
 					        // Get the text of the error message and trim it
 					        String actualValidationMessage = successMsg.getText().trim();
 					        System.out.println("Actual success message after Only transaction amount submitted :" +actualValidationMessage);
@@ -1041,6 +1049,34 @@ public class earnPointsPage {
 			        // Parse as integer
 			        return Integer.parseInt(totalEarningPointsText);
 			    }
+				
+				
+				 public String getSuccessMessage() {
+				        return new WebDriverWait(driver, Duration.ofSeconds(30))
+				                .until(ExpectedConditions.visibilityOf(successMessage)).getText();
+				    }
+				 
+				 
+				  public int getTotalEarningPoints2() {
+				        String pointsText = new WebDriverWait(driver, Duration.ofSeconds(30))
+				                .until(ExpectedConditions.visibilityOf(availablePoints)).getText();
+
+				        // Extract the numeric part from the points string
+				        String numericPointsText = pointsText.replaceAll("[^0-9]", "");
+				        return Integer.parseInt(numericPointsText);
+				    }
+				 
+				
+				 public String extractNumericValue(String message) {
+					    Pattern pattern = Pattern.compile("\\d+");
+					    Matcher matcher = pattern.matcher(message);
+					    if (matcher.find()) {
+					        return matcher.group();
+					    } else {
+					        throw new IllegalArgumentException("No numeric value found in the message: " + message);
+					    }
+					}
+				
 				
 	}
 				 

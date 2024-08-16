@@ -10,7 +10,6 @@ import org.testng.annotations.Test;
 import zapcg.Capillary.Base.BaseTest;
 import zapcg.Capillary.PageObject.earnPointsPage;
 import zapcg.Capillary.PageObject.loginPage;
-import zapcg.Capillary.PageObject.memberDetailsPage;
 import zapcg.Capillary.PageObject.memberLookupPage;
 
 
@@ -20,7 +19,7 @@ public class EarnPoint_Valid_TestCases extends BaseTest{
 	
 	public loginPage lp=new loginPage(driver);
 	 public String currentBrowser;
-	 memberDetailsPage	mdp=new memberDetailsPage(driver);
+	 //memberDetailsPage	mdp=new memberDetailsPage(driver);
 	 earnPointsPage epp=new earnPointsPage(driver);
 	 memberLookupPage mlp=new memberLookupPage(driver);
 	
@@ -39,8 +38,11 @@ public class EarnPoint_Valid_TestCases extends BaseTest{
 	       memberLookupPage mlp = new memberLookupPage(driver);
 	       mlp.enterMemberId("GT000003673");
 			mlp.clickOnSearchButton();
-			//mdp=new memberDetailsPage(driver);
-			//mdp.clickOnEnterReceiptButton();
+			//add lines as per new changes , add radio selection lines, Choose valid radio option to navigates to Earn point screen
+			
+			
+			
+			
 			epp=new earnPointsPage(driver);
 		
 	       

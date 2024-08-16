@@ -62,6 +62,12 @@ jobs:
         echo "CPU and Memory Usage:"
         tail -n 50 pidstat_output.log
 
+    - name: Upload CPU and Memory Usage Report
+      uses: actions/upload-artifact@v2
+      with:
+        name: cpu-memory-usage-report
+        path: pidstat_output.log    
+
 
     # - name: Upload test report artifact
     #   uses: actions/upload-artifact@v4

@@ -15,10 +15,10 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Install pidstat
-      run: sudo apt-get install -y sysstat
+      run: sudo apt-get install -y sysstat sar
 
-    - name: Start monitoring CPU and memory
-      run: pidstat -h -r -u -d 1 > pidstat_output.log &
+    - name: Start monitoring with sar
+      run: sar -u -r 1 > sar_output.log &
 
     - name: Set up JDK 11
       uses: actions/setup-java@v2
@@ -56,17 +56,23 @@ jobs:
         cd automation-testing/
         xvfb-run -a mvn clean install
 
-    - name: Stop monitoring and print CPU/memory usage
+    - name: Stop monitoring and summarize CPU/memory usage
       run: |
-        pkill pidstat
-        echo "CPU and Memory Usage:"
-        tail -n 50 pidstat_output.log
+        pkill sar
+
+        # Summarize CPU Usage (user + system)
+        cpu_usage=$(awk '/Average:/ {cpu_user+=$3; cpu_system+=$5} END {print cpu_user+cpu_system}' sar_output.log)
+        echo "Total CPU Usage (%): $cpu_usage"
+
+        # Summarize Memory Usage (in kB)
+        memory_usage=$(awk '/Average:/ {mem_free+=$4} END {print mem_free}' sar_output.log)
+        echo "Total Memory Used (kB): $memory_usage"
 
     - name: Upload CPU and Memory Usage Report
       uses: actions/upload-artifact@v2
       with:
         name: cpu-memory-usage-report
-        path: pidstat_output.log    
+        path: sar_output.log
 
 
     # - name: Upload test report artifact

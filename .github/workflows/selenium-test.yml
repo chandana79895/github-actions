@@ -14,12 +14,42 @@ jobs:
     
     - name: Clean up disk space
       run: |
+        # Clean APT cache
         sudo apt-get clean
+        
+        # Remove old package lists
         sudo rm -rf /var/lib/apt/lists/*
+        
+        # Autoremove unnecessary packages
         sudo apt-get autoremove -y
+        
+        # Clear old log files
         sudo rm -rf /var/log/*.log
+        
+        # Clear temporary files
         sudo rm -rf /tmp/*
-        sudo rm -rf /dev/root/* 
+        
+        # Remove files in root that are not in use
+        sudo rm -rf /var/tmp/*
+        sudo rm -rf /root/*
+        
+        # Free up disk space used by unused dependencies and cache
+        sudo apt-get autoremove -y
+        sudo apt-get autoclean -y
+
+    - name: Restart services
+      run: |
+        sudo systemctl restart docker || true
+
+    - name: Kill background processes
+      run: |
+        sudo pkill -f java || true
+        sudo pkill -f firefox || true
+        sudo pkill -f chrome || true
+
+    - name: Reboot server
+      run: |
+        sudo reboot
 
     - name: Set up JDK 11
       uses: actions/setup-java@v2
@@ -28,16 +58,11 @@ jobs:
         distribution: 'adopt'
         cache: 'maven'
 
-    - name: Update apt-get
-      run: sudo apt-get update
-
-    - name: Fix broken dependencies
-      run: sudo apt --fix-broken install -y
-
     - name: Set up Maven and dependencies
       run: |
         sudo apt-get update
         sudo apt-get install -y maven 
+
     - name: Googledriver setup
       run: |
         sudo apt install wget -y
@@ -60,11 +85,7 @@ jobs:
         sudo chown runner:runner /usr/local/bin/geckodriver
         sudo chmod +x /usr/local/bin/geckodriver
 
-    - name: Install xvfb
-      run: sudo apt-get install -y xvfb
-
     - name: Start xvfb
       run: |
-        export DISPLAY=:99
         cd automation-testing/
-        xvfb-run -a mvn clean install 
+        mvn clean install

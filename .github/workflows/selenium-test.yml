@@ -14,8 +14,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Install pidstat
-      run: sudo apt-get install -y sysstat sar
+    - name: Install sysstat (includes sar)
+      run: sudo apt-get install -y sysstat
 
     - name: Start monitoring with sar
       run: sar -u -r 1 > sar_output.log &
@@ -73,6 +73,7 @@ jobs:
       with:
         name: cpu-memory-usage-report
         path: sar_output.log
+
 
 
     # - name: Upload test report artifact

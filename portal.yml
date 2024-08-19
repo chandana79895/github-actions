@@ -14,13 +14,11 @@ Parameters:
     Type: String
 
 Conditions:
-
-Conditions:
   IsDev: !Equals [!Ref Env, dev]
   IsStage: !Equals [!Ref Env, stage]
   IsProd: !Equals [!Ref Env, prod]
   IsPoc: !Equals [!Ref Env, poc]
-  IsMain: !Equals [!Ref Env,main]
+  IsMain: !Equals [!Ref Env, main]
   
 Resources:
   AutomationReportOriginAccessIdentity:
@@ -62,16 +60,17 @@ Resources:
     Type: AWS::CloudFront::Distribution
     Properties:
       DistributionConfig:
-        WebACLId:
-          !If
-            - IsPoc
-            - !Ref AWS::NoValue
-            - !If
-                - IsStage
-                - !Ref WEBACLID
-                - !If
-                    - IsProd
-                    - !Ref WEBACLID
+        # Use Fn::If to conditionally set WebACLId
+        WebACLId: !If
+          - IsPoc
+          - !Ref AWS::NoValue
+          - !If
+              - IsStage
+              - !Ref WEBACLID
+              - !If
+                  - IsProd
+                  - !Ref WEBACLID
+                  - !Ref AWS::NoValue
         Comment: !Sub "AutomationReport-${Env}"
         Origins:
           - DomainName: !Sub ${AutomationReportBucket}.s3.${AWS::Region}.amazonaws.com
@@ -112,4 +111,4 @@ Outputs:
   Environment:
     Value: !Ref Env
     Export:
-      Name: EnvironmentParameter          
+      Name: EnvironmentParameter

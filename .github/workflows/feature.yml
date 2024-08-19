@@ -52,7 +52,7 @@ jobs:
           ENV: ${{ secrets.ENV }}
           IP_ADDRESS: ${{ secrets.IP_ADDRESS }}
         run:
-          bash waf.sh main     
+          bash waf.sh poc     
 
       - name: Deploying distribution in aws
         env:

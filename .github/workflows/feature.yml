@@ -49,6 +49,7 @@ jobs:
           CFD_ID: ${{ secrets.CFD_ID }}
           ACCOUNT_ID: ${{ secrets.ACCOUNT_ID }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
+          ENV: ${{ secrets.ENV }}
         run:
           bash waf.sh       
 

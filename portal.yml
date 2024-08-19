@@ -14,10 +14,6 @@ Parameters:
     Type: String
 
 Conditions:
-  IsPoC: !Equals [!Ref Env, poc]
-  IsStage: !Equals [!Ref Env, stage]
-  IsProd: !Equals [!Ref Env, prod]
-
 
 Conditions:
   IsDev: !Equals [!Ref Env, dev]

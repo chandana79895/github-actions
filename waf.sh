@@ -18,9 +18,14 @@ WEB_ACL_RULE_PRIORITY=1
 WEB_ACL_RULE_ACTION="Allow"
 IP_SET_NAME="IPSet-${Env}"
 IP_SET_DESCRIPTION="IP Set for whitelisting in ${Env} environment"
-IP_SET_IP_ADDRESSES=$(echo "$IP_ADDRESS" | tr ',' '\n')  
+IP_SET_IP_ADDRESSES=$(echo "$IP_ADDRESS" | tr ',' '\n')  # Convert comma-separated list to newline-separated
 ACCOUNT_ID="$ACCOUNT_ID"  
 AWS_REGION="$AWS_REGION"
+
+# Convert newline-separated addresses to JSON format
+format_addresses() {
+    printf '%s\n' ${IP_SET_IP_ADDRESSES[@]} | jq -R -s -c 'split("\n")[:-1]'
+}
 
 # Function to create IP Set
 create_ip_set() {
@@ -30,7 +35,7 @@ create_ip_set() {
         --description "$IP_SET_DESCRIPTION" \
         --scope "$WEB_ACL_SCOPE" \
         --ip-address-version IPV4 \
-        --addresses "${IP_ADDRESS[@]}" \
+        --addresses "$(format_addresses)" \
         --query 'Summary.Id' \
         --output text)
 
@@ -56,7 +61,7 @@ update_ip_set() {
         --id "$IP_SET_ID" \
         --name "$IP_SET_NAME" \
         --scope "$WEB_ACL_SCOPE" \
-        --addresses "${IP_ADDRESS[@]}" \
+        --addresses "$(format_addresses)" \
         --description "$IP_SET_DESCRIPTION" \
         --lock-token "$LOCK_TOKEN"
     

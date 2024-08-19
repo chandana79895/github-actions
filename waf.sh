@@ -1,14 +1,14 @@
 #!/bin/bash
 
 # Variables
-WEB_ACL_NAME="CloudFront-Check"
-WEB_ACL_DESCRIPTION="Web ACL for IP whitelisting"
+WEB_ACL_NAME="CloudFront-Check-${Env}"
+WEB_ACL_DESCRIPTION="Web ACL for IP whitelisting in ${Env} environment"
 WEB_ACL_SCOPE="CLOUDFRONT"
 WEB_ACL_RULE_NAME="IPWhitelistRule"
 WEB_ACL_RULE_PRIORITY=1
 WEB_ACL_RULE_ACTION="Allow"
-IP_SET_NAME="IPSet"
-IP_SET_DESCRIPTION="IP Set for whitelisting"
+IP_SET_NAME="IPSet-${Env}"
+IP_SET_DESCRIPTION="IP Set for whitelisting in ${Env} environment"
 IP_SET_IP_ADDRESSES=("101.0.62.244/32" "106.196.17.222/32") 
 ACCOUNT_ID="$ACCOUNT_ID"  
 AWS_REGION="$AWS_REGION"

@@ -1,6 +1,5 @@
 AWSTemplateFormatVersion: "2010-09-09"
 
-#TODO:  add params for check same template
 Parameters:
   Env:
     Type: String
@@ -13,6 +12,12 @@ Parameters:
       - main
   WEBACLID:
     Type: String
+
+Conditions:
+  IsPoC: !Equals [!Ref Env, poc]
+  IsStage: !Equals [!Ref Env, stage]
+  IsProd: !Equals [!Ref Env, prod]
+
 
 Conditions:
   IsDev: !Equals [!Ref Env, dev]
@@ -60,7 +65,17 @@ Resources:
     Type: AWS::CloudFront::Distribution
     Properties:
       DistributionConfig:
-        WebACLId: !Ref WEBACLID
+        WebACLId: 
+          !If 
+            - IsPoC
+            - !Ref WEBACLID
+            - !If
+                - IsStage
+                - !Ref WEBACLID
+                - !If 
+                    - IsProd
+                    - !Ref WEBACLID
+                    - !Ref AWS::NoValue
         Comment: !Sub "AutomationReport-${Env}"
         Origins:
           - DomainName: !Sub ${AutomationReportBucket}.s3.${AWS::Region}.amazonaws.com
@@ -98,4 +113,10 @@ Resources:
         PriceClass: PriceClass_All
       Tags:
         - Key: Account_Project
-          Value: poc_test 
+          Value: poc_test
+
+Outputs:
+  Environment:
+    Value: !Ref Env
+    Export:
+      Name: EnvironmentParameter          

@@ -63,7 +63,7 @@ Resources:
         # Use Fn::If to conditionally set WebACLId
         WebACLId: !If
           - IsPoc
-          - !Ref AWS::NoValue
+          - !Ref WEBACLID
           - !If
               - IsStage
               - !Ref WEBACLID

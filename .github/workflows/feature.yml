@@ -44,15 +44,15 @@ jobs:
           echo "VITE_APP_SESSION=${{ secrets.VITE_APP_SESSION }}" >> .env.${{ secrets.ENV }} 
           echo "VITE_APP_BASE_URL=${{ secrets.VITE_APP_BASE_URL }}" >> .env.${{ secrets.ENV }} 
 
-      - name: Enabling WAF
-        env:
-          CFD_ID: ${{ secrets.CFD_ID }}
-          ACCOUNT_ID: ${{ secrets.ACCOUNT_ID }}
-          AWS_REGION: ${{ secrets.AWS_REGION }}
-          ENV: ${{ secrets.ENV }}
-          IP_SET_IP_ADDRESSES: ${{ secrets.IP_SET_IP_ADDRESSES }}
-        run:
-          bash waf.sh poc     
+      # - name: Enabling WAF
+      #   env:
+      #     CFD_ID: ${{ secrets.CFD_ID }}
+      #     ACCOUNT_ID: ${{ secrets.ACCOUNT_ID }}
+      #     AWS_REGION: ${{ secrets.AWS_REGION }}
+      #     ENV: ${{ secrets.ENV }}
+      #     IP_SET_IP_ADDRESSES: ${{ secrets.IP_SET_IP_ADDRESSES }}
+      #   run:
+      #     bash waf.sh poc     
 
       - name: Deploying distribution in aws
         env:

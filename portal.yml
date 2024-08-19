@@ -60,18 +60,6 @@ Resources:
   AutomationReportDistribution:
     Type: AWS::CloudFront::Distribution
     Properties:
-      # DistributionConfig:
-      #   WebACLId: 
-      #     !If 
-      #       - IsPoc
-      #       - !Ref WEBACLID
-      #       - !If
-      #           - IsStage
-      #           - !Ref WEBACLID
-      #           - !If 
-      #               - IsProd
-      #               - !Ref WEBACLID
-      #               - !Ref AWS::NoValue
         Comment: !Sub "AutomationReport-${Env}"
         Origins:
           - DomainName: !Sub ${AutomationReportBucket}.s3.${AWS::Region}.amazonaws.com
@@ -107,9 +95,6 @@ Resources:
             ResponseCode: 200
             ResponsePagePath: /index.html
         PriceClass: PriceClass_All
-      Tags:
-        - Key: Account_Project
-          Value: poc_test
 
 Outputs:
   Environment:

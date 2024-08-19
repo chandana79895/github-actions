@@ -20,7 +20,7 @@ Conditions:
   IsStage: !Equals [!Ref Env, stage]
   IsProd: !Equals [!Ref Env, prod]
   IsPoc: !Equals [!Ref Env, poc]
-  IsMain: !Equals [!Ref Env, main]
+  IsMain: !Equals [!Ref Env,main]
   
 Resources:
   AutomationReportOriginAccessIdentity:
@@ -62,16 +62,16 @@ Resources:
     Type: AWS::CloudFront::Distribution
     Properties:
       DistributionConfig:
-        # WebACLId:
-        #   !If
-        #     - IsPoc
-        #     - !Ref WEBACLID
-        #     - !If
-        #         - IsStage
-        #         - !Ref WEBACLID
-        #         - !If
-        #             - IsProd
-        #             - !Ref WEBACLID
+        WebACLId:
+          !If
+            - IsPoc
+            - !Ref AWS::NoValue
+            - !If
+                - IsStage
+                - !Ref WEBACLID
+                - !If
+                    - IsProd
+                    - !Ref WEBACLID
         Comment: !Sub "AutomationReport-${Env}"
         Origins:
           - DomainName: !Sub ${AutomationReportBucket}.s3.${AWS::Region}.amazonaws.com

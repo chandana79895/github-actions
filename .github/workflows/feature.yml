@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     # if: github.event_name == 'push' && (github.ref == 'refs/heads/poc') || (github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'develop')
     environment:
-      name: poc
+      name: main
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -31,18 +31,18 @@ jobs:
           role-duration-seconds: 1200
           audience: sts.amazonaws.com
 
-      - name: Set up Maven and dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y jq     
+      # - name: Set up Maven and dependencies
+      #   run: |
+      #     sudo apt-get update
+      #     sudo apt-get install -y jq     
 
-      - name: Set up .env file
-        env:
-          VITE_APP_SESSION: ${{ secrets.VITE_APP_SESSION }}
-          VITE_APP_BASE_URL: ${{ secrets.VITE_APP_BASE_URL }}
-        run: |
-          echo "VITE_APP_SESSION=${{ secrets.VITE_APP_SESSION }}" >> .env.${{ secrets.ENV }} 
-          echo "VITE_APP_BASE_URL=${{ secrets.VITE_APP_BASE_URL }}" >> .env.${{ secrets.ENV }} 
+      # - name: Set up .env file
+      #   env:
+      #     VITE_APP_SESSION: ${{ secrets.VITE_APP_SESSION }}
+      #     VITE_APP_BASE_URL: ${{ secrets.VITE_APP_BASE_URL }}
+      #   run: |
+      #     echo "VITE_APP_SESSION=${{ secrets.VITE_APP_SESSION }}" >> .env.${{ secrets.ENV }} 
+      #     echo "VITE_APP_BASE_URL=${{ secrets.VITE_APP_BASE_URL }}" >> .env.${{ secrets.ENV }} 
 
       - name: Enabling WAF
         env:

@@ -20,6 +20,7 @@ Conditions:
   IsStage: !Equals [!Ref Env, stage]
   IsProd: !Equals [!Ref Env, prod]
   IsPoc: !Equals [!Ref Env, poc]
+  IsMain: !Equals [!Ref Env, main]
   
 Resources:
   AutomationReportOriginAccessIdentity:
@@ -71,7 +72,6 @@ Resources:
         #         - !If
         #             - IsProd
         #             - !Ref WEBACLID
-        #             - !Ref AWS::NoValue
         Comment: !Sub "AutomationReport-${Env}"
         Origins:
           - DomainName: !Sub ${AutomationReportBucket}.s3.${AWS::Region}.amazonaws.com

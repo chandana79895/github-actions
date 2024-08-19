@@ -60,6 +60,7 @@ Resources:
   AutomationReportDistribution:
     Type: AWS::CloudFront::Distribution
     Properties:
+      DistributionConfig:
         Comment: !Sub "AutomationReport-${Env}"
         Origins:
           - DomainName: !Sub ${AutomationReportBucket}.s3.${AWS::Region}.amazonaws.com

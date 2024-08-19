@@ -54,25 +54,25 @@ jobs:
         run:
           bash waf.sh poc     
 
-      - name: Deploying distribution in aws
-        env:
-          ENV: ${{ secrets.ENV }}
-          VITE_APP_SESSION: ${{ secrets.VITE_APP_SESSION }}
-          VITE_APP_BASE_URL: ${{ secrets.VITE_APP_BASE_URL }}
-          WEBACLID: ${{ secrets.WEBACLID }}
-        run: |
-          aws cloudformation validate-template --template-body file://portal.yml
-          aws cloudformation deploy --stack-name test-stack-ui-${{ secrets.ENV }} --template-file portal.yml --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM --parameter-overrides Env=${{ secrets.ENV }} WEBACLID=${{ secrets.WEBACLID }}      
+      # - name: Deploying distribution in aws
+      #   env:
+      #     ENV: ${{ secrets.ENV }}
+      #     VITE_APP_SESSION: ${{ secrets.VITE_APP_SESSION }}
+      #     VITE_APP_BASE_URL: ${{ secrets.VITE_APP_BASE_URL }}
+      #     WEBACLID: ${{ secrets.WEBACLID }}
+      #   run: |
+      #     aws cloudformation validate-template --template-body file://portal.yml
+      #     aws cloudformation deploy --stack-name test-stack-ui-${{ secrets.ENV }} --template-file portal.yml --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM --parameter-overrides Env=${{ secrets.ENV }} WEBACLID=${{ secrets.WEBACLID }}      
 
-      - name: Build and Deploying FE Code
-        env:
-          CFD_ID: ${{ secrets.CFD_ID }}
-        run: |
-          # printenv >  .env.${{ secrets.ENV }}
-          npm install
-          export CI=false
-          npm run build:${{ secrets.ENV }}
-          cat .env.${{ secrets.ENV }}
-          aws s3 rm s3://test-stack-ui-poc-${{ secrets.ENV }}/ --recursive
-          aws s3 sync ./dist s3://test-stack-ui-poc-${{ secrets.ENV}}/
-          aws cloudfront create-invalidation --distribution-id ${{ secrets.CFD_ID }} --paths "/*"
+      # - name: Build and Deploying FE Code
+      #   env:
+      #     CFD_ID: ${{ secrets.CFD_ID }}
+      #   run: |
+      #     # printenv >  .env.${{ secrets.ENV }}
+      #     npm install
+      #     export CI=false
+      #     npm run build:${{ secrets.ENV }}
+      #     cat .env.${{ secrets.ENV }}
+      #     aws s3 rm s3://test-stack-ui-poc-${{ secrets.ENV }}/ --recursive
+      #     aws s3 sync ./dist s3://test-stack-ui-poc-${{ secrets.ENV}}/
+      #     aws cloudfront create-invalidation --distribution-id ${{ secrets.CFD_ID }} --paths "/*"

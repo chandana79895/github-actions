@@ -63,7 +63,7 @@ Resources:
       DistributionConfig:
         WebACLId: 
           !If 
-            - IsPoC
+            - IsPoc
             - !Ref WEBACLID
             - !If
                 - IsStage

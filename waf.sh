@@ -1,5 +1,14 @@
 #!/bin/bash
 
+# Check if an argument was passed
+if [ -z "$1" ]; then
+  echo "Environment not provided. Exiting."
+  exit 1
+fi
+
+# Assign the passed argument to Env
+Env=$1
+
 # Variables
 WEB_ACL_NAME="CloudFront-Check-${Env}"
 WEB_ACL_DESCRIPTION="Web ACL for IP whitelisting in ${Env} environment"

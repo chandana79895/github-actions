@@ -18,7 +18,7 @@ WEB_ACL_RULE_PRIORITY=1
 WEB_ACL_RULE_ACTION="Allow"
 IP_SET_NAME="IPSet-${Env}"
 IP_SET_DESCRIPTION="IP Set for whitelisting in ${Env} environment"
-IP_SET_IP_ADDRESSES="$IP_SET_IP_ADDRESSES"
+IP_ADDRESS="$IP_ADDRESS"
 ACCOUNT_ID="$ACCOUNT_ID"  
 AWS_REGION="$AWS_REGION"
 
@@ -30,7 +30,7 @@ create_ip_set() {
         --description "$IP_SET_DESCRIPTION" \
         --scope "$WEB_ACL_SCOPE" \
         --ip-address-version IPV4 \
-        --addresses "${IP_SET_IP_ADDRESSES[@]}" \
+        --addresses "${IP_ADDRESS[@]}" \
         --query 'Summary.Id' \
         --output text)
 
@@ -56,7 +56,7 @@ update_ip_set() {
         --id "$IP_SET_ID" \
         --name "$IP_SET_NAME" \
         --scope "$WEB_ACL_SCOPE" \
-        --addresses "${IP_SET_IP_ADDRESSES[@]}" \
+        --addresses "${IP_ADDRESS[@]}" \
         --description "$IP_SET_DESCRIPTION" \
         --lock-token "$LOCK_TOKEN"
     

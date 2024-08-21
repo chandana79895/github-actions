@@ -59,7 +59,7 @@ jobs:
 
   deploys:
     runs-on: self-hosted
-    needs: deploy
+    # needs: deploy
     steps:
     - uses: actions/checkout@v2
     

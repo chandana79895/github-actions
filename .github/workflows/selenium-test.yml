@@ -103,7 +103,14 @@ jobs:
         cd automation-testing/
         xvfb-run -a mvn clean install
 
-    - name: Cleaning the container
-      run: |
-        sudo docker exec -it dcb55eb7e979 /bin/bash
-        rm -rf /home/runner/actions-runner/_work/*    
+    - name: Upload test report artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: TestReport
+        path: automation-testing/reports/index.html
+        if-no-files-found: warn    
+
+    # - name: Cleaning the container
+    #   run: |
+    #     sudo docker exec -it dcb55eb7e979 /bin/bash
+    #     rm -rf /home/runner/actions-runner/_work/*    

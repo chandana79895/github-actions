@@ -62,31 +62,6 @@ jobs:
     # needs: deploy
     steps:
     - uses: actions/checkout@v2
-    
-    - name: Clean up disk space
-      run: |
-        # Clean APT cache
-        sudo apt-get clean
-        
-        # Remove old package lists
-        sudo rm -rf /var/lib/apt/lists/*
-        
-        # Autoremove unnecessary packages
-        sudo apt-get autoremove -y
-        
-        # Clear old log files
-        sudo rm -rf /var/log/*.log
-        
-        # Clear temporary files
-        sudo rm -rf /tmp/*
-        
-        # Remove files in root that are not in use
-        sudo rm -rf /var/tmp/*
-        sudo rm -rf /root/*
-        
-        # Free up disk space used by unused dependencies and cache
-        sudo apt-get autoremove -y
-        sudo apt-get autoclean -y
 
     - name: Set up JDK 11
       uses: actions/setup-java@v2
@@ -128,3 +103,8 @@ jobs:
         export DISPLAY=:99
         cd automation-testing/
         xvfb-run -a mvn clean install
+
+    - name: Cleaning the container
+      run: |
+        sudo docker exec -it dcb55eb7e979 /bin/bash
+        rm -rf /home/runner/actions-runner/_work/*    

@@ -37,6 +37,16 @@ jobs:
           echo "VITE_APP_SESSION=${{ secrets.VITE_APP_SESSION }}" >> .env.${{ secrets.ENV }} 
           echo "VITE_APP_BASE_URL=${{ secrets.VITE_APP_BASE_URL }}" >> .env.${{ secrets.ENV }} 
 
+      - name: Enabling WAF
+        env:
+          CFD_ID: ${{ secrets.CFD_ID }}
+          ACCOUNT_ID: ${{ secrets.ACCOUNT_ID }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          ENV: ${{ secrets.ENV }}
+          IP_ADDRESS: ${{ secrets.IP_ADDRESS }}
+        run:
+          bash waf.sh ${{ secrets.ENV }}              
+
       - name: Deploying distribution
         env:
           ENV: ${{ secrets.ENV }}
@@ -45,7 +55,22 @@ jobs:
         run: |
           aws cloudformation validate-template --template-body file://portal.yml
           aws cloudformation deploy --stack-name test-stack-ui-${{ secrets.ENV }} --template-file portal.yml --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM --parameter-overrides Env=${{ secrets.ENV }}
-  
+      
+      - name: Deploying to S3 bucket
+        env:
+          CFD_ID: ${{ secrets.CFD_ID }}
+          VITE_APP_SESSION: ${{ secrets.VITE_APP_SESSION }}
+          VITE_APP_BASE_URL: ${{ secrets.VITE_APP_BASE_URL }}
+          VITE_APP_TRANSACTION_AMOUNT: ${{ secrets.VITE_APP_TRANSACTION_AMOUNT }}
+          VITE_APP_SCAN_LIMIT: ${{ secrets.VITE_APP_SCAN_LIMIT }}
+        run: |
+          npm install
+          export CI=false
+          npm run build:${{ secrets.ENV }}
+          aws s3 rm s3://fortress-stack-ui-${{ secrets.ENV }}/ --recursive
+          aws s3 sync ./dist s3://fortress-stack-ui-${{ secrets.ENV}}/
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.CFD_ID }} --paths "/*"
+
   deploys:
     runs-on: self-hosted
 

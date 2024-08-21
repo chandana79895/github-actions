@@ -12,6 +12,9 @@ Parameters:
       - poc
       - main
 
+  WEBACLID:
+    Type: String        
+
 Conditions:
   IsDev: !Equals [!Ref Env, dev]
   IsStage: !Equals [!Ref Env, stage]
@@ -55,97 +58,11 @@ Resources:
             Action: s3:GetObject
             Resource: !Sub arn:aws:s3:::${StaticResourcesBucket}/*
 
-  testIP4Set:
-    Type: 'AWS::WAFv2::IPSet'
-    Properties:
-      Name: test-IPSet4
-      Scope: CLOUDFRONT
-      IPAddressVersion: IPV4
-      Addresses:
-        - "14.99.84.194/32"
-        - "49.204.91.61/32"
-        - "14.97.205.158/32"
-        - "192.168.1.242/32"
-        - "49.206.132.69/32"
-        - "2.207.1.196/32"
-        - "192.168.178.71/32"
-        - "13.212.80.71/32"
-      Tags:
-        - Key: Account_Project
-          Value: poc_test
-         
-
-  testIP6Set:
-    Type: 'AWS::WAFv2::IPSet'
-    Properties:
-      Name: test-IPSet6
-      Scope: CLOUDFRONT
-      IPAddressVersion: IPV6
-      Addresses:      
-        - "2600:1700:eec4:7e00:a93a:01ca:410e:38cb/128"
-      Tags:
-        - Key: Account_Project
-          Value: poc_test
-           
-
-  testWebACL:
-    Type: AWS::WAFv2::WebACL
-    Properties:
-      Name: test-WebACL
-      Scope: CLOUDFRONT
-      DefaultAction:
-        Allow: {}
-      VisibilityConfig: 
-        SampledRequestsEnabled: true
-        CloudWatchMetricsEnabled: true
-        MetricName: "testWebACL"
-      Rules:
-        - Name: AllowIPRule4
-          Priority: 0
-          Action:
-            Allow: {}
-          VisibilityConfig:
-            SampledRequestsEnabled: true
-            CloudWatchMetricsEnabled: true
-            MetricName: allow_ip4
-          Statement:
-            IPSetReferenceStatement:
-              Arn: !GetAtt testIP4Set.Arn
-        - Name: AllowIPRule6
-          Priority: 1
-          Action:
-            Allow: {}
-          VisibilityConfig:
-            SampledRequestsEnabled: true
-            CloudWatchMetricsEnabled: true
-            MetricName: allow_ip6
-          Statement:
-            IPSetReferenceStatement:
-              Arn: !GetAtt testIP6Set.Arn 
-        - Name: Country-Block
-          Priority: 2
-          Statement:
-            NotStatement:
-              Statement:
-                GeoMatchStatement:
-                  CountryCodes:
-                    - JP
-          Action:
-            Block: {}
-          VisibilityConfig:
-            SampledRequestsEnabled: true
-            CloudWatchMetricsEnabled: true
-            MetricName: Country-Block
-      Tags:
-        - Key: Account_Project
-          Value: poc_test
-        
-
   Distribution:
     Type: AWS::CloudFront::Distribution
     Properties:
       DistributionConfig:
-        WebACLId: !GetAtt testWebACL.Arn
+        WebACLId: !Ref WEBACLID
         Comment: !Sub "test-${Env}"
         Origins:
           - DomainName: !Sub ${StaticResourcesBucket}.s3.${AWS::Region}.amazonaws.com
@@ -184,52 +101,3 @@ Resources:
       Tags:
         - Key: Account_Project
           Value: poc_test
-        
-
-  # WAFLogsS3Bucket:
-  #   Type: AWS::S3::Bucket
-  #   Properties:
-  #     BucketName: !Sub "aws-waf-logs-test-${Env}"
-  #     PublicAccessBlockConfiguration:
-  #       BlockPublicAcls: true
-  #       BlockPublicPolicy: true
-  #       IgnorePublicAcls: true
-  #       RestrictPublicBuckets: true
-
-  # WAFLogsBucketPolicy:
-  #   Type: AWS::S3::BucketPolicy
-  #   Properties:
-  #     Bucket: !Ref WAFLogsS3Bucket
-  #     PolicyDocument:
-  #       Version: "2012-10-17"
-  #       Statement:
-  #         - Sid: AWSLogDeliveryWrite
-  #           Effect: Allow
-  #           Principal:
-  #             Service: delivery.logs.amazonaws.com
-  #           Action: s3:PutObject
-  #           Resource: !Sub "arn:aws:s3:::aws-waf-logs-test-${Env}/AWSLogs/${AWS::AccountId}/*"
-  #           Condition:
-  #             StringEquals:
-  #               s3:x-amz-acl: bucket-owner-full-control
-  #               aws:SourceAccount: !Sub "${AWS::AccountId}"
-  #             ArnLike:
-  #               aws:SourceArn: !Sub "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:*"
-  #         - Sid: AWSLogDeliveryAclCheck
-  #           Effect: Allow
-  #           Principal:
-  #             Service: delivery.logs.amazonaws.com
-  #           Action: s3:GetBucketAcl
-  #           Resource: !GetAtt WAFLogsS3Bucket.Arn
-  #           Condition:
-  #             StringEquals:
-  #               aws:SourceAccount: !Sub "${AWS::AccountId}"
-  #             ArnLike:
-  #               aws:SourceArn: !Sub "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:*"
-
-  # WAFLoggingConfiguration:
-  #   Type: AWS::WAFv2::LoggingConfiguration
-  #   Properties:
-  #     ResourceArn: !GetAtt testWebACL.Arn
-  #     LogDestinationConfigs:
-  #       - !GetAtt WAFLogsS3Bucket.Arn        

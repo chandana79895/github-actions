@@ -69,6 +69,7 @@ Resources:
         - "49.206.132.69/32"
         - "2.207.1.196/32"
         - "192.168.178.71/32"
+        - "13.212.80.71/32"
       Tags:
         - Key: Account_Project
           Value: poc_test

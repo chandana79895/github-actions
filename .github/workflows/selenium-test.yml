@@ -97,11 +97,11 @@ jobs:
         sudo chown runner:runner /usr/local/bin/geckodriver
         sudo chmod +x /usr/local/bin/geckodriver
 
-    # - name: Start xvfb
-    #   run: |
-    #     export DISPLAY=:99
-    #     cd automation-testing/
-    #     xvfb-run -a mvn clean install
+    - name: Start xvfb
+      run: |
+        export DISPLAY=:99
+        cd automation-testing/
+        xvfb-run -a mvn clean install
 
     - name: Cleaning the container
       run: |

@@ -10,7 +10,6 @@ Parameters:
       - stage
       - prod
       - poc
-      - main
 
   WEBACLID:
     Type: String        

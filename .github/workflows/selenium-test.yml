@@ -52,9 +52,10 @@ jobs:
           ENV: ${{ secrets.ENV }}
           VITE_APP_SESSION: ${{ secrets.VITE_APP_SESSION }}
           VITE_APP_BASE_URL: ${{ secrets.VITE_APP_BASE_URL }}
+          WEBACLID: ${{ secrets.WEBACLID }}
         run: |
           aws cloudformation validate-template --template-body file://portal.yml
-          aws cloudformation deploy --stack-name test-stack-ui-${{ secrets.ENV }} --template-file portal.yml --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM --parameter-overrides Env=${{ secrets.ENV }}
+          aws cloudformation deploy --stack-name test-stack-ui-${{ secrets.ENV }} --template-file portal.yml --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM --parameter-overrides Env=${{ secrets.ENV }} WEBACLID=${{ secrets.WEBACLID }}
       
       - name: Deploying to S3 bucket
         env:

@@ -113,4 +113,6 @@ jobs:
     - name: Start Docker
       run: |
         pwd
+        cd ../../..
+        pwd
         sudo docker exec -it d0f8b04fc07e /bin/bash -c "cd /home/ubuntu/actions-runner && ls -l"

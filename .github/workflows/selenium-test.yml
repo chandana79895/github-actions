@@ -108,9 +108,9 @@ jobs:
       with:
         name: TestReport
         path: automation-testing/reports/index.html
-        if-no-files-found: warn    
+        if-no-files-found: warn 
 
-    - name: Cleaning the container
-      run: |
-        sudo docker exec -it ec4f9e097f9f /bin/bash
-        rm -rf /home/runner/actions-runner/_work/*    
+    - name: Start Docker
+        run: |
+          sudo systemctl start docker
+          sudo docker run --rm -v /var/run/docker.sock:/var/run/docker.sock sudo docker exec -it ec4f9e097f9f /bin/bash && rm -rf /home/runner/actions-runner/_work/*

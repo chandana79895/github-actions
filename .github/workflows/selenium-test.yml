@@ -113,4 +113,4 @@ jobs:
     - name: Start Docker
       run: |
         pwd
-        sudo docker exec -it d0f8b04fc07e /bin/bash
+        sudo docker ps -a

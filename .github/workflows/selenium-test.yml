@@ -97,20 +97,20 @@ jobs:
         sudo chown runner:runner /usr/local/bin/geckodriver
         sudo chmod +x /usr/local/bin/geckodriver
 
-    - name: Start xvfb
-      run: |
-        export DISPLAY=:99
-        cd automation-testing/
-        xvfb-run -a mvn clean install
+    # - name: Start xvfb
+    #   run: |
+    #     export DISPLAY=:99
+    #     cd automation-testing/
+    #     xvfb-run -a mvn clean install
 
-    - name: Upload test report artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: TestReport
-        path: automation-testing/reports/index.html
-        if-no-files-found: warn 
+    # - name: Upload test report artifact
+    #   uses: actions/upload-artifact@v4
+    #   with:
+    #     name: TestReport
+    #     path: automation-testing/reports/index.html
+    #     if-no-files-found: warn 
 
     - name: Start Docker
       run: |
         sudo systemctl start docker
-        sudo docker run --rm -v /var/run/docker.sock:/var/run/docker.sock sudo docker exec -it ec4f9e097f9f /bin/bash && rm -rf /home/runner/actions-runner/_work/*
+        sudo docker exec ec4f9e097f9f rm -rf /home/runner/actions-runner/_work/*

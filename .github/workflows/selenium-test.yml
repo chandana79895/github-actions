@@ -113,6 +113,6 @@ jobs:
     - name: Start Docker
       run: |
         pwd
-        cd /home/ubuntu/actions-runner
+        exit
         pwd
         sudo docker ps -a

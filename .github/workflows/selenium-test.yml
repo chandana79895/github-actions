@@ -73,7 +73,7 @@ jobs:
     - name: Set up Maven and dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y maven libasound2 libasound2-data libnspr4 libnss3 default-jre-headless libjansi-java libmaven3-core-java libwagon-file-java libwagon-http-shaded-java jq xvfb docker.io
+        sudo apt-get install -y maven libasound2 libasound2-data libnspr4 libnss3 default-jre-headless libjansi-java libmaven3-core-java libwagon-file-java libwagon-http-shaded-java xvfb
 
     - name: Googledriver setup
       run: |

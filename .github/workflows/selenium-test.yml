@@ -1,4 +1,4 @@
-name: Java CI with Maven
+name: DevSecOps check
 
 on:
   push:
@@ -37,6 +37,7 @@ jobs:
 
   sonarqube-analysis:
     runs-on: ubuntu-latest
+    needs: deploys
     services:
       sonarqube:
         image: sonarqube:latest
@@ -46,4 +47,4 @@ jobs:
           --health-cmd="curl -f http://localhost:9000/api/system/health || exit 1"
           --health-interval=30s
           --health-timeout=10s
-          --health-retries=3    
+          --health-retries=3

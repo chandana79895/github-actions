@@ -112,6 +112,6 @@ jobs:
 
     - name: Start Docker
       run: |
-        pwd
+        exit
         chmod +x docker-clean.sh
         bash docker-clean.sh

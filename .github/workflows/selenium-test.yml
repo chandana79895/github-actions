@@ -110,7 +110,12 @@ jobs:
     #     path: automation-testing/reports/index.html
     #     if-no-files-found: warn 
 
-    - name: Start Docker
+    - name: Clean files in the container
       run: |
-        sudo systemctl start docker
+        # Ensure Docker is running by checking its status or starting it if needed
+        if ! sudo docker ps > /dev/null 2>&1; then
+          sudo dockerd &
+          sleep 5
+        fi
+        # Run the cleanup command inside the container
         sudo docker exec ec4f9e097f9f rm -rf /home/runner/actions-runner/_work/*

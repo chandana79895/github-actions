@@ -6,130 +6,82 @@ on:
       - "devsecops-check"
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    if: github.event_name == 'push' && (github.ref == 'refs/heads/poc') || (github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'develop')
-    environment:
-      name: poc
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Install Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '18.x'
-
-      - name: Set up AWS CLI
-        uses: aws-actions/configure-aws-credentials@v2
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
-          role-duration-seconds: 1200
-          audience: sts.amazonaws.com
-
-      - name: Set up .env file
-        env:
-          VITE_APP_SESSION: ${{ secrets.VITE_APP_SESSION }}
-          VITE_APP_BASE_URL: ${{ secrets.VITE_APP_BASE_URL }}
-        run: |
-          echo "VITE_APP_SESSION=${{ secrets.VITE_APP_SESSION }}" >> .env.${{ secrets.ENV }} 
-          echo "VITE_APP_BASE_URL=${{ secrets.VITE_APP_BASE_URL }}" >> .env.${{ secrets.ENV }} 
-
-      - name: Enabling WAF
-        env:
-          CFD_ID: ${{ secrets.CFD_ID }}
-          ACCOUNT_ID: ${{ secrets.ACCOUNT_ID }}
-          AWS_REGION: ${{ secrets.AWS_REGION }}
-          ENV: ${{ secrets.ENV }}
-          IP_ADDRESS: ${{ secrets.IP_ADDRESS }}
-        run:
-          bash waf.sh ${{ secrets.ENV }}              
-
-      - name: Deploying distribution
-        env:
-          ENV: ${{ secrets.ENV }}
-          VITE_APP_SESSION: ${{ secrets.VITE_APP_SESSION }}
-          VITE_APP_BASE_URL: ${{ secrets.VITE_APP_BASE_URL }}
-          WEBACLID: ${{ secrets.WEBACLID }}
-        run: |
-          aws cloudformation validate-template --template-body file://portal.yml
-          aws cloudformation deploy --stack-name test-stack-ui-${{ secrets.ENV }} --template-file portal.yml --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM --parameter-overrides Env=${{ secrets.ENV }} WEBACLID=${{ secrets.WEBACLID }}
-
   deploys:
     runs-on: ubuntu-latest
-    # needs: deploy
+    environment:
+      name: poc
+
     steps:
-    - uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Set up Docker
+        uses: docker/setup-buildx-action@v2
 
-    - name: Set up Docker
-      uses: docker/setup-buildx-action@v2
+      - name: Run OWASP Dependency-Check
+        uses: docker://owasp/dependency-check
+        env:
+          NVD_API_KEY: ${{ secrets.NVD_API_KEY }} 
+        with:
+          args: --project "github-actions" --out /results --scan /github/workspace --nvdApiKey=${{ secrets.NVD_API_KEY }}
 
-    - name: Run OWASP Dependency-Check
-      uses: docker://owasp/dependency-check
-      with:
-        args: --project "github-actions" --out /results --scan /github/workspace --nvdApiKey=${{ secrets.NVD_API_KEY }}
+      - name: Upload Dependency-Check report
+        uses: actions/upload-artifact@v3
+        with:
+          name: dependency-check-report
+          path: /results/dependency-check-report.html
 
-    - name: Upload Dependency-Check report
-      uses: actions/upload-artifact@v3
-      with:
-        name: dependency-check-report
-        path: /results/dependency-check-report.html
+      # Uncomment and adjust these steps if needed
+      # - name: Set up JDK 11
+      #   uses: actions/setup-java@v2
+      #   with:
+      #     java-version: '11'
+      #     distribution: 'adopt'
+      #     cache: 'maven'
 
-    - name: Set up JDK 11
-      uses: actions/setup-java@v2
-      with:
-        java-version: '11'
-        distribution: 'adopt'
-        cache: 'maven'
+      # - name: Set up Maven and dependencies
+      #   run: |
+      #     sudo apt-get update
+      #     sudo apt-get install -y maven libasound2 libasound2-data libnspr4 libnss3 default-jre-headless libjansi-java libmaven3-core-java libwagon-file-java libwagon-http-shaded-java xvfb
 
-    - name: Set up Maven and dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y maven libasound2 libasound2-data libnspr4 libnss3 default-jre-headless libjansi-java libmaven3-core-java libwagon-file-java libwagon-http-shaded-java xvfb
+      # - name: Googledriver setup
+      #   run: |
+      #     sudo apt install wget -y
+      #     sudo apt install unzip -y
+      #     wget https://dl.google.com/linux/deb/pool/main/g/google-chrome-stable/google-chrome-stable_126.0.6478.126-1_amd64.deb
+      #     sudo dpkg -i google-chrome-stable_126.0.6478.126-1_amd64.deb
+      #     wget https://storage.googleapis.com/chrome-for-testing-public/126.0.6478.126/linux64/chromedriver-linux64.zip
+      #     unzip chromedriver-linux64.zip  
+      #     sudo mv chromedriver-linux64/chromedriver /usr/bin/chromedriver
+      #     sudo chown runner:runner /usr/bin/chromedriver
+      #     sudo chmod +x /usr/bin/chromedriver
 
-    # - name: Googledriver setup
-    #   run: |
-    #     sudo apt install wget -y
-    #     sudo apt install unzip -y
-    #     wget https://dl.google.com/linux/deb/pool/main/g/google-chrome-stable/google-chrome-stable_126.0.6478.126-1_amd64.deb
-    #     sudo dpkg -i google-chrome-stable_126.0.6478.126-1_amd64.deb
-    #     wget https://storage.googleapis.com/chrome-for-testing-public/126.0.6478.126/linux64/chromedriver-linux64.zip
-    #     unzip chromedriver-linux64.zip  
-    #     sudo mv chromedriver-linux64/chromedriver /usr/bin/chromedriver
-    #     sudo chown runner:runner /usr/bin/chromedriver
-    #     sudo chmod +x /usr/bin/chromedriver
+      # - name: Install Firefox and GeckoDriver
+      #   run: |
+      #     sudo apt-get install -y firefox
+      #     GECKO_DRIVER_VERSION=$(curl -s https://api.github.com/repos/mozilla/geckodriver/releases/latest | jq -r '.tag_name')
+      #     wget -q "https://github.com/mozilla/geckodriver/releases/download/${GECKO_DRIVER_VERSION}/geckodriver-${GECKO_DRIVER_VERSION}-linux64.tar.gz"
+      #     tar -xzf geckodriver-${GECKO_DRIVER_VERSION}-linux64.tar.gz
+      #     sudo mv geckodriver /usr/local/bin/geckodriver
+      #     sudo chown runner:runner /usr/local/bin/geckodriver
+      #     sudo chmod +x /usr/local/bin/geckodriver
 
-    # - name: Install Firefox and GeckoDriver
-    #   run: |
-    #     sudo apt-get install -y firefox
-    #     GECKO_DRIVER_VERSION=$(curl -s https://api.github.com/repos/mozilla/geckodriver/releases/latest | jq -r '.tag_name')
-    #     wget -q "https://github.com/mozilla/geckodriver/releases/download/${GECKO_DRIVER_VERSION}/geckodriver-${GECKO_DRIVER_VERSION}-linux64.tar.gz"
-    #     tar -xzf geckodriver-${GECKO_DRIVER_VERSION}-linux64.tar.gz
-    #     sudo mv geckodriver /usr/local/bin/geckodriver
-    #     sudo chown runner:runner /usr/local/bin/geckodriver
-    #     sudo chmod +x /usr/local/bin/geckodriver
+      # - name: Start xvfb
+      #   run: |
+      #     export DISPLAY=:99
+      #     cd automation-testing/
+      #     xvfb-run -a mvn clean install
 
-    # - name: Start xvfb
-    #   run: |
-    #     export DISPLAY=:99
-    #     cd automation-testing/
-    #     xvfb-run -a mvn clean install
+      # - name: Upload test report artifact
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: TestReport
+      #     path: automation-testing/reports/index.html
+      #     if-no-files-found: warn 
 
-    # - name: Upload test report artifact
-    #   uses: actions/upload-artifact@v4
-    #   with:
-    #     name: TestReport
-    #     path: automation-testing/reports/index.html
-    #     if-no-files-found: warn 
-
-    # - name: Start Docker
-    #   run: |
-    #     pwd
-    #     cd ../../..
-    #     pwd
-    #     sudo docker exec -it d0f8b04fc07e /bin/bash -c "cd /home/ubuntu/actions-runner && ls -l"
+      # - name: Start Docker
+      #   run: |
+      #     pwd
+      #     cd ../../..
+      #     pwd
+      #     sudo docker exec -it d0f8b04fc07e /bin/bash -c "cd /home/ubuntu/actions-runner && ls -l"

@@ -110,7 +110,7 @@ jobs:
         path: automation-testing/reports/index.html
         if-no-files-found: warn    
 
-    # - name: Cleaning the container
-    #   run: |
-    #     sudo docker exec -it dcb55eb7e979 /bin/bash
-    #     rm -rf /home/runner/actions-runner/_work/*    
+    - name: Cleaning the container
+      run: |
+        sudo docker exec -it eac6d0c67e54 /bin/bash
+        rm -rf /home/runner/actions-runner/_work/*    

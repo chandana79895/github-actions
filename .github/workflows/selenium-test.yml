@@ -112,5 +112,5 @@ jobs:
 
     - name: Cleaning the container
       run: |
-        sudo docker exec -it eac6d0c67e54 /bin/bash
+        sudo docker exec -it ec4f9e097f9f /bin/bash
         rm -rf /home/runner/actions-runner/_work/*    

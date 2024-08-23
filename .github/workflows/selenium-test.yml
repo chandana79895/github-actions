@@ -3,7 +3,7 @@ name: Java CI with Maven
 on:
   push:
     branches:
-      - "latest-code"
+      - "devsecops-check"
 
 jobs:
   deploy:

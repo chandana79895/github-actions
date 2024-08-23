@@ -7,7 +7,7 @@ CONTAINER_ID="ec4f9e097f9f"
 DIRECTORY="/home/runner/actions-runner/_work/*"
 
 # Execute the command to remove the files and folders in the specified directory
-sudo docker exec $CONTAINER_ID rm -rf $DIRECTORY
+sudo docker exec -it $CONTAINER_ID rm -rf $DIRECTORY /bin/bash
 
 # Print a confirmation message
 echo "Cleaned the directory $DIRECTORY in container $CONTAINER_ID"

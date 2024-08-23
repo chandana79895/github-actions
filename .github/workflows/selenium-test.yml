@@ -113,5 +113,5 @@ jobs:
     - name: Start Docker
       run: |
         pwd
-        cd ../../.. && cd /home/runner/actions-runner
-        sudo docker ps -a
+        cd ../../.. 
+        pwd

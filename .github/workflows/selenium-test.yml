@@ -64,21 +64,21 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Checkout code
-        uses: actions/checkout@v3
+      uses: actions/checkout@v3
 
-      - name: Set up Docker
-        uses: docker/setup-buildx-action@v2
+    - name: Set up Docker
+      uses: docker/setup-buildx-action@v2
 
-      - name: Run OWASP Dependency-Check
-        uses: docker://owasp/dependency-check
-        with:
-          args: --project "github-actions" --out /results --scan /workspace
+    - name: Run OWASP Dependency-Check
+      uses: docker://owasp/dependency-check
+      with:
+        args: --project "github-actions" --out /results --scan /workspace
 
-      - name: Upload Dependency-Check report
-        uses: actions/upload-artifact@v3
-        with:
-          name: dependency-check-report
-          path: /results/dependency-check-report.html
+    - name: Upload Dependency-Check report
+      uses: actions/upload-artifact@v3
+      with:
+        name: dependency-check-report
+        path: /results/dependency-check-report.html
 
     - name: Set up JDK 11
       uses: actions/setup-java@v2

@@ -111,6 +111,6 @@ jobs:
         if-no-files-found: warn 
 
     - name: Start Docker
-        run: |
-          sudo systemctl start docker
-          sudo docker run --rm -v /var/run/docker.sock:/var/run/docker.sock sudo docker exec -it ec4f9e097f9f /bin/bash && rm -rf /home/runner/actions-runner/_work/*
+      run: |
+        sudo systemctl start docker
+        sudo docker run --rm -v /var/run/docker.sock:/var/run/docker.sock sudo docker exec -it ec4f9e097f9f /bin/bash && rm -rf /home/runner/actions-runner/_work/*

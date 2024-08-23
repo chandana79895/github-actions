@@ -72,7 +72,7 @@ jobs:
     - name: Run OWASP Dependency-Check
       uses: docker://owasp/dependency-check
       with:
-        args: --project "github-actions" --out /results --scan /github/workspace
+        args: --project "github-actions" --out /results --scan /github/workspace --nvdApiKey=${{ secrets.NVD_API_KEY }}
 
     - name: Upload Dependency-Check report
       uses: actions/upload-artifact@v3

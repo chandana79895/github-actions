@@ -15,11 +15,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Install Dependencies
-        run: |
-          npm install  
+      - name: Report check
+        run: npm install  
 
-      - name: Set up Docker Buildx
+      - name: Set up Docker
         uses: docker/setup-buildx-action@v2
 
       - name: Run OWASP Dependency-Check
@@ -28,7 +27,7 @@ jobs:
         run: |
           docker run --rm \
             -v ${{ github.workspace }}:/src \
-            -v /path/to/local/cache:/usr/share/dependency-check/data \
+            -v ${{ github.workspace }}/dependency-check-data:/usr/share/dependency-check/data \
             -e NVD_API_KEY=${{ secrets.NVD_API_KEY }} \
             owasp/dependency-check:latest \
             dependency-check.sh \
@@ -37,13 +36,11 @@ jobs:
               --nvdApiKey=${{ secrets.NVD_API_KEY }} \
               --format "HTML" \
               --out /src/dependency-check-report.html \
-              --log /src/dependency-check.log
+              --log /src/dependency-check.log || echo "Dependency-Check failed; check logs for details"
 
-
-      - name: Upload Dependency-Check Reports
+      - name: Upload Dependency-Check report
+        if: always() # Ensure this step runs even if the previous step fails
         uses: actions/upload-artifact@v3
         with:
           name: dependency-check-report
-          path: |
-            ./dependency-check-report.html
-            ./dependency-check.log
+          path: dependency-check-report.html

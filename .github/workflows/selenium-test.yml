@@ -25,9 +25,10 @@ jobs:
         env:
           NVD_API_KEY: ${{ secrets.NVD_API_KEY }}
         run: |
+          mkdir -p /tmp/dependency-check-data
           docker run --rm \
             -v ${{ github.workspace }}:/src \
-            -v ${{ github.workspace }}/dependency-check-data:/usr/share/dependency-check/data \
+            -v /tmp/dependency-check-data:/usr/share/dependency-check/data \
             -e NVD_API_KEY=${{ secrets.NVD_API_KEY }} \
             owasp/dependency-check:latest \
             dependency-check.sh \

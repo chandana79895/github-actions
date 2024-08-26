@@ -28,14 +28,17 @@ jobs:
         run: |
           docker run --rm \
             -v ${{ github.workspace }}:/src \
+            -v /path/to/local/cache:/usr/share/dependency-check/data \
+            -e NVD_API_KEY=${{ secrets.NVD_API_KEY }} \
             owasp/dependency-check:latest \
-            dependency-check.sh --purge \
+            dependency-check.sh \
               --project "github-actions" \
               --scan /src \
               --nvdApiKey=${{ secrets.NVD_API_KEY }} \
               --format "HTML" \
               --out /src/dependency-check-report.html \
               --log /src/dependency-check.log
+
 
       - name: Upload Dependency-Check Report
         uses: actions/upload-artifact@v3

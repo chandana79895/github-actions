@@ -44,7 +44,7 @@ jobs:
         run: |
           echo "Git Push Command to Branch: origin HEAD:${{ github.head_ref }}"
           git config --global url."https://${{ secrets.ENV_GITHUB_TOKEN }}@github.com".insteadOf "https://github.com"
-          git push origin HEAD:${{ github.head_ref }}
+          git push origin HEAD:"one-pipeline-testing-for-all-env\'s"
 
       - name: Install Dependencies (Post-Version Bump)
         run: npm ci

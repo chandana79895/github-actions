@@ -50,9 +50,7 @@ jobs:
         run: |
           git add package.json package-lock.json
           git commit -m "Bump version to $(cat package.json | jq -r '.version')"
-  
-      - name: Push Changes
-        run: git push origin ${{ github.head_ref }}
+          git push origin ${{ github.head_ref }}
 
       - name: Install Dependencies (Post-Version Bump)
         run: npm ci

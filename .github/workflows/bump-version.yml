@@ -32,20 +32,17 @@ jobs:
           git config --global user.name "chandana79895"
           git config --global user.email "manichandana7989@gmail.com"  
 
-      - name: Bump Version
-        run: npm version patch
-        env:
-          CI: true
-
-      - name: Show Current Branch
+      - name: Set Dynamic Version
         run: |
-          git status
-          if [[ $(git status --porcelain) ]]; then
-            git commit -m "updating the version"
-            git push
-          else
-            echo "No changes to commit"
-          fi
-          
+          # Generate dynamic version based on date
+          VERSION=$(date +'%Y.%m.%d.%H%M%S')
+          echo "New version: $VERSION"
+
+          # Update the version in package.json
+          jq ".version = \"$VERSION\"" package.json > temp.json && mv temp.json package.json
+          git add package.json package-lock.json
+          git commit -m "Update version to $VERSION"
+          git push origin "HEAD:${{ github.head_ref }}"
+
       - name: Install Dependencies (Post-Version Bump)
         run: npm ci

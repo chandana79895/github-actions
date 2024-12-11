@@ -23,6 +23,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.ENV_GITHUB_TOKEN }}
+          fetch-depth: 0  
+          ref: ${{ github.event.pull_request.head.ref }}  
 
       - name: Use Node.js
         uses: actions/setup-node@v4

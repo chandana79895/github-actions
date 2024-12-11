@@ -15,7 +15,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.ENV_GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}  # Use the default GITHUB_TOKEN provided by GitHub Actions
           fetch-depth: 0  
           ref: ${{ github.event.pull_request.head.ref }}  
 
@@ -23,10 +23,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18.x'
-
-      - name: Install dependencies
-        run: npm ci
-
+          
       - name: Set Git User
         run: |
           git config --global user.name "chandana79895"
@@ -34,15 +31,14 @@ jobs:
 
       - name: Set Dynamic Version
         run: |
-          # Generate dynamic version based on date
           VERSION=$(date +'%Y.%m.%d.%H%M%S')
           echo "New version: $VERSION"
 
           # Update the version in package.json
           jq ".version = \"$VERSION\"" package.json > temp.json && mv temp.json package.json
-          git add package.json package-lock.json
+          git add package.json
           git commit -m "Update version to $VERSION"
-          git push origin "HEAD:${{ github.head_ref }}"
+          git push https://x-access-token:${{ secrets.ENV_GITHUB_TOKEN }}@github.com/${{ github.repository }} HEAD:${{ github.head_ref }}  # Use the token to push
 
       - name: Install Dependencies (Post-Version Bump)
         run: npm ci

@@ -41,6 +41,8 @@ jobs:
         run: git branch -a
             
       - name: Debug Commit Version Update
+        env:
+          ENV_GITHUB_TOKEN: ${{ secrets.ENV_GITHUB_TOKEN }} 
         run: |
           echo "Git Push Command to Branch: origin HEAD:${{ github.head_ref }}"
           git push origin HEAD:"${{ github.head_ref }}"

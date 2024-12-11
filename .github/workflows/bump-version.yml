@@ -23,7 +23,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18.x'
-          
+
       - name: Set Git User
         run: |
           git config --global user.name "chandana79895"
@@ -31,14 +31,16 @@ jobs:
 
       - name: Set Dynamic Version
         run: |
+          set -x  # Enable debugging output
           VERSION=$(date +'%Y.%m.%d.%H%M%S')
           echo "New version: $VERSION"
-
+          
           # Update the version in package.json
           jq ".version = \"$VERSION\"" package.json > temp.json && mv temp.json package.json
           git add package.json
           git commit -m "Update version to $VERSION"
-          git push https://x-access-token:${{ secrets.ENV_GITHUB_TOKEN }}@github.com/${{ github.repository }} HEAD:${{ github.head_ref }}  # Use the token to push
+          git push https://x-access-token:${{ secrets.ENV_GITHUB_TOKEN }}@github.com/${{ github.repository }} HEAD:${{ github.head_ref }}
+
 
       - name: Install Dependencies (Post-Version Bump)
         run: npm ci

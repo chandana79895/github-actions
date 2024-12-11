@@ -39,13 +39,12 @@ jobs:
 
       - name: Show Current Branch
         run: git branch -a
-            
+
       - name: Debug Commit Version Update
-        env:
-          ENV_GITHUB_TOKEN: ${{ secrets.ENV_GITHUB_TOKEN }} 
         run: |
           echo "Git Push Command to Branch: origin HEAD:${{ github.head_ref }}"
-          git push origin HEAD:"${{ github.head_ref }}"
+          git config --global url."https://${{ secrets.ENV_GITHUB_TOKEN }}@github.com".insteadOf "https://github.com"
+          git push origin HEAD:${{ github.head_ref }}
 
       - name: Install Dependencies (Post-Version Bump)
         run: npm ci

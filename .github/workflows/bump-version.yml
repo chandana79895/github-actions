@@ -39,15 +39,7 @@ jobs:
 
       - name: Debug Commit Version Update
         run: |
-            echo "Current version: $(cat package.json | jq -r '.version')"
-            git add package.json package-lock.json
-            if [[ $(git diff --cached --exit-code) ]]; then
-              git commit -m "Bump version to $(cat package.json | jq -r '.version')"
-              git push origin HEAD:${{ github.head_ref }}
-            else
-              echo "No changes to commit"
-            fi
-  
+            git push
 
       - name: Install Dependencies (Post-Version Bump)
         run: npm ci

@@ -40,6 +40,8 @@ jobs:
       - name: Show Current Branch
         run: |
           git status
+          git commit -m "updating the version"
+          git push
 
     #   - name: Debug Commit Version Update
     #     run: |

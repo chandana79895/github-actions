@@ -29,5 +29,5 @@ jobs:
 
       - name: shell script
         run: |
-          chmod +x bump-version.sh
-          ./bump-version.sh
+          chmod +x version-bump.sh
+          ./version-bump.sh

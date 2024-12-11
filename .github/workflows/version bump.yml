@@ -37,7 +37,7 @@ jobs:
           npm ci
           npm version patch --no-git-tag-version
           git add package.json package-lock.json
-          git commit -m "Bump version to $(node -p \"require('./package.json').version\")"
+          git commit -m "Bump version to new"
 
       - name: Authenticate with GitHub
         run: |

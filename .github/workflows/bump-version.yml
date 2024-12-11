@@ -39,7 +39,8 @@ jobs:
 
       - name: Debug Commit Version Update
         run: |
-            git push origin HEAD:${{ github.head_ref }}
+          echo "Git Push Command to Branch: origin HEAD:${{ github.head_ref }}"
+          git push origin HEAD:${{ github.head_ref }}
 
       - name: Install Dependencies (Post-Version Bump)
         run: npm ci

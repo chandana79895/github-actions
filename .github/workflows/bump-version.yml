@@ -44,6 +44,6 @@ jobs:
 
       - name: Commit and push version update
         run: |
-          git add .
+          git add -A
           git commit -m "Update version to $(jq -r '.version' package.json)"
           git push https://x-access-token:${{ secrets.ENV_GITHUB_TOKEN }}@github.com/${{ github.repository }} HEAD:${{ github.head_ref }}

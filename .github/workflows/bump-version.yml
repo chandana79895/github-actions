@@ -31,12 +31,17 @@ jobs:
         run: |
           git config --global user.name "chandana79895"
           git config --global user.email "manichandana7989@gmail.com"
+          git config --global credential.helper store
+
+      - name: Ensure clean working directory
+        run: |
+          git reset --hard
+          git clean -fd
 
       - name: Update version using npm
         run: |
-          # Update version using npm version command (e.g., patch, minor, or major)
           npm version patch --no-git-tag-version
-          
+
       - name: Show Current Version
         run: |
           VERSION=$(jq -r '.version' package.json)
@@ -44,6 +49,6 @@ jobs:
 
       - name: Commit and push version update
         run: |
-          git add -A
+          git add package.json
           git commit -m "Update version to $(jq -r '.version' package.json)"
           git push https://x-access-token:${{ secrets.ENV_GITHUB_TOKEN }}@github.com/${{ github.repository }} HEAD:${{ github.head_ref }}

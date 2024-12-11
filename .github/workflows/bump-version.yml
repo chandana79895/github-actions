@@ -43,10 +43,12 @@ jobs:
           CI: true
 
       - name: Commit Version Update
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "Bump version to ${{ steps.version.outputs.new-version }}"
-          branch: ${{ github.head_ref }}
+        run: |
+          git add package.json package-lock.json
+          git commit -m "Bump version to $(cat package.json | jq -r '.version')"
+  
+      - name: Push Changes
+        run: git push origin ${{ github.head_ref }}
 
       - name: Install Dependencies (Post-Version Bump)
         run: npm ci

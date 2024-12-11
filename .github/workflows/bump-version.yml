@@ -37,6 +37,9 @@ jobs:
         env:
           CI: true
 
+      - name: Show Current Branch
+        run: git branch -a
+            
       - name: Debug Commit Version Update
         run: |
           echo "Git Push Command to Branch: origin HEAD:${{ github.head_ref }}"

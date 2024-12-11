@@ -15,7 +15,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.ENV_GITHUB_TOKEN }}
+          token: ${{ secrets.GH_PAT }}  # Use the PAT here
           fetch-depth: 0
           ref: ${{ github.event.pull_request.head.ref }}
 
@@ -34,12 +34,11 @@ jobs:
 
       - name: Bump version
         run: |
-          npm ci
           npm version patch --no-git-tag-version
           git add package.json package-lock.json
-          git commit -m "Bump version to new"
+          git commit -m "Bump version new"
 
-      - name: Authenticate with GitHub
+      - name: Push changes
         run: |
           git remote set-url origin https://${{ secrets.GH_PAT }}@github.com/chandana79895/github-actions.git
           git push origin version-bumping-check

@@ -42,6 +42,4 @@ jobs:
       - name: Authenticate with GitHub
         run: |
           git remote set-url origin https://${{ secrets.ENV_GITHUB_TOKEN }}@github.com/chandana79895/github-actions.git
-
-      - name: Push changes
-        run: git push origin version-bumping-check
+          git push origin version-bumping-check

@@ -24,10 +24,9 @@ jobs:
       - name: Check Merged PR Count
         id: check-merged-prs
         run: |
-          node <<EOF
-          import { Octokit } from "@octokit/rest";
-          
-          const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
+          const { Octokit } = require("@octokit/rest");
+
+          const octokit = new Octokit({ auth: process.env.ENV_GITHUB_TOKEN });
 
           async function getMergedPRCount() {
               const { data } = await octokit.pulls.list({
@@ -48,9 +47,8 @@ jobs:
           }
 
           getMergedPRCount();
-          EOF
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.ENV_GITHUB_TOKEN }}
           REPO_OWNER: chandana79895
           REPO_NAME: github-actions
 

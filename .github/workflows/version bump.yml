@@ -25,7 +25,7 @@ jobs:
 
   builds:
     needs: check-prs
-    if: ${{ needs.check-prs.outputs.pr_count >= 4 }}  # Only run if 5 or more PRs are merged
+    if: ${{ needs.check-prs.outputs.pr_count >= 3 }}  # Only run if 5 or more PRs are merged
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository

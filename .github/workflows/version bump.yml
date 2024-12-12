@@ -21,10 +21,10 @@ jobs:
           # Get today's date in YYYY-MM-DD format
           TODAY=$(date +%Y-%m-%d)
 
-          # Fetch merged PRs from the API
+          # Fetch merged PRs from the API and count those merged today
           PR_COUNT=$(curl -s -H "Authorization: token ${{ secrets.ENV_GITHUB_TOKEN }}" \
             "https://api.github.com/repos/${{ github.repository }}/pulls?state=closed&base=develop" \
-            | jq "[.[] | select(.merged_at != null and .merged_at | startswith(\"$TODAY\"))] | length")
+            | jq "[.[] | select(.merged_at != null and (.merged_at | split(\"T\") | .[0]) == \"$TODAY\")] | length")
 
           echo "PR count for today: $PR_COUNT"  # Debugging the PR count
           echo "::set-output name=pr_count::$PR_COUNT"  # Correct way to set output

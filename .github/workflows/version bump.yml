@@ -13,10 +13,10 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Setup Node.js
+      - name: Setup Node.js 18.x
         uses: actions/setup-node@v3
         with:
-          node-version: "16"
+          node-version: "18.x"
 
       - name: Install Dependencies
         run: npm install @octokit/rest
@@ -48,7 +48,7 @@ jobs:
 
           getMergedPRCount();
         env:
-          GITHUB_TOKEN: ${{ secrets.ENV_GITHUB_TOKEN }}
+          ENV_GITHUB_TOKEN: ${{ secrets.ENV_GITHUB_TOKEN }}
           REPO_OWNER: chandana79895
           REPO_NAME: github-actions
 
@@ -62,7 +62,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup Node.js
+      - name: Setup Node.js 18.x
         uses: actions/setup-node@v3
         with:
           node-version: '18.x'

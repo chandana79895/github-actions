@@ -15,18 +15,23 @@ jobs:
       - name: Checkout the code
         uses: actions/checkout@v2
 
-      - name: Get merged PR count
+      - name: Get today's merged PR count
         id: get_pr_count
         run: |
+          # Get today's date in YYYY-MM-DD format
+          TODAY=$(date +%Y-%m-%d)
+
+          # Fetch merged PRs from the API
           PR_COUNT=$(curl -s -H "Authorization: token ${{ secrets.ENV_GITHUB_TOKEN }}" \
             "https://api.github.com/repos/${{ github.repository }}/pulls?state=closed&base=develop" \
-            | jq '[.[] | select(.merged_at != null)] | length')
-          echo "PR count: $PR_COUNT"  # Debugging the PR count
+            | jq "[.[] | select(.merged_at != null and .merged_at | startswith(\"$TODAY\"))] | length")
+
+          echo "PR count for today: $PR_COUNT"  # Debugging the PR count
           echo "::set-output name=pr_count::$PR_COUNT"  # Correct way to set output
 
   build:
     needs: check-prs
-    if: ${{ needs.check-prs.outputs.pr_count >= 2 }}  # Only run if 3 or more PRs are merged
+    if: ${{ needs.check-prs.outputs.pr_count > 1 }}  # Only run if more than 3 PRs are merged today
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -34,8 +39,8 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Log PR count
-        run: echo "The PR count is ${{ needs.check-prs.outputs.pr_count }}"  # Debugging the value
+      - name: Log PR count for today
+        run: echo "The PR count for today is ${{ needs.check-prs.outputs.pr_count }}"  # Debugging the value
 
       - name: Setup Node.js 18.x
         uses: actions/setup-node@v3

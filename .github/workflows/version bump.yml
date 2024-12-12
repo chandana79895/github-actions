@@ -21,32 +21,37 @@ jobs:
       - name: Install Dependencies
         run: npm install @octokit/rest
 
-      - name: Check Merged PR Count
-        id: check-merged-prs
+      - name: Create Node.js Script to Check Merged PRs
         run: |
-          const { Octokit } = require("@octokit/rest");
-
+          echo "
+          const { Octokit } = require('@octokit/rest');
+          
           const octokit = new Octokit({ auth: process.env.ENV_GITHUB_TOKEN });
-
+          
           async function getMergedPRCount() {
               const { data } = await octokit.pulls.list({
                   owner: process.env.REPO_OWNER,
                   repo: process.env.REPO_NAME,
-                  state: "closed",
+                  state: 'closed',
                   per_page: 100
               });
-
+          
               const mergedCount = data.filter(pr => pr.merged_at !== null).length;
-
-              console.log(`Merged PR Count: ${mergedCount}`);
+          
+              console.log('Merged PR Count:', mergedCount);
               if (mergedCount >= 5) {
                   process.exit(0); // Trigger the next job
               } else {
                   process.exit(1); // Skip the pipeline
               }
           }
-
+          
           getMergedPRCount();
+          " > check-merged-prs.js
+
+      - name: Run Node.js Script
+        run: |
+          node check-merged-prs.js
         env:
           ENV_GITHUB_TOKEN: ${{ secrets.ENV_GITHUB_TOKEN }}
           REPO_OWNER: chandana79895

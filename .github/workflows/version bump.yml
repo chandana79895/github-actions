@@ -98,7 +98,8 @@ jobs:
 
       - name: Push changes
         run: |
-          git add package.json package-lock.json
+          git add .
           git commit -m "Bump version new"
           git remote set-url origin https://${{ secrets.GH_PAT }}@github.com/chandana79895/github-actions.git
+          git pull
           git push origin develop

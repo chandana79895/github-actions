@@ -7,60 +7,26 @@ on:
       - develop
 
 jobs:
-  check-merged-prs:
+  check-prs:
     runs-on: ubuntu-latest
+    outputs:
+      pr_count: ${{ steps.get_pr_count.outputs.pr_count }}
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
+      - name: Checkout the code
+        uses: actions/checkout@v2
 
-      - name: Setup Node.js 18.x
-        uses: actions/setup-node@v3
-        with:
-          node-version: "18.x"
-
-      - name: Install Dependencies
-        run: npm install @octokit/rest
-
-      - name: Create Node.js Script to Check Merged PRs
+      - name: Get merged PR count
+        id: get_pr_count
         run: |
-          echo "
-          const { Octokit } = require('@octokit/rest');
-          
-          const octokit = new Octokit({ auth: process.env.ENV_GITHUB_TOKEN });
-          
-          async function getMergedPRCount() {
-              const { data } = await octokit.pulls.list({
-                  owner: process.env.REPO_OWNER,
-                  repo: process.env.REPO_NAME,
-                  state: 'closed',
-                  per_page: 100
-              });
-          
-              const mergedCount = data.filter(pr => pr.merged_at !== null).length;
-          
-              console.log('Merged PR Count:', mergedCount);
-              if (mergedCount >= 5) {
-                  process.exit(0); // Trigger the next job
-              } else {
-                  process.exit(1); // Skip the pipeline
-              }
-          }
-          
-          getMergedPRCount();
-          " > check-merged-prs.cjs
+          PR_COUNT=$(curl -s -H "Authorization: token ${{ secrets.ENV_GITHUB_TOKEN }}" \
+            "https://api.github.com/repos/${{ github.repository }}/pulls?state=closed&base=develop" \
+            | jq '[.[] | select(.merged_at != null)] | length')
+          echo "pr_count=$PR_COUNT" >> $GITHUB_ENV
 
-      - name: Run Node.js Script
-        run: |
-          node check-merged-prs.cjs
-        env:
-          ENV_GITHUB_TOKEN: ${{ secrets.ENV_GITHUB_TOKEN }}
-          REPO_OWNER: chandana79895
-          REPO_NAME: github-actions
-
-  build:
-    needs: check-merged-prs
+  builds:
+    needs: check-prs
+    if: ${{ needs.check-prs.outputs.pr_count >= 4 }}  # Only run if 5 or more PRs are merged
     runs-on: ubuntu-latest
-    if: success()
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3

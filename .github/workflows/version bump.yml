@@ -2,7 +2,7 @@ name: CI
 
 on:
   pull_request:
-    types: [closed]
+    types: [opened, synchronize, closed]
     branches:
       - develop
 
@@ -26,7 +26,7 @@ jobs:
         run: |
           node <<EOF
           const { Octokit } = require("@octokit/rest");
-          const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
+          const octokit = new Octokit({ auth: process.env.ENV_GITHUB_TOKEN });
 
           async function getMergedPRCount() {
               const { data } = await octokit.pulls.list({

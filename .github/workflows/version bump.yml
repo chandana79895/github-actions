@@ -48,7 +48,7 @@ jobs:
           git remote set-url origin https://${{ secrets.GH_PAT }}@github.com/chandana79895/github-actions.git
           git push origin develop
 
-      - name: Check Counter and Trigger Build
+      - name: Trigger Build if 4-5 PRs Merged
         if: |
           steps.pr_counter.outputs.counter == 4 || 
           steps.pr_counter.outputs.counter == 5
@@ -63,6 +63,7 @@ jobs:
           git add pr_counter.txt
           git commit -m "Reset PR Counter"
           git push origin develop
+
 
   build:
     needs: track-and-build
@@ -100,4 +101,4 @@ jobs:
           git add package.json package-lock.json
           git commit -m "Bump version new"
           git remote set-url origin https://${{ secrets.GH_PAT }}@github.com/chandana79895/github-actions.git
-          git push origin version-bumping-check
+          git push origin develop

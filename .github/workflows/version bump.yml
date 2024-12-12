@@ -47,11 +47,11 @@ jobs:
           }
           
           getMergedPRCount();
-          " > check-merged-prs.js
+          " > check-merged-prs.cjs
 
       - name: Run Node.js Script
         run: |
-          node check-merged-prs.js
+          node check-merged-prs.cjs
         env:
           ENV_GITHUB_TOKEN: ${{ secrets.ENV_GITHUB_TOKEN }}
           REPO_OWNER: chandana79895

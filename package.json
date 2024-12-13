@@ -1,6 +1,5 @@
 {
   "name": "fortress-store-portal-ui",
-  "private": true,
   "version": "0.0.20",
   "type": "module",
   "scripts": {

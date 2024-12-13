@@ -35,7 +35,7 @@ jobs:
 
   build:
     needs: check-prs
-    if: ${{ needs.check-prs.outputs.pr_count >= 5 }}  # Only run if 5 or more PRs are merged in the last hour
+    if: ${{ needs.check-prs.outputs.pr_count >= 2 }}  # Only run if 5 or more PRs are merged in the last hour
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository

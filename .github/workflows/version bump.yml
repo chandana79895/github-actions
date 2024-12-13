@@ -44,7 +44,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18.x'
-          registry-url: 'https://registry.npmjs.org'
+          registry-url: 'https://www.npmjs.org'
 
       - name: Install Dependencies
         run: npm ci
@@ -72,7 +72,9 @@ jobs:
       - name: Authenticate with npm
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+        run: echo "//www.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
 
       - name: Publish to npm
-        run: npm publish --access public
+        run: |
+          npm
+          npm publish --access public

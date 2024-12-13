@@ -1,7 +1,6 @@
 {
   "name": "fortress-store-portal-ui",
-  "private": true,
-  "version": "0.0.25",
+  "version": "0.0.20",
   "type": "module",
   "scripts": {
     "local": "vite",

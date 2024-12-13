@@ -18,24 +18,18 @@ jobs:
       - name: Get PR count merged in the last hour
         id: get_pr_count
         run: |
-          # Get the current time and the time one hour ago in ISO 8601 format
           CURRENT_TIME=$(date --utc +%Y-%m-%dT%H:%M:%SZ)
           ONE_HOUR_AGO=$(date --utc --date="1 hour ago" +%Y-%m-%dT%H:%M:%SZ)
 
-          echo "Current time: $CURRENT_TIME"
-          echo "One hour ago: $ONE_HOUR_AGO"
-
-          # Fetch merged PRs from GitHub API and count those merged within the last hour
           PR_COUNT=$(curl -s -H "Authorization: token ${{ secrets.ENV_GITHUB_TOKEN }}" \
             "https://api.github.com/repos/${{ github.repository }}/pulls?state=closed&base=develop" \
             | jq "[.[] | select(.merged_at != null and .merged_at >= \"$ONE_HOUR_AGO\" and .merged_at <= \"$CURRENT_TIME\")] | length")
 
-          echo "PR count in the last hour: $PR_COUNT"
           echo "::set-output name=pr_count::$PR_COUNT"
 
   build:
     needs: check-prs
-    if: ${{ needs.check-prs.outputs.pr_count >= 5 }}  # Only run if 5 or more PRs are merged in the last hour
+    if: ${{ needs.check-prs.outputs.pr_count >= 1 }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -50,6 +44,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18.x'
+          registry-url: 'https://registry.npmjs.org'
 
       - name: Install Dependencies
         run: npm ci
@@ -73,3 +68,11 @@ jobs:
           git remote set-url origin https://${{ secrets.GH_PAT }}@github.com/chandana79895/github-actions.git
           git pull --rebase
           git push origin develop
+
+      - name: Authenticate with npm
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+
+      - name: Publish to npm
+        run: npm publish --access public

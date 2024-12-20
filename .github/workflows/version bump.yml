@@ -44,7 +44,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18.x'
-          registry-url: 'https://www.npmjs.org'
+          registry-url: 'https://registry.npmjs.org'
 
       - name: Install Dependencies
         run: npm ci
@@ -68,13 +68,3 @@ jobs:
           git remote set-url origin https://${{ secrets.GH_PAT }}@github.com/chandana79895/github-actions.git
           git pull --rebase
           git push origin develop
-
-      - name: Authenticate with npm
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: echo "//www.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
-
-      - name: Publish to npm
-        run: |
-          npm
-          npm publish --access public

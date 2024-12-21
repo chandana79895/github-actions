@@ -2,53 +2,16 @@ name: CI
 
 on:
   pull_request:
-    types: [closed]
-    branches:
-      - develop
+    types: [opened, closed]
 
 jobs:
-  check-prs:
-    runs-on: ubuntu-latest
-    outputs:
-      pr_count: ${{ steps.get_pr_count.outputs.pr_count }}
-      pr_description: ${{ steps.get_pr_description.outputs.description }}
-    steps:
-      - name: Checkout the code
-        uses: actions/checkout@v2
-
-      - name: Get PR count merged in the last hour
-        id: get_pr_count
-        run: |
-          CURRENT_TIME=$(date --utc +%Y-%m-%dT%H:%M:%SZ)
-          ONE_HOUR_AGO=$(date --utc --date="1 hour ago" +%Y-%m-%dT%H:%M:%SZ)
-
-          PR_COUNT=$(curl -s -H "Authorization: token ${{ secrets.ENV_GITHUB_TOKEN }}" \
-            "https://api.github.com/repos/${{ github.repository }}/pulls?state=closed&base=develop" \
-            | jq "[.[] | select(.merged_at != null and .merged_at >= \"$ONE_HOUR_AGO\" and .merged_at <= \"$CURRENT_TIME\")] | length")
-
-          echo "::set-output name=pr_count::$PR_COUNT"
-
-      - name: Get PR Description
-        id: get_pr_description
-        run: |
-          PR_DESCRIPTION=$(curl -s -H "Authorization: token ${{ secrets.ENV_GITHUB_TOKEN }}" \
-            "https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}" \
-            | jq -r '.body')
-          echo "PR Description: $PR_DESCRIPTION"
-          echo "::set-output name=description::$PR_DESCRIPTION"
-
-  build:
-    needs: check-prs
-    if: ${{ needs.check-prs.outputs.pr_count >= 1 }}
+  handle-pr:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-
-      - name: Log PR count for the last hour
-        run: echo "The PR count merged in the last hour is ${{ needs.check-prs.outputs.pr_count }}"
 
       - name: Setup Node.js 18.x
         uses: actions/setup-node@v3
@@ -64,31 +27,70 @@ jobs:
           git config --global user.email "manichandana7989@gmail.com"
           git config --global user.name "chandana79895"
 
-      - name: Extract Version from PR Description
-        id: extract_version
+      - name: Bump Version
+        id: bump_version
         run: |
-          PR_DESCRIPTION="${{ needs.check-prs.outputs.pr_description }}"
-          VERSION=$(echo "$PR_DESCRIPTION" | grep -oE "([0-9]+\.[0-9]+\.[0-9]+)")
-          if [ -z "$VERSION" ]; then
-            echo "No version found in PR description"
-            exit 1
+          if [[ "${{ github.event.action }}" == "opened" ]]; then
+            NEW_VERSION=$(npm version patch --no-git-tag-version)
+            echo "New version is $NEW_VERSION"
+            echo "::set-output name=new_version::$NEW_VERSION"
           fi
-          echo "Extracted Version: $VERSION"
-          echo "::set-output name=version::$VERSION"
 
-      - name: Set Version Based on PR Description
-        run: npm version ${{ steps.extract_version.outputs.version }} --no-git-tag-version
+      - name: Update PR Description (On PR Opened)
+        if: ${{ github.event.action == 'opened' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          PR_NUMBER=${{ github.event.pull_request.number }}
+          NEW_VERSION=${{ steps.bump_version.outputs.new_version }}
+          curl -X PATCH -H "Authorization: token $GITHUB_TOKEN" \
+            -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/repos/${{ github.repository }}/pulls/$PR_NUMBER \
+            -d "{\"body\": \"Version bumped to $NEW_VERSION\"}"
+
+  push-version:
+    if: ${{ github.event.action == 'closed' && github.event.pull_request.merged }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js 18.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Configure Git User
+        run: |
+          git config --global user.email "manichandana7989@gmail.com"
+          git config --global user.name "chandana79895"
+
+      - name: Bump Version
+        id: bump_version
+        run: |
+          NEW_VERSION=$(npm version patch --no-git-tag-version)
+          echo "New version is $NEW_VERSION"
+          echo "::set-output name=new_version::$NEW_VERSION"
+
+      - name: Reinstall Dependencies After Version Update
+        run: npm ci    
 
       - name: Push Changes
         run: |
           git add .
-          git commit -m "Set version to ${{ steps.extract_version.outputs.version }}"
+          git commit -m "Bump version new"
           git remote set-url origin https://${{ secrets.GH_PAT }}@github.com/chandana79895/github-actions.git
           git pull --rebase
           git push origin develop
 
       - name: Create and Push Tag
         run: |
-          VERSION=${{ steps.extract_version.outputs.version }}
-          git tag $VERSION
-          git push origin $VERSION
+          NEW_VERSION=${{ steps.bump_version.outputs.new_version }}
+          git tag $NEW_VERSION
+          git push origin $NEW_VERSION
